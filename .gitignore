@@ -1,0 +1,46 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+.venv/
+venv/
+.eggs/
+build/
+dist/
+
+# Tooling caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.tox/
+htmlcov/
+.coverage
+.coverage.*
+
+# Node
+node_modules/
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Raw downloads (local dev)
+data/
+*.jsonl.gz
+!tests/fixtures/*.jsonl
