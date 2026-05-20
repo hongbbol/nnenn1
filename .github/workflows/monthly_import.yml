@@ -1,0 +1,59 @@
+name: monthly-opff-import
+
+on:
+  schedule:
+    # 1st of each month, 18:00 UTC
+    - cron: "0 18 1 * *"
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: "Sample size (0 = full import)"
+        required: false
+        default: "0"
+      dry_run:
+        description: "Skip Supabase writes (true/false)"
+        required: false
+        default: "false"
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+      OPFF_DUMP_URL: ${{ vars.OPFF_DUMP_URL || 'https://static.openfoodfacts.org/data/openpetfoodfacts-products.jsonl.gz' }}
+      LOG_LEVEL: INFO
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run importer
+        run: |
+          set -euo pipefail
+          ARGS=""
+          SAMPLE="${{ github.event.inputs.sample || '0' }}"
+          DRY="${{ github.event.inputs.dry_run || 'false' }}"
+          if [ "$SAMPLE" != "0" ]; then ARGS="$ARGS --sample $SAMPLE"; fi
+          if [ "$DRY" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          mkdir -p data
+          python scripts/import_opff.py $ARGS 2>&1 | tee scrape_run.log
+
+      - name: Upload log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrape_run-log
+          path: scrape_run.log
