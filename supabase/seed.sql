@@ -1,0 +1,2 @@
+-- Local dev seed. Real foods seed is tracked in GH issue #10.
+-- For now: no seed data — just placeholder. Add fake user + cat for E2E later.
