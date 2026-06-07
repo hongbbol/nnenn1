@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useState } from 'react';
 import { Input, Segmented } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
 import { NEUTERED_STATUS, ageGroupFromBirthYear } from '@/lib/domain/constants';
@@ -7,14 +8,38 @@ import { PhotoUploadSlot } from '@/components/domain/photo-upload-slot';
 import { OnboardingNav } from '../_nav-buttons';
 import { FieldLabel } from '../_field-label';
 
+/** 숫자 입력 → 자리수 제한 후 number | undefined. 비면 undefined. */
+function toClampedInt(raw: string, maxDigits: number): number | undefined {
+  const digits = raw.replace(/\D/g, '').slice(0, maxDigits);
+  if (!digits) return undefined;
+  const n = Number(digits);
+  return Number.isFinite(n) ? n : undefined;
+}
+
 export default function BasicsStep() {
   const cat = useGuestStore((s) => s.cat);
   const setCat = useGuestStore((s) => s.setCat);
+
+  // 몸무게는 소수점 입력 중 "4." 같은 중간 상태를 number로 저장하면
+  // 마침표가 사라지므로, 입력 문자열은 로컬 상태로 따로 보관한다.
+  const [weightText, setWeightText] = useState(() =>
+    cat.weight_kg != null ? String(cat.weight_kg) : '',
+  );
+  // 스토어 값이 외부에서 바뀌면(하이드레이션·리셋) 입력칸과 동기화.
+  useEffect(() => {
+    const local = weightText === '' || weightText === '.' ? undefined : Number(weightText);
+    if (cat.weight_kg !== local) {
+      setWeightText(cat.weight_kg != null ? String(cat.weight_kg) : '');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cat.weight_kg]);
 
   const ag = ageGroupFromBirthYear(cat.birth_year as number | undefined);
   const parsed = basicsSchema.safeParse({
     name: cat.name ?? '',
     birth_year: cat.birth_year ?? '',
+    birth_month: cat.birth_month ?? '',
+    birth_day: cat.birth_day ?? '',
     weight_kg: cat.weight_kg ?? '',
     neutered_status: cat.neutered_status ?? '',
     hero_image_preview: cat.hero_image_preview ?? null,
@@ -40,60 +65,68 @@ export default function BasicsStep() {
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-        <div>
-          <FieldLabel
-            hint={
-              ag ? (
-                <span className="text-[13px] font-semibold text-brand-blue-deep">
-                  만 {ag.age}살 · {ag.label} ({ag.group})
-                </span>
-              ) : null
-            }
-          >
-            출생년도
-          </FieldLabel>
+      <div>
+        <FieldLabel
+          hint={
+            ag ? (
+              <span className="text-[13px] font-semibold text-brand-blue-deep">
+                만 {ag.age}살 · {ag.label} ({ag.group})
+              </span>
+            ) : null
+          }
+        >
+          출생일
+        </FieldLabel>
+        <div className="grid grid-cols-[1.4fr_1fr_1fr] gap-2">
           <Input
             value={cat.birth_year != null ? String(cat.birth_year) : ''}
             placeholder="2017"
             suffix="년"
             inputMode="numeric"
-            onChange={(e) => {
-              const digits = e.target.value.replace(/\D/g, '').slice(0, 4);
-              if (!digits) {
-                setCat({ birth_year: undefined });
-                return;
-              }
-              const n = Number(digits);
-              setCat({ birth_year: Number.isFinite(n) ? n : undefined });
-            }}
+            onChange={(e) => setCat({ birth_year: toClampedInt(e.target.value, 4) })}
           />
-        </div>
-        <div>
-          <FieldLabel>몸무게</FieldLabel>
           <Input
-            value={cat.weight_kg != null ? String(cat.weight_kg) : ''}
-            placeholder="4.7"
-            suffix="kg"
-            inputMode="decimal"
-            onChange={(e) => {
-              // single decimal point only, max 4 chars (e.g. "15.0", "0.50")
-              const raw = e.target.value.replace(/[^\d.]/g, '');
-              const firstDot = raw.indexOf('.');
-              const normalized =
-                firstDot === -1
-                  ? raw
-                  : raw.slice(0, firstDot + 1) + raw.slice(firstDot + 1).replace(/\./g, '');
-              const clean = normalized.slice(0, 4);
-              if (!clean || clean === '.') {
-                setCat({ weight_kg: undefined });
-                return;
-              }
-              const n = Number(clean);
-              setCat({ weight_kg: Number.isFinite(n) ? n : undefined });
-            }}
+            value={cat.birth_month != null ? String(cat.birth_month) : ''}
+            placeholder="3"
+            suffix="월"
+            inputMode="numeric"
+            onChange={(e) => setCat({ birth_month: toClampedInt(e.target.value, 2) })}
+          />
+          <Input
+            value={cat.birth_day != null ? String(cat.birth_day) : ''}
+            placeholder="15"
+            suffix="일"
+            inputMode="numeric"
+            onChange={(e) => setCat({ birth_day: toClampedInt(e.target.value, 2) })}
           />
         </div>
+      </div>
+
+      <div>
+        <FieldLabel>몸무게</FieldLabel>
+        <Input
+          value={weightText}
+          placeholder="4.7"
+          suffix="kg"
+          inputMode="decimal"
+          onChange={(e) => {
+            // 숫자와 마침표 1개만 허용, 최대 4글자 (예: "15.0", "0.50")
+            const raw = e.target.value.replace(/[^\d.]/g, '');
+            const firstDot = raw.indexOf('.');
+            const normalized =
+              firstDot === -1
+                ? raw
+                : raw.slice(0, firstDot + 1) + raw.slice(firstDot + 1).replace(/\./g, '');
+            const clean = normalized.slice(0, 4);
+            setWeightText(clean);
+            if (!clean || clean === '.') {
+              setCat({ weight_kg: undefined });
+              return;
+            }
+            const n = Number(clean);
+            setCat({ weight_kg: Number.isFinite(n) ? n : undefined });
+          }}
+        />
       </div>
 
       <div>

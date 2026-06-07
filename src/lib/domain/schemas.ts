@@ -9,13 +9,23 @@ import {
 
 const currentYear = new Date().getFullYear();
 
-export const basicsSchema = z.object({
+const basicsObject = z.object({
   name: z.string().trim().min(1, '이름을 입력해주세요').max(30, '이름이 너무 길어요'),
   birth_year: z
     .coerce.number({ invalid_type_error: '출생년도를 숫자로 입력해주세요' })
     .int()
     .min(2000, '2000년 이후만 가능해요')
     .max(currentYear, '미래는 안 돼요'),
+  birth_month: z
+    .coerce.number({ invalid_type_error: '월을 숫자로 입력해주세요' })
+    .int()
+    .min(1, '월을 입력해주세요')
+    .max(12, '월은 1~12 사이예요'),
+  birth_day: z
+    .coerce.number({ invalid_type_error: '일을 숫자로 입력해주세요' })
+    .int()
+    .min(1, '일을 입력해주세요')
+    .max(31, '일은 1~31 사이예요'),
   weight_kg: z
     .coerce.number({ invalid_type_error: '몸무게를 숫자로 입력해주세요' })
     .min(0.5, '0.5kg 이상으로 입력해주세요')
@@ -23,6 +33,39 @@ export const basicsSchema = z.object({
   neutered_status: z.enum(NEUTERED_STATUS),
   hero_image_preview: z.string().nullish(),
 });
+
+/** 년·월·일이 실제 달력상 존재하는 날짜이고 미래가 아닌지 검증 (cross-field). */
+function refineBirthDate(
+  v: { birth_year: number; birth_month: number; birth_day: number },
+  ctx: z.RefinementCtx,
+) {
+  const { birth_year, birth_month, birth_day } = v;
+  const d = new Date(birth_year, birth_month - 1, birth_day);
+  const realDate =
+    d.getFullYear() === birth_year &&
+    d.getMonth() === birth_month - 1 &&
+    d.getDate() === birth_day;
+  if (!realDate) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['birth_day'],
+      message: '실제 존재하는 날짜를 입력해주세요',
+    });
+    return;
+  }
+  // 자정 기준 비교 — 오늘 출생까지는 허용
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (d.getTime() > today.getTime()) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['birth_day'],
+      message: '미래 날짜는 안 돼요',
+    });
+  }
+}
+
+export const basicsSchema = basicsObject.superRefine(refineBirthDate);
 
 export const dietSchema = z.object({
   diet_type: z.enum(DIET_TYPES),
@@ -75,10 +118,11 @@ export const goalSchema = z.object({
   goal: z.enum(GOALS),
 });
 
-export const profileSchema = basicsSchema
+export const profileSchema = basicsObject
   .merge(dietSchema)
   .merge(healthSchema)
-  .merge(goalSchema);
+  .merge(goalSchema)
+  .superRefine(refineBirthDate);
 
 export type BasicsForm = z.infer<typeof basicsSchema>;
 export type DietForm = z.infer<typeof dietSchema>;
