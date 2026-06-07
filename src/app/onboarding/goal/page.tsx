@@ -125,12 +125,16 @@ export default function GoalStep() {
 
             const { hero_image_preview, ...catData } = cat;
             void hero_image_preview;
-            await saveCatAndRecommend(catData, heroPath);
+            const res = await saveCatAndRecommend(catData, heroPath);
+            if (!res.ok) {
+              // OnboardingNav가 /recommendations로 넘어가지 않도록 throw.
+              throw new Error(res.error);
+            }
           } catch (e) {
             setSaveErr(
               e instanceof Error ? e.message : '저장 중 문제가 생겼어요. 다시 시도해주세요.',
             );
-            throw e; // OnboardingNav가 /recommendations로 넘어가지 않도록.
+            throw e;
           } finally {
             setSaving(false);
           }
