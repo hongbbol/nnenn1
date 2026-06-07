@@ -107,7 +107,10 @@ export function buildPriorityOrder(
       }
   }
 
-  items.push({ key: 'omega3', label: '기능성분', weight: 0.3, detail: '오메가-3 등 가점' });
+  // ibd/pancreatitis 분기는 이미 omega3 레버를 넣으므로 중복 추가 방지(React key 충돌).
+  if (!items.some((it) => it.key === 'omega3')) {
+    items.push({ key: 'omega3', label: '기능성분', weight: 0.3, detail: '오메가-3 등 가점' });
+  }
   return items.sort((a, b) => b.weight - a.weight);
 }
 
