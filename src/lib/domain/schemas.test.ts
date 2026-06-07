@@ -13,6 +13,8 @@ describe('basicsSchema', () => {
   const valid = {
     name: '보리',
     birth_year: 2017,
+    birth_month: 3,
+    birth_day: 15,
     weight_kg: 4.7,
     neutered_status: '완료',
   };
@@ -68,6 +70,46 @@ describe('basicsSchema', () => {
 
   it('rejects empty string birth_year (coerces to 0)', () => {
     expect(basicsSchema.safeParse({ ...valid, birth_year: '' }).success).toBe(false);
+  });
+
+  it('accepts string birth_month + birth_day (coerce)', () => {
+    expect(
+      basicsSchema.safeParse({ ...valid, birth_month: '12', birth_day: '1' }).success,
+    ).toBe(true);
+  });
+
+  it('rejects out-of-range month/day', () => {
+    expect(basicsSchema.safeParse({ ...valid, birth_month: 0 }).success).toBe(false);
+    expect(basicsSchema.safeParse({ ...valid, birth_month: 13 }).success).toBe(false);
+    expect(basicsSchema.safeParse({ ...valid, birth_day: 0 }).success).toBe(false);
+    expect(basicsSchema.safeParse({ ...valid, birth_day: 32 }).success).toBe(false);
+  });
+
+  it('rejects empty month/day', () => {
+    expect(basicsSchema.safeParse({ ...valid, birth_month: '' }).success).toBe(false);
+    expect(basicsSchema.safeParse({ ...valid, birth_day: '' }).success).toBe(false);
+  });
+
+  it('rejects a non-existent calendar date (Feb 30)', () => {
+    expect(
+      basicsSchema.safeParse({ ...valid, birth_month: 2, birth_day: 30 }).success,
+    ).toBe(false);
+  });
+
+  it('rejects a future birth date within current year', () => {
+    const d = new Date();
+    const future = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
+    // 같은 해라면 미래 월/일은 거부되어야 함
+    if (future.getFullYear() === d.getFullYear()) {
+      expect(
+        basicsSchema.safeParse({
+          ...valid,
+          birth_year: future.getFullYear(),
+          birth_month: future.getMonth() + 1,
+          birth_day: future.getDate(),
+        }).success,
+      ).toBe(false);
+    }
   });
 });
 
@@ -157,6 +199,8 @@ describe('profileSchema — full merge', () => {
     const r = profileSchema.safeParse({
       name: '낭낭이',
       birth_year: 2017,
+      birth_month: 3,
+      birth_day: 15,
       weight_kg: 4.7,
       neutered_status: '완료',
       diet_type: '건식',
@@ -172,6 +216,8 @@ describe('profileSchema — full merge', () => {
     const r = profileSchema.safeParse({
       name: '낭낭이',
       birth_year: 2017,
+      birth_month: 3,
+      birth_day: 15,
       weight_kg: 4.7,
       neutered_status: '완료',
       diet_type: '건식',

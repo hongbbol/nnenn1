@@ -3,6 +3,8 @@ import type { AgeGroup, DietType, Goal, NeuteredStatus } from './constants';
 export type CatProfile = {
   name: string;
   birth_year: number;
+  birth_month: number;
+  birth_day: number;
   weight_kg: number;
   neutered_status: NeuteredStatus;
   diet_type: DietType;
