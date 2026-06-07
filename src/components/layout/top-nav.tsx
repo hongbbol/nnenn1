@@ -45,12 +45,11 @@ export function TopNav({
                 {item.label}
               </NavLink>
             ))}
-          {authed && <div className="mx-2 h-[22px] w-px bg-border-soft" />}
-          {authed && (
-            <NavLink href="/mypage" active={pathname?.startsWith('/mypage')}>
-              마이페이지
-            </NavLink>
-          )}
+          {hasProfile && <div className="mx-2 h-[22px] w-px bg-border-soft" />}
+          {/* 마이페이지는 로그인 전에도 노출 — 클릭 시 로그인으로 유도(미들웨어). */}
+          <NavLink href="/mypage" active={pathname?.startsWith('/mypage')}>
+            마이페이지
+          </NavLink>
           {/* M3에서 /help 페이지 작성 시 NavLink로 교체. 현재는 placeholder. */}
           <span className="rounded-[10px] px-3.5 py-2 text-[14px] font-medium text-brand-faint">
             도움말
