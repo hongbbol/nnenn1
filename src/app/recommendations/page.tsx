@@ -1,61 +1,52 @@
-'use client';
-import { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { Info, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui';
-import { TopNav } from '@/components/layout/top-nav';
+import { TopNavServer } from '@/components/layout/top-nav-server';
 import { ProfileBanner } from '@/components/domain/profile-banner';
 import { PriorityOrderBox } from '@/components/domain/priority-order-box';
 import { FoodRecCard } from '@/components/domain/food-rec-card';
-import { useGuestStore } from '@/lib/guest-store';
-import { recommendFromProfile, SEED_FOODS } from '@/lib/recommendation';
+import { EditProfileButton } from '@/components/domain/edit-profile-button';
+import { CompareButton } from '@/components/domain/compare-button';
+import { getCurrentUser } from '@/lib/auth/user';
+import {
+  getCatPhotoUrl,
+  getOwnedCat,
+  getRecentRecommendations,
+} from '@/lib/data/queries';
+import { catRowToGuestCat } from '@/lib/domain/cat-mapping';
 
-export default function RecommendationsPage() {
-  const router = useRouter();
-  const cat = useGuestStore((s) => s.cat);
-  const demoMode = useGuestStore((s) => s.demoMode);
+/**
+ * 추천 결과 페이지. 저장은 온보딩 완료 시 1회 수행되므로 여기서는 가장 최근
+ * 추천(recommendations 최신 1건)을 그대로 표시한다(재계산·중복 저장 없음).
+ */
+export default async function RecommendationsPage() {
+  const user = await getCurrentUser();
+  if (!user) redirect('/auth/sign-in?next=/recommendations');
 
-  // zustand persist 하이드레이션을 기다린다 — 새로고침 직후 빈 store로 잘못 리다이렉트 방지.
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
+  const [cat, recs] = await Promise.all([
+    getOwnedCat(),
+    getRecentRecommendations(1),
+  ]);
+  const latest = recs[0];
+  if (!latest) redirect('/onboarding/basics');
 
-  const result = useMemo(() => recommendFromProfile(cat, SEED_FOODS), [cat]);
-
-  useEffect(() => {
-    if (hydrated && !result) router.replace('/onboarding/basics');
-  }, [hydrated, result, router]);
-
-  if (!hydrated || !result) {
-    return (
-      <>
-        <TopNav hasProfile />
-        <div className="mx-auto max-w-[720px] px-8 pt-24 text-center text-brand-sub">
-          추천 결과를 불러오는 중…
-        </div>
-      </>
-    );
-  }
+  const result = latest.result;
+  const imageSrc = await getCatPhotoUrl(cat?.hero_image_path);
 
   return (
     <>
-      <TopNav hasProfile />
+      <TopNavServer />
       <div className="min-h-[calc(100vh-68px)] bg-brand-bg pb-24">
         <div className="mx-auto max-w-[720px] px-8 pt-10">
           <div className="flex items-center gap-2 text-[13px] font-semibold text-brand-blue-deep">
             <Sparkles size={15} />
             추천 결과
-            {demoMode && (
-              <span className="rounded-md bg-brand-blue px-2 py-[3px] text-[11px] text-brand-blue-deep">
-                예시 데이터입니다
-              </span>
-            )}
           </div>
           <h1 className="mt-2 text-[30px] font-bold leading-[1.2] tracking-[-0.02em] text-brand-text">
             {result.input.name}님께 맞는 사료를 찾았어요
           </h1>
 
           <div className="mt-7">
-            <ProfileBanner input={result.input} imageSrc={cat.hero_image_preview} />
+            <ProfileBanner input={result.input} imageSrc={imageSrc} />
           </div>
 
           {result.notices.length > 0 && (
@@ -92,17 +83,19 @@ export default function RecommendationsPage() {
 
           {result.top.length > 0 && (
             <div className="mt-8">
-              <Button variant="dark" full disabled title="비교 기능은 곧 제공돼요">
-                현재 사료와 비교하기 (준비 중)
-              </Button>
+              <CompareButton />
             </div>
           )}
 
-          <div className="mt-4 text-center">
-            <Button variant="text" onClick={() => router.push('/onboarding/goal')}>
-              입력 정보 수정
-            </Button>
-          </div>
+          {cat && (
+            <div className="mt-4 text-center">
+              <EditProfileButton
+                cat={catRowToGuestCat(cat)}
+                variant="text"
+                label="입력 정보 수정"
+              />
+            </div>
+          )}
 
           <p className="mt-8 text-center text-[12px] leading-[1.6] text-brand-faint">
             본 추천은 정보 제공용이며 수의학적 진단·처방을 대체하지 않습니다.

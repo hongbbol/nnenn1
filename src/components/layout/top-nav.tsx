@@ -8,7 +8,6 @@ import { cn } from '@/lib/cn';
 const NAV_ITEMS = [
   { href: '/recommendations', label: '추천 결과', requiresProfile: true },
   { href: '/compare', label: '비교', requiresProfile: true },
-  { href: '/cat', label: '내 아이', requiresProfile: true },
 ];
 
 export function TopNav({
@@ -47,6 +46,11 @@ export function TopNav({
               </NavLink>
             ))}
           {hasProfile && <div className="mx-2 h-[22px] w-px bg-border-soft" />}
+          {hasProfile && (
+            <NavLink href="/mypage" active={pathname?.startsWith('/mypage')}>
+              마이페이지
+            </NavLink>
+          )}
           {/* M3에서 /help 페이지 작성 시 NavLink로 교체. 현재는 placeholder. */}
           <span className="rounded-[10px] px-3.5 py-2 text-[14px] font-medium text-brand-faint">
             도움말

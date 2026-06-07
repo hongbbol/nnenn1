@@ -1,4 +1,6 @@
 import type { AgeGroup, DietType, Goal, NeuteredStatus } from './constants';
+// type-only import — 런타임 순환 없음(타입은 컴파일 시 제거됨).
+import type { RecResult } from '@/lib/recommendation/types';
 
 export type CatProfile = {
   name: string;
@@ -56,4 +58,73 @@ export type Food = {
   affiliate_links: Record<string, string> | null;
   price_per_kg_krw: number | null;
   active: boolean;
+};
+
+// ─── 추천 히스토리 ────────────────────────────────────────────
+export type RecSummaryTopItem = {
+  foodId: string;
+  brand: string;
+  productName: string;
+  score: number;
+};
+
+/** recommendations.summary — 히스토리 리스트를 가볍게 렌더링하기 위한 요약. */
+export type RecSummary = {
+  primaryMode: string | null;
+  top: RecSummaryTopItem[];
+};
+
+export type RecommendationRow = {
+  id: string;
+  user_id: string;
+  cat_id: string;
+  cat_name: string;
+  top_food_ids: string[];
+  summary: RecSummary;
+  /** RecResult 전체 직렬화(상세 복원용). */
+  result: RecResult;
+  created_at: string;
+};
+
+// ─── 비교 ─────────────────────────────────────────────────────
+export type ComparisonMetric = {
+  /** Food의 영양 키(예: 'protein_pct'). */
+  key: string;
+  label: string;
+  unit: string;
+  /** 현재(baseline) 사료 값. 자유입력/미매칭이면 null. */
+  baseline: number | null;
+  /** candidates 순서대로의 값. */
+  values: (number | null)[];
+  /** 높을수록/낮을수록 좋음(중립 표기는 'neutral'). */
+  better: 'higher' | 'lower' | 'neutral';
+};
+
+export type ComparisonCandidate = {
+  id: string;
+  brand: string;
+  productName: string;
+  category: '건식' | '습식';
+};
+
+export type ComparisonResult = {
+  baseline: {
+    /** 'db'=foods에서 정확 매칭, 'text'=자유입력(영양 데이터 없음), 'none'=현재 사료 미입력. */
+    source: 'db' | 'text' | 'none';
+    foodId: string | null;
+    label: string;
+  };
+  candidates: ComparisonCandidate[];
+  metrics: ComparisonMetric[];
+};
+
+export type ComparisonRow = {
+  id: string;
+  user_id: string;
+  cat_id: string;
+  baseline_food_id: string | null;
+  baseline_text: string | null;
+  candidate_food_ids: string[];
+  result: ComparisonResult;
+  created_at: string;
 };
