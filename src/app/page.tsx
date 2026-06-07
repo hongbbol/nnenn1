@@ -17,6 +17,7 @@ import {
 } from '@/components/ui';
 import { TopNav } from '@/components/layout/top-nav';
 import { Footer } from '@/components/layout/footer';
+import { getCurrentUser } from '@/lib/auth/user';
 
 const HERO_FOODS = [
   {
@@ -76,10 +77,11 @@ const WHY = [
   },
 ];
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const user = await getCurrentUser();
   return (
     <div className="min-h-screen">
-      <TopNav />
+      <TopNav authed={!!user} />
 
       {/* HERO */}
       <section className="mx-auto max-w-[1200px] px-8 pb-24 pt-16">

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { UtensilsCrossed } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { AuthNavButton } from '@/components/auth/auth-nav-button';
 import { cn } from '@/lib/cn';
 
 const NAV_ITEMS = [
@@ -11,7 +11,13 @@ const NAV_ITEMS = [
   { href: '/cat', label: '내 아이', requiresProfile: true },
 ];
 
-export function TopNav({ hasProfile = false }: { hasProfile?: boolean }) {
+export function TopNav({
+  hasProfile = false,
+  authed,
+}: {
+  hasProfile?: boolean;
+  authed?: boolean;
+}) {
   const pathname = usePathname();
   return (
     <div className="sticky top-0 z-50 border-b border-border-soft bg-brand-bg/85 backdrop-blur-md">
@@ -45,10 +51,7 @@ export function TopNav({ hasProfile = false }: { hasProfile?: boolean }) {
           <span className="rounded-[10px] px-3.5 py-2 text-[14px] font-medium text-brand-faint">
             도움말
           </span>
-          {/* M3 OAuth — 라우트가 생기면 Link로 감싸기. */}
-          <Button size="md" variant="ghost" disabled>
-            로그인
-          </Button>
+          <AuthNavButton authed={authed} />
         </div>
       </div>
     </div>
