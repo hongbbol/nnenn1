@@ -1,14 +1,18 @@
 'use client';
+import { useState } from 'react';
 import { Check, Info } from 'lucide-react';
 import { useGuestStore } from '@/lib/guest-store';
 import { GOAL_OPTIONS } from '@/lib/domain/constants';
 import { goalSchema } from '@/lib/domain/schemas';
 import { cn } from '@/lib/cn';
 import { OnboardingNav } from '../_nav-buttons';
+import { saveCatAndRecommend } from '../_actions';
 
 export default function GoalStep() {
   const cat = useGuestStore((s) => s.cat);
   const setCat = useGuestStore((s) => s.setCat);
+  const [saving, setSaving] = useState(false);
+  const [saveErr, setSaveErr] = useState<string | null>(null);
   const conditions = cat.health_conditions ?? [];
   const hasDisease = conditions.some((c) => c !== '질병 없음');
   // dev-plan §3.3 rule 3: 질환관리 + 질병 없음 → "진단 없어도 부담 적은 사료 우선" 안내
@@ -87,7 +91,31 @@ export default function GoalStep() {
         );
       })}
 
-      <OnboardingNav step={3} canProceed={parsed.success} />
+      {saveErr && (
+        <div className="rounded-[12px] bg-brand-danger-soft px-4 py-3 text-[13px] font-medium text-brand-danger">
+          {saveErr}
+        </div>
+      )}
+
+      <OnboardingNav
+        step={3}
+        canProceed={parsed.success && !saving}
+        onNext={async () => {
+          setSaveErr(null);
+          setSaving(true);
+          try {
+            // 온보딩 입력(메모리 이미지 포함) 전체를 Supabase에 저장 + 추천 1회 기록.
+            await saveCatAndRecommend(cat);
+          } catch (e) {
+            setSaveErr(
+              e instanceof Error ? e.message : '저장 중 문제가 생겼어요. 다시 시도해주세요.',
+            );
+            throw e; // OnboardingNav가 /recommendations로 넘어가지 않도록.
+          } finally {
+            setSaving(false);
+          }
+        }}
+      />
     </div>
   );
 }
