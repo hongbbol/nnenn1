@@ -1,8 +1,8 @@
 'use server';
+import { randomUUID } from 'node:crypto';
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/auth/user';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
-import { uploadCatPhotoFromDataUrl } from '@/lib/storage/image-upload';
 import { recommendFromProfile, SEED_FOODS } from '@/lib/recommendation';
 import type { GuestCat, RecSummary } from '@/lib/domain/types';
 
@@ -10,11 +10,18 @@ import type { GuestCat, RecSummary } from '@/lib/domain/types';
  * 온보딩 완료 시 호출. 게스트 입력(cat)을 Supabase에 영구 저장하고 추천을 1회 계산해
  * 히스토리로 남긴다. 사용자당 고양이 1마리를 가정하고, 기존 행이 있으면 update(재온보딩).
  *
+ * 사진은 클라이언트에서 미리 Storage에 업로드하고 그 path만 `heroImagePath`로 받는다
+ * (큰 dataURL을 Server Action body로 보내지 않기 위함). 새 사진이 없으면 null →
+ * 기존 path를 유지한다.
+ *
  * - GENERATED 컬럼(age_group/age_label)은 payload에서 제외(포함 시 에러).
  * - current_food XOR 제약: id가 있으면 text는 null.
  * - 추천은 최근 3개만 유지(오래된 것 prune).
  */
-export async function saveCatAndRecommend(cat: GuestCat): Promise<void> {
+export async function saveCatAndRecommend(
+  cat: GuestCat,
+  heroImagePath?: string | null,
+): Promise<void> {
   const user = await getCurrentUser();
   if (!user) throw new Error('로그인이 필요해요.');
 
@@ -32,14 +39,11 @@ export async function saveCatAndRecommend(cat: GuestCat): Promise<void> {
     .limit(1)
     .maybeSingle();
 
-  const catId: string = existing?.id ?? crypto.randomUUID();
+  const catId: string = existing?.id ?? randomUUID();
 
-  // 새 사진 dataURL이 있으면 업로드, 없으면 기존 path 유지.
-  let heroImagePath: string | null = existing?.hero_image_path ?? null;
-  const dataUrl = cat.hero_image_preview;
-  if (dataUrl && dataUrl.startsWith('data:image/')) {
-    heroImagePath = await uploadCatPhotoFromDataUrl(supabase, user.id, catId, dataUrl);
-  }
+  // 새 사진이 올라왔으면 그 path, 아니면 기존 path 유지.
+  const finalImagePath: string | null =
+    heroImagePath ?? existing?.hero_image_path ?? null;
 
   const payload = {
     user_id: user.id,
@@ -55,7 +59,7 @@ export async function saveCatAndRecommend(cat: GuestCat): Promise<void> {
     health_conditions: cat.health_conditions ?? [],
     avoid_ingredients: cat.avoid_ingredients ?? [],
     goal: cat.goal!,
-    hero_image_path: heroImagePath,
+    hero_image_path: finalImagePath,
     last_recommended_at: new Date().toISOString(),
   };
 

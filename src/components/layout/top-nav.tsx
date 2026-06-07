@@ -45,8 +45,8 @@ export function TopNav({
                 {item.label}
               </NavLink>
             ))}
-          {hasProfile && <div className="mx-2 h-[22px] w-px bg-border-soft" />}
-          {hasProfile && (
+          {authed && <div className="mx-2 h-[22px] w-px bg-border-soft" />}
+          {authed && (
             <NavLink href="/mypage" active={pathname?.startsWith('/mypage')}>
               마이페이지
             </NavLink>

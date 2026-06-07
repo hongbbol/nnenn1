@@ -5,6 +5,8 @@ import { useGuestStore } from '@/lib/guest-store';
 import { GOAL_OPTIONS } from '@/lib/domain/constants';
 import { goalSchema } from '@/lib/domain/schemas';
 import { cn } from '@/lib/cn';
+import { createSupabaseBrowserClient } from '@/lib/supabase/browser';
+import { uploadCatPhotoClient } from '@/lib/storage/client-upload';
 import { OnboardingNav } from '../_nav-buttons';
 import { saveCatAndRecommend } from '../_actions';
 
@@ -104,8 +106,26 @@ export default function GoalStep() {
           setSaveErr(null);
           setSaving(true);
           try {
-            // 온보딩 입력(메모리 이미지 포함) 전체를 Supabase에 저장 + 추천 1회 기록.
-            await saveCatAndRecommend(cat);
+            // 사진이 있으면 먼저 클라이언트에서 Storage에 업로드(큰 dataURL을 Server
+            // Action으로 보내지 않기 위함). Server Action에는 경로/입력값만 전달.
+            const supabase = createSupabaseBrowserClient();
+            const {
+              data: { user },
+            } = await supabase.auth.getUser();
+            if (!user) throw new Error('로그인이 필요해요.');
+
+            let heroPath: string | null = null;
+            if (cat.hero_image_preview?.startsWith('data:image/')) {
+              heroPath = await uploadCatPhotoClient(
+                supabase,
+                user.id,
+                cat.hero_image_preview,
+              );
+            }
+
+            const { hero_image_preview, ...catData } = cat;
+            void hero_image_preview;
+            await saveCatAndRecommend(catData, heroPath);
           } catch (e) {
             setSaveErr(
               e instanceof Error ? e.message : '저장 중 문제가 생겼어요. 다시 시도해주세요.',
