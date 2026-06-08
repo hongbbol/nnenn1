@@ -15,6 +15,7 @@ function input(over: Partial<RecInput> = {}): RecInput {
     goal: '중노령 전환',
     diseases: [],
     avoid: [],
+    excludeFoodIds: [],
     dietPref: '건식',
     ...over,
   };

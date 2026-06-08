@@ -24,6 +24,8 @@ export type RecInput = {
   diseases: DiseaseMode[];
   /** 알레르겐/회피 원료(소문자 키워드). */
   avoid: string[];
+  /** 사용자가 추천에서 제외한 사료 id 목록. */
+  excludeFoodIds: string[];
   dietPref: '건식' | '습식' | '혼합' | null;
 };
 

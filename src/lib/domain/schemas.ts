@@ -71,6 +71,7 @@ export const dietSchema = z.object({
   diet_type: z.enum(DIET_TYPES),
   current_food_text: z.string().trim().max(120).nullish(),
   avoid_ingredients: z.array(z.string()).default([]),
+  exclude_food_ids: z.array(z.string()).default([]),
 });
 
 export const healthSchema = z.object({
