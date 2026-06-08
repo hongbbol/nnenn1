@@ -44,7 +44,11 @@ export function toRecInput(cat: GuestCat): RecInput | null {
     ageGroup: ag.group,
     goal: cat.goal,
     diseases,
-    avoid: (cat.avoid_ingredients ?? []).map((a) => a.trim()).filter(Boolean),
+    // '피하고 싶은 성분' UI는 제거됨 — 현재 avoid는 항상 비움. (레거시 cat.avoid_ingredients의
+    // stale 값이 추천에 반영되지 않도록 여기서 차단.) 알레르겐 하드 게이트(filter.ts)·우선순위
+    // 박스(selector.ts)·동의어(ingredient-synonyms)는 그대로 보존 — 추후 '알러지' 질환 옵션을
+    // 추가하면 이 줄에서 해당 소스로 avoid 토큰을 채워 재사용한다.
+    avoid: [],
     excludeFoodIds: cat.exclude_food_ids ?? [],
     dietPref: cat.diet_type ?? null,
   };

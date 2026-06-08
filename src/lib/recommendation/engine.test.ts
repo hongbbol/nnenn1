@@ -80,6 +80,21 @@ describe('toRecInput 정규화', () => {
     const got = toRecInput(baseCat({ health_conditions: ['질병 없음'] }));
     expect(got?.diseases).toEqual([]);
   });
+
+  // 회귀: '피하고 싶은 성분' UI 제거 — 레거시 avoid_ingredients(stale)는 추천에 반영 안 됨.
+  // (filter.ts 알레르겐 로직 자체는 보존 — 추후 '알러지' 질환 옵션에서 재사용)
+  it('레거시 avoid_ingredients는 추천에 반영되지 않음 (avoid 항상 빈 배열)', () => {
+    const got = toRecInput(baseCat({ avoid_ingredients: ['닭', '생선'] }));
+    expect(got?.avoid).toEqual([]);
+
+    // 닭 알레르겐이 있어도 allergen 사유로 탈락하는 제품이 없어야 한다.
+    const res = recommendFromProfile(
+      baseCat({ avoid_ingredients: ['닭'], goal: '중노령 전환' }),
+      SEED_FOODS,
+    );
+    expect(res).not.toBeNull();
+    expect(res!.excluded.some((e) => e.reasons.some((r) => r.code === 'allergen'))).toBe(false);
+  });
 });
 
 describe('hard 게이트 (filter)', () => {
