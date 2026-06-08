@@ -2,24 +2,25 @@
 import { Check } from 'lucide-react';
 import { Chip, Input, Segmented, Small } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
-import {
-  AVOID_INGREDIENTS_POPULAR,
-  DIET_TYPES,
-  POPULAR_FOODS,
-} from '@/lib/domain/constants';
+import { DIET_TYPES, POPULAR_FOODS } from '@/lib/domain/constants';
+import { getFoodOptions } from '@/lib/recommendation';
 import { dietSchema } from '@/lib/domain/schemas';
 import { OnboardingNav } from '../_nav-buttons';
 import { FieldLabel } from '../_field-label';
+import { FoodSearchSelect } from './_food-search-select';
+
+// 검색용 옵션 — 현재 SEED_FOODS 파생(소스 비의존, 향후 DB 교체 가능).
+const FOOD_OPTIONS = getFoodOptions();
 
 export default function DietStep() {
   const cat = useGuestStore((s) => s.cat);
   const setCat = useGuestStore((s) => s.setCat);
-  const avoid = cat.avoid_ingredients ?? [];
+  const excluded = cat.exclude_food_ids ?? [];
 
   const parsed = dietSchema.safeParse({
     diet_type: cat.diet_type ?? '',
     current_food_text: cat.current_food_text ?? '',
-    avoid_ingredients: avoid,
+    exclude_food_ids: excluded,
   });
 
   return (
@@ -65,25 +66,12 @@ export default function DietStep() {
       </div>
 
       <div>
-        <FieldLabel hint={<Small>중복 가능</Small>}>피하고 싶은 성분</FieldLabel>
-        <div className="flex flex-wrap gap-2">
-          {AVOID_INGREDIENTS_POPULAR.map((ing) => {
-            const sel = avoid.includes(ing);
-            return (
-              <Chip
-                key={ing}
-                selected={sel}
-                onClick={() =>
-                  setCat({
-                    avoid_ingredients: sel ? avoid.filter((x) => x !== ing) : [...avoid, ing],
-                  })
-                }
-              >
-                {ing}
-              </Chip>
-            );
-          })}
-        </div>
+        <FieldLabel hint={<Small>검색해서 선택</Small>}>제외하고 싶은 사료</FieldLabel>
+        <FoodSearchSelect
+          options={FOOD_OPTIONS}
+          selectedIds={excluded}
+          onChange={(ids) => setCat({ exclude_food_ids: ids })}
+        />
       </div>
 
       <OnboardingNav step={1} canProceed={parsed.success} />

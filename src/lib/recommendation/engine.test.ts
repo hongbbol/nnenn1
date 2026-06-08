@@ -32,6 +32,7 @@ function input(over: Partial<RecInput> = {}): RecInput {
     goal: '중노령 전환',
     diseases: [],
     avoid: [],
+    excludeFoodIds: [],
     dietPref: '건식',
     ...over,
   };
@@ -109,6 +110,17 @@ describe('hard 게이트 (filter)', () => {
   it('당뇨: 첨가 단순당 제품 탈락', () => {
     const res = recommend(input({ diseases: ['diabetes'] }), SEED_FOODS);
     expect(res.excluded.some((e) => e.food.id === 'budget-dry-99')).toBe(true);
+  });
+
+  it('사용자 제외 사료는 user_excluded로 탈락하고 TOP에 없음', () => {
+    const target = 'adult-daily-01';
+    const res = recommend(input({ excludeFoodIds: [target] }), SEED_FOODS);
+    expect(res.top.some((t) => t.food.id === target)).toBe(false);
+    expect(
+      res.excluded.some(
+        (e) => e.food.id === target && e.reasons.some((r) => r.code === 'user_excluded'),
+      ),
+    ).toBe(true);
   });
 });
 

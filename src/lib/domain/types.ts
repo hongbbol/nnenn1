@@ -14,6 +14,8 @@ export type CatProfile = {
   current_food_text?: string | null;
   health_conditions: string[];
   avoid_ingredients: string[];
+  /** 추천에서 제외할 사료 id 목록(SEED_FOODS 기준). */
+  exclude_food_ids: string[];
   goal: Goal;
   hero_image_path?: string | null;
 };

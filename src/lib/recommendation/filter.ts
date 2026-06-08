@@ -41,6 +41,11 @@ export function gateFood(food: Food, input: RecInput): ExclusionReason[] {
   const reasons: ExclusionReason[] = [];
   const hay = haystack(food);
 
+  // 0-0. 사용자 직접 제외 — 추천에서 제외 선택한 사료는 무조건 탈락.
+  if (input.excludeFoodIds.includes(food.id)) {
+    reasons.push({ code: 'user_excluded', label: '사용자가 제외한 사료' });
+  }
+
   // 0. 주식(staple) 적합성 — 보조식·간식은 주식단 추천에서 탈락(§0-3).
   if (matchesAny(hay, KEYWORDS.notStaple)) {
     reasons.push({ code: 'not_staple', label: '보조식·간식 (주식단 아님)' });

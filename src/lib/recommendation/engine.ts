@@ -45,6 +45,7 @@ export function toRecInput(cat: GuestCat): RecInput | null {
     goal: cat.goal,
     diseases,
     avoid: (cat.avoid_ingredients ?? []).map((a) => a.trim()).filter(Boolean),
+    excludeFoodIds: cat.exclude_food_ids ?? [],
     dietPref: cat.diet_type ?? null,
   };
 }

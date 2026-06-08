@@ -14,6 +14,7 @@ type GuestState = {
 const INITIAL_CAT: GuestCat = {
   health_conditions: [],
   avoid_ingredients: [],
+  exclude_food_ids: [],
 };
 
 export const useGuestStore = create<GuestState>()(

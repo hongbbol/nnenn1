@@ -65,6 +65,7 @@ export async function saveCatAndRecommend(
       current_food_text: cat.current_food_id ? null : cat.current_food_text?.trim() || null,
       health_conditions: cat.health_conditions ?? [],
       avoid_ingredients: cat.avoid_ingredients ?? [],
+      exclude_food_ids: cat.exclude_food_ids ?? [],
       goal: cat.goal!,
       hero_image_path: finalImagePath,
       last_recommended_at: new Date().toISOString(),
