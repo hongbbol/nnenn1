@@ -1,12 +1,13 @@
 import { redirect } from 'next/navigation';
 import { TopNavServer } from '@/components/layout/top-nav-server';
 import { ProfileCard } from '@/components/domain/profile-card';
-import { RecHistoryList } from '@/components/domain/rec-history-list';
-import { ComparisonHistoryList } from '@/components/domain/comparison-history-list';
+import { AddProfileButton } from '@/components/domain/add-profile-button';
+import { MyPageHistory } from '@/components/domain/mypage-history';
 import { getCurrentUser } from '@/lib/auth/user';
+import { CAT_LIMIT } from '@/lib/domain/constants';
 import {
   getCatPhotoUrl,
-  getOwnedCat,
+  getOwnedCats,
   getRecentComparisons,
   getRecentRecommendations,
 } from '@/lib/data/queries';
@@ -15,15 +16,19 @@ export default async function MyPage() {
   const user = await getCurrentUser();
   if (!user) redirect('/auth/sign-in?next=/mypage');
 
-  const [cat, recs, comps] = await Promise.all([
-    getOwnedCat(),
-    getRecentRecommendations(3),
-    getRecentComparisons(5),
+  const [cats, recs, comps] = await Promise.all([
+    getOwnedCats(),
+    // 고양이별 탭 필터를 위해 넉넉히 — 추천은 고양이당 최대 3건 prune되므로 6건이면 2마리 전부 커버.
+    getRecentRecommendations(6),
+    getRecentComparisons(20),
   ]);
   // 프로필이 없으면 아직 온보딩 전 — 입력부터.
-  if (!cat) redirect('/onboarding/basics');
+  if (cats.length === 0) redirect('/onboarding/basics');
 
-  const imageSrc = await getCatPhotoUrl(cat.hero_image_path);
+  const imageSrcs = await Promise.all(
+    cats.map((c) => getCatPhotoUrl(c.hero_image_path)),
+  );
+  const atLimit = cats.length >= CAT_LIMIT;
 
   return (
     <>
@@ -35,19 +40,26 @@ export default async function MyPage() {
           </h1>
 
           <section className="mt-7">
-            <SectionTitle>내 아이 프로필</SectionTitle>
-            <ProfileCard cat={cat} imageSrc={imageSrc} />
+            <SectionTitle hint={`${cats.length}/${CAT_LIMIT}`}>내 아이 프로필</SectionTitle>
+            <div className="flex flex-col gap-4">
+              {cats.map((c, i) => (
+                <ProfileCard key={c.id} cat={c} imageSrc={imageSrcs[i]} />
+              ))}
+            </div>
+            <div className="mt-4">
+              <AddProfileButton
+                disabled={atLimit}
+                label={atLimit ? `프로필은 최대 ${CAT_LIMIT}개까지` : '프로필 추가'}
+                full
+              />
+            </div>
           </section>
 
-          <section className="mt-10">
-            <SectionTitle hint={`최근 ${recs.length}건`}>추천 히스토리</SectionTitle>
-            <RecHistoryList items={recs} />
-          </section>
-
-          <section className="mt-10">
-            <SectionTitle>비교 히스토리</SectionTitle>
-            <ComparisonHistoryList items={comps} />
-          </section>
+          <MyPageHistory
+            cats={cats.map((c) => ({ id: c.id, name: c.name }))}
+            recs={recs}
+            comps={comps}
+          />
         </div>
       </div>
     </>

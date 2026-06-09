@@ -5,12 +5,15 @@ import {
   HEALTH_IDS,
   HEALTH_OPTIONS,
   NEUTERED_STATUS,
+  SEXES,
 } from './constants';
 
 const currentYear = new Date().getFullYear();
 
 const basicsObject = z.object({
   name: z.string().trim().min(1, '이름을 입력해주세요').max(30, '이름이 너무 길어요'),
+  sex: z.enum(SEXES, { errorMap: () => ({ message: '성별을 선택해주세요' }) }),
+  breed: z.string().trim().min(1, '묘종을 입력해주세요').max(40, '묘종이 너무 길어요'),
   birth_year: z
     .coerce.number({ invalid_type_error: '출생년도를 숫자로 입력해주세요' })
     .int()

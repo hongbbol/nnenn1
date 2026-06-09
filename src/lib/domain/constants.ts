@@ -1,3 +1,6 @@
+/** 사용자당 등록 가능한 고양이 프로필 최대 수. */
+export const CAT_LIMIT = 2;
+
 export const AGE_GROUPS = ['1+', '7+', '11+', '15+'] as const;
 export type AgeGroup = (typeof AGE_GROUPS)[number];
 
@@ -13,6 +16,28 @@ export type DietType = (typeof DIET_TYPES)[number];
 
 export const NEUTERED_STATUS = ['완료', '안 함', '몰라요'] as const;
 export type NeuteredStatus = (typeof NEUTERED_STATUS)[number];
+
+export const SEXES = ['여아', '남아'] as const;
+export type Sex = (typeof SEXES)[number];
+
+/** 묘종 드롭다운 목록(주요 묘종). 목록에 없으면 '기타(직접 입력)'로 자유 입력. */
+export const CAT_BREEDS = [
+  '코리안 숏헤어',
+  '믹스(혼종)',
+  '페르시안',
+  '러시안 블루',
+  '스코티시 폴드',
+  '브리티시 숏헤어',
+  '아메리칸 숏헤어',
+  '벵갈',
+  '먼치킨',
+  '샴',
+  '노르웨이 숲',
+  '랙돌',
+  '아비시니안',
+  '메인쿤',
+  '터키시 앙고라',
+] as const;
 
 export const GOALS = [
   '질환관리',

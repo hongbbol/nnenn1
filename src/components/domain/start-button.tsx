@@ -18,12 +18,15 @@ type BtnVariant = React.ComponentProps<typeof Button>['variant'];
  */
 export function StartButton({
   prefill = null,
+  prefillCatId = null,
   label,
   variant,
   trailing,
   full = false,
 }: {
   prefill?: GuestCat | null;
+  /** prefill 대상 cat의 id — 시작하기로 들어가면 그 프로필을 편집(UPDATE)하도록 기록. */
+  prefillCatId?: string | null;
   label: string;
   variant?: BtnVariant;
   trailing?: React.ReactNode;
@@ -32,6 +35,7 @@ export function StartButton({
   const router = useRouter();
   const resetCat = useGuestStore((s) => s.resetCat);
   const setCat = useGuestStore((s) => s.setCat);
+  const setEditingCatId = useGuestStore((s) => s.setEditingCatId);
 
   if (!prefill) {
     return (
@@ -51,6 +55,7 @@ export function StartButton({
       onClick={() => {
         resetCat();
         setCat(prefill);
+        setEditingCatId(prefillCatId ?? null);
         router.push('/onboarding/basics');
       }}
     >

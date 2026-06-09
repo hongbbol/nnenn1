@@ -2,9 +2,12 @@
 import { useEffect, useState } from 'react';
 import { Input, Segmented } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
-import { NEUTERED_STATUS, ageGroupFromBirthYear } from '@/lib/domain/constants';
+import { NEUTERED_STATUS, SEXES, ageGroupFromBirthYear } from '@/lib/domain/constants';
 import { basicsSchema } from '@/lib/domain/schemas';
 import { PhotoUploadSlot } from '@/components/domain/photo-upload-slot';
+import { BreedField } from '@/components/domain/breed-field';
+import { OnboardingProfileBar } from '@/components/domain/onboarding-profile-bar';
+import { FormResetButton } from '@/components/domain/form-reset-button';
 import { OnboardingNav } from '../_nav-buttons';
 import { FieldLabel } from '../_field-label';
 
@@ -37,6 +40,8 @@ export default function BasicsStep() {
   const ag = ageGroupFromBirthYear(cat.birth_year as number | undefined);
   const parsed = basicsSchema.safeParse({
     name: cat.name ?? '',
+    sex: cat.sex ?? '',
+    breed: cat.breed ?? '',
     birth_year: cat.birth_year ?? '',
     birth_month: cat.birth_month ?? '',
     birth_day: cat.birth_day ?? '',
@@ -47,13 +52,20 @@ export default function BasicsStep() {
 
   return (
     <div className="flex flex-col gap-7">
+      <OnboardingProfileBar />
+
       <div>
         <FieldLabel>사진 (선택)</FieldLabel>
-        <PhotoUploadSlot
-          name={cat.name}
-          preview={cat.hero_image_preview}
-          onChange={(v) => setCat({ hero_image_preview: v })}
-        />
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <PhotoUploadSlot
+              name={cat.name}
+              preview={cat.hero_image_preview}
+              onChange={(v) => setCat({ hero_image_preview: v })}
+            />
+          </div>
+          <FormResetButton />
+        </div>
       </div>
 
       <div>
@@ -63,6 +75,11 @@ export default function BasicsStep() {
           placeholder="예: 보리"
           onChange={(e) => setCat({ name: e.target.value })}
         />
+      </div>
+
+      <div>
+        <FieldLabel>묘종</FieldLabel>
+        <BreedField value={cat.breed} onChange={(v) => setCat({ breed: v })} />
       </div>
 
       <div>
@@ -77,8 +94,9 @@ export default function BasicsStep() {
         >
           출생일
         </FieldLabel>
-        <div className="grid grid-cols-[1.4fr_1fr_1fr] gap-2">
+        <div className="flex gap-2">
           <Input
+            className="w-[116px]"
             value={cat.birth_year != null ? String(cat.birth_year) : ''}
             placeholder="2017"
             suffix="년"
@@ -86,6 +104,7 @@ export default function BasicsStep() {
             onChange={(e) => setCat({ birth_year: toClampedInt(e.target.value, 4) })}
           />
           <Input
+            className="w-[88px]"
             value={cat.birth_month != null ? String(cat.birth_month) : ''}
             placeholder="3"
             suffix="월"
@@ -93,6 +112,7 @@ export default function BasicsStep() {
             onChange={(e) => setCat({ birth_month: toClampedInt(e.target.value, 2) })}
           />
           <Input
+            className="w-[88px]"
             value={cat.birth_day != null ? String(cat.birth_day) : ''}
             placeholder="15"
             suffix="일"
@@ -126,6 +146,15 @@ export default function BasicsStep() {
             const n = Number(clean);
             setCat({ weight_kg: Number.isFinite(n) ? n : undefined });
           }}
+        />
+      </div>
+
+      <div>
+        <FieldLabel>성별</FieldLabel>
+        <Segmented
+          options={SEXES}
+          value={cat.sex ?? ''}
+          onChange={(v) => setCat({ sex: v })}
         />
       </div>
 

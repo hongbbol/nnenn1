@@ -121,6 +121,7 @@ export default async function LandingPage() {
             <div className="mt-8 flex gap-3">
               <StartButton
                 prefill={prefill}
+                prefillCatId={ownedCat?.id ?? null}
                 label="3분 안에 시작하기"
                 trailing={<ArrowRight size={16} />}
               />
@@ -271,6 +272,7 @@ export default async function LandingPage() {
             </div>
             <StartButton
               prefill={prefill}
+              prefillCatId={ownedCat?.id ?? null}
               variant="primary"
               label="추천 받기 시작"
               trailing={<ArrowRight size={16} />}

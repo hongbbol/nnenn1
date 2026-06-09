@@ -12,11 +12,18 @@ type BtnVariant = React.ComponentProps<typeof Button>['variant'];
  */
 export function EditProfileButton({
   cat,
+  catId,
+  photoUrl = null,
   label = '프로필 수정',
   variant = 'ghost',
   full = false,
 }: {
   cat: GuestCat;
+  /** 편집 대상 cat의 id — 저장 시 이 프로필을 UPDATE하도록 store에 기록. */
+  catId: string;
+  /** 저장된 사진의 signed URL — 미리보기에 채워 수정 화면에서도 사진이 보이게 한다.
+   *  'data:image/'가 아니라 재업로드되지 않으므로 기존 사진 경로는 그대로 유지된다. */
+  photoUrl?: string | null;
   label?: string;
   variant?: BtnVariant;
   full?: boolean;
@@ -24,6 +31,7 @@ export function EditProfileButton({
   const router = useRouter();
   const resetCat = useGuestStore((s) => s.resetCat);
   const setCat = useGuestStore((s) => s.setCat);
+  const setEditingCatId = useGuestStore((s) => s.setEditingCatId);
 
   return (
     <Button
@@ -31,7 +39,8 @@ export function EditProfileButton({
       full={full}
       onClick={() => {
         resetCat();
-        setCat(cat);
+        setCat({ ...cat, hero_image_preview: photoUrl });
+        setEditingCatId(catId);
         router.push('/onboarding/basics');
       }}
     >

@@ -8,6 +8,8 @@ import type { CatRow, GuestCat } from './types';
 export function catRowToGuestCat(cat: CatRow): GuestCat {
   return {
     name: cat.name,
+    sex: cat.sex ?? null,
+    breed: cat.breed ?? null,
     birth_year: cat.birth_year,
     birth_month: cat.birth_month,
     birth_day: cat.birth_day,
