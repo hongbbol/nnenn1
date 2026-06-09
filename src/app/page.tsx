@@ -17,6 +17,10 @@ import {
 } from '@/components/ui';
 import { TopNavServer } from '@/components/layout/top-nav-server';
 import { Footer } from '@/components/layout/footer';
+import { StartButton } from '@/components/domain/start-button';
+import { getOwnedCat, getCatPhotoUrl } from '@/lib/data/queries';
+import { catRowToGuestCat } from '@/lib/domain/cat-mapping';
+import type { GuestCat } from '@/lib/domain/types';
 
 const HERO_FOODS = [
   {
@@ -77,6 +81,15 @@ const WHY = [
 ];
 
 export default async function LandingPage() {
+  // 기존 이용자(로그인 + 프로필 보유)는 저장된 '내 아이 프로필'을 온보딩 버퍼에 미리 채워
+  // 다시 입력하지 않게 한다. 비로그인·무프로필은 prefill=null → 빈 온보딩.
+  const ownedCat = await getOwnedCat();
+  let prefill: GuestCat | null = null;
+  if (ownedCat) {
+    const photoUrl = await getCatPhotoUrl(ownedCat.hero_image_path);
+    prefill = { ...catRowToGuestCat(ownedCat), hero_image_preview: photoUrl };
+  }
+
   return (
     <div className="min-h-screen">
       <TopNavServer />
@@ -106,9 +119,11 @@ export default async function LandingPage() {
               왜 맞는지 한 줄 요약과 체크리스트로 보여드리고, 현재 사료와 성분도 표로 비교해드려요.
             </Body>
             <div className="mt-8 flex gap-3">
-              <Link href="/onboarding/basics">
-                <Button trailing={<ArrowRight size={16} />}>3분 안에 시작하기</Button>
-              </Link>
+              <StartButton
+                prefill={prefill}
+                label="3분 안에 시작하기"
+                trailing={<ArrowRight size={16} />}
+              />
               <Link href="/demo">
                 <Button variant="ghost">예시 결과 먼저 보기</Button>
               </Link>
@@ -254,11 +269,12 @@ export default async function LandingPage() {
                 3분 정도 걸려요. 진단이나 사료명을 모르면 비워두셔도 돼요.
               </Body>
             </div>
-            <Link href="/onboarding/basics">
-              <Button variant="primary" trailing={<ArrowRight size={16} />}>
-                추천 받기 시작
-              </Button>
-            </Link>
+            <StartButton
+              prefill={prefill}
+              variant="primary"
+              label="추천 받기 시작"
+              trailing={<ArrowRight size={16} />}
+            />
           </Card>
         </div>
       </section>
