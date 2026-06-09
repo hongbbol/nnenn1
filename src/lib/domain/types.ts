@@ -1,9 +1,12 @@
-import type { AgeGroup, DietType, Goal, NeuteredStatus } from './constants';
+import type { AgeGroup, DietType, Goal, NeuteredStatus, Sex } from './constants';
 // type-only import — 런타임 순환 없음(타입은 컴파일 시 제거됨).
 import type { RecResult } from '@/lib/recommendation/types';
 
 export type CatProfile = {
   name: string;
+  // 기존 행 호환을 위해 DB는 nullable. 앱(온보딩 스키마)에서 필수로 강제한다.
+  sex: Sex | null;
+  breed: string | null;
   birth_year: number;
   birth_month: number;
   birth_day: number;
@@ -79,7 +82,8 @@ export type RecSummary = {
 export type RecommendationRow = {
   id: string;
   user_id: string;
-  cat_id: string;
+  /** 프로필 삭제 시 set null — 히스토리는 cat_name으로 계속 표시. */
+  cat_id: string | null;
   cat_name: string;
   top_food_ids: string[];
   summary: RecSummary;
@@ -123,7 +127,8 @@ export type ComparisonResult = {
 export type ComparisonRow = {
   id: string;
   user_id: string;
-  cat_id: string;
+  /** 프로필 삭제 시 set null. */
+  cat_id: string | null;
   baseline_food_id: string | null;
   baseline_text: string | null;
   candidate_food_ids: string[];

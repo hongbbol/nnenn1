@@ -7,7 +7,7 @@ import type {
   RecommendationRow,
 } from '@/lib/domain/types';
 
-/** 현재 로그인 사용자의 가장 최근 고양이 1마리. 없으면 null. (MVP: 사용자당 1마리 가정) */
+/** 현재 로그인 사용자의 가장 최근 고양이 1마리. 없으면 null. (랜딩 prefill 등 단일 진입점용) */
 export async function getOwnedCat(): Promise<CatRow | null> {
   const user = await getCurrentUser();
   if (!user) return null;
@@ -20,6 +20,51 @@ export async function getOwnedCat(): Promise<CatRow | null> {
     .limit(1)
     .maybeSingle();
   return (data as CatRow | null) ?? null;
+}
+
+/** 현재 로그인 사용자의 모든 고양이. 등록 순(created_at 오름차순) — 탭/카드 순서 안정. */
+export async function getOwnedCats(): Promise<CatRow[]> {
+  const user = await getCurrentUser();
+  if (!user) return [];
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
+    .from('cats')
+    .select('*')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: true });
+  return (data as CatRow[] | null) ?? [];
+}
+
+/** id로 고양이 1마리 조회(현재 사용자 소유만). 없거나 타인 소유면 null. */
+export async function getCatById(id: string): Promise<CatRow | null> {
+  const user = await getCurrentUser();
+  if (!user) return null;
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
+    .from('cats')
+    .select('*')
+    .eq('id', id)
+    .eq('user_id', user.id)
+    .maybeSingle();
+  return (data as CatRow | null) ?? null;
+}
+
+/** 특정 고양이의 가장 최근 추천 1건. 없으면 null. */
+export async function getLatestRecommendationForCat(
+  catId: string,
+): Promise<RecommendationRow | null> {
+  const user = await getCurrentUser();
+  if (!user) return null;
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
+    .from('recommendations')
+    .select('*')
+    .eq('user_id', user.id)
+    .eq('cat_id', catId)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  return (data as RecommendationRow | null) ?? null;
 }
 
 /** cat 사진(hero_image_path)의 만료형 signed URL. 버킷이 private이라 public URL 불가. */

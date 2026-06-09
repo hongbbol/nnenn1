@@ -12,6 +12,8 @@ const currentYear = new Date().getFullYear();
 describe('basicsSchema', () => {
   const valid = {
     name: '보리',
+    sex: '여아',
+    breed: '코리안 숏헤어',
     birth_year: 2017,
     birth_month: 3,
     birth_day: 15,
@@ -21,6 +23,16 @@ describe('basicsSchema', () => {
 
   it('accepts valid', () => {
     expect(basicsSchema.safeParse(valid).success).toBe(true);
+  });
+
+  it('rejects missing sex', () => {
+    const { sex, ...noSex } = valid;
+    void sex;
+    expect(basicsSchema.safeParse(noSex).success).toBe(false);
+  });
+
+  it('rejects empty breed', () => {
+    expect(basicsSchema.safeParse({ ...valid, breed: '   ' }).success).toBe(false);
   });
 
   it('accepts boundary weights 0.5 and 15', () => {
@@ -198,6 +210,8 @@ describe('profileSchema — full merge', () => {
   it('accepts a complete valid profile', () => {
     const r = profileSchema.safeParse({
       name: '낭낭이',
+      sex: '남아',
+      breed: '코리안 숏헤어',
       birth_year: 2017,
       birth_month: 3,
       birth_day: 15,
@@ -215,6 +229,8 @@ describe('profileSchema — full merge', () => {
   it('propagates health_conditions biz-rule failures', () => {
     const r = profileSchema.safeParse({
       name: '낭낭이',
+      sex: '남아',
+      breed: '코리안 숏헤어',
       birth_year: 2017,
       birth_month: 3,
       birth_day: 15,

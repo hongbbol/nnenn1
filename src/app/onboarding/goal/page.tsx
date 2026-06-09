@@ -5,14 +5,13 @@ import { useGuestStore } from '@/lib/guest-store';
 import { GOAL_OPTIONS } from '@/lib/domain/constants';
 import { goalSchema } from '@/lib/domain/schemas';
 import { cn } from '@/lib/cn';
-import { createSupabaseBrowserClient } from '@/lib/supabase/browser';
-import { uploadCatPhotoClient } from '@/lib/storage/client-upload';
+import { useSaveProfile } from '@/lib/onboarding/use-save-profile';
 import { OnboardingNav } from '../_nav-buttons';
-import { saveCatAndRecommend } from '../_actions';
 
 export default function GoalStep() {
   const cat = useGuestStore((s) => s.cat);
   const setCat = useGuestStore((s) => s.setCat);
+  const saveProfile = useSaveProfile();
   const [saving, setSaving] = useState(false);
   const [saveErr, setSaveErr] = useState<string | null>(null);
   const conditions = cat.health_conditions ?? [];
@@ -106,26 +105,7 @@ export default function GoalStep() {
           setSaveErr(null);
           setSaving(true);
           try {
-            // 사진이 있으면 먼저 클라이언트에서 Storage에 업로드(큰 dataURL을 Server
-            // Action으로 보내지 않기 위함). Server Action에는 경로/입력값만 전달.
-            const supabase = createSupabaseBrowserClient();
-            const {
-              data: { user },
-            } = await supabase.auth.getUser();
-            if (!user) throw new Error('로그인이 필요해요.');
-
-            let heroPath: string | null = null;
-            if (cat.hero_image_preview?.startsWith('data:image/')) {
-              heroPath = await uploadCatPhotoClient(
-                supabase,
-                user.id,
-                cat.hero_image_preview,
-              );
-            }
-
-            const { hero_image_preview, ...catData } = cat;
-            void hero_image_preview;
-            const res = await saveCatAndRecommend(catData, heroPath);
+            const res = await saveProfile();
             if (!res.ok) {
               // OnboardingNav가 /recommendations로 넘어가지 않도록 throw.
               throw new Error(res.error);

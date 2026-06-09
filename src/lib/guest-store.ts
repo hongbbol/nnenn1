@@ -5,9 +5,13 @@ import type { GuestCat } from '@/lib/domain/types';
 
 type GuestState = {
   cat: GuestCat;
+  /** 편집 중인 기존 cat의 id. null이면 신규 고양이(INSERT), 값이 있으면 그 프로필 UPDATE. */
+  editingCatId: string | null;
   demoMode: boolean;
   setCat: (patch: Partial<GuestCat>) => void;
-  resetCat: () => void;
+  /** 폼 초기화. keepEditingId:true면 editingCatId는 유지(온보딩 "제거" — 같은 프로필 덮어쓰기). */
+  resetCat: (opts?: { keepEditingId?: boolean }) => void;
+  setEditingCatId: (id: string | null) => void;
   setDemoMode: (v: boolean) => void;
 };
 
@@ -21,23 +25,38 @@ export const useGuestStore = create<GuestState>()(
   persist(
     (set) => ({
       cat: INITIAL_CAT,
+      editingCatId: null,
       demoMode: false,
       setCat: (patch) =>
         set((s) => ({
           cat: { ...s.cat, ...patch },
         })),
-      resetCat: () => set({ cat: INITIAL_CAT, demoMode: false }),
+      resetCat: (opts) =>
+        set((s) => ({
+          cat: INITIAL_CAT,
+          demoMode: false,
+          editingCatId: opts?.keepEditingId ? s.editingCatId : null,
+        })),
+      setEditingCatId: (id) => set({ editingCatId: id }),
       setDemoMode: (v) => set({ demoMode: v }),
     }),
     {
       name: 'wg.guest',
       // v2: '피하고 싶은 성분' UI 제거 — 기존 localStorage에 남은 avoid_ingredients stale 값을
       //     비워 다음 온보딩 저장 때 추천/프로필에 반영되지 않게 한다. (컬럼·로직은 보존)
-      version: 2,
+      // v3: 멀티 프로필 — editingCatId 추가(누락 시 null = 신규 입력으로 간주).
+      version: 3,
       migrate: (persisted, fromVersion) => {
-        const state = (persisted ?? {}) as { cat?: GuestCat; demoMode?: boolean };
+        const state = (persisted ?? {}) as {
+          cat?: GuestCat;
+          editingCatId?: string | null;
+          demoMode?: boolean;
+        };
         if (fromVersion < 2 && state.cat) {
           state.cat = { ...state.cat, avoid_ingredients: [] };
+        }
+        if (fromVersion < 3) {
+          state.editingCatId = null;
         }
         return state;
       },
@@ -47,7 +66,7 @@ export const useGuestStore = create<GuestState>()(
       partialize: (s) => {
         const { hero_image_preview, ...cat } = s.cat;
         void hero_image_preview;
-        return { cat, demoMode: s.demoMode };
+        return { cat, editingCatId: s.editingCatId, demoMode: s.demoMode };
       },
     },
   ),
