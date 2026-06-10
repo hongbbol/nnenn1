@@ -16,10 +16,10 @@ type Props = {
 
 export function OnboardingNav({ step, canProceed, onNext }: Props) {
   const router = useRouter();
-  const editingCatId = useGuestStore((s) => s.editingCatId);
+  const editMode = useGuestStore((s) => s.editMode);
   const saveProfile = useSaveProfile();
   const isLast = step >= ONBOARDING_STEPS.length - 1;
-  const editing = !!editingCatId;
+  const editing = editMode;
   const [completing, setCompleting] = useState(false);
   const [completeErr, setCompleteErr] = useState<string | null>(null);
 

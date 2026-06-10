@@ -36,11 +36,13 @@ export function EditProfileButton({
   const resetCat = useGuestStore((s) => s.resetCat);
   const setCat = useGuestStore((s) => s.setCat);
   const setEditingCatId = useGuestStore((s) => s.setEditingCatId);
+  const setEditMode = useGuestStore((s) => s.setEditMode);
 
   const goEdit = () => {
     resetCat();
     setCat({ ...cat, hero_image_preview: photoUrl });
     setEditingCatId(catId);
+    setEditMode(true); // 기초정보만 고치고 "완료"로 저장 — 추천 풀 플로우 아님
     router.push('/onboarding/basics');
   };
 
