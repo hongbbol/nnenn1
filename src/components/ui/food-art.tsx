@@ -8,7 +8,7 @@ type Props = {
 
 export function FoodArt({
   size = 96,
-  accent = '#CEE6F7',
+  accent = '#D9EEFB',
   label = '건식',
   brand = '',
   imageSrc,

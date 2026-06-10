@@ -42,7 +42,7 @@ export default function GoalStep() {
         </div>
       )}
       {showHealthyGuidance && (
-        <div className="mb-1.5 flex gap-2.5 rounded-[12px] bg-brand-yellow-soft px-4 py-3.5 text-[13px] font-medium leading-[1.55] text-brand-yellow-dark">
+        <div className="mb-1.5 flex gap-2.5 rounded-[12px] bg-brand-primary-soft px-4 py-3.5 text-[13px] font-medium leading-[1.55] text-brand-primary-ink">
           <div className="shrink-0 pt-0.5">
             <Info size={14} />
           </div>

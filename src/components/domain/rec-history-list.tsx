@@ -30,7 +30,7 @@ export function RecHistoryList({ items }: { items: RecommendationRow[] }) {
             {r.summary.top.length > 0 ? (
               r.summary.top.map((t, i) => (
                 <div key={t.foodId} className="flex items-center gap-2 text-[13px]">
-                  <span className="rounded-md bg-brand-yellow-soft px-2 py-[2px] text-[11px] font-semibold text-brand-yellow-dark">
+                  <span className="rounded-md bg-brand-primary-soft px-2 py-[2px] text-[11px] font-semibold text-brand-primary-ink">
                     TOP {i + 1}
                   </span>
                   <span className="min-w-0 truncate font-medium text-brand-text">

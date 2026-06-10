@@ -24,7 +24,7 @@ export function PriorityOrderBox({ items }: { items: PriorityItem[] }) {
             </div>
             <div className="h-[7px] overflow-hidden rounded-full bg-surface-1">
               <div
-                className="h-full rounded-full bg-brand-yellow"
+                className="h-full rounded-full bg-brand-primary"
                 style={{ width: `${Math.round(it.weight * 100)}%` }}
               />
             </div>

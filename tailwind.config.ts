@@ -5,26 +5,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // semantic prefix to avoid clashes with Tailwind defaults — mirrors docs/design/tokens.js
-        'brand-bg': '#FAFAF6',
-        'brand-text': '#101411',
-        'brand-sub': '#6A716E',
-        'brand-faint': '#A3A6A1',
-        'brand-yellow': '#F6CC46',
-        'brand-yellow-dark': '#9C7A14',
-        'brand-yellow-soft': '#FBEFC1',
-        'brand-blue': '#CEE6F7',
-        'brand-blue-ink': '#1E5A86',
-        'brand-blue-deep': '#0F3D62',
-        'brand-green': '#3F8F5D',
-        'brand-green-soft': '#E2EFE6',
-        'brand-danger': '#C24B3A',
-        'brand-danger-soft': '#F9E2DD',
-        'surface-1': '#F4F1E8',
-        'surface-2': '#EFEBE0',
+        // 쿨톤 스카이 블루 / 플랫 화이트 — semantic prefix to avoid clashes with Tailwind defaults
+        'brand-bg': '#F6FAFD',
+        'brand-text': '#0F1A24',
+        'brand-sub': '#586573',
+        'brand-faint': '#97A3B0',
+        // primary = 스카이 블루 (기존 brand-yellow 계열 대체)
+        'brand-primary': '#2E97E6',
+        'brand-primary-strong': '#1F86D4',
+        'brand-primary-ink': '#135B8C',
+        'brand-primary-soft': '#E6F3FD',
+        // 보조 라이트 블루 (칩·아이콘 배경 등)
+        'brand-blue': '#E6F3FD',
+        'brand-blue-ink': '#135B8C',
+        'brand-blue-deep': '#0C3E63',
+        'brand-green': '#2FA37A',
+        'brand-green-soft': '#E4F4EE',
+        'brand-danger': '#E0584A',
+        'brand-danger-soft': '#FBE7E4',
+        'surface-1': '#EFF5FB',
+        'surface-2': '#E5EEF6',
         'surface-card': '#FFFFFF',
-        'border-soft': '#E6E2D6',
-        'border-strong': '#D3CDBE',
+        'border-soft': '#E4EBF2',
+        'border-strong': '#D0DAE4',
       },
       fontFamily: {
         sans: ['var(--font-pretendard)', 'Pretendard', 'system-ui', 'sans-serif'],
@@ -36,10 +39,10 @@ const config: Config = {
         '3xl2': '20px',
       },
       boxShadow: {
-        'btn-yellow': '0 1px 0 rgba(0,0,0,0.04), 0 8px 18px -10px rgba(180,140,30,0.45)',
-        'card-hover': '0 6px 24px -8px rgba(20,16,8,0.08), 0 1px 0 rgba(0,0,0,0.02)',
-        'card-rest': '0 1px 0 rgba(0,0,0,0.02)',
-        'card-hero': '0 24px 60px -24px rgba(20,16,8,0.15), 0 1px 0 rgba(0,0,0,0.02)',
+        'btn-primary': '0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 18px -10px rgba(30,120,210,0.55)',
+        'card-hover': '0 10px 30px -14px rgba(28,90,150,0.26), 0 1px 0 rgba(20,40,70,0.02)',
+        'card-rest': '0 6px 22px -14px rgba(28,90,150,0.18), 0 1px 0 rgba(20,40,70,0.02)',
+        'card-hero': '0 24px 60px -24px rgba(28,90,150,0.24), 0 1px 0 rgba(20,40,70,0.02)',
       },
       keyframes: {
         bounce: {

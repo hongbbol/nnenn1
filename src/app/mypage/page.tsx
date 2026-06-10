@@ -41,7 +41,7 @@ export default async function MyPage() {
 
           <section className="mt-7">
             <SectionTitle hint={`${cats.length}/${CAT_LIMIT}`}>내 아이 프로필</SectionTitle>
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {cats.map((c, i) => (
                 <ProfileCard key={c.id} cat={c} imageSrc={imageSrcs[i]} />
               ))}

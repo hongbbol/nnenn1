@@ -9,7 +9,7 @@ type Props = {
 export function CatAvatar({
   size = 56,
   name = '?',
-  accent = '#CEE6F7',
+  accent = '#D9EEFB',
   imageSrc,
 }: Props) {
   if (imageSrc) {
