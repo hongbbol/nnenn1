@@ -13,9 +13,11 @@ import type { CatRow } from '@/lib/domain/types';
  */
 export function OnboardingProfileBar() {
   const editingCatId = useGuestStore((s) => s.editingCatId);
+  const editMode = useGuestStore((s) => s.editMode);
   const resetCat = useGuestStore((s) => s.resetCat);
   const setCat = useGuestStore((s) => s.setCat);
   const setEditingCatId = useGuestStore((s) => s.setEditingCatId);
+  const setEditMode = useGuestStore((s) => s.setEditMode);
   const [cats, setCats] = useState<CatRow[]>([]);
 
   useEffect(() => {
@@ -44,9 +46,11 @@ export function OnboardingProfileBar() {
   async function switchTo(cat: CatRow) {
     if (cat.id === editingCatId) return;
     if (!window.confirm('지금 입력 중인 내용이 사라져요. 다른 프로필로 전환할까요?')) return;
+    const keepMode = editMode; // resetCat이 editMode를 false로 되돌리므로 현재 플로우 모드를 보존
     resetCat();
     setCat(catRowToGuestCat(cat));
     setEditingCatId(cat.id);
+    setEditMode(keepMode);
     // 사진은 GuestCat에 없으므로 저장된 hero_image_path의 signed URL을 받아 미리보기에 채운다.
     // (저장 단계는 'data:image/'로 시작할 때만 재업로드하므로 signed URL을 넣어도 안전)
     if (cat.hero_image_path) {
