@@ -1,5 +1,15 @@
 import Link from 'next/link';
-import { ArrowRight, Cat, Check, Droplet, Heart, Leaf, Scale, Sparkles } from 'lucide-react';
+import {
+  ArrowRight,
+  BookOpenCheck,
+  Cat,
+  Check,
+  Droplet,
+  Heart,
+  Leaf,
+  Scale,
+  Sparkles,
+} from 'lucide-react';
 import {
   Body,
   Button,
@@ -45,7 +55,7 @@ const STEPS = [
   {
     num: '01',
     title: '아이 정보 입력',
-    sub: '나이·체중·질환·현재 사료·목표를 4단계로 입력해요. 진단 정보가 없어도 괜찮아요.',
+    sub: '나이·체중·질환·현재 사료·목표를 4단계로 입력해요.',
     Icon: Cat,
   },
   {
@@ -65,18 +75,18 @@ const STEPS = [
 const WHY = [
   {
     Icon: Droplet,
-    title: '수분·인·나트륨까지 본다',
-    sub: '주요 성분 9가지를 모두 비교해 종합 적합도를 계산해요.',
+    title: '수분·인·나트륨까지 모두',
+    sub: '주요 성분 9가지를 비교해 종합 적합도를 계산해요.',
   },
   {
     Icon: Heart,
     title: '질환 가이드 반영',
-    sub: '신부전·당뇨·결석 등 진단별 권장 영양 기준을 적용해요.',
+    sub: '신부전·당뇨·결석 등 질환별 권장 영양 기준을 적용해요.',
   },
   {
-    Icon: Leaf,
-    title: '진단 없어도 OK',
-    sub: '진단이 없어도 나이·체중·목표만으로 추천이 가능해요.',
+    Icon: BookOpenCheck,
+    title: '공인 가이드 기반 추천',
+    sub: 'AAFCO·FEDIAF 등 국제 영양 기준과 최근 연구·논문 기반으로 추천해요.',
   },
 ];
 
@@ -101,22 +111,14 @@ export default async function LandingPage() {
             <Chip variant="blue" size="md" leading={<Leaf size={14} />} className="mb-[18px]">
               중·노령 고양이 전용
             </Chip>
-            <H1 className="!text-[56px]">
+            <H1 className="!text-[43px]">
               우리 아이 컨디션에 맞는
               <br />
-              사료를{' '}
-              <span
-                style={{
-                  background: 'linear-gradient(180deg, transparent 62%, #BFE2FB 62%)',
-                }}
-              >
-                골라
-              </span>{' '}
-              알려드려요
+              사료를 알려드려요
             </H1>
-            <Body muted className="mt-6 max-w-[520px] !text-[17px] !leading-[1.65]">
-              나이·체중·질환·현재 식단을 종합해서 가장 부담이 적은 사료 두 가지를 추천해요.
-              왜 맞는지 한 줄 요약과 체크리스트로 보여드리고, 현재 사료와 성분도 표로 비교해드려요.
+            <Body muted className="mt-6 max-w-[520px] !text-[14px] !leading-[1.65]">
+              나이·체중·질환을 종합해서 가장 부담이 적은 사료 두 가지를 추천해요.
+              왜 적합한지 한 줄 요약과 체크리스트로 보여드리고, 현재 사료와 성분도 표로 비교해드려요.
             </Body>
             <div className="mt-8 flex gap-3">
               <StartButton
@@ -204,7 +206,9 @@ export default async function LandingPage() {
         <div className="mx-auto max-w-[1200px] px-8">
           <Caption className="mb-3">어떻게 알 수 있어요?</Caption>
           <H2 className="mb-12 max-w-[640px]">
-            프로필 → 추천 → 비교, 우리 아이에게 맞는 사료를 만나요
+            프로필작성 → 추천 → 비교,
+            <br />
+            우리 아이에게 맞는 사료를 만나요
           </H2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {STEPS.map(({ num, title, sub, Icon }) => (
@@ -230,10 +234,10 @@ export default async function LandingPage() {
             <div>
               <Caption className="mb-3">왜 완그릇이에요?</Caption>
               <H2 className="mb-6">광고가 아닌, 우리 아이 기준으로 골라요</H2>
-              <Body muted className="!text-[16px] !leading-[1.7]">
+              <Body muted className="!text-[14px] !leading-[1.7]">
                 대부분의 사료 추천은 &ldquo;잘 팔리는 제품&rdquo; 중심이에요. 완그릇은 우리 아이
-                나이와 진단을 먼저 보고, 성분 기준으로만 사료를 거른 다음, 그중에서 가장 적합한
-                두 가지를 골라요. 제휴 링크와 추천 결과는 분리해서 표기해요.
+                나이와 질환을 먼저 보고, 성분 기준으로만 사료를 거른 다음, 그중에서 가장 적합한
+                두 가지를 골라요.
               </Body>
             </div>
             <div className="flex flex-col gap-3">
@@ -265,9 +269,9 @@ export default async function LandingPage() {
             className="flex flex-wrap items-center justify-between gap-6 !border-brand-text !bg-brand-text"
           >
             <div>
-              <H2 className="mb-2 !text-white">지금 아이 정보로 시작해볼까요?</H2>
+              <H2 className="mb-2 !text-white">지금 바로 시작해 볼까요?</H2>
               <Body className="!text-white/70">
-                3분 정도 걸려요. 진단이나 사료명을 모르면 비워두셔도 돼요.
+                3분 정도 걸려요. 질환이나 급여목표 등 간단하게 입력 가능해요.
               </Body>
             </div>
             <StartButton
