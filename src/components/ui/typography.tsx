@@ -8,7 +8,7 @@ export function H1({ className, children, ...rest }: Props) {
     <div
       {...rest}
       className={cn(
-        'text-[48px] font-bold leading-[1.1] tracking-[-0.025em] text-brand-text',
+        'text-[27px] font-bold leading-[1.25] tracking-[-0.025em] text-brand-text md:text-[48px] md:leading-[1.1]',
         className,
       )}
     >
@@ -22,7 +22,7 @@ export function H2({ className, children, ...rest }: Props) {
     <div
       {...rest}
       className={cn(
-        'text-[30px] font-bold leading-[1.2] tracking-[-0.02em] text-brand-text',
+        'text-[21px] font-bold leading-[1.25] tracking-[-0.02em] text-brand-text md:text-[30px] md:leading-[1.2]',
         className,
       )}
     >
@@ -36,7 +36,7 @@ export function H3({ className, children, ...rest }: Props) {
     <div
       {...rest}
       className={cn(
-        'text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-brand-text',
+        'text-[17px] font-bold leading-[1.3] tracking-[-0.01em] text-brand-text md:text-[20px]',
         className,
       )}
     >
@@ -49,7 +49,10 @@ export function H4({ className, children, ...rest }: Props) {
   return (
     <div
       {...rest}
-      className={cn('text-[18px] font-semibold leading-[1.35] text-brand-text', className)}
+      className={cn(
+        'text-[16px] font-semibold leading-[1.35] text-brand-text md:text-[18px]',
+        className,
+      )}
     >
       {children}
     </div>

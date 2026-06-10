@@ -33,7 +33,7 @@ export function AuthNavButton({ authed: authedProp }: { authed?: boolean }) {
   if (authed) {
     return (
       <form method="post" action="/auth/sign-out">
-        <Button type="submit" size="md" variant="ghost">
+        <Button type="submit" size="md" variant="ghost" className="whitespace-nowrap">
           로그아웃
         </Button>
       </form>
@@ -43,7 +43,7 @@ export function AuthNavButton({ authed: authedProp }: { authed?: boolean }) {
   const next = pathname && pathname !== '/' ? `?next=${encodeURIComponent(pathname)}` : '';
   return (
     <Link href={`/auth/sign-in${next}`}>
-      <Button size="md" variant="ghost">
+      <Button size="md" variant="ghost" className="whitespace-nowrap">
         로그인
       </Button>
     </Link>

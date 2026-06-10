@@ -22,7 +22,7 @@ export default async function SignInPage({
       <TopNav authed={false} />
       <main className="mx-auto flex min-h-[calc(100vh-68px)] max-w-[440px] flex-col items-center justify-center px-6">
         <Card padding={32} className="w-full">
-          <H2 className="text-center text-[24px]">로그인</H2>
+          <H2 className="text-center !text-[24px]">로그인</H2>
           <p className="mt-2 text-center text-[14px] leading-relaxed text-brand-sub">
             로그인하시면 추천·비교·저장 이력이 계속 기억돼요.
           </p>
