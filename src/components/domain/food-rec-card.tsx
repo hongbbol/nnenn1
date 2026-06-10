@@ -7,7 +7,7 @@ const RANK_LABEL = ['추천 1순위', '추천 2순위', '추천'];
 /** 추천 사료 카드 — 점수·근거("왜")·영양 요약 (dev-plan §M2 FoodRecCard). */
 export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) {
   const { food, score, reasons, lowConfidence } = item;
-  const accent = food.category === '습식' ? '#CEE6F7' : '#FBEFC1';
+  const accent = food.category === '습식' ? '#DDEFE7' : '#D9EEFB';
 
   return (
     <div className="relative flex flex-col gap-5 rounded-[20px] border border-border-soft bg-surface-card p-6 shadow-card-rest">
@@ -25,7 +25,7 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
               {RANK_LABEL[rank] ?? RANK_LABEL[2]}
             </span>
             {lowConfidence && (
-              <span className="inline-flex items-center gap-1 rounded-md bg-brand-yellow-soft px-2 py-[3px] text-[11px] font-semibold text-brand-yellow-dark">
+              <span className="inline-flex items-center gap-1 rounded-md bg-surface-2 px-2 py-[3px] text-[11px] font-semibold text-brand-sub">
                 <TriangleAlert size={11} /> 신뢰도 낮음
               </span>
             )}
@@ -52,7 +52,7 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
               {r.tone === 'good' ? (
                 <Check size={15} className="mt-0.5 shrink-0 text-brand-green" />
               ) : (
-                <TriangleAlert size={15} className="mt-0.5 shrink-0 text-brand-yellow-dark" />
+                <TriangleAlert size={15} className="mt-0.5 shrink-0 text-brand-danger" />
               )}
               <span className="text-brand-text">{r.label}</span>
             </div>

@@ -28,7 +28,7 @@ const HERO_FOODS = [
     brand: '로얄캐닌',
     product_name: '신장 케어 EARLY',
     category: '건식' as const,
-    accent: '#CEE6F7',
+    accent: '#D9EEFB',
     tags: ['저인', '저나트륨', '신장 케어'],
   },
   {
@@ -36,7 +36,7 @@ const HERO_FOODS = [
     brand: '힐스 사이언스 다이어트',
     product_name: 'k/d 키드니 케어',
     category: '습식' as const,
-    accent: '#FBEFC1',
+    accent: '#DDEFE7',
     tags: ['수분 보충', '저인', '신장 처방식'],
   },
 ];
@@ -107,7 +107,7 @@ export default async function LandingPage() {
               사료를{' '}
               <span
                 style={{
-                  background: 'linear-gradient(180deg, transparent 62%, #F6CC46 62%)',
+                  background: 'linear-gradient(180deg, transparent 62%, #BFE2FB 62%)',
                 }}
               >
                 골라
@@ -147,7 +147,7 @@ export default async function LandingPage() {
             <div
               className="pointer-events-none absolute -inset-10 z-0"
               style={{
-                background: 'radial-gradient(ellipse at center, #CEE6F755, transparent 70%)',
+                background: 'radial-gradient(ellipse at center, #BFE2FB55, transparent 70%)',
               }}
             />
             <Card padding={20} className="relative z-10 shadow-card-hero">
@@ -173,7 +173,7 @@ export default async function LandingPage() {
                   <FoodArt accent={f.accent} label={f.category} size={56} brand={f.brand} />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-baseline gap-1.5">
-                      <Chip variant="yellow" size="sm">
+                      <Chip variant="primary" size="sm">
                         TOP {i + 1}
                       </Chip>
                       <Small>{f.brand}</Small>
@@ -189,8 +189,8 @@ export default async function LandingPage() {
                   </div>
                 </div>
               ))}
-              <div className="mt-3 rounded-[12px] bg-brand-yellow-soft px-3.5 py-2.5">
-                <Small muted={false} className="!text-[12px] !font-semibold text-brand-yellow-dark">
+              <div className="mt-3 rounded-[12px] bg-brand-primary-soft px-3.5 py-2.5">
+                <Small muted={false} className="!text-[12px] !font-semibold text-brand-primary-ink">
                   💡 인 함량 약 52% ↓, 나트륨 약 48% ↓
                 </Small>
               </div>

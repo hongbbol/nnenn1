@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { UtensilsCrossed } from 'lucide-react';
 import { AuthNavButton } from '@/components/auth/auth-nav-button';
+import { Button } from '@/components/ui';
 import { cn } from '@/lib/cn';
 
 const NAV_ITEMS = [
@@ -23,7 +24,7 @@ export function TopNav({
       <div className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between px-8">
         <div className="flex items-center gap-2.5">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-brand-yellow text-brand-blue-deep">
+            <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-brand-primary text-white">
               <UtensilsCrossed size={20} />
             </div>
             <span className="text-[18px] font-bold tracking-[-0.025em] text-brand-text">
@@ -54,6 +55,12 @@ export function TopNav({
           <span className="rounded-[10px] px-3.5 py-2 text-[14px] font-medium text-brand-faint">
             도움말
           </span>
+          {/* 시작하기 — 인증 버튼(로그인/로그아웃) 앞에 노출. 온보딩 1단계로 진입. */}
+          <Link href="/onboarding/basics">
+            <Button variant="primary" size="md">
+              시작하기
+            </Button>
+          </Link>
           <AuthNavButton authed={authed} />
         </div>
       </div>

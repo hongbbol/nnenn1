@@ -45,7 +45,7 @@ export function PhotoUploadSlot({ name, preview, onChange }: Props) {
           size={80}
           name={name || '?'}
           imageSrc={preview ?? null}
-          accent="#FBEFC1"
+          accent="#D9EEFB"
         />
         <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/40 text-white opacity-0 transition-opacity group-hover:opacity-100">
           <Camera size={24} />

@@ -22,7 +22,7 @@ const sizeCls: Record<Size, string> = {
 
 const variantCls: Record<Variant, string> = {
   primary:
-    'bg-brand-yellow text-brand-text border border-brand-yellow shadow-btn-yellow hover:brightness-[1.02]',
+    'bg-brand-primary text-white border border-brand-primary shadow-btn-primary hover:bg-brand-primary-strong',
   dark: 'bg-brand-text text-white border border-brand-text hover:brightness-110',
   blue: 'bg-brand-blue text-brand-blue-deep border border-brand-blue hover:brightness-[1.02]',
   ghost:

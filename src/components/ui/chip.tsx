@@ -2,7 +2,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
-type Variant = 'default' | 'blue' | 'yellow' | 'soft' | 'ok' | 'danger';
+type Variant = 'default' | 'blue' | 'primary' | 'soft' | 'ok' | 'danger';
 type Size = 'sm' | 'md' | 'lg';
 
 type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
@@ -27,7 +27,7 @@ function defaultCls(selected?: boolean) {
 
 const variantCls: Record<Exclude<Variant, 'default'>, string> = {
   blue: 'bg-brand-blue text-brand-blue-deep border-transparent',
-  yellow: 'bg-brand-yellow-soft text-brand-yellow-dark border-transparent',
+  primary: 'bg-brand-primary-soft text-brand-primary-ink border-transparent',
   soft: 'bg-surface-1 text-brand-sub border-transparent',
   ok: 'bg-brand-green-soft text-brand-green border-transparent',
   danger: 'bg-brand-danger-soft text-brand-danger border-transparent',
