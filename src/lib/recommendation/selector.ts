@@ -34,20 +34,9 @@ export function highestSafetyGate(input: RecInput): SafetyGate | null {
   }, 1 as SafetyGate);
 }
 
-const MODE_LABEL: Record<DiseaseMode, string> = {
-  ckd_early: '신부전 초기/의심',
-  ckd_12: '신부전 1-2기',
-  ckd_34: '신부전 3-4기',
-  diabetes: '당뇨',
-  struvite: '결석 (스트루바이트)',
-  oxalate: '결석 (옥살레이트)',
-  ibd: 'IBD/만성 장병증',
-  pancreatitis: '췌장염',
-};
-
-export function modeLabel(mode: DiseaseMode): string {
-  return MODE_LABEL[mode];
-}
+// 라벨 맵은 의존성 없는 순수 모듈(labels.ts)로 분리 — 기존 import 경로 유지를 위해 재노출.
+import { MODE_LABEL, modeLabel } from './labels';
+export { MODE_LABEL, modeLabel };
 
 /**
  * 추천 우선순위 박스 — "지금 이 추천에서 무엇을 가장 중요하게 봤는가"(§0-2 1차 레버).
