@@ -11,6 +11,9 @@
     @apply bg-brand-bg text-brand-text font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* 한글은 어절 단위로 줄바꿈하되, 컨테이너보다 긴 단어는 강제로 꺾어 오버플로 방지 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   * {
     @apply border-border-soft;

@@ -101,26 +101,26 @@ export default async function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <TopNavServer />
 
       {/* HERO */}
-      <section className="mx-auto max-w-[1200px] px-8 pb-24 pt-16">
-        <div className="grid items-center gap-16 md:grid-cols-[1.05fr_1fr]">
+      <section className="mx-auto max-w-[1200px] px-5 pb-12 pt-8 md:px-8 md:pb-24 md:pt-16">
+        <div className="grid items-center gap-8 md:grid-cols-[1.05fr_1fr] md:gap-16">
           <div>
-            <Chip variant="blue" size="md" leading={<Leaf size={14} />} className="mb-[18px]">
+            <Chip variant="blue" size="md" leading={<Leaf size={14} />} className="mb-3 md:mb-[18px]">
               중·노령 고양이 전용
             </Chip>
-            <H1 className="!text-[43px]">
+            <H1 className="md:!text-[43px]">
               우리 아이 컨디션에 맞는
               <br />
               사료를 알려드려요
             </H1>
-            <Body muted className="mt-6 max-w-[520px] !text-[14px] !leading-[1.65]">
+            <Body muted className="mt-4 max-w-[520px] !text-[14px] !leading-[1.55] md:mt-6 md:!leading-[1.65]">
               나이·체중·질환을 종합해서 가장 부담이 적은 사료 두 가지를 추천해요.
               왜 적합한지 한 줄 요약과 체크리스트로 보여드리고, 현재 사료와 성분도 표로 비교해드려요.
             </Body>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row md:mt-8">
               <StartButton
                 prefill={prefill}
                 prefillCatId={ownedCat?.id ?? null}
@@ -131,7 +131,7 @@ export default async function LandingPage() {
                 <Button variant="ghost">예시 결과 먼저 보기</Button>
               </Link>
             </div>
-            <div className="mt-9 flex flex-wrap gap-6 text-[13px] text-brand-sub">
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5 text-[13px] text-brand-sub md:mt-9 md:gap-6">
               <span className="flex items-center gap-1.5">
                 <Check size={14} className="text-brand-green" /> 고양이 최적 맞춤
               </span>
@@ -202,23 +202,28 @@ export default async function LandingPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-surface-1 py-20">
-        <div className="mx-auto max-w-[1200px] px-8">
+      <section className="bg-surface-1 py-10 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
           <Caption className="mb-3">어떻게 알 수 있어요?</Caption>
-          <H2 className="mb-12 max-w-[640px]">
+          <H2 className="mb-8 max-w-[640px] md:mb-12">
             프로필작성 → 추천 → 비교,
             <br />
             우리 아이에게 맞는 사료를 만나요
           </H2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
             {STEPS.map(({ num, title, sub, Icon }) => (
-              <Card key={num} padding={28}>
-                <Mono className="text-[13px] font-semibold text-brand-faint">{num}</Mono>
-                <div className="mb-[18px] mt-4 flex h-12 w-12 items-center justify-center rounded-[14px] bg-brand-blue text-brand-blue-deep">
-                  <Icon size={24} />
+              <Card key={num} className="!p-5 md:!p-7">
+                {/* 모바일: 아이콘 | 번호+제목 가로 배치, md 이상: 기존 세로 배치 */}
+                <div className="grid grid-cols-[auto_1fr] items-center gap-x-3 md:block">
+                  <Mono className="col-start-2 row-start-1 text-[13px] font-semibold text-brand-faint">
+                    {num}
+                  </Mono>
+                  <div className="col-start-1 row-span-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-[12px] bg-brand-blue text-brand-blue-deep md:mb-[18px] md:mt-4 md:h-12 md:w-12 md:rounded-[14px]">
+                    <Icon size={24} />
+                  </div>
+                  <H3 className="col-start-2 row-start-2 md:mb-2">{title}</H3>
                 </div>
-                <H3 className="mb-2">{title}</H3>
-                <Body muted className="!text-[14px]">
+                <Body muted className="mt-2.5 !text-[14px] md:mt-0">
                   {sub}
                 </Body>
               </Card>
@@ -228,13 +233,13 @@ export default async function LandingPage() {
       </section>
 
       {/* WHY */}
-      <section className="py-20">
-        <div className="mx-auto max-w-[1200px] px-8">
-          <div className="grid items-start gap-16 md:grid-cols-2">
+      <section className="py-10 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16">
             <div>
               <Caption className="mb-3">왜 완그릇이에요?</Caption>
-              <H2 className="mb-6">광고가 아닌, 우리 아이 기준으로 골라요</H2>
-              <Body muted className="!text-[14px] !leading-[1.7]">
+              <H2 className="mb-4 md:mb-6">광고가 아닌, 우리 아이 기준으로 골라요</H2>
+              <Body muted className="!text-[14px] !leading-[1.55] md:!leading-[1.7]">
                 대부분의 사료 추천은 &ldquo;잘 팔리는 제품&rdquo; 중심이에요. 완그릇은 우리 아이
                 나이와 질환을 먼저 보고, 성분 기준으로만 사료를 거른 다음, 그중에서 가장 적합한
                 두 가지를 골라요.
@@ -262,12 +267,9 @@ export default async function LandingPage() {
       </section>
 
       {/* BIG CTA */}
-      <section className="pb-24">
-        <div className="mx-auto max-w-[1200px] px-8">
-          <Card
-            padding={48}
-            className="flex flex-wrap items-center justify-between gap-6 !border-brand-text !bg-brand-text"
-          >
+      <section className="pb-12 md:pb-24">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Card className="flex flex-wrap items-center justify-between gap-6 !border-brand-text !bg-brand-text !p-7 md:!p-12">
             <div>
               <H2 className="mb-2 !text-white">지금 바로 시작해 볼까요?</H2>
               <Body className="!text-white/70">
