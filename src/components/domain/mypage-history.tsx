@@ -24,8 +24,9 @@ export function MyPageHistory({
   const multi = cats.length > 1;
   const [activeId, setActiveId] = useState(cats[0]?.id ?? '');
 
-  const shownRecs = multi ? recs.filter((r) => r.cat_id === activeId) : recs;
-  const shownComps = multi ? comps.filter((c) => c.cat_id === activeId) : comps;
+  // 추천처럼 비교도 최근 3건만 노출. (이미 created_at DESC 정렬 → 앞 3개가 최신)
+  const shownRecs = (multi ? recs.filter((r) => r.cat_id === activeId) : recs).slice(0, 3);
+  const shownComps = (multi ? comps.filter((c) => c.cat_id === activeId) : comps).slice(0, 3);
 
   return (
     <>
@@ -58,7 +59,7 @@ export function MyPageHistory({
       </section>
 
       <section className="mt-10">
-        <SectionTitle>비교 히스토리</SectionTitle>
+        <SectionTitle hint={`최근 ${shownComps.length}건`}>비교 히스토리</SectionTitle>
         <ComparisonHistoryList items={shownComps} />
       </section>
     </>
