@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
+import { trackEvent } from '@/lib/analytics';
 import type { GuestCat } from '@/lib/domain/types';
 
 type BtnVariant = React.ComponentProps<typeof Button>['variant'];
@@ -40,7 +41,12 @@ export function StartButton({
   if (!prefill) {
     return (
       <Link href="/onboarding/basics">
-        <Button variant={variant} trailing={trailing} full={full}>
+        <Button
+          variant={variant}
+          trailing={trailing}
+          full={full}
+          onClick={() => trackEvent('cta_start_clicked', { source: 'hero', returning: false })}
+        >
           {label}
         </Button>
       </Link>
@@ -53,6 +59,7 @@ export function StartButton({
       trailing={trailing}
       full={full}
       onClick={() => {
+        trackEvent('cta_start_clicked', { source: 'hero', returning: true });
         resetCat();
         setCat(prefill);
         setEditingCatId(prefillCatId ?? null);

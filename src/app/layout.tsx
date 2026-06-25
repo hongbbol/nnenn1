@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import '@/styles/globals.css';
 
 const pretendard = localFont({
@@ -23,9 +25,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // GA4 측정 ID: 환경변수 우선, 없으면 프로덕션 빌드에서만 기본값 사용.
+  // (로컬·dev에서 실제 속성으로 트래픽이 새어 행동 분석이 오염되는 걸 방지)
+  const gaId =
+    process.env.NEXT_PUBLIC_GA_ID ||
+    (process.env.NODE_ENV === 'production' ? 'G-B1CR2K6LNQ' : undefined);
   return (
     <html lang="ko" className={pretendard.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

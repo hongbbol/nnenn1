@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui';
 import { saveCurrentComparison } from '@/app/compare/_actions';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * "현재 사료와 비교하기" — 비교를 히스토리에 저장한 뒤 /compare로 이동.
@@ -24,6 +25,7 @@ export function CompareButton() {
           setBusy(true);
           try {
             await saveCurrentComparison();
+            trackEvent('compare_clicked');
             router.push('/compare');
           } catch (e) {
             setErr(e instanceof Error ? e.message : '비교 중 문제가 생겼어요.');

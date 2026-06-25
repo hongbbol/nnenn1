@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { CircleUserRound, UtensilsCrossed } from 'lucide-react';
 import { AuthNavButton } from '@/components/auth/auth-nav-button';
 import { Button } from '@/components/ui';
+import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
 
 const NAV_ITEMS = [
@@ -75,7 +76,12 @@ export function TopNav({
           </span>
           {/* 시작하기 — 인증 버튼(로그인/로그아웃) 앞에 노출. 온보딩 1단계로 진입. */}
           <Link href="/onboarding/basics">
-            <Button variant="primary" size="md" className="whitespace-nowrap">
+            <Button
+              variant="primary"
+              size="md"
+              className="whitespace-nowrap"
+              onClick={() => trackEvent('cta_start_clicked', { source: 'nav' })}
+            >
               시작하기
             </Button>
           </Link>
