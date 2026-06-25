@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
 import { useSaveProfile } from '@/lib/onboarding/use-save-profile';
+import { trackEvent } from '@/lib/analytics';
 import { ONBOARDING_STEPS } from './_steps';
 
 type Props = {
@@ -30,9 +31,14 @@ export function OnboardingNav({ step, canProceed, onNext }: Props) {
 
   const handleNext = useCallback(async () => {
     if (!canProceed) return;
-    if (onNext) await onNext();
-    if (isLast) router.push('/recommendations');
-    else router.push(ONBOARDING_STEPS[step + 1].path);
+    if (onNext) await onNext(); // goal 단계 저장 실패 시 throw → 아래 계측·이동 미실행
+    trackEvent('onboarding_step_completed', { step: ONBOARDING_STEPS[step].id });
+    if (isLast) {
+      trackEvent('recommendation_generated');
+      router.push('/recommendations');
+    } else {
+      router.push(ONBOARDING_STEPS[step + 1].path);
+    }
   }, [canProceed, isLast, onNext, router, step]);
 
   // 수정 모드 "완료" — 어느 단계에서든 현재 입력을 저장하고 마이페이지로. (신규 온보딩에는 없음)
