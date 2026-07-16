@@ -6166,7 +6166,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult maintenance"
   },
@@ -6214,7 +6214,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult maintenance (indoor)"
   },
@@ -6260,7 +6260,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Kitten (growth) / pregnant·nursing cats"
   },
@@ -9758,7 +9758,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -9805,7 +9805,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Kitten (up to 12 months)"
   },
@@ -17125,7 +17125,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Therapeutic (Adult) — 만성신부전·하부요로질환"
   },
@@ -17568,7 +17568,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -17614,7 +17614,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -17655,7 +17655,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -17699,7 +17699,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -20718,7 +20718,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (sterilised/neutered)"
   },
@@ -20766,7 +20766,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Kitten (Growth) / Gestation & Lactation"
   },
@@ -23761,7 +23761,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "보조식",
     "life_stage_raw": "Adult"
   },
@@ -25962,7 +25962,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (1-7 years)"
   },
@@ -26011,7 +26011,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (1-7 years)"
   },
@@ -26118,7 +26118,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "All life stages incl. Kitten (8 weeks onwards)"
   },
@@ -28687,7 +28687,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (sterilized, 2-10 years)"
   },
@@ -28785,7 +28785,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Junior/Kitten (sterilized, from sterilisation until 24 months)"
   },
@@ -30864,7 +30864,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (Sterilized/Neutered)"
   },
@@ -30914,7 +30914,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (Therapeutic — chronic/temporary renal insufficiency)"
   },
@@ -40080,7 +40080,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -40131,7 +40131,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (Sterilised / neutered)"
   },
