@@ -4,6 +4,7 @@ import { getCurrentUser } from '@/lib/auth/user';
 import type {
   CatRow,
   ComparisonRow,
+  Food,
   RecommendationRow,
 } from '@/lib/domain/types';
 
@@ -119,4 +120,60 @@ export async function getRecentComparisons(limit = 5): Promise<ComparisonRow[]> 
     .order('created_at', { ascending: false })
     .limit(limit);
   return (data as ComparisonRow[] | null) ?? [];
+}
+
+/**
+ * 추천 후보 사료 전체(active=true) — nnenn2 ETL로 시드된 `foods` 테이블.
+ *
+ * - PostgREST 기본 max_rows(1000) 때문에 1333행은 range 페이지네이션으로 수집.
+ * - 레거시 안전 매핑: 마이그레이션 이전 행엔 kr_available/미네랄 컬럼이 없을 수 있어
+ *   `kr_available ?? true`(구 시드 통과), 미네랄은 `?? null`.
+ * - 실패/빈 테이블이면 [] 반환 — 호출부가 SEED_FOODS로 폴백한다.
+ */
+export async function getRecommendationFoods(): Promise<Food[]> {
+  const supabase = await createSupabaseServerClient();
+  const PAGE = 1000;
+  const rows: Record<string, unknown>[] = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await supabase
+      .from('foods')
+      .select('*')
+      .eq('active', true)
+      .order('id', { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (error || !data) break;
+    rows.push(...(data as Record<string, unknown>[]));
+    if (data.length < PAGE) break;
+  }
+  return rows.map((r) => ({
+    id: r.id as string,
+    brand: (r.brand as string) ?? '',
+    product_name: (r.product_name as string) ?? '',
+    category: (r.category as Food['category']) ?? '건식',
+    age_fit: (r.age_fit as Food['age_fit']) ?? [],
+    condition_fit: (r.condition_fit as string[]) ?? [],
+    protein_pct: (r.protein_pct as number | null) ?? null,
+    fat_pct: (r.fat_pct as number | null) ?? null,
+    fiber_pct: (r.fiber_pct as number | null) ?? null,
+    ash_pct: (r.ash_pct as number | null) ?? null,
+    moisture_pct: (r.moisture_pct as number | null) ?? null,
+    phosphorus_pct: (r.phosphorus_pct as number | null) ?? null,
+    sodium_pct: (r.sodium_pct as number | null) ?? null,
+    potassium_pct: (r.potassium_pct as number | null) ?? null,
+    chloride_pct: (r.chloride_pct as number | null) ?? null,
+    taurine_pct: (r.taurine_pct as number | null) ?? null,
+    epa_dha_pct: (r.epa_dha_pct as number | null) ?? null,
+    omega3_pct: (r.omega3_pct as number | null) ?? null,
+    kcal_per_100g: (r.kcal_per_100g as number | null) ?? null,
+    ingredient_summary: (r.ingredient_summary as string | null) ?? null,
+    ingredient_keywords: (r.ingredient_keywords as string[]) ?? [],
+    form: (r.form as string | null) ?? null,
+    rec_daily_g: (r.rec_daily_g as number | null) ?? null,
+    tags: (r.tags as string[]) ?? [],
+    image_url: (r.image_url as string | null) ?? null,
+    affiliate_links: (r.affiliate_links as Record<string, string> | null) ?? null,
+    price_per_kg_krw: (r.price_per_kg_krw as number | null) ?? null,
+    active: (r.active as boolean) ?? true,
+    kr_available: (r.kr_available as boolean | undefined) ?? true,
+  }));
 }

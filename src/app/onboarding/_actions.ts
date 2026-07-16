@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/auth/user';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { recommendFromProfile, SEED_FOODS } from '@/lib/recommendation';
+import { getRecommendationFoods } from '@/lib/data/queries';
 import { CAT_LIMIT } from '@/lib/domain/constants';
 import type { GuestCat, RecSummary } from '@/lib/domain/types';
 
@@ -34,7 +35,10 @@ export async function saveCatAndRecommend(
     const user = await getCurrentUser();
     if (!user) return { ok: false, error: '로그인이 필요해요.' };
 
-    const result = recommendFromProfile(cat, SEED_FOODS);
+    // 실데이터(foods 테이블, nnenn2 ETL 1333 SKU) 우선 — 비어 있으면 시드 폴백(로컬/미시드 환경).
+    const dbFoods = await getRecommendationFoods();
+    const candidates = dbFoods.length > 0 ? dbFoods : SEED_FOODS;
+    const result = recommendFromProfile(cat, candidates);
     if (!result) {
       return { ok: false, error: '추천에 필요한 정보가 부족해요. (필수 입력 누락)' };
     }

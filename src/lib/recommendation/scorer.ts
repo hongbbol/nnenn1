@@ -8,10 +8,20 @@ import type { Food } from '@/lib/domain/types';
 import type { DiseaseMode, RecInput, ScoreReason, ScoredFood } from './types';
 import {
   carbGramsPer1000kcal,
+  mineralGramsPer1000kcal,
   phosphorusGramsPer1000kcal,
   proteinGramsPer1000kcal,
 } from './nutrition';
-import { CKD_PHOSPHORUS, DIABETES_CARB, KEYWORDS, matchesAny, URINARY_MOISTURE } from './rules';
+import {
+  CKD_PHOSPHORUS,
+  CKD_POTASSIUM,
+  CKD_SODIUM,
+  DIABETES_CARB,
+  KEYWORDS,
+  matchesAny,
+  URINARY_DRY_SODIUM,
+  URINARY_MOISTURE,
+} from './rules';
 
 /** 0~1 clamp. */
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
@@ -36,6 +46,85 @@ function hay(food: Food): string[] {
 }
 
 type Lever = { score: number; weight: number; reason: ScoreReason | null };
+
+/**
+ * 비활성 레버 — 미네랄 결측 시 중립 점수 대신 가중치 0으로 제외한다.
+ * Na/K/EPA+DHA는 보조 레버라 결측=무시(가중 재분배)가 온당하고(스키마 §1-3 임의 추정 금지),
+ * 데이터가 없는 기존 후보의 점수·순위를 흔들지 않는다. (핵심 레버 결측은 각 lever가 warn 처리.)
+ */
+const INACTIVE: Lever = { score: 0, weight: 0, reason: null };
+
+/** CKD 나트륨 — 0.5–1 g/1000kcal 적정, 고·초저 회피(§3-A, 근거 약함 → 저가중 보조). */
+function ckdSodiumLever(food: Food, weight: number): Lever {
+  const na = mineralGramsPer1000kcal(food.sodium_pct, food.kcal_per_100g);
+  if (na == null) return INACTIVE;
+  let score: number;
+  let reason: ScoreReason | null = null;
+  if (na >= CKD_SODIUM.idealLo && na <= CKD_SODIUM.idealHi) {
+    score = 1;
+    reason = { weight: 0.5, tone: 'good', label: `나트륨 적정 ${na.toFixed(2)} g/1000kcal` };
+  } else if (na < CKD_SODIUM.idealLo) {
+    // 초저나트륨(RAAS 자극) — 소폭 감점만.
+    score = 0.5;
+  } else {
+    score = lowerIsBetter(na, CKD_SODIUM.idealHi, CKD_SODIUM.cap);
+    if (na > 1.8) reason = { weight: 0.6, tone: 'warn', label: `나트륨 다소 높음 ${na.toFixed(2)} g/1000kcal` };
+  }
+  return { score, weight, reason };
+}
+
+/** CKD 칼륨 — 1.4–2.6 g/1000kcal 보충 가점(§3-A, IRIS 2023 근거 중간). */
+function ckdPotassiumLever(food: Food, weight: number): Lever {
+  const k = mineralGramsPer1000kcal(food.potassium_pct, food.kcal_per_100g);
+  if (k == null) return INACTIVE;
+  const inRange = k >= CKD_POTASSIUM.lo && k <= CKD_POTASSIUM.hi;
+  const score = inRange
+    ? 1
+    : k < CKD_POTASSIUM.lo
+      ? higherIsBetter(k, 0.8, CKD_POTASSIUM.lo)
+      : lowerIsBetter(k, CKD_POTASSIUM.hi, 4);
+  return {
+    score,
+    weight,
+    reason: inRange ? { weight: 0.5, tone: 'good', label: `칼륨 ${k.toFixed(1)} g/1000kcal · 보충 적정` } : null,
+  };
+}
+
+/**
+ * 요로 건식 나트륨 음수 유도 — 3.0–3.3 g/1000kcal(§3-B, 제조사 관여 근거 '중간').
+ * ⚠ CKD 동반이면 미적용(Na 증량 대신 습식 희석 — §4 충돌 규칙). 습식도 미적용(수분 레버 몫).
+ */
+function urinaryDrySodiumLever(food: Food, input: RecInput, weight: number): Lever {
+  const hasCkd = input.diseases.some((d) => d === 'ckd_early' || d === 'ckd_12' || d === 'ckd_34');
+  if (hasCkd || food.category !== '건식') return INACTIVE;
+  const na = mineralGramsPer1000kcal(food.sodium_pct, food.kcal_per_100g);
+  if (na == null) return INACTIVE;
+  const inRange = na >= URINARY_DRY_SODIUM.lo && na <= URINARY_DRY_SODIUM.hi;
+  const score = inRange
+    ? 1
+    : na < URINARY_DRY_SODIUM.lo
+      ? higherIsBetter(na, 1.0, URINARY_DRY_SODIUM.lo) * 0.8
+      : lowerIsBetter(na, URINARY_DRY_SODIUM.hi, 4.5);
+  return {
+    score,
+    weight,
+    reason: inRange
+      ? { weight: 0.6, tone: 'good', label: `나트륨 ${na.toFixed(1)} g/1000kcal · 음수 유도 설계` }
+      : null,
+  };
+}
+
+/** 노령 나트륨 과량 회피(§2-8: 잠재 CKD·고혈압 고려) — 보조 감점. */
+function seniorSodiumLever(food: Food, weight: number): Lever {
+  const na = mineralGramsPer1000kcal(food.sodium_pct, food.kcal_per_100g);
+  if (na == null) return INACTIVE;
+  const score = lowerIsBetter(na, 1.5, 3.5);
+  return {
+    score,
+    weight,
+    reason: na > 2.5 ? { weight: 0.5, tone: 'warn', label: `나트륨 높음 ${na.toFixed(1)} g/1000kcal` } : null,
+  };
+}
 
 /** CKD — 인 제한이 1차 레버. 범위 내에서 낮을수록 가점(§3-A). */
 function ckdLever(food: Food, strict: boolean): Lever {
@@ -146,8 +235,21 @@ function digestibilityLever(food: Food, weight: number): Lever {
   return { score: 0.3, weight, reason: null };
 }
 
-/** 오메가-3 공통 가점(노령·관절·항염). */
+/**
+ * 오메가-3 공통 가점(노령·관절·항염).
+ * EPA+DHA 분리값 우선 — 고양이는 ALA→EPA/DHA 전환 불가라 총 오메가3(ALA 포함)보다
+ * 강한 신호(스키마 §영양, Rivers 1975). 없으면 기존 총 오메가3 fallback(동작 불변).
+ */
 function omega3Lever(food: Food, weight: number): Lever {
+  const ed = food.epa_dha_pct;
+  if (ed != null && ed > 0) {
+    const s = higherIsBetter(ed, 0.05, 0.3);
+    return {
+      score: s,
+      weight,
+      reason: s > 0.5 ? { weight: 0.5, tone: 'good', label: `EPA+DHA ${ed}% 보강` } : null,
+    };
+  }
   const o = food.omega3_pct;
   if (o == null || o <= 0) return { score: 0.3, weight, reason: null };
   const s = higherIsBetter(o, 0.1, 0.6);
@@ -228,10 +330,15 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
     levers.push(proteinLever(food, 0.15));
     levers.push(energyLever(food, 'high', 0.15));
     levers.push(omega3Lever(food, 0.15));
+    // 보조 미네랄 레버(§3-A) — 데이터 있을 때만 활성(결측=INACTIVE, 기존 순위 보존).
+    levers.push(ckdSodiumLever(food, 0.1));
+    levers.push(ckdPotassiumLever(food, 0.1));
   } else if (primaryMode === 'struvite' || primaryMode === 'oxalate') {
     levers.push(moistureLever(food, 0.6));
     levers.push(proteinLever(food, 0.2));
     levers.push(omega3Lever(food, 0.2));
+    // 건식 한정 나트륨 음수 유도(§3-B) — CKD 동반 시 자체 비활성(§4 충돌).
+    levers.push(urinaryDrySodiumLever(food, input, 0.15));
   } else if (primaryMode === 'diabetes') {
     levers.push(...diabetesLevers(food));
     levers.push(moistureLever(food, 0.25));
@@ -263,6 +370,8 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
       }
       levers.push(energyLever(food, 'high', 0.2));
       levers.push(omega3Lever(food, 0.2));
+      // 노령 나트륨 과량 회피(§2-8) — 데이터 있을 때만.
+      if (senior) levers.push(seniorSodiumLever(food, 0.1));
     }
   }
 
