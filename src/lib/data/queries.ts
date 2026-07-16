@@ -7,6 +7,7 @@ import type {
   Food,
   RecommendationRow,
 } from '@/lib/domain/types';
+import type { FoodOption } from '@/lib/recommendation/food-options';
 
 /** 현재 로그인 사용자의 가장 최근 고양이 1마리. 없으면 null. (랜딩 prefill 등 단일 진입점용) */
 export async function getOwnedCat(): Promise<CatRow | null> {
@@ -145,7 +146,12 @@ export async function getRecommendationFoods(): Promise<Food[]> {
     rows.push(...(data as Record<string, unknown>[]));
     if (data.length < PAGE) break;
   }
-  return rows.map((r) => ({
+  return rows.map(mapFoodRow);
+}
+
+/** DB foods 1행 → 앱 Food 매핑(레거시 안전 기본값 포함 — getRecommendationFoods 주석 참조). */
+function mapFoodRow(r: Record<string, unknown>): Food {
+  return {
     id: r.id as string,
     brand: (r.brand as string) ?? '',
     product_name: (r.product_name as string) ?? '',
@@ -175,5 +181,52 @@ export async function getRecommendationFoods(): Promise<Food[]> {
     price_per_kg_krw: (r.price_per_kg_krw as number | null) ?? null,
     active: (r.active as boolean) ?? true,
     kr_available: (r.kr_available as boolean | undefined) ?? true,
-  }));
+  };
+}
+
+/**
+ * 사료 검색용 경량 옵션(id·브랜드·제품명·분류) — 온보딩 "지금 먹이는 사료"·"제외 사료" 검색.
+ *
+ * 한국 구매 가능(kr_available) 사료만 노출한다 — 추천 하드 게이트가 KR 한정이라
+ * 제외 선택은 비유통 사료에 무의미하고, 현재 사료도 국내 사용자는 KR 유통분이 현실적.
+ * 실패/빈 테이블이면 [] 반환 — 호출부가 시드 옵션으로 폴백한다.
+ */
+export async function getFoodOptionRows(): Promise<FoodOption[]> {
+  const supabase = await createSupabaseServerClient();
+  const PAGE = 1000;
+  const rows: FoodOption[] = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await supabase
+      .from('foods')
+      .select('id, brand, product_name, category')
+      .eq('active', true)
+      .eq('kr_available', true)
+      .order('brand', { ascending: true })
+      .order('product_name', { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (error || !data) break;
+    for (const r of data) {
+      rows.push({
+        id: r.id as string,
+        brand: (r.brand as string) ?? '',
+        productName: (r.product_name as string) ?? '',
+        category: (r.category as FoodOption['category']) ?? '건식',
+      });
+    }
+    if (data.length < PAGE) break;
+  }
+  return rows;
+}
+
+/** id로 사료 1건(active) 조회 — 비교 baseline(현재 사료) 해석용. 없으면 null. */
+export async function getFoodById(id: string): Promise<Food | null> {
+  const supabase = await createSupabaseServerClient();
+  const { data, error } = await supabase
+    .from('foods')
+    .select('*')
+    .eq('id', id)
+    .eq('active', true)
+    .maybeSingle();
+  if (error || !data) return null;
+  return mapFoodRow(data as Record<string, unknown>);
 }

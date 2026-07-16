@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Check, ChevronDown, TriangleAlert } from 'lucide-react';
+import { Check, ChevronDown, Info, TriangleAlert } from 'lucide-react';
 import type { RecommendationRow } from '@/lib/domain/types';
 import { modeLabel } from '@/lib/recommendation/labels';
 import { formatDate } from '@/lib/format';
@@ -152,11 +152,13 @@ function RecHistoryDetail({ row: r }: { row: RecommendationRow }) {
                       >
                         {reason.tone === 'good' ? (
                           <Check size={14} className="mt-0.5 shrink-0 text-brand-green" />
-                        ) : (
+                        ) : reason.tone === 'warn' ? (
                           <TriangleAlert
                             size={14}
                             className="mt-0.5 shrink-0 text-brand-danger"
                           />
+                        ) : (
+                          <Info size={14} className="mt-0.5 shrink-0 text-brand-faint" />
                         )}
                         <span className="text-brand-sub">{reason.label}</span>
                       </div>

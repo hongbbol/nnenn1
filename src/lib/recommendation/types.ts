@@ -40,8 +40,8 @@ export type ScoreReason = {
   /** 우선순위 박스/카드 정렬용 가중치(0~1, 높을수록 중요). */
   weight: number;
   label: string;
-  /** 긍정(가점) / 주의(감점·경고) */
-  tone: 'good' | 'warn';
+  /** 긍정(가점) / 주의(감점·경고) / 중립 팩트(점수 무관 표시 보강) */
+  tone: 'good' | 'warn' | 'info';
 };
 
 export type ScoredFood = {

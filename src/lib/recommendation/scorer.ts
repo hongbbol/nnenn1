@@ -303,6 +303,35 @@ function curationBonus(
   return { bonus: 0, reason: null };
 }
 
+/**
+ * 카드에 보장할 최소 설명 수(warn 제외).
+ * 레버 reason은 임계값 초과 시에만 생기므로(실데이터는 값 평범·결측이 흔함) 그대로 두면
+ * 카드가 비는 경우가 많다 — 임계 미달이어도 라벨 팩트를 중립 톤으로 서술해 채운다(§5-3).
+ */
+const MIN_REASONS = 3;
+
+/** 팩트 서술형 보강 설명 — 점수와 무관한 라벨 사실만, 기존 설명과 주제 중복 없이. */
+function factReasons(food: Food, existing: ScoreReason[]): ScoreReason[] {
+  const has = (kw: string) => existing.some((r) => r.label.includes(kw));
+  const out: ScoreReason[] = [];
+  const push = (label: string) => out.push({ weight: 0.25, tone: 'info', label });
+
+  const p = proteinGramsPer1000kcal(food.protein_pct, food.kcal_per_100g);
+  if (p != null && !has('단백')) push(`단백질 ${p.toFixed(0)} g/1000kcal`);
+  if (food.moisture_pct != null && !has('수분')) {
+    push(
+      food.category === '습식'
+        ? `습식 · 수분 ${food.moisture_pct}%로 음수 보충`
+        : `수분 ${food.moisture_pct}%`,
+    );
+  }
+  if (food.kcal_per_100g != null && !has('kcal')) push(`${food.kcal_per_100g} kcal/100g`);
+  const ph = phosphorusGramsPer1000kcal(food.phosphorus_pct, food.kcal_per_100g);
+  if (ph != null && !has('인 ')) push(`인 ${ph.toFixed(2)} g/1000kcal`);
+  if (food.kr_available) push('한국에서 구매 가능');
+  return out;
+}
+
 function aggregate(
   levers: Lever[],
   food: Food,
@@ -315,6 +344,10 @@ function aggregate(
   const reasons = [...levers.map((l) => l.reason), curation.reason]
     .filter((r): r is ScoreReason => r != null)
     .sort((a, b) => b.weight - a.weight);
+  const informative = reasons.filter((r) => r.tone !== 'warn').length;
+  if (informative < MIN_REASONS) {
+    reasons.push(...factReasons(food, reasons).slice(0, MIN_REASONS - informative));
+  }
   const lowConfidence = reasons.some((r) => r.tone === 'warn' && r.label.includes('데이터'));
   return { food, score: Math.round(score), reasons, lowConfidence };
 }
@@ -378,6 +411,61 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
   }
 
   return aggregate(levers, food, curationBonus(food, input, primaryMode));
+}
+
+/**
+ * 상대비교 설명 — 통과 후보군 안에서 모드의 1차 지표 기준 상위 몇 %인지.
+ * TOP 카드에만 붙인다(engine). 상위 절반 안일 때만 반환(하위권 홍보 금지),
+ * 후보가 5개 미만이면 백분위가 무의미해 생략.
+ */
+export function relativeReason(
+  food: Food,
+  pool: Food[],
+  primaryMode: DiseaseMode | null,
+): ScoreReason | null {
+  if (pool.length < 5) return null;
+
+  let value: (f: Food) => number | null;
+  let lowerBetter: boolean;
+  let name: string;
+  if (primaryMode === 'ckd_early' || primaryMode === 'ckd_12' || primaryMode === 'ckd_34') {
+    value = (f) => phosphorusGramsPer1000kcal(f.phosphorus_pct, f.kcal_per_100g);
+    lowerBetter = true;
+    name = '인이 낮은';
+  } else if (primaryMode === 'struvite' || primaryMode === 'oxalate') {
+    value = (f) => f.moisture_pct;
+    lowerBetter = false;
+    name = '수분이 높은';
+  } else if (primaryMode === 'diabetes') {
+    value = (f) =>
+      carbGramsPer1000kcal({
+        moisture: f.moisture_pct,
+        protein: f.protein_pct,
+        fat: f.fat_pct,
+        ash: f.ash_pct,
+        fiber: f.fiber_pct,
+        kcalPer100g: f.kcal_per_100g,
+      });
+    lowerBetter = true;
+    name = '탄수가 낮은';
+  } else {
+    value = (f) => proteinGramsPer1000kcal(f.protein_pct, f.kcal_per_100g);
+    lowerBetter = false;
+    name = '단백질이 높은';
+  }
+
+  const mine = value(food);
+  if (mine == null) return null;
+  const values = pool.map(value).filter((v): v is number => v != null);
+  if (values.length < 5) return null;
+  const betterCount = values.filter((v) => (lowerBetter ? v < mine : v > mine)).length;
+  const pct = Math.max(1, Math.ceil(((betterCount + 1) / values.length) * 100));
+  if (pct > 50) return null;
+  return {
+    weight: 0.45,
+    tone: 'info',
+    label: `통과 후보 ${values.length}개 중 ${name} 상위 ${pct}%`,
+  };
 }
 
 /** 전체 통과 후보 채점 후 내림차순 정렬. */
