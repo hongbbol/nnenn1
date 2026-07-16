@@ -89,16 +89,31 @@ def derive_food_role(completeness, sku_name, life_stage):
 
 
 def derive_age_fit(life_stage):
-    """nnenn1 버킷(1+/7+/11+/15+)으로 매핑. 키튼은 빈 배열(태그로 보존)."""
+    """nnenn1 버킷(1+/7+/11+/15+)으로 매핑. 키튼은 빈 배열(태그로 보존).
+
+    의미: age_fit = "이 연령대 고양이에게 적합한가". 일반 성묘용(Adult/Sterilised/
+    Therapeutic)은 노령묘에게도 급여 가능하므로 **전 성묘 버킷**. 좁히는 건
+    ① 라벨이 연령 밴드를 명시한 경우(예 'Adult 1-6') ② 노령 하한 명시(7+/11+/15+)뿐.
+    (버그 수정 2026-06-24: Adult→['1+']만 주던 매핑이 11세+ 고양이에게 레날 처방식
+    포함 전 성묘식을 life_stage 게이트로 전멸시켰음.)
+    """
     s = (life_stage or "").lower()
     if any(k in s for k in ["all life", "all ages", "전연령", "all-life"]):
         return ["1+", "7+", "11+", "15+"]
-    if any(k in s for k in ["senior", "mature", "7+", "11+", "15+", "노령", "시니어", "고령"]):
-        return ["7+", "11+", "15+"]
     if any(k in s for k in ["kitten", "키튼", "growth", "성장", "reproduction", "수유", "임신"]):
         return []  # nnenn1 성묘+ 버킷에 없음 → 키튼 태그로 보존
-    # adult / maintenance / sterilised / therapeutic 등
-    return ["1+"]
+    # 노령 하한 명시 — 구체 연령이 있으면 세분화.
+    if re.search(r"1[5-9]\s*\+|1[5-9]\s*세", s):
+        return ["15+"]
+    if re.search(r"1[1-4]\s*\+|1[1-4]\s*세", s):
+        return ["11+", "15+"]
+    if any(k in s for k in ["senior", "mature", "7+", "8+", "9+", "10+", "노령", "시니어", "고령"]):
+        return ["7+", "11+", "15+"]
+    # 성묘 연령 밴드 명시(예 'Adult 1-6', '1~6세') → 젊은 성묘 한정.
+    if re.search(r"\b1\s*[-–~]\s*6\b", s):
+        return ["1+"]
+    # adult / maintenance / sterilised / therapeutic 등 일반 성묘용 → 전 성묘 버킷.
+    return ["1+", "7+", "11+", "15+"]
 
 
 # 처방식 → nnenn1 HEALTH_OPTIONS 매핑 (데이터 로직 추천용, 수의자문 추후).

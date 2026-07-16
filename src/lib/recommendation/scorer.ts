@@ -17,6 +17,7 @@ import {
   CKD_POTASSIUM,
   CKD_SODIUM,
   DIABETES_CARB,
+  fitMatches,
   KEYWORDS,
   matchesAny,
   URINARY_DRY_SODIUM,
@@ -285,19 +286,20 @@ function curationBonus(
   input: RecInput,
   primaryMode: DiseaseMode | null,
 ): { bonus: number; reason: ScoreReason | null } {
+  // 별칭 매칭(rules.CONDITION_ALIASES) — 시드('ckd')와 nnenn2 ETL 한글 라벨('신부전 1-2기') 모두 흡수.
   const fit = food.condition_fit.map((c) => c.toLowerCase());
   const mk = (label: string): ScoreReason => ({ weight: 0.85, tone: 'good', label });
 
   if (primaryMode) {
     const keys = MODE_FIT_KEYS[primaryMode];
-    if (fit.some((f) => keys.includes(f))) return { bonus: 12, reason: mk('이 질환을 위해 설계된 관리식') };
+    if (keys.some((k) => fitMatches(fit, k))) return { bonus: 12, reason: mk('이 질환을 위해 설계된 관리식') };
     return { bonus: 0, reason: null };
   }
   if (input.goal === '체중관리 - 감량' || input.goal === '체중관리 - 증량') {
-    return fit.includes('weight') ? { bonus: 12, reason: mk('체중관리 전용식') } : { bonus: 0, reason: null };
+    return fitMatches(fit, 'weight') ? { bonus: 12, reason: mk('체중관리 전용식') } : { bonus: 0, reason: null };
   }
   const senior = input.ageGroup === '11+' || input.ageGroup === '15+';
-  if (senior && fit.includes('senior')) return { bonus: 8, reason: mk('노령 맞춤식') };
+  if (senior && fitMatches(fit, 'senior')) return { bonus: 8, reason: mk('노령 맞춤식') };
   return { bonus: 0, reason: null };
 }
 

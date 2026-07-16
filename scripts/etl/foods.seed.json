@@ -5,7 +5,10 @@
     "product_name": "인도어 어덜트 드라이 캣 푸드",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -56,7 +59,10 @@
     "product_name": "유리너리 SO 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -318,7 +324,10 @@
     "product_name": "처방식 c/d 멀티케어 치킨 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -372,7 +381,10 @@
     "product_name": "처방식 k/d 키드니 케어 치킨 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -430,7 +442,10 @@
     "product_name": "윌더니스 어덜트 캣 치킨 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -474,7 +489,10 @@
     "product_name": "테이스트풀스 어덜트 인도어 치킨&브라운라이스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -522,7 +540,10 @@
     "product_name": "테이스트풀스 어덜트 치킨 파테(습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -567,7 +588,10 @@
     "product_name": "트루 솔루션스 헤어볼 컨트롤 치킨&오트밀",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -618,7 +642,10 @@
     "product_name": "코어 오리지널 디보운드 터키 어덜트 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 45.0,
@@ -663,7 +690,10 @@
     "product_name": "코어 파테 치킨/터키/치킨간(습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -705,7 +735,10 @@
     "product_name": "컴플리트 헬스 인도어 디보운드 치킨(곡물 포함)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -802,7 +835,10 @@
     "product_name": "코어+ 인도어 그레인프리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -889,7 +925,10 @@
     "product_name": "인도어 앙트레 (가금류 & 어류)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -935,7 +974,10 @@
     "product_name": "바운티풀 캐치",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -1026,7 +1068,10 @@
     "product_name": "HFC 내추럴 치킨 필레 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 15.0,
@@ -1070,7 +1115,10 @@
     "product_name": "홀리스틱 메인터넌스 치킨&터키 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -1118,7 +1166,10 @@
     "product_name": "펑셔널 중성화묘 새먼 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -1170,7 +1221,10 @@
     "product_name": "펑셔널 안티헤어볼 치킨&라이스 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -1219,7 +1273,10 @@
     "product_name": "HFC 내추럴 플러스 치킨 브레스트 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 16.0,
@@ -1263,7 +1320,10 @@
     "product_name": "치킨 그레인프리 키블 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -1310,7 +1370,10 @@
     "product_name": "새먼 그레인프리 키블 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -1400,7 +1463,10 @@
     "product_name": "터키&치킨 그레인프리 파테 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -1443,7 +1509,10 @@
     "product_name": "오가닉 어덜트 건식 치킨 800g",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -1490,7 +1559,10 @@
     "product_name": "오가닉 어덜트 건식 피시 800g",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -1588,7 +1660,10 @@
     "product_name": "오가닉 그레인프리 건식 중성화묘용 700g",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -1904,7 +1979,10 @@
     "product_name": "완피 그레인프리 컴플리트 어덜트 (치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -1948,7 +2026,10 @@
     "product_name": "완피 컴플리트 페이스트 캔 (치킨)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -1992,7 +2073,10 @@
     "product_name": "완피 컴플리트 페이스트 캔 (참치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -2124,7 +2208,10 @@
     "product_name": "오리젠 오리지널 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -2169,7 +2256,10 @@
     "product_name": "오리젠 식스 피쉬 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -2212,7 +2302,10 @@
     "product_name": "오리젠 툰드라 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -2393,7 +2486,10 @@
     "product_name": "인스팅트® 리미티드 인그리디언트 다이어트 그레인프리 리얼 래빗",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -2431,7 +2527,10 @@
     "product_name": "인스팅트® 로우 동결건조 밀 케이지프리 치킨 레시피",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -2570,7 +2669,10 @@
     "product_name": "메달시리즈 고단백 키블 인도어 캣 터키 & 치킨 레시피",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -2665,7 +2767,10 @@
     "product_name": "프로플랜 컴플리트 에센셜 어덜트 치킨&라이스 (고단백, 프로바이오틱스)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -2716,7 +2821,10 @@
     "product_name": "비욘드 그레인프리 화이트미트 치킨&에그 레시피 내추럴 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -2761,7 +2869,10 @@
     "product_name": "프로플랜 베터리너리 다이어트 UR 유리너리 St/Ox 고양이용 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -2815,7 +2926,10 @@
     "product_name": "프로플랜 베터리너리 다이어트 UR 유리너리 St/Ox 고양이용 (캔)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -2953,7 +3067,10 @@
     "product_name": "티키캣 애프터다크 파테 래빗 & 치킨 리버 레시피",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -3136,7 +3253,10 @@
     "product_name": "아이엠스 프로액티브 헬스 헬시 어덜트 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -3181,7 +3301,10 @@
     "product_name": "아이엠스 프로액티브 헬스 유리너리 트랙트 헬스 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -3228,7 +3351,10 @@
     "product_name": "아이엠스 프로액티브 헬스 어덜트 인도어 웨이트 & 헤어볼 케어 치킨 & 터키 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -3320,7 +3446,10 @@
     "product_name": "아이엠스 퍼펙트 포션스 헬시 어덜트 파테 치킨 레시피 (습식 트윈팩 트레이)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -3408,7 +3537,10 @@
     "product_name": "팬시피스트 그레이비 러버스 치킨 피스트 (그릴드 치킨 풍미 그레이비)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -3456,7 +3588,10 @@
     "product_name": "팬시피스트 고메 내추럴스 화이트미트 치킨 레시피 파테",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -3498,7 +3633,10 @@
     "product_name": "팬시피스트 클래식 브로스 (치킨&야채) — 보조식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -3591,7 +3729,10 @@
     "product_name": "퍼펙트 비스트로 그레인프리 치킨 & 고구마 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -3681,7 +3822,10 @@
     "product_name": "퍼펙트 비스트로 그레인프리 치킨 파테 (습식 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -3723,7 +3867,10 @@
     "product_name": "백컨트리 리얼 덕 레시피 컷츠 그레이비 모슬 (습식 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -3765,7 +3912,10 @@
     "product_name": "리미티드 인그리디언트 다이어트 그레인프리 리얼 치킨 파테 (습식 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -4274,7 +4424,10 @@
     "product_name": "유카누바 캣 어덜트 프레시 치킨 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -4319,7 +4472,10 @@
     "product_name": "유카누바 캣 헤어볼 컨트롤 어덜트 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -4364,7 +4520,10 @@
     "product_name": "유카누바 캣 스테릴라이즈드/웨이트 컨트롤 어덜트 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -4501,7 +4660,10 @@
     "product_name": "프리스키스 엑스트라 그레이비 파테 위드 치킨 인 세이보리 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -4544,7 +4706,10 @@
     "product_name": "프리스키스 파테 믹스드 그릴",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -4588,7 +4753,10 @@
     "product_name": "프리스키스 텐더 & 크런치드 치킨·비프·당근·그린빈 풍미",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -4634,7 +4802,10 @@
     "product_name": "프리스키스 파티 믹스 오리지널 크런치 (치킨 + 간·칠면조 풍미)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -5393,7 +5564,10 @@
     "product_name": "캐니데이 퓨어 습식 캣푸드: 새먼 & 화이트피쉬 인 브로스",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -5436,7 +5610,10 @@
     "product_name": "캐니데이 굿니스 포 다이제스천: 드라이 캣푸드 (리얼 치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -5482,7 +5659,10 @@
     "product_name": "다이아몬드 내추럴스 인도어 캣 치킨 & 라이스 포뮬러",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -5820,7 +6000,10 @@
     "product_name": "어스본 홀리스틱 그레인프리 치킨 프리카세 천연 통조림 고양이 사료",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -5902,7 +6085,10 @@
     "product_name": "L.I.D. 그레인프리 치킨 & 그린피 건식 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -5945,7 +6131,10 @@
     "product_name": "L.I.D. 그레인프리 치킨 & 그린피 파테 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -6044,7 +6233,10 @@
     "product_name": "오리지널 울트라 그레인프리 인도어 치킨 & 새먼밀 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -6091,7 +6283,10 @@
     "product_name": "L.I.D. 리저브 그레인프리 그린피 & 베니슨(사슴고기) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -6129,7 +6324,10 @@
     "product_name": "뉴트로 홀섬 에센셜스 어덜트 치킨 & 브라운 라이스 레시피 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -6176,7 +6374,10 @@
     "product_name": "뉴트로 홀섬 에센셜스 인도어 어덜트 치킨 & 브라운 라이스 레시피 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -6270,7 +6471,10 @@
     "product_name": "뉴트로 퍼펙트 포션스 그레인프리 리얼 치킨 & 새우 레시피 파테 (습식 트윈팩 트레이)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.5,
@@ -6312,7 +6516,10 @@
     "product_name": "뉴트로 퍼펙트 포션스 리얼 치킨 레시피 파테 (습식 트윈팩 트레이)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -7128,7 +7335,10 @@
     "product_name": "나우 프레쉬 그레인프리 어덜트 레시피 터키·연어·오리 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -7172,7 +7382,10 @@
     "product_name": "개더 프리 에이커스 유기농 free-run 치킨 레시피 어덜트 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -7262,7 +7475,10 @@
     "product_name": "렛츠 스테이 인 치킨 인도어 드라이 (치킨·렌틸·애플 레시피)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -7663,7 +7879,10 @@
     "product_name": "인도어 컴플리트 치킨·렌틸·새먼 레시피 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -7864,7 +8083,10 @@
     "product_name": "웨루바 클래식 캣 포 리킨 치킨 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -7906,7 +8128,10 @@
     "product_name": "캣츠 인 더 키친 칙 매그닛 인 그레이비 (치킨 & 고등어)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -7948,7 +8173,10 @@
     "product_name": "캣츠 인 더 키친 러브 미 텐더 인 그레이비 (치킨·참치·오리)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -7993,7 +8221,10 @@
     "product_name": "트루럭스 온 더 캣 웍 치킨 & 비프 인 펌킨 수프",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -8037,7 +8268,10 @@
     "product_name": "트루럭스 프리티 인 핑크 살몬 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -8079,7 +8313,10 @@
     "product_name": "홀리스틱 헬시 그레인스 케이지프리 치킨 어덜트 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -8130,7 +8367,10 @@
     "product_name": "홀리스틱 헬시 웨이트 그레인프리 치킨 인도어 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -8217,7 +8457,10 @@
     "product_name": "그레인프리 치킨 파테 인도어 어덜트 습식 (5.5oz 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -8263,7 +8506,10 @@
     "product_name": "그레인프리 치킨 인 브로스 소프트 파테(스튜) 어덜트 습식 (5.5oz 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -8498,7 +8744,10 @@
     "product_name": "데일리 에센셜 건식 (치킨·비프·새먼 향)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -8547,7 +8796,10 @@
     "product_name": "플러스 하이프로틴 건식 (치킨·오션피쉬 향)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -8642,7 +8894,10 @@
     "product_name": "바이츠 리얼 치킨 인 그레이비 습식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -8737,7 +8992,10 @@
     "product_name": "크레이브 그레인프리 어덜트 건식 캣푸드 위드 프로틴 프롬 치킨 (드라이 캣 치킨 레시피)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -8780,7 +9038,10 @@
     "product_name": "크레이브 그레인프리 어덜트 건식 캣푸드 위드 프로틴 프롬 치킨 & 새먼 (드라이 캣 치킨 & 새먼 레시피)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -8825,7 +9086,10 @@
     "product_name": "크레이브 그레인프리 어덜트 건식 캣푸드 위드 프로틴 프롬 새먼 & 오션 피쉬 (드라이 캣 새먼 & 오션 피쉬)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -8918,7 +9182,10 @@
     "product_name": "네이처스 레시피 그레인프리 어덜트 인도어 위드 헤어볼 컨트롤 치킨 & 포테이토 레시피 (건식, 단종)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -9156,7 +9423,10 @@
     "product_name": "뉴트리언스 인퓨전 헬시 어덜트 인도어 캣푸드 (치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -9207,7 +9477,10 @@
     "product_name": "템테이션 클래식 크런치&소프트 캣 트릿 — 맛있는 닭고기맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -9257,7 +9530,10 @@
     "product_name": "템테이션 클래식 크런치&소프트 캣 트릿 — 시푸드 메들리맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -9311,7 +9587,10 @@
     "product_name": "템테이션 에센셜 인도어 케어 크런치&소프트 캣 트릿 — 치킨맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -9360,7 +9639,10 @@
     "product_name": "템테이션 크리미 퓨레 짜먹는 리커블 습식 캣 트릿 (치킨)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 3.5,
@@ -9637,7 +9919,10 @@
     "product_name": "캣잇 누나 인섹트 프로틴 & 치킨 레시피 (건식, 북미)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -9679,7 +9964,10 @@
     "product_name": "캣잇 누나 인섹트 프로틴 & 청어 레시피 (건식, 북미)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -9720,7 +10008,10 @@
     "product_name": "캣잇 레시피 더블 퓨전 어덜트 – 치킨 레시피 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -9815,7 +10106,10 @@
     "product_name": "캣잇 큐진 파테 — 치킨 파테 위드 리버",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -9856,7 +10150,10 @@
     "product_name": "캣잇 큐진 파테 — 비프 파테 위드 캐럿",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -9950,7 +10247,10 @@
     "product_name": "커클랜드 시그니처 슈퍼 프리미엄 헬시 웨이트 인도어 어덜트 캣 포뮬러",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -9994,7 +10294,10 @@
     "product_name": "커클랜드 시그니처 파테 캣푸드 — 치킨 레시피 (버라이어티 팩)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -10285,7 +10588,10 @@
     "product_name": "빅터 그레인프리 슈레디드 치킨 디너 컷츠 인 그레이비 (캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.17,
@@ -10422,7 +10728,10 @@
     "product_name": "홀하티드 그레인프리 치킨 레시피 파테 성묘 습식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -10904,7 +11213,10 @@
     "product_name": "홀리스틱 셀렉트 그레인프리 인도어 헬스/체중관리 터키 밀 레시피 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -12057,7 +12369,10 @@
     "product_name": "필라인 그리니즈 어덜트 내추럴 덴탈 케어 캣 트릿, 캣닢 맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -12107,7 +12422,10 @@
     "product_name": "필라인 그리니즈 어덜트 내추럴 덴탈 케어 캣 트릿, 오븐 로스티드 치킨 맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -12158,7 +12476,10 @@
     "product_name": "필라인 그리니즈 스마트바이츠 헬시 인도어 캣 트릿, 치킨 맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -12206,7 +12527,10 @@
     "product_name": "필라인 그리니즈 스마트바이츠 스킨 & 퍼 헬스 캣 트릿, 새먼 맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -12348,7 +12672,10 @@
     "product_name": "하이 프로틴 그레인프리 새먼 레시피 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -12390,7 +12717,10 @@
     "product_name": "하이 프로틴 그레인프리 치킨 & 터키 인 소스 레시피 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -12433,7 +12763,10 @@
     "product_name": "인도어 치킨 & 칙피 레시피 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -12533,7 +12866,10 @@
     "product_name": "보레알 펑셔널 인도어 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -12872,7 +13208,10 @@
     "product_name": "퀘스트 동결건조 로우 캣푸드 치킨 레시피",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -12920,7 +13259,10 @@
     "product_name": "퀘스트 동결건조 로우 캣푸드 포크 레시피",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -12962,7 +13304,10 @@
     "product_name": "퀘스트 냉동 로우 캣푸드 치킨 레시피",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -13058,7 +13403,10 @@
     "product_name": "퀘스트 동결건조 로우 캣푸드 화이트피쉬 레시피",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -13588,7 +13936,10 @@
     "product_name": "이글팩 오리지널 어덜트 포뮬러 캣 (치킨밀&옥수수) — 단종",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -13636,7 +13987,10 @@
     "product_name": "이글팩 인도어 어덜트 포뮬러 캣 (치킨밀) — 단종",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -13687,7 +14041,10 @@
     "product_name": "이글팩 멀티캣 어덜트 포뮬러 캣 (치킨밀, 체중관리) — 단종",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -13919,7 +14276,10 @@
     "product_name": "소조스 내추럴캣 트릿 — 연어 (동결건조)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -13960,7 +14320,10 @@
     "product_name": "소조스 내추럴캣 트릿 — 칠면조 간 (동결건조)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -13997,7 +14360,10 @@
     "product_name": "비탈리티 치킨 & 돼지껍질(škvarky) 거세묘용 드라이 그래뉼",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -14042,7 +14408,10 @@
     "product_name": "비탈리티 치킨 & 램(양고기) 어덜트 드라이 그래뉼",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -14416,7 +14785,10 @@
     "product_name": "아모비트 카체 (비타민·미량원소)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.3,
@@ -14629,7 +15001,10 @@
     "product_name": "인테그라 프로텍트 어덜트 레날 비프 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -14675,7 +15050,10 @@
     "product_name": "베위캣 어덜트 피쉬",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -14719,7 +15097,10 @@
     "product_name": "베위캣 어덜트 포울트리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -14762,7 +15143,10 @@
     "product_name": "베위캣 크로시니스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -14807,7 +15191,10 @@
     "product_name": "베위캣 델리카티스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -14850,7 +15237,10 @@
     "product_name": "베위캣 미티니스 포울트리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -14887,7 +15277,10 @@
     "product_name": "베위캣 미티니스 새먼",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -14929,7 +15322,10 @@
     "product_name": "브릿 프리미엄 바이 네이처 캣 어덜트 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -14976,7 +15372,10 @@
     "product_name": "브릿 케어 캣 그레인프리 어덜트 액티비티 서포트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -15065,7 +15464,10 @@
     "product_name": "브릿 케어 캣 파우치 초이스 치킨 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -15105,7 +15507,10 @@
     "product_name": "브릿 케어 캣 파우치 하티 덕 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -15145,7 +15550,10 @@
     "product_name": "캘리브라 캣 프리미엄 라인 어덜트 가금류 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -15244,7 +15652,10 @@
     "product_name": "캘리브라 캣 라이프 어덜트 새먼 캔 6x200g (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -15285,7 +15696,10 @@
     "product_name": "캘리브라 VD 캣 스트루바이트 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -15335,7 +15749,10 @@
     "product_name": "카니러브 새먼 어덜트 (센서티브 & 롱헤어, 그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -15379,7 +15796,10 @@
     "product_name": "카니러브 램 & 와일드 보어 (중성화묘용, 그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 39.0,
@@ -15467,7 +15887,10 @@
     "product_name": "카니러브 터키 & 새먼 어덜트 (습식 캔, 그레인프리)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.6,
@@ -15509,7 +15932,10 @@
     "product_name": "카니러브 트루 프레시 피쉬 & 터키 (중성화묘용 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -15553,7 +15979,10 @@
     "product_name": "캣토스 성묘용 컴플리트 드라이 (치킨 & 비프)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -15599,7 +16028,10 @@
     "product_name": "캣토스 치킨 캔 (성묘용) 415g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -15640,7 +16072,10 @@
     "product_name": "캣토스 비프 캔 (성묘용) 415g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.5,
@@ -15683,7 +16118,10 @@
     "product_name": "캣토스 알루컵 비프 100g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -15725,7 +16163,10 @@
     "product_name": "캣토스 알루사쉐 셀렉션 24×100g (육함량 81%) — 터키/믹스/연어/치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -15762,7 +16203,10 @@
     "product_name": "캣츠 파인푸드 클래식 어덜트 N°3 가금류",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -15799,7 +16243,10 @@
     "product_name": "캣츠 파인푸드 클래식 어덜트 N°7 소고기&송아지",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.8,
@@ -15839,7 +16286,10 @@
     "product_name": "캣츠 파인푸드 퓨어 N°103 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -15880,7 +16330,10 @@
     "product_name": "캣츠 파인푸드 퓨어 N°105 연어",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.8,
@@ -16003,7 +16456,10 @@
     "product_name": "중성화 고양이 위드 치킨 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -16051,7 +16507,10 @@
     "product_name": "중성화 고양이 새먼 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -16144,7 +16603,10 @@
     "product_name": "베터리너리 다이어트 유리너리 - 치킨 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -16197,7 +16659,10 @@
     "product_name": "중성화 고양이 새먼 그레인프리 - 인 그레이비 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -16241,7 +16706,10 @@
     "product_name": "코스마 오리지널 인 젤리 — 닭가슴살 (85g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.0,
@@ -16284,7 +16752,10 @@
     "product_name": "코스마 오리지널 인 젤리 — 연어 (85g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.5,
@@ -16328,7 +16799,10 @@
     "product_name": "코스마 아시아 인 젤리 — 치킨 위드 치킨 리버 (100g 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -16372,7 +16846,10 @@
     "product_name": "코스마 네이처 — 치킨 필렛 (70g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 21.0,
@@ -16507,7 +16984,10 @@
     "product_name": "defu 건식 Bio 캣푸드 어덜트 가금(Geflügel)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -16552,7 +17032,10 @@
     "product_name": "defu 캣 Bio-후흔(닭) \"하모니\" 파우치(습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -16595,7 +17078,10 @@
     "product_name": "defu 후흔(닭) 센시티브 파테 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.5,
@@ -16635,7 +17121,10 @@
     "product_name": "defu 캣 Bio-소프트스틱 엔테(오리) 트릿",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 41.5,
@@ -16672,7 +17161,10 @@
     "product_name": "캣츠 플레이트 비프 100g (모노프로틴 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.4,
@@ -16712,7 +17204,10 @@
     "product_name": "캣츠 플레이트 피쉬 180g (대구 필렛 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.3,
@@ -16754,7 +17249,10 @@
     "product_name": "캣츠 플레이트 래빗 180g (모노프로틴 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 15.2,
@@ -16791,7 +17289,10 @@
     "product_name": "캣츠 플레이트 터키 180g (모노프로틴 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.8,
@@ -16828,7 +17329,10 @@
     "product_name": "캣츠 플레이트 새먼 무스 100g (완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.8,
@@ -16871,7 +17375,10 @@
     "product_name": "캣츠 플레이트 벳 리널 (오리) 180g (만성신장질환 특수식 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -16954,7 +17461,10 @@
     "product_name": "에미넌트 어덜트 캣 치킨 32/14",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -16997,7 +17507,10 @@
     "product_name": "에미넌트 어덜트 캣 위드 새먼 32/14",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -17043,7 +17556,10 @@
     "product_name": "에미넌트 캣 라이트/스테릴 30/10",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -17087,7 +17603,10 @@
     "product_name": "에미넌트 다이어트 캣 레날/유리너리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트",
@@ -17135,7 +17654,10 @@
     "product_name": "클래식 미트 메뉴 가금류 with 당근&민들레 (파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -17172,7 +17694,10 @@
     "product_name": "클래식 미트 메뉴 소고기&가금류 with 감자&캣닢 (파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -17288,7 +17813,10 @@
     "product_name": "컨트리 스타일 메뉴 치킨 with 돼지고기&소고기",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.9,
@@ -17331,7 +17859,10 @@
     "product_name": "컨트리 스타일 메뉴 치킨 with 돼지고기&명태",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -17372,7 +17903,10 @@
     "product_name": "짐캣 니어 네이처 치킨 (완전식 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.5,
@@ -17416,7 +17950,10 @@
     "product_name": "짐캣 샤이니캣 인 젤리 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.0,
@@ -17460,7 +17997,10 @@
     "product_name": "짐캣 멀티비타민 엑스트라 페이스트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 5.0,
@@ -17497,7 +18037,10 @@
     "product_name": "짐캣 몰트소프트 엑스트라 페이스트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 5.5,
@@ -17534,7 +18077,10 @@
     "product_name": "델리캐트슨 치킨 퓨어",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -17578,7 +18124,10 @@
     "product_name": "델리캐트슨 새먼 & 시푸드",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -17624,7 +18173,10 @@
     "product_name": "심포니 No.2 새먼 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -17665,7 +18217,10 @@
     "product_name": "심포니 No.5 치킨 퓨어 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.1,
@@ -17749,7 +18304,10 @@
     "product_name": "델리캐트슨 토끼 & 양고기 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -17790,7 +18348,10 @@
     "product_name": "페어캣 세이프 (드라이, 글루텐프리·곤충단백)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -17831,7 +18392,10 @@
     "product_name": "페어캣 밸런스 (습식 파우치, 녹차+비타민C/E)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.4,
@@ -17871,7 +18435,10 @@
     "product_name": "페어캣 케어 (습식 파우치, 크랜베리·요로결석 위험 저감)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.1,
@@ -17911,7 +18478,10 @@
     "product_name": "페어캣 센서티브 (습식 파우치, 차전자피·펜넬 소화)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.4,
@@ -17954,7 +18524,10 @@
     "product_name": "해피캣 스테릴라이즈드 어덜트 애틀랜틱 새먼 (중성화묘 연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -18048,7 +18621,10 @@
     "product_name": "해피캣 컬리너리 어덜트 팜 포울트리 (성묘 가금)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -18091,7 +18667,10 @@
     "product_name": "해피캣 미트 인 소스 컬리너리 애틀랜틱 새먼 (습식 연어)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -18133,7 +18712,10 @@
     "product_name": "요세라 센시캣 (어덜트, 소화민감)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -18177,7 +18759,10 @@
     "product_name": "요세라 쿨리네스 (어덜트, 연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -18224,7 +18809,10 @@
     "product_name": "요세라 네이처캣 (어덜트, 그레인프리 가금&연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -18266,7 +18854,10 @@
     "product_name": "요세라 마리네스캣 (어덜트, 그레인프리 저알러지 연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -18309,7 +18900,10 @@
     "product_name": "요세라 카텔룩스 (어덜트, 강력 헤어볼 관리, 오리&감자)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -18351,7 +18945,10 @@
     "product_name": "요세라 레제 (어덜트, 저칼로리 체중관리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -18396,7 +18993,10 @@
     "product_name": "조시캣 크런치 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -18437,7 +19037,10 @@
     "product_name": "조시캣 스테럴라이즈드 클래식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -18531,7 +19134,10 @@
     "product_name": "조시캣 치킨 인 소스",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -18575,7 +19181,10 @@
     "product_name": "조시캣 파테 위드 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -18616,7 +19225,10 @@
     "product_name": "레오나르도 어덜트 컴플리트 32/16",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -18662,7 +19274,10 @@
     "product_name": "레오나르도 어덜트 라이트 & 스테릴라이즈드 (신선 가금)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -18798,7 +19413,10 @@
     "product_name": "레오나르도 파이니스트 셀렉션 워터버팔로 + 블루베리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -18844,7 +19462,10 @@
     "product_name": "캣 어덜트 덕·터키·치킨 그레인프리 건식 (Ente, Pute & Huhn)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -18889,7 +19510,10 @@
     "product_name": "캣 어덜트 새먼·트라우트 그레인프리 건식 (Lachs & Forelle)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -18975,7 +19599,10 @@
     "product_name": "캣 덕·터키·치킨 습식 트레이 100g (Ente, Pute & Huhn)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.4,
@@ -19016,7 +19643,10 @@
     "product_name": "캣 퓨어 치킨(통심장) 습식 트레이 100g (Huhn Pur)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.8,
@@ -19057,7 +19687,10 @@
     "product_name": "메라 캣츠 네이처 어덜트 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -19101,7 +19734,10 @@
     "product_name": "메라 캣츠 네이처 스테릴라이즈드 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -19189,7 +19825,10 @@
     "product_name": "메라 캣츠 네이처 어덜트 치킨 (습식 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.4,
@@ -19277,7 +19916,10 @@
     "product_name": "뉴트리칸 캣 어덜트 (치킨&오리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -19325,7 +19967,10 @@
     "product_name": "뉴트리칸 캣 스테릴라이즈드 (치킨&칠면조)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -19374,7 +20019,10 @@
     "product_name": "캣 프레시 푸드 — 피쉬 (호박·슈퍼푸드)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 16.6,
@@ -19413,7 +20061,10 @@
     "product_name": "캣 프레시 푸드 — 포크 (호박·슈퍼푸드)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 16.5,
@@ -19450,7 +20101,10 @@
     "product_name": "캣 프레시 푸드 — 비프 (호박·슈퍼푸드)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 15.4,
@@ -19490,7 +20144,10 @@
     "product_name": "캣 프레시 푸드 — 치킨 (호박·슈퍼푸드)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 17.4,
@@ -19531,7 +20188,10 @@
     "product_name": "퍼펙트핏 스테릴(중성화) 어덜트 1+ 건식 치킨 (2.8kg/7kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -19577,7 +20237,10 @@
     "product_name": "퍼펙트핏 어덜트 1+ 건식 치킨 (2.8kg/7kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -19622,7 +20285,10 @@
     "product_name": "퍼펙트핏 어덜트 1+ 건식 새먼(연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -19667,7 +20333,6 @@
     "product_name": "퍼펙트핏 시니어 11+ 건식 치킨 (750g)",
     "category": "건식",
     "age_fit": [
-      "7+",
       "11+",
       "15+"
     ],
@@ -19714,7 +20379,10 @@
     "product_name": "퍼펙트핏 캣 파우치 믹스 12×85g (연어&당근 / 치킨&완두 / 소고기&당근 / 오션피쉬&완두)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.8,
@@ -19756,7 +20424,10 @@
     "product_name": "펫맨 바프-인-원 캣 – 린트(소고기) 475g (완전식, 어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.8,
@@ -19838,7 +20509,10 @@
     "product_name": "펫맨 바프-인-원 캣 – 트루탄(칠면조) 475g (완전식, 어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.9,
@@ -19923,7 +20597,10 @@
     "product_name": "펫맨 롭튀테 HOPP! 닭염통 40g (동결건조, 타우린 첨가)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -19963,7 +20640,10 @@
     "product_name": "세컨드 찬스 치킨 어덜트 드라이 (성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -20050,7 +20730,10 @@
     "product_name": "세컨드 찬스 치킨 중성화묘 드라이 (스테릴라이즈드)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -20095,7 +20778,10 @@
     "product_name": "세컨드 찬스 치킨 필레 인 그레이비 습식 (성묘)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -20176,7 +20862,10 @@
     "product_name": "프리비탈 어덜트 건식 - 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -20218,7 +20907,10 @@
     "product_name": "프리비탈 중성화·실내묘 건식 - 터키",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -20303,7 +20995,10 @@
     "product_name": "프리비탈 어덜트 습식 파우치 - 치킨 (85g, 그레이비)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.5,
@@ -20344,7 +21039,10 @@
     "product_name": "프리마캣 치킨 (중성화 성묘·인도어) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -20395,7 +21093,10 @@
     "product_name": "프리마캣 새먼 인도어 어덜트 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -20493,7 +21194,10 @@
     "product_name": "프리마캣 그레인프리 치킨 (전 성묘) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -20538,7 +21242,10 @@
     "product_name": "프리마캣 그레인프리 터키 (중성화 성묘) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -20583,7 +21290,10 @@
     "product_name": "프리마캣 클래식 새먼 인 그레이비 (중성화묘용) 습식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -20627,7 +21337,10 @@
     "product_name": "프로파인 오리지널 어덜트 캣 — 치킨 & 라이스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -20677,7 +21390,10 @@
     "product_name": "프로파인 스테릴라이즈드 캣 — 치킨 & 라이스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -20776,7 +21492,10 @@
     "product_name": "어덜트 그레인프리 치킨 위드 피시 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 44.0,
@@ -20866,7 +21585,10 @@
     "product_name": "어덜트 치킨 필레 위드 새먼 (습식, 200g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.3,
@@ -20909,7 +21631,10 @@
     "product_name": "오가닉 비프 & 치킨 위드 캐럿 (습식, 200g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.6,
@@ -20946,7 +21671,10 @@
     "product_name": "와일더니스 퓨어 치킨 어덜트 (건식, 닭)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -20987,7 +21715,10 @@
     "product_name": "와일더니스 퓨어 비프 어덜트 (건식, 소고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 39.0,
@@ -21070,7 +21801,10 @@
     "product_name": "와일더니스 퓨어 비프 어덜트 (습식 파우치, 소고기)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.5,
@@ -21110,7 +21844,10 @@
     "product_name": "샘스필드 어덜트 치킨 (어덜트 완전 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -21157,7 +21894,10 @@
     "product_name": "샘스필드 스테릴라이즈드 (중성화묘 완전 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -21251,7 +21991,10 @@
     "product_name": "샘스필드 터키 & 캐롯 (필레 파우치, 완전 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -21291,7 +22034,10 @@
     "product_name": "샘스필드 비프 & 비트루트 (중성화묘용 필레 파우치, 완전 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -21334,7 +22080,10 @@
     "product_name": "사나벨 라이프 어덜트 치킨 & 블루베리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -21383,7 +22132,10 @@
     "product_name": "사나벨 라이프 노그레인 치킨 & 블루베리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -21478,7 +22230,10 @@
     "product_name": "사나벨 케어 스테릴라이즈드",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -21520,7 +22275,10 @@
     "product_name": "사나벨 라이프 인도어 펄핸 & 크랜베리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -21558,7 +22316,10 @@
     "product_name": "센시티브 다이제스천 건식 어덜트 가금육&쌀",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -21602,7 +22363,10 @@
     "product_name": "센시티브 다이제스천 건식 어덜트 곤충단백 믹스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -21688,7 +22452,10 @@
     "product_name": "퓨어 어덜트 파테 닭고기 (트레이 400 g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -21728,7 +22495,10 @@
     "product_name": "헤어&스킨 어덜트 닭고기 (트레이 400 g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -21771,7 +22541,10 @@
     "product_name": "파인 플레이크 가금류 셀렉션 인 젤리 (덕/치킨/가금/터키)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -21811,7 +22584,10 @@
     "product_name": "소스 컬렉션 성묘 가금류 셀렉션 (인 소스)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -21850,7 +22626,10 @@
     "product_name": "필레 위드 치킨 인 그레이비 60g 트레이",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -21891,7 +22670,10 @@
     "product_name": "프레쉬 앤 파인 성묘 가금류 인 그레이비 파우치",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.9,
@@ -21928,7 +22710,10 @@
     "product_name": "중성화묘 건식 - 신선 소고기 (그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -21974,7 +22759,10 @@
     "product_name": "중성화묘 건식 - 신선 연어 (그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -22059,7 +22847,10 @@
     "product_name": "스팀 필레 - 치킨 (토마토·허브 인 소스)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -22101,7 +22892,10 @@
     "product_name": "고양이 무스 - 치킨 (크랜베리·타임)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.5,
@@ -22144,7 +22938,10 @@
     "product_name": "스밀라 어덜트 가금류 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -22189,7 +22986,10 @@
     "product_name": "스밀라 어덜트 스테릴라이즈드 - 피쉬 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -22235,7 +23035,10 @@
     "product_name": "스밀라 어덜트 인도어 가금류 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -22364,7 +23167,10 @@
     "product_name": "어덜트 캣 치킨 디너 (건식, 1801)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -22414,7 +23220,10 @@
     "product_name": "어덜트 캣 피쉬 (건식, 1802)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.5,
@@ -22554,7 +23363,10 @@
     "product_name": "치킨 메뉴 (습식, 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.9,
@@ -22596,7 +23408,10 @@
     "product_name": "비프 메뉴 (습식, 완전식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.7,
@@ -22637,7 +23452,10 @@
     "product_name": "아이소캣 어덜트 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -22686,7 +23504,10 @@
     "product_name": "아이소캣 어덜트 피쉬",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -22785,7 +23606,10 @@
     "product_name": "아이소캣 그레인프리 포크 & 피스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -22878,7 +23702,10 @@
     "product_name": "파머 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -22922,7 +23749,10 @@
     "product_name": "테라 펠리스 어덜트 닭고기(후) 모노프로틴",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.2,
@@ -22962,7 +23792,10 @@
     "product_name": "테라 펠리스 어덜트 소고기(린트) 모노프로틴",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -23002,7 +23835,10 @@
     "product_name": "테라 펠리스 어덜트 닭고기 & 칠면조(후 & 푸테)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.6,
@@ -23042,7 +23878,10 @@
     "product_name": "테라 펠리스 어덜트 연어 & 닭고기(라흐스 & 후) — 보완식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.1,
@@ -23124,7 +23963,10 @@
     "product_name": "포에지 클래시크 소스 MSC 연어 (소스형)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -23166,7 +24008,10 @@
     "product_name": "포에지 무스 치킨 (무스형)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -23207,7 +24052,10 @@
     "product_name": "캣스틱 클래식 가금류 & 간",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -23247,7 +24095,10 @@
     "product_name": "캣 리퀴드 스낵 치킨 + 타우린",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 3.5,
@@ -23291,7 +24142,10 @@
     "product_name": "와일드 프리덤 어덜트 \"와이드 컨트리\" 가금류 - 그레인프리 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -23369,7 +24223,10 @@
     "product_name": "와일드 프리덤 어덜트 \"와이드 컨트리\" 퓨어 치킨 - 그레인프리 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -23411,7 +24268,10 @@
     "product_name": "와일드 프리덤 어덜트 스테릴라이즈드 \"콜드 리버\" 치킨&새먼 - 그레인프리 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -23457,7 +24317,10 @@
     "product_name": "와일드캣 어덜트 에토샤 치킨 & 감자 (그레인프리 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 39.0,
@@ -23503,7 +24366,10 @@
     "product_name": "와일드캣 어덜트 에토샤 치킨 & 고구마 (그레인프리 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -23545,7 +24411,10 @@
     "product_name": "와일드캣 어덜트 카루 래빗 & 가금류 (그레인프리 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.5,
@@ -23591,7 +24460,10 @@
     "product_name": "와일드캣 어덜트 안드라 10가지 생선 (그레인프리 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -23636,7 +24508,10 @@
     "product_name": "치킨 어덜트 드라이 (그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -23727,7 +24602,10 @@
     "product_name": "참치 필레 인 브로스 (캔, 천연 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -23771,7 +24649,10 @@
     "product_name": "참치 필레 위드 프론 인 브로스 (팟, 천연 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -23815,7 +24696,10 @@
     "product_name": "치킨 브레스트 위드 참치 필레 인 브로스 (파우치, 천연 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 16.0,
@@ -23862,7 +24746,10 @@
     "product_name": "AVA 버터너리 어프루브드 어덜트 건식 사료 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -23910,7 +24797,10 @@
     "product_name": "AVA 버터너리 어프루브드 센서티브 스킨&스토매크 어덜트 건식 사료 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -24005,7 +24895,10 @@
     "product_name": "AVA 버터너리 어프루브드 옵티멈 헬스 어덜트 습식 사료 치킨 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.1,
@@ -24431,7 +25324,10 @@
     "product_name": "버처스 클래식 치킨 셀렉션 – 위드 치킨 청크 인 젤리 (100g 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -24617,7 +25513,10 @@
     "product_name": "치킨 & 헤링 습식 캣푸드 (파우치, 어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -24659,7 +25558,10 @@
     "product_name": "컴플리트 캣 푸드 - 치킨 500g (냉동 생식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 18.1,
@@ -24700,7 +25602,10 @@
     "product_name": "컴플리트 캣 푸드 - 터키 500g (냉동 생식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 19.8,
@@ -24737,7 +25642,10 @@
     "product_name": "컴플리트 캣 푸드 - 래빗(토끼) 500g (냉동 생식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 17.0,
@@ -25122,7 +26030,10 @@
     "product_name": "치킨 드라이 푸드 800g (완전식, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -25166,7 +26077,10 @@
     "product_name": "치킨&새먼 드라이 푸드 800g (완전식, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -25210,7 +26124,10 @@
     "product_name": "치킨 브레스트 인 브로스 캔 70g (보완식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.0,
@@ -25254,7 +26171,10 @@
     "product_name": "치킨 브레스트 인 그레이비 팟 (보완식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -25294,7 +26214,10 @@
     "product_name": "치킨 브레스트 인 젤리 파우치 50g (보완식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.5,
@@ -25337,7 +26260,10 @@
     "product_name": "오션 피시(참치&고등어) 인 젤리 파우치 (보완식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 15.0,
@@ -25381,7 +26307,10 @@
     "product_name": "펠릭스 애즈 굿 애즈 잇 룩스 치킨 인 젤리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.5,
@@ -25424,7 +26353,10 @@
     "product_name": "펠릭스 센세이션 젤리 컨트리사이드 셀렉션",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.5,
@@ -25468,7 +26400,10 @@
     "product_name": "펠릭스 오리지널 믹스드 셀렉션 인 젤리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -25512,7 +26447,10 @@
     "product_name": "펠릭스 구디백 오리지널 믹스 캣 트릿",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.5,
@@ -25556,7 +26494,10 @@
     "product_name": "컴플리트 밀 그레인프리 치킨&덕 (어덜트, 90g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -25601,7 +26542,10 @@
     "product_name": "컴플리트 밀 그레인프리 터키&덕 (어덜트, 90g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -25716,7 +26660,10 @@
     "product_name": "고메 골드 세이보리 케이크 위드 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 17.0,
@@ -25759,7 +26706,10 @@
     "product_name": "고메 골드 세이보리 케이크 위드 튜나",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 17.0,
@@ -25801,7 +26751,10 @@
     "product_name": "고메 펄 오션 컬렉션 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -25841,7 +26794,10 @@
     "product_name": "고메 몽 프티 미티 버라이어티 (소고기·닭고기·양고기)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -25883,7 +26839,10 @@
     "product_name": "고메 몽 프티 미티 버라이어티 (오리·닭고기·칠면조)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -25923,7 +26882,10 @@
     "product_name": "컴플리트 어덜트 치킨 건식 (50% 치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -25972,7 +26934,10 @@
     "product_name": "컴플리트 어덜트 새먼 건식 (50% 연어&치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -26128,7 +27093,10 @@
     "product_name": "컴플리트 그레인프리 어덜트 미티 셀렉션 인 젤리 습식 (85g 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.5,
@@ -26172,7 +27140,10 @@
     "product_name": "잇츠 온리 내추럴 어덜트 치킨 인 젤리 50g 파우치 (치킨 브레스트 인 젤리)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -26212,7 +27183,10 @@
     "product_name": "어덜트 참치 플레이크 인 젤리 70g 파우치 18팩",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.5,
@@ -26253,7 +27227,10 @@
     "product_name": "어덜트 치킨 디너 파테 70g 파우치 18팩",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -26334,7 +27311,10 @@
     "product_name": "캣 스킨 & 코트 케어 크리미 리커블 트릿 5팩 (75g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -26378,7 +27358,10 @@
     "product_name": "어덜트 터키 & 라이스 드라이 캣푸드",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 25.3,
@@ -26421,7 +27404,10 @@
     "product_name": "어덜트 피쉬 & 라이스 드라이 캣푸드",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 21.0,
@@ -26553,7 +27539,10 @@
     "product_name": "어덜트 터키 인 그레이비 그레인프리 습식 캣푸드 파우치",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.4,
@@ -26773,7 +27762,10 @@
     "product_name": "치킨 위드 베지 어덜트 건식 (컴플리트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -26863,7 +27855,10 @@
     "product_name": "오가닉 치킨 파테 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -26906,7 +27901,10 @@
     "product_name": "치킨 테이스티 컷 인 그레이비 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -26947,7 +27945,10 @@
     "product_name": "이스페셜리 포 캣츠 치킨 위드 터키 캔 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -26989,7 +27990,10 @@
     "product_name": "이스페셜리 포 캣츠 비프 앤 치킨 캔 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -27033,7 +28037,10 @@
     "product_name": "이스페셜리 포 캣츠 치킨 위드 새먼 앤 튜나 캔 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -27121,7 +28128,10 @@
     "product_name": "치킨 바이츠 인 그레이비 파우치 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -27167,7 +28177,10 @@
     "product_name": "디본드 터키 드라이 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -27208,7 +28221,10 @@
     "product_name": "디본드 새먼 드라이 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -27348,7 +28364,10 @@
     "product_name": "리빌 내추럴 치킨 브레스트 인 브로스 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.0,
@@ -27389,7 +28408,10 @@
     "product_name": "리빌 내추럴 튜나 필렛 인 브로스 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.0,
@@ -27430,7 +28452,10 @@
     "product_name": "리빌 인 그레이비 버라이어티 셀렉션 (치킨/참치/참치&연어)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -27472,7 +28497,10 @@
     "product_name": "리빌 앙트레 치킨 브레스트 파테 레시피 (그레인프리·카라기난프리)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -27514,7 +28542,10 @@
     "product_name": "리빌 내추럴 어덜트 건식 치킨 레시피 (그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -27609,11 +28640,7 @@
     "brand": "Scrumbles",
     "product_name": "치킨 & 새먼 드라이 (어덜트/시니어, 14주+)",
     "category": "건식",
-    "age_fit": [
-      "7+",
-      "11+",
-      "15+"
-    ],
+    "age_fit": [],
     "condition_fit": [],
     "protein_pct": 39.0,
     "fat_pct": 18.0,
@@ -27903,7 +28930,10 @@
     "product_name": "트루 인스틴트 노 그레인 어덜트 캣 (건식) — 변종/맛 미확정",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -27940,7 +28970,10 @@
     "product_name": "트루 인스틴트 하이 미트 프리레인지 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -27977,7 +29010,10 @@
     "product_name": "트루 인스틴트 하이 미트 새먼 위드 튜나 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -28014,7 +29050,10 @@
     "product_name": "트루 인스틴트 하이 미트 터키 위드 덕 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -28051,7 +29090,10 @@
     "product_name": "웨인라이트 어덜트 건식 사료 터키 & 라이스 위드 베지터블",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -28094,7 +29136,10 @@
     "product_name": "웨인라이트 그레인프리 어덜트 건식 사료 터키 위드 베지터블",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -28132,7 +29177,10 @@
     "product_name": "웨인라이트 그레인프리 어덜트 습식 사료 튜나 위드 베지터블 (파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.5,
@@ -28174,7 +29222,10 @@
     "product_name": "웨인라이트 그레인프리 습식 어덜트 사료 버라이어티 팩 치킨 (치킨; 치킨 위드 리버)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -28217,7 +29268,10 @@
     "product_name": "내추럴스 어덜트 미트 인 그레이비 (12×100g 멀티팩, 맛 4종)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -28260,7 +29314,10 @@
     "product_name": "내추럴스 어덜트 피시 인 젤리 (멀티팩, 생선 4종)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -28300,7 +29357,10 @@
     "product_name": "내추럴스 어덜트 새먼 무스 85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -28434,7 +29494,10 @@
     "product_name": "위스카스 1+ 어덜트 건식 (치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -28565,7 +29628,10 @@
     "product_name": "위스카스 1+ 어덜트 습식 파우치 인 젤리 (치킨)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -28607,7 +29673,10 @@
     "product_name": "위스카스 1+ 가금류 페스트 어덜트 습식 그레이비 (치킨)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -28649,7 +29718,10 @@
     "product_name": "어드밴스 스테릴라이즈드 어덜트 (칠면조) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -28697,7 +29769,10 @@
     "product_name": "어드밴스 센서티브 케어 스테릴라이즈드 (연어&쌀) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -28795,7 +29870,10 @@
     "product_name": "어드밴스 베터리너리 다이어트 유리너리 로우 칼로리 스테릴라이즈드 (건식 치료식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -28847,7 +29925,10 @@
     "product_name": "어드밴스 캣 스테릴라이즈드 어덜트 습식 파우치 — 대구 85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -28938,7 +30019,10 @@
     "product_name": "암브로시아 프레시 새먼 & 치킨 그레인프리 건식 (어덜트·중성화묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -29159,7 +30243,10 @@
     "product_name": "홀리스틱 캣 스테릴라이즈드 청어 & 크릴",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -29201,7 +30288,10 @@
     "product_name": "홀리스틱 캣 스테릴라이즈드 비프 & 크릴",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -29245,7 +30335,10 @@
     "product_name": "보나시보 어덜트 캣 치킨 & 라이스 위드 앤초비",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -29291,7 +30384,10 @@
     "product_name": "보나시보 어덜트 캣 램 & 라이스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -29381,7 +30477,10 @@
     "product_name": "보나시보 어덜트 캣 라이트 & 스테릴라이즈드",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -29428,7 +30527,10 @@
     "product_name": "브레키스 에센시알레스 어덜트 — 소고기·채소·곡물 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -29472,7 +30574,10 @@
     "product_name": "브레키스 에센시알레스 어덜트 — 연어·참치·채소·곡물 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -29520,7 +30625,10 @@
     "product_name": "브레키스 에스테리리사도스 — 닭고기·채소·통곡물 (중성화 성묘 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -29567,7 +30675,10 @@
     "product_name": "브레키스 델리셔스 — 연어·참치·채소·곡물 (건식, 속채움 키블)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -29615,7 +30726,10 @@
     "product_name": "브레키스 데일리 델리스 엔 살사 — 닭고기·칠면조 (습식 파우치, 소스)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -29656,7 +30770,10 @@
     "product_name": "ERA 그레인프리 연어&오리 어덜트 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -29700,7 +30817,10 @@
     "product_name": "ERA 그레인프리 연어&칠면조 어덜트 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -29744,7 +30864,10 @@
     "product_name": "ERA 그레인프리 닭&칠면조 중성화 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -29834,7 +30957,10 @@
     "product_name": "디바크 센스 캣 딜리셔스 (어덜트, 그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -29917,7 +31043,10 @@
     "product_name": "디바크 센스 그레인프리 캣 유리너리(요로)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -29961,7 +31090,10 @@
     "product_name": "디바크 센스 그레인프리 캣 인도어 (토끼)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -30005,7 +31137,8 @@
     "product_name": "디바크 센스 캣 그레인프리 스테릴라이즈드 (닭고기&오리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -30051,7 +31184,10 @@
     "product_name": "디수구알 드라이 캣 어덜트 폴로(치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.75,
@@ -30099,7 +31235,10 @@
     "product_name": "디수구알 드라이 캣 어덜트 페쉐 비안코(흰살생선)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.2,
@@ -30147,7 +31286,10 @@
     "product_name": "미니미 1 - 폴로(어덜트 파테, 멀티프로틴)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -30193,7 +31335,10 @@
     "product_name": "미니미 8 - 살모네(연어, 어덜트 파테, 멀티프로틴)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.9,
@@ -30239,7 +31384,10 @@
     "product_name": "미니미 19 - 폴로(중성화묘 파테, 멀티프로틴)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -30286,7 +31434,10 @@
     "product_name": "미니미 24 -M- 코닐리오(토끼) 모노프로틴(어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -30323,7 +31474,10 @@
     "product_name": "도무스 어덜트 캣 (완전 건식, 닭고기 풍부 + 참치)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -30368,7 +31522,10 @@
     "product_name": "신선 재료 가금 크로켓 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -30417,7 +31574,10 @@
     "product_name": "신선 흰살생선 크로켓 (중성화묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -30516,7 +31676,10 @@
     "product_name": "가금&애호박 파테 (중성화묘/어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -30643,7 +31806,10 @@
     "product_name": "N&D 앤세스트럴 그레인 캣 치킨·스펠트·오트·석류 어덜트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -30734,7 +31900,10 @@
     "product_name": "N&D 퀴노아 펑셔널 캣 유리너리 덕 (습식, 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.5,
@@ -30774,7 +31943,10 @@
     "product_name": "파미나 벳 라이프 캣 스트루바이트 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -30827,7 +31999,10 @@
     "product_name": "포르자10 메인터넌스 어덜트 스테릴라이즈드 살모네 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -30874,7 +32049,10 @@
     "product_name": "포르자10 뉴트라슈틱 액티브 레날 (고양이, 건식) — 피쉬",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -30924,7 +32102,10 @@
     "product_name": "포르자10 뉴트라슈틱 액티브 유리너리 (고양이, 건식) — 피쉬",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -30972,7 +32153,10 @@
     "product_name": "happyOne 어덜트 고양이 참치&닭 (가토 아둘토 아툼/프랑고)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -31019,7 +32203,10 @@
     "product_name": "happyOne 어덜트 고양이 연어 (가토 아둘토 살망)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -31120,7 +32307,10 @@
     "product_name": "happyOne 중성화묘 (가토 에스테릴리자도)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -31172,7 +32362,10 @@
     "product_name": "happyOne 중성화묘 어덜트 연어 (에스테릴리자도 살망)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -31222,7 +32415,10 @@
     "product_name": "볼라이유·생선·쌀·감자 풍미 믹스 (성묘 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 39.0,
@@ -31316,7 +32512,10 @@
     "product_name": "중성화 성묘 피쉬 크로켓",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -31363,7 +32562,10 @@
     "product_name": "액티브 성묘 치킨 크로켓",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -31454,7 +32656,10 @@
     "product_name": "비핏 캣 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -31497,7 +32702,10 @@
     "product_name": "처비 캣 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -31543,7 +32751,10 @@
     "product_name": "피키 캣 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -31589,7 +32800,10 @@
     "product_name": "밸런스 캣 스테릴라이즈드 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -31683,7 +32897,10 @@
     "product_name": "리브라 캣 어덜트 콘 포요 (어덜트 치킨 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -31729,7 +32946,10 @@
     "product_name": "리브라 캣 어덜트 스테릴라이즈드 콘 포요 (중성화 치킨 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -31776,7 +32996,10 @@
     "product_name": "리브라 캣 어덜트 스테릴라이즈드 콘 아툰 (중성화 참치 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -31824,7 +33047,10 @@
     "product_name": "리브라 캣 유리너리 콘 포요 (요로케어 치킨 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -31870,7 +33096,10 @@
     "product_name": "리브라 캣 레세타스 엔 살사 — 어류 선택 (습식 인 그레이비, 참치/연어)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -31915,7 +33144,10 @@
     "product_name": "셰프 - 참치 & 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 17.9,
@@ -32006,7 +33238,10 @@
     "product_name": "에퀼리브리아벳 - 래빗",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -32048,7 +33283,10 @@
     "product_name": "펑셔널 에퀼리브리아벳 - 스트루바이트",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -32095,7 +33333,10 @@
     "product_name": "펑셔널 에퀼리브리아벳 - 레날",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -32140,7 +33381,10 @@
     "product_name": "펑셔널 에퀼리브리아벳 - 가스트로",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "IBD"
@@ -32192,7 +33436,10 @@
     "product_name": "내추럴 슈퍼프리미엄 비와일드 그레인프리 어덜트 연어&완두콩 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -32239,7 +33486,10 @@
     "product_name": "내추럴 슈퍼프리미엄 비와일드 그레인프리 어덜트 그레이비 청키 멸치&야채 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -32277,7 +33527,10 @@
     "product_name": "내추럴 슈퍼프리미엄 스테럴라이즈드 닭고기 풍부 (중성화 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -32329,7 +33582,10 @@
     "product_name": "내추럴 슈퍼프리미엄 어덜트 닭고기 풍부 (일반 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -32381,7 +33637,10 @@
     "product_name": "내추럴 슈퍼프리미엄 모노프로틴 어덜트 오리 파테 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -32418,7 +33677,10 @@
     "product_name": "헬시 그레인스 스테릴라이즈드 치킨 (건식, 중성화 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -32468,7 +33730,10 @@
     "product_name": "노 그레인 스테릴라이즈드 프리레인지 치킨 (그레인프리 건식, 중성화 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -32512,7 +33777,10 @@
     "product_name": "노 그레인 스테릴라이즈드 노르웨이 연어 (그레인프리 건식, 중성화 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -32557,7 +33825,10 @@
     "product_name": "오리지널 노 그레인 터키 파테 (습식, 성묘)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.6,
@@ -32598,7 +33869,10 @@
     "product_name": "페페트 풀레 구르망(닭고기) 신선조리식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.1,
@@ -32639,7 +33913,10 @@
     "product_name": "페페트 델리스 드 푸아송(생선) 신선조리식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.32,
@@ -32682,7 +33959,10 @@
     "product_name": "페페트 미조테 드 뵈프(소고기) 신선조리식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.21,
@@ -32724,7 +34004,10 @@
     "product_name": "페페트 풀레 비오(유기농 프랑스산 닭고기·채소) 신선조리식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 16.6,
@@ -32764,7 +34047,10 @@
     "product_name": "페페트 댕드 구르망드(칠면조) 신선조리식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.74,
@@ -32804,7 +34090,10 @@
     "product_name": "페페트 미조테 드 포르(돼지고기) 신선조리식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 14.36,
@@ -32844,7 +34133,10 @@
     "product_name": "피카트 셀렉트 캣 어덜트 치킨 앤 라이스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -32933,7 +34225,10 @@
     "product_name": "피카트 셀렉트 캣 어덜트 그레인프리 스테릴라이즈드 라이트 (치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -32977,7 +34272,10 @@
     "product_name": "셀렉트 캣 습식 어덜트 새먼 70g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -33018,7 +34316,10 @@
     "product_name": "프로초이스 PRO 34 연어&라이스 어덜트 저알러지 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -33066,7 +34367,10 @@
     "product_name": "프로초이스 PRO 36 양고기&라이스 어덜트 저알러지 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -33161,7 +34465,10 @@
     "product_name": "프로초이스 치킨&라이스 중성화묘 저알러지 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -33210,7 +34517,10 @@
     "product_name": "프로초이스 PRO 33 연어&새우 중성화묘 저알러지 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -33259,7 +34569,10 @@
     "product_name": "퓨어 라이프 어덜트 - 오리맛 (그레인프리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -33387,7 +34700,10 @@
     "product_name": "프로텍트 유리너리 — 요로질환 식이요법식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -33438,7 +34754,10 @@
     "product_name": "퓨어 라이프 웻 — 닭고기 파테",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -33481,7 +34800,8 @@
     "product_name": "리플렉스 플러스 치킨 어덜트 (성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -33528,7 +34848,8 @@
     "product_name": "리플렉스 플러스 연어 어덜트 (성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -33623,7 +34944,8 @@
     "product_name": "리플렉스 플러스 치킨 스테릴라이즈드(중성화 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -33671,7 +34993,8 @@
     "product_name": "리플렉스 플러스 연어 스테릴라이즈드(중성화 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -33709,7 +35032,10 @@
     "product_name": "참치 인 젤리 85g 캔",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -33753,7 +35079,10 @@
     "product_name": "참치&새우 인 젤리 6×50g 캔",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -33797,7 +35126,10 @@
     "product_name": "본 카니보어 어덜트 치킨&청어&연어 255g (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 45.0,
@@ -33884,7 +35216,10 @@
     "product_name": "어덜트 치킨·터키·크랜베리 포뮬러 (로우 그레인)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -33932,7 +35267,10 @@
     "product_name": "어덜트 새먼·앤초비·크랜베리 포뮬러 (로우 그레인)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -34030,7 +35368,10 @@
     "product_name": "중성화 어덜트 새먼·앤초비·크랜베리 포뮬러 (로우 그레인)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -34082,7 +35423,10 @@
     "product_name": "모노프로트 캣 치킨 16×100g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -34123,7 +35467,10 @@
     "product_name": "모노프로트 캣 비프 16×100g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -34163,7 +35510,10 @@
     "product_name": "캣 모노프로틴 치킨 20×85g (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.2,
@@ -34287,7 +35637,10 @@
     "product_name": "캣 스팀 청크 터키 — 중성화 고양이용 10×4×85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -34325,7 +35678,10 @@
     "product_name": "토모조 그레인프리 곤충단백 어덜트 캣 키블 (1-7세)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -34446,7 +35802,10 @@
     "product_name": "내추럴 트레이너 데일리 뉴트리션 어덜트 프레시 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -34499,7 +35858,10 @@
     "product_name": "내추럴 트레이너 데일리 뉴트리션 스테릴라이즈드 어덜트 드라이큐어드 햄 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -34553,7 +35915,10 @@
     "product_name": "내추럴 트레이너 데일리 뉴트리션 스테릴라이즈드 어덜트 모노프로틴 덕 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -34691,7 +36056,10 @@
     "product_name": "울티마 에스테릴리사도 어덜트 위드 치킨 (중성화 성묘용 닭고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -34744,7 +36112,10 @@
     "product_name": "울티마 어덜트 위드 치킨 (성묘용 닭고기) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -34845,7 +36216,10 @@
     "product_name": "울티마 네이처 위드 치킨 & 파울트리 습식 (보카디토스)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -34892,7 +36266,10 @@
     "product_name": "아라톤 어덜트 스테릴라이즈드 — 치킨 완전균형 건식 (전 품종)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 24.0,
@@ -34981,7 +36358,10 @@
     "product_name": "아라톤 습식 터키&치킨 — 스테릴라이즈드 성묘 (전 품종)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -35068,7 +36448,10 @@
     "product_name": "빌란스 어덜트 치킨(닭) 건식 (성묘용)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -35110,7 +36493,10 @@
     "product_name": "빌란스 스테릴라이즈드 치킨(닭) 건식 (중성화묘용)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -35194,7 +36580,10 @@
     "product_name": "빌란스 어덜트 치킨·소고기·칠면조 셀렉션 인 그레이비(멀티팩) 12×85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -35238,7 +36627,10 @@
     "product_name": "빌란스 스테릴라이즈드 치킨·칠면조 셀렉션 인 그레이비(멀티팩) 4×85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -35281,7 +36673,10 @@
     "product_name": "보지타 인도어&스테릴라이즈드 – 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -35375,7 +36770,10 @@
     "product_name": "보지타 치킨 – 청크 인 소스 (단포장)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -35416,7 +36814,10 @@
     "product_name": "보지타 비프 – 청크 인 젤리 (단포장)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -35456,7 +36857,10 @@
     "product_name": "보지타 무스 위드 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.5,
@@ -35499,7 +36903,10 @@
     "product_name": "그레인프리 어덜트(활동 정상) 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -35586,7 +36993,10 @@
     "product_name": "신선 닭고기 그레인프리 스테릴라이즈드 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -35632,7 +37042,10 @@
     "product_name": "유리너리 케어 스테릴라이즈드 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -35681,7 +37094,10 @@
     "product_name": "라이트 닭&쌀 스테릴라이즈드 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -35728,7 +37144,10 @@
     "product_name": "내추럴 무스 닭고기 (스테릴라이즈드 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -35857,7 +37276,10 @@
     "product_name": "베테리너리 HPM 어덜트 (중성화) 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 44.0,
@@ -35945,7 +37367,10 @@
     "product_name": "베테리너리 HPM 유롤로지 워터인테이크 & 비헤이비어 캣 (처방식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 44.0,
@@ -36037,7 +37462,10 @@
     "product_name": "카로크록 위드 치킨 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -36088,7 +37516,10 @@
     "product_name": "카로크록 위드 피시 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -36137,7 +37568,10 @@
     "product_name": "카로크록 스테릴라이즈드 (중성화)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -36189,7 +37623,10 @@
     "product_name": "고케어 캣 컴플리트 올 브리즈 (10 kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -36235,7 +37672,10 @@
     "product_name": "고케어 캣 컴플리트 올 브리즈 (15 kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -36326,7 +37766,10 @@
     "product_name": "고케어 로얄 액티브 올 브리드 (프레시 치킨) 4kg",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -36423,7 +37866,10 @@
     "product_name": "고케어 로얄 웨이트 컨트롤 / 중성화 올 브리드 (프레시 치킨) 4kg",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -36515,7 +37961,10 @@
     "product_name": "HiQ 인도어 케어 (가금육)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -36559,7 +38008,10 @@
     "product_name": "HiQ 스테릴라이즈드 케어 (가금육)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -36603,7 +38055,10 @@
     "product_name": "HiQ 센시티브 케어 (가금육)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -36651,7 +38106,10 @@
     "product_name": "HiQ 유리너리 케어 (가금육)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -36696,7 +38154,10 @@
     "product_name": "익스클루시브 스테럴라이즈드 (어덜트 중성화묘 건식, 치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.5,
@@ -36747,7 +38208,10 @@
     "product_name": "익스클루시브 유리너리 (어덜트 요로건강 건식, 치킨, 저pH·저마그네슘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -36797,7 +38261,10 @@
     "product_name": "오푸스 링크스 (어덜트 그레인프리·글루텐프리 고단백 저탄수 건식, 치킨&연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -36886,7 +38353,10 @@
     "product_name": "어덜트 (캣) 파테 위드 비프 — 400g 캔",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.8,
@@ -36926,7 +38396,10 @@
     "product_name": "캣티 뉘티가 비타르 치킨 (건식, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -36968,7 +38441,10 @@
     "product_name": "캣티 뉘티가 비타르 미트(고기맛) (건식, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -37010,7 +38486,10 @@
     "product_name": "캣티 뉘티가 비타르 앤초비/피시 (건식, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -37051,7 +38530,10 @@
     "product_name": "라이프스타일 그레인프리 새먼 위드 크릴 (중성화 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -37094,7 +38576,10 @@
     "product_name": "라이프스타일 그레인프리 화이트피시 (중성화 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -37178,7 +38663,10 @@
     "product_name": "라이프스타일 보완식 수프 — 중성화 어덜트, 새먼",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 2.0,
@@ -37316,7 +38804,10 @@
     "product_name": "먀우 셰트(고기) 건식 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -37360,7 +38851,10 @@
     "product_name": "먀우 쉬클링(치킨) 건식 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -37404,7 +38898,10 @@
     "product_name": "먀우 카스트레라드 인네캇 건식 (중성화 실내묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -37538,7 +39035,10 @@
     "product_name": "먀우 노가 우트발트 무스 메드 MSC 톤피스크 (MSC 참치 무스, 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.5,
@@ -37628,7 +39128,10 @@
     "product_name": "바이스토® 캣 발코이넨(흰색) 비프-포크 냉동 생식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 17.0,
@@ -37668,7 +39171,10 @@
     "product_name": "바이스토® 캣 발레안푸나이넨(분홍) 치킨-포크 냉동 생식",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 15.8,
@@ -37757,7 +39263,10 @@
     "product_name": "중성화 어덜트 캣 가금류 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -37801,7 +39310,10 @@
     "product_name": "어덜트 캣 가금류 건식 (인도어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -37845,7 +39357,10 @@
     "product_name": "유리너리 포뮬러-S 어덜트 캣 가금류 다이어테틱 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -37893,7 +39408,10 @@
     "product_name": "중성화 캣 가금류·크랜베리 캔",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -37975,7 +39493,10 @@
     "product_name": "오크팜 그레인프리 새먼 어덜트 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38017,7 +39538,10 @@
     "product_name": "오크팜 그레인프리 화이트피시 어덜트 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38059,7 +39583,10 @@
     "product_name": "오크팜 그레인프리 새먼 위드 크릴 중성화 어덜트 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -38147,7 +39674,10 @@
     "product_name": "슈퍼 프리미엄 드라이 - 프레시 치킨 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -38279,7 +39809,10 @@
     "product_name": "렌스케 캣 습식 - 치킨 70g - 무스",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -38320,7 +39853,10 @@
     "product_name": "렌스케 캣 습식 - 치킨 70g - 파테",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.4,
@@ -38361,7 +39897,10 @@
     "product_name": "스몰케 어덜트 닭고기 (Adult met kip)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38408,7 +39947,10 @@
     "product_name": "스몰케 어덜트 생선 (Adult met vis)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38455,7 +39997,10 @@
     "product_name": "스몰케 스테릴라이즈드 (중성화·체중관리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -38549,7 +40094,10 @@
     "product_name": "스몰케 소프트 파테 닭고기",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -38595,7 +40143,10 @@
     "product_name": "네이처스 프로텍션 슈페리어 케어 화이트 캣 그레인프리 청어 (성묘 전 품종)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -38637,7 +40188,10 @@
     "product_name": "네이처스 프로텍션 슈페리어 케어 다크 캣 그레인프리 청어 (성묘 전 품종)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -38679,7 +40233,10 @@
     "product_name": "네이처스 프로텍션 슈페리어 케어 레드 캣 그레인프리 청어 (성묘 전 품종)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38721,7 +40278,10 @@
     "product_name": "클럽4포즈 프리미엄 \"유리너리 헬스\" 성묘용 완전 건식 사료",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38770,7 +40330,10 @@
     "product_name": "클럽4포즈 프리미엄 \"인도어 4 in 1\" 성묘용 완전 건식 사료",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38820,7 +40383,10 @@
     "product_name": "클럽4포즈 프리미엄 \"스테릴라이즈드\" 중성화 성묘용 완전 건식 사료",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -38918,7 +40484,10 @@
     "product_name": "클럽4포즈 프리미엄 \"스테릴라이즈드\" 중성화 성묘용 완전 습식 사료",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -38963,7 +40532,10 @@
     "product_name": "퍼-포 디너 — 연어·홍합 슬라이스 인 소스",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -39006,7 +40578,10 @@
     "product_name": "포-리킹 수프 — 치킨·햄 수프(시금치 풍미)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -39048,7 +40623,10 @@
     "product_name": "미야오-포 디저트 — 토끼·열대과일 플레이크 인 크리미 소스",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 5.4,
@@ -39092,7 +40670,10 @@
     "product_name": "러브-스테어 드링크 — 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 3.0,
@@ -39186,7 +40767,10 @@
     "product_name": "하프앤하프 성묘용 건식 사료 (소고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.5,
@@ -39233,7 +40817,10 @@
     "product_name": "하프앤하프 민감 소화 건식 사료 (칠면조)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -39326,7 +40913,10 @@
     "product_name": "하프앤하프 성묘용 습식 — 연어 젤리 청크 (파우치 100g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -39371,7 +40961,10 @@
     "product_name": "하프앤하프 중성화묘용 습식 — 참치 소스 청크 (파우치 100g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -39457,7 +41050,10 @@
     "product_name": "엘리트 캣 라이트 (어덜트 완전 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -39497,7 +41093,10 @@
     "product_name": "엘리트 캣 델리케이트 (어덜트 완전 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -39536,7 +41135,10 @@
     "product_name": "써니 캣 위드 치킨 (everyday 완전 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -39578,7 +41180,10 @@
     "product_name": "써니 캣 믹스 (everyday 완전 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -39661,7 +41266,10 @@
     "product_name": "써니 캣 터키 (습식 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -39700,7 +41308,10 @@
     "product_name": "키테캣 성묘용 건식 완전식 — 미트 피르(고기 향연)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -39743,7 +41354,10 @@
     "product_name": "키테캣 성묘용 건식 완전식 — 아페티트나야 쿠로치카(닭고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -39784,7 +41398,10 @@
     "product_name": "키테캣 성묘용 습식 완전식 — 닭고기 소스",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.0,
@@ -39825,7 +41442,10 @@
     "product_name": "키테캣 성묘용 습식 완전식 — 닭고기 젤리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.0,
@@ -39866,7 +41486,10 @@
     "product_name": "마이러브 건식 — 치킨 (Pui)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 25.0,
@@ -39912,7 +41535,10 @@
     "product_name": "마이러브 건식 — 고기&쌀 (Carne și Orez)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 25.0,
@@ -39955,7 +41581,10 @@
     "product_name": "마이러브 습식 — 치킨 소스 (Pui, 소스 속 고기조각)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -39998,7 +41627,10 @@
     "product_name": "마이러브 습식 — 피쉬 소스 (Pește, 소스 속 고기조각)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -40039,7 +41671,10 @@
     "product_name": "옵티밀 어덜트 건식 — 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -40090,7 +41725,10 @@
     "product_name": "옵티밀 중성화묘 건식 — 새먼",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -40141,7 +41779,10 @@
     "product_name": "옵티밀 그레인프리 텐더 모슬 치킨 인 그레이비 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.5,
@@ -40187,7 +41828,10 @@
     "product_name": "옵티밀 인도어 헬스 — 새우&연어 텐더 모슬 인 세이보리 소스 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -40236,7 +41880,10 @@
     "product_name": "옵티밀 다이제스티브 서포트 — 소고기&토끼 텐더 모슬 인 세이보리 소스 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -40284,7 +41931,10 @@
     "product_name": "세이보리 어덜트 캣 스테릴 프레시 램&치킨 (스테릴라이즈드 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -40332,7 +41982,10 @@
     "product_name": "세이보리 어덜트 캣 센서티브 프레시 램&터키 (홀리스틱 건식·민감장)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -40425,7 +42078,10 @@
     "product_name": "세이보리 캣 스테릴라이즈드 램&크랜베리 인 그레이비 (습식 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -40805,7 +42461,10 @@
     "product_name": "AIM30 실내 성묘용 건강한 요로·헤어볼 케어 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -40859,7 +42518,10 @@
     "product_name": "AIM30 실내 성묘용 건강한 요로·헤어볼 케어 피시",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.5,
@@ -40964,7 +42626,10 @@
     "product_name": "나츄라하 그레인프리 참치",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -41006,7 +42671,10 @@
     "product_name": "나츄라하 그레인프리 프리미엄 참치&게 걸쭉한 식감",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -41048,7 +42716,10 @@
     "product_name": "모운프티 드라이 백 내추럴 사몬 입(入) 치킨노자이타쿠(연어 넣은 치킨의 사치)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -41102,7 +42773,10 @@
     "product_name": "모운프티 드라이 백 내추럴 헤어볼케어 터키 입(入) 치킨노자이타쿠",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -41152,7 +42826,10 @@
     "product_name": "모운프티 드라이 백 내추럴 천연 생선의 사치(텐넨 오사카나노자이타쿠)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -41204,7 +42881,10 @@
     "product_name": "모운프티 내추럴 키스 참치 입(入) 참치젤리 [일반식·보완식]",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 4.5,
@@ -41290,7 +42970,10 @@
     "product_name": "비유티프로 캣 성묘용 1세부터 (피쉬味)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -41435,7 +43118,10 @@
     "product_name": "미오 드라이믹스 가다랑어(가쓰오)味",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -41594,7 +43280,10 @@
     "product_name": "JP스타일 와노키와미 1세부터 활발한 성묘용 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -41644,7 +43333,10 @@
     "product_name": "카이세키 젯핀 바다의 풍미 시라스(뱅어) 토핑 (드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -41694,7 +43386,10 @@
     "product_name": "카이세키 캔 마구로 흰살 시라스 첨가 어개육수 젤리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -41906,7 +43601,10 @@
     "product_name": "메디파스 1세부터 치킨맛 (성묘 하부요로 케어 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -42084,7 +43782,10 @@
     "product_name": "캐럿 믹스 헤어볼 클린업 (毛玉をおそうじ)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 23.4,
@@ -42276,7 +43977,10 @@
     "product_name": "銀のス프ーン 贅沢うまみ仕立て 下部尿路の健康維持用 1歳~10歳頃まで まぐろ・かつお・煮干し・白身魚・しらす入り",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -42323,7 +44027,10 @@
     "product_name": "AllWell 室内猫用 フィッシュ味 挽き小魚とささみフリーズドライパウダー入り",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -42374,7 +44081,10 @@
     "product_name": "AllWell 室内猫用 チキン味 挽き小魚とささみフリーズドライパウダー入り",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -42474,7 +44184,10 @@
     "product_name": "니혼네코 게다마슷키리 마구로(참치)맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -42788,7 +44501,10 @@
     "product_name": "저인저단백 무젤라틴 주식캔 — 健康嫩雞肉(헬시 텐더 치킨)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.2,
@@ -42916,7 +44632,10 @@
     "product_name": "弗列加特 80% 고생육 그레인프리 팽화 성묘 사료 (치킨)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 42.0,
@@ -42960,7 +44679,10 @@
     "product_name": "弗列加特 샤오란둔 장케어 프로바이오틱 생육 사료 — 성묘",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 44.0,
@@ -43386,7 +45108,10 @@
     "product_name": "葛莉思 GREENS 캣 캔 — 참치+연어(Tuna+Salmon)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -43846,7 +45571,10 @@
     "product_name": "麦富迪 奶弗 전가 양유 신선육 성묘 천연식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 45.0,
@@ -43935,7 +45663,10 @@
     "product_name": "麦富迪 奶弗 전가 양유 신선육 성묘 베이크드粮",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 45.0,
@@ -43980,7 +45711,10 @@
     "product_name": "麦富迪 BARF 霸弗 천연식 전가 성묘 — 뉴질랜드 소고기+러시아 대구 1.8kg",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -44022,7 +45756,10 @@
     "product_name": "麦富迪 BARF 霸弗 천연식 — 닭고기 배합 전가 성묘",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -44424,7 +46161,10 @@
     "product_name": "領先 全价成猫主食罐 (99 시리즈, 무곡물·무젤리) 85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -44611,7 +46351,10 @@
     "product_name": "러브캣 활력성묘 비뇨기 건강 케어 配方 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -45089,7 +46832,10 @@
     "product_name": "치킨 슈프림 레시피 그레인프리 드라이 캣푸드 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -46073,7 +47819,10 @@
     "product_name": "어드밴스™ 어덜트 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -46119,7 +47868,10 @@
     "product_name": "어드밴스™ 인도어 어덜트 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -46214,7 +47966,10 @@
     "product_name": "어드밴스™ 트리플 액션 덴탈 케어 어덜트 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -46305,7 +48060,10 @@
     "product_name": "블랙호크 오리지널 캣 푸드 치킨 (어덜트 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -46352,7 +48110,10 @@
     "product_name": "블랙호크 오리지널 캣 푸드 오션 피쉬 (어덜트 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -46403,7 +48164,10 @@
     "product_name": "블랙호크 헬시 베네핏 캣 푸드 웨이트 매니지먼트 치킨 (어덜트 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -46502,7 +48266,10 @@
     "product_name": "블랙호크 오리지널 습식 캣 푸드 치킨 인 그레이비 (어덜트, 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -46735,7 +48502,10 @@
     "product_name": "다인 필렛 내추럴 슈레디드 치킨",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -46776,7 +48546,10 @@
     "product_name": "아이보리코트 그레인프리 어덜트 드라이 캣푸드 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -46824,7 +48597,10 @@
     "product_name": "아이보리코트 그레인프리 어덜트 드라이 캣푸드 오션피쉬 & 새먼",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -46916,7 +48692,10 @@
     "product_name": "아이보리코트 그레인프리 어덜트 습식 캣푸드 치킨 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -46960,7 +48739,10 @@
     "product_name": "옵티멈 어덜트 오션 피쉬 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -47007,7 +48789,10 @@
     "product_name": "옵티멈 퍼볼 어덜트 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -47046,7 +48831,10 @@
     "product_name": "옵티멈 인도어 치킨 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -47089,7 +48877,10 @@
     "product_name": "옵티멈 요로 케어 치킨 (그레인프리 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -47172,7 +48963,10 @@
     "product_name": "옵티멈 어덜트 요로 케어 오션 피쉬 청크 인 젤리 (습식 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.5,
@@ -47630,7 +49424,10 @@
     "product_name": "호주산 바라문디 + 퍼시픽 아일랜드 참치 + NZ 램 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -47675,7 +49472,10 @@
     "product_name": "호주산 캥거루 + 동결건조 NZ 램 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -47715,7 +49515,10 @@
     "product_name": "호주산 연어 + 동결건조 NZ 램 (어덜트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -47802,7 +49605,10 @@
     "product_name": "어덜트 자연산 참치 인 본 브로스 85g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -47897,7 +49703,10 @@
     "product_name": "미오 씨푸드 어덜트 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -47947,7 +49756,10 @@
     "product_name": "미오 고메 어덜트 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -48045,7 +49857,10 @@
     "product_name": "미오 딜라이트 참치&치킨 인 젤리 (파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -48089,7 +49904,10 @@
     "product_name": "스마트하트 어덜트 캣 치킨&화이트피시 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -48137,7 +49955,10 @@
     "product_name": "스마트하트 캣 건식 - 치킨&튜나",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -48288,7 +50109,10 @@
     "product_name": "스마트하트 튜나 인 젤리 (어덜트, 85g 파우치 / 400g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -48329,7 +50153,10 @@
     "product_name": "지니 컴플리트 습식 캣푸드 – 참치 인 젤리 – 면역 (70g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -48370,7 +50197,10 @@
     "product_name": "지니 컴플리트 습식 캣푸드 – 참치 & 가쓰오부시 인 젤리 – 요로 (70g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -48411,7 +50241,10 @@
     "product_name": "지니 크리미 트릿 – 참치살 (75g)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -48448,7 +50281,10 @@
     "product_name": "캐티 포우즈 습식 캣푸드 파우치 – 참치 인 젤리 (85g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -48628,7 +50464,10 @@
     "product_name": "몽슈 그레인프리 건식 — 어덜트 클래식 참치",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -48670,7 +50509,10 @@
     "product_name": "몽슈 그레인프리 건식 — 어덜트 참치&치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -48715,7 +50557,10 @@
     "product_name": "몽슈 발란스 건식 — 어덜트 참치(저염 포뮬러)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -48846,7 +50691,10 @@
     "product_name": "몽슈 발란스 습식 — 어덜트 고등어&참치 인 젤리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -48888,7 +50736,10 @@
     "product_name": "체인지터 고양이 트레이 — 참치와 야채 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -48932,7 +50783,10 @@
     "product_name": "체인지터 고양이 트레이 — 참치와 소고기 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -48975,7 +50829,10 @@
     "product_name": "체인지터 고양이 트레이 — 참치와 이미테이션 게살 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 13.0,
@@ -49016,7 +50873,10 @@
     "product_name": "체인지터 고양이 트레이 — 해산물 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -49057,7 +50917,10 @@
     "product_name": "체인지터 고양이 트레이 — 참치와 연어 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -49107,7 +50970,10 @@
     "product_name": "볼트 튜나 캣푸드 피쉬 키블 (생선 모양)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -49154,7 +51020,10 @@
     "product_name": "볼트 새먼 캣푸드 라운드 키블 (원형)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -49247,7 +51116,10 @@
     "product_name": "볼트 튜나 캣 습식 (파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.0,
@@ -49288,7 +51160,10 @@
     "product_name": "클레오 튜나 어덜트 캣푸드 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -49342,7 +51217,10 @@
     "product_name": "클레오 씨푸드 어덜트 캣푸드 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -49493,7 +51371,10 @@
     "product_name": "클레오 습식 오이시 튜나 어덜트 (캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -49534,7 +51415,10 @@
     "product_name": "키친플레이버 그레인프리 어덜트 캣푸드",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -49717,7 +51601,10 @@
     "product_name": "키친플레이버 내추럴 캣 새먼 & 새먼 오일 (어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 18.0,
@@ -49770,7 +51657,10 @@
     "product_name": "네이처 브리지 클래식 컴플리트 어덜트 캣",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 29.0,
@@ -50020,7 +51910,10 @@
     "product_name": "바이탈리티 글로잉 스킨 & 코트 그레인프리 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -50065,7 +51958,10 @@
     "product_name": "바이탈리티 요로 & 항염 그레인프리 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -50110,7 +52006,10 @@
     "product_name": "바이탈리티 하이포알러제닉 & 센서티브 케어 그레인프리 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -50154,7 +52053,10 @@
     "product_name": "바이탈리티 다이제스티브 & 웨이트 컨트롤 그레인프리 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -50240,7 +52142,10 @@
     "product_name": "헤리티지 러스틱 마스터 블렌드 (요로 + 신장 케어) 고대곡물 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -50277,7 +52182,10 @@
     "product_name": "파워캣 프레시 오션 튜나 (어덜트 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -50325,7 +52233,10 @@
     "product_name": "파워캣 프레시 오션 피시 (어덜트 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -50373,7 +52284,10 @@
     "product_name": "파워캣 프레시 치킨 (어덜트 드라이)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -50469,7 +52383,10 @@
     "product_name": "파워캣 프레시 사딘 앤 튜나 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -50555,7 +52472,10 @@
     "product_name": "드룰스 컴플리트 뉴트리션 어덜트 드라이 — 오션 피쉬",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -50644,7 +52564,10 @@
     "product_name": "드룰스 리얼 치킨 어덜트 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -50691,7 +52614,10 @@
     "product_name": "드룰스 치킨 무스 (어덜트)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -50969,7 +52895,10 @@
     "product_name": "퓨어펫 캣 (어덜트) — 오션피시",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -51354,7 +53283,10 @@
     "product_name": "골든 가토스 아둘토스 카르니 (성묘 소고기 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -51402,7 +53334,10 @@
     "product_name": "골든 가토스 아둘토스 살마웅 (성묘 연어 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -51496,7 +53431,10 @@
     "product_name": "골든 가토스 카스트라도스 살마웅 (중성화 성묘 연어 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.5,
@@ -51548,7 +53486,10 @@
     "product_name": "그란플러스 메뉴 거세묘 살몬&쌀 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -51655,7 +53596,10 @@
     "product_name": "그란플러스 고메 사쉐 거세묘 살몬&프랑구 (습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -51749,7 +53693,10 @@
     "product_name": "오리젠스 프리미엄 이스페시아우 어덜트 치킨맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -51794,7 +53741,10 @@
     "product_name": "오리젠스 프리미엄 이스페시아우 거세묘 치킨맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -51891,7 +53841,10 @@
     "product_name": "오리젠스 크레미뉴 참치맛",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.5,
@@ -51934,7 +53887,10 @@
     "product_name": "프리미어 포뮬라 거세묘 닭고기맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.5,
@@ -52026,7 +53982,10 @@
     "product_name": "프리미어 포뮬라 우미두스 성묘 닭고기·브로콜리·당근",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -52069,7 +54028,10 @@
     "product_name": "프리미어 나뚜 거세묘 닭고기·카사바·비트·아마씨·크랜베리",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.3,
@@ -52118,7 +54080,10 @@
     "product_name": "구아비 내추럴 어덜트 중성화묘 치킨&현미 (프랑구 이 아호스 인테그랄)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -52169,7 +54134,10 @@
     "product_name": "구아비 내추럴 어덜트 중성화묘 연어&보리 (살망 이 세바다)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -52272,7 +54240,10 @@
     "product_name": "매그너스 캣 프리미엄 어덜트 카르니(소고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -52317,7 +54288,10 @@
     "product_name": "매그너스 캣 프리미엄 중성화 어덜트 카르니(소고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -52362,7 +54336,10 @@
     "product_name": "매그너스 캣 프리미엄 중성화 어덜트 살몬(연어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -52453,7 +54430,10 @@
     "product_name": "포뮬라 내추럴 슈퍼 프리미엄 라이프 어덜트 고양이 (프랑고 에 살몽/치킨&연어맛)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -52499,7 +54479,10 @@
     "product_name": "포뮬라 내추럴 슈퍼 프리미엄 라이프 거세묘 (살몽/연어맛)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -52545,7 +54528,10 @@
     "product_name": "포뮬라 내추럴 프레시 미트 거세묘 (카르네/소고기, 고구마, 강황)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -52633,7 +54619,10 @@
     "product_name": "퀄리디 프리미엄 어덜트 캣 소고기맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -52678,7 +54667,10 @@
     "product_name": "퀄리디 프리미엄 어덜트 캣 바다의 별미(생선)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -52770,7 +54762,10 @@
     "product_name": "퀄리디 프리미엄 크레미뉴 고양이 참치맛 (크림 스낵)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.5,
@@ -52813,7 +54808,10 @@
     "product_name": "퀄리디 프리미엄 크레미뉴 고양이 연어맛 (크림 스낵)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.5,
@@ -52854,7 +54852,10 @@
     "product_name": "비오프레쉬 슈퍼 프리미엄 그레인프리 어덜트 고양이 (치킨/프랑고)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 44.0,
@@ -52896,7 +54897,10 @@
     "product_name": "비오프레쉬 슈퍼 프리미엄 그레인프리 중성화 고양이 (연어/살몽)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 46.0,
@@ -52983,7 +54987,10 @@
     "product_name": "이퀼리브리오 가토 아둘토 프랑고 (치킨, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -53027,7 +55034,10 @@
     "product_name": "이퀼리브리오 가토 아둘토 카스트라도 프랑고 (치킨, 거세 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -53075,7 +55085,10 @@
     "product_name": "이퀼리브리오 베터리너리 유리너리 가토스 – UR",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -53125,7 +55138,10 @@
     "product_name": "이퀼리브리오 베터리너리 레날 가토스 – RE",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -53176,7 +55192,10 @@
     "product_name": "이퀼리브리오 베터리너리 인테스티날 가토스 – IN",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "IBD"
@@ -53226,7 +55245,10 @@
     "product_name": "맥스캣 프로페셔널 라인 카스트라도스 프랑고(치킨, 중성화묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -53273,7 +55295,10 @@
     "product_name": "맥스캣 프로페셔널 라인 카스트라도스 살몽&아호스(연어&쌀, 중성화묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -53322,7 +55347,10 @@
     "product_name": "맥스 비타 어덜트 사보르스 프랑고&페이시(치킨&생선 맛, 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -53412,7 +55440,10 @@
     "product_name": "콰트리 슈프림 거세묘 — 프랑고(닭)와 고구마",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -53556,7 +55587,10 @@
     "product_name": "콰트리 셀렉트 거세묘 — 닭, 쌀",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -53604,7 +55638,10 @@
     "product_name": "콰트리 고메 거세묘 — 델리시아스 두 마르(해산물 믹스)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -53657,7 +55694,10 @@
     "product_name": "쓰리캣츠 오리지널 프리미엄 에스페시알 — 거세묘 — 카네(소고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -53749,7 +55789,10 @@
     "product_name": "쓰리캣츠 슈퍼 프리미엄 — 거세묘 & 헤어볼 — 치킨",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -53794,7 +55837,10 @@
     "product_name": "쓰리캣츠 슈퍼 프리미엄 — 어덜트 — 살몬·치킨·카네",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -53892,7 +55938,10 @@
     "product_name": "스페셜캣 카스트라도스 믹스 더 카르니스 (프리미엄 건식, 중성화묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -53939,7 +55988,10 @@
     "product_name": "스페셜캣 아둘토스 카르니 (프리미엄 건식, 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -54030,7 +56082,10 @@
     "product_name": "사셰 스페셜캣 아둘토스 살몽 (프리미엄 습식)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -54077,7 +56132,10 @@
     "product_name": "사셰 스페셜캣 카스트라도스 카르니 (프리미엄 습식, 중성화묘)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -54126,7 +56184,10 @@
     "product_name": "프리모가토 프리미엄 오리지널 카르네&프랑구 (성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 28.0,
@@ -54172,7 +56233,10 @@
     "product_name": "프리모가토 프리미엄 블렌드 카르네·프랑구·페이시 (성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -54218,7 +56282,10 @@
     "product_name": "프리모가토 프리미엄 카스트라두스 프랑구 (중성화 성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -54307,7 +56374,10 @@
     "product_name": "프리모가토 프리미엄 사셰 프루투스 두 마르 (해산물, 성묘)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.2,
@@ -54352,7 +56422,10 @@
     "product_name": "비탈칸 발란스드 어덜트 고양이 (치킨&라이스)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -54400,7 +56473,10 @@
     "product_name": "비탈칸 발란스드 어덜트 고양이 pH 컨트롤 (요로)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -54497,7 +56573,10 @@
     "product_name": "비탈칸 컴플리트 어덜트 고양이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -54546,7 +56625,10 @@
     "product_name": "비탈칸 프리미엄 유리너리 어덜트 고양이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -54595,7 +56677,10 @@
     "product_name": "올드 프린스 프리미엄 고양이 어덜트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -54644,7 +56729,10 @@
     "product_name": "올드 프린스 에퀼리브리엄 고양이 어덜트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -54738,7 +56826,10 @@
     "product_name": "올드 프린스 에퀼리브리엄 고양이 어덜트 요로(유리나리)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -54786,7 +56877,10 @@
     "product_name": "올드 프린스 에퀼리브리엄 고양이 어덜트 중성화(에스테릴리사도)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -54835,7 +56929,10 @@
     "product_name": "올드 프린스 프로테이나스 노벨레스 고양이 어덜트 코르데로&현미",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -54937,7 +57034,10 @@
     "product_name": "지거 카체 어덜트 하이 퀄리티 프로틴 (성묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -54989,7 +57089,10 @@
     "product_name": "지거 카체 유리너리 트랙트 컨트롤 (요로)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -55041,7 +57144,10 @@
     "product_name": "라타 지거 연어&치킨 성묘 (340g)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -55087,7 +57193,10 @@
     "product_name": "퓨리나 엑셀런트 성묘 닭·육·쌀",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -55183,7 +57292,10 @@
     "product_name": "엑셀런트 유리너리 성묘 닭·쌀",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -55232,7 +57344,10 @@
     "product_name": "퓨리나 엑셀런트 스테릴라이즈드(중성화묘)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -55329,7 +57444,10 @@
     "product_name": "톱 뉴트리션 가토 아둘토(어덜트) 건식 — 치킨&라이스",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -55427,7 +57545,10 @@
     "product_name": "미마스콧 어덜트 고양이 — 닭/고기/연어맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -55471,7 +57592,10 @@
     "product_name": "미마스콧 어덜트 고양이 — 연어/참치/정어리맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -55561,7 +57685,10 @@
     "product_name": "미치캣 어덜트 닭·정어리·참치 (Pollo, Sardina y Atún)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 25.0,
@@ -55659,7 +57786,10 @@
     "product_name": "캔보 캣 스테릴라이즈드 케어 (중성화 성묘 1-7세) 슈퍼프리미엄 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -55710,7 +57840,10 @@
     "product_name": "캔보 캣 유리너리 헬스 (성묘 1-7세, 전 품종) 슈퍼프리미엄 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 38.0,
@@ -55758,7 +57891,10 @@
     "product_name": "캔보 캣 폴로 파테 어덜트 에스테릴리사도스 (치킨 파테, 중성화 성묘)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 11.0,
@@ -55848,7 +57984,10 @@
     "product_name": "리코캣 아둘토스 아툰·사르디나·트루차 (어덜트 건식 — 참치·정어리·송어)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -55895,7 +58034,10 @@
     "product_name": "리코캣 아둘토스 에스테릴리사도스 (중성화 어덜트 건식 — 생선맛)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -55935,7 +58077,10 @@
     "product_name": "리코캣 파테 이가도·포요 (어덜트 습식 — 간·닭, 330g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -55983,7 +58128,10 @@
     "product_name": "리코캣 파테 살몬 (어덜트 습식 — 연어, 330g 캔)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 10.0,
@@ -56020,7 +58168,10 @@
     "product_name": "슈퍼캣 어덜트 정어리 참치 송어 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -56061,7 +58212,10 @@
     "product_name": "슈퍼캣 델리시아스 펠리나스 어덜트 — 치킨·소고기·참치·정어리 (건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -56191,7 +58345,10 @@
     "product_name": "누펙 펠리노 어덜트 인도어",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -56287,7 +58444,10 @@
     "product_name": "누펙 펠리노 유리너리 매니지먼트",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "결석-스트루바이트"
@@ -56336,7 +58496,10 @@
     "product_name": "누펙 펠리노 레날 케어",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [
       "신부전 1-2기",
@@ -56386,7 +58549,10 @@
     "product_name": "누펙 펠리노 헤어볼 컨트롤",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -56437,7 +58603,10 @@
     "product_name": "미니노 플러스 새먼 (성묘 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -56492,7 +58661,10 @@
     "product_name": "미니노 폴로 이 레스(치킨&소고기) (성묘 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -56539,7 +58711,10 @@
     "product_name": "미니노 카마론 이 아툰(새우&참치) (성묘 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 31.0,
@@ -56591,7 +58766,10 @@
     "product_name": "미니노 에스테릴리사도스 치킨&생선 (중성화묘 성묘 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -56641,7 +58819,10 @@
     "product_name": "미니노 플러스 레세타스 치킨국물&야채 (습식 파우치)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -56681,7 +58862,10 @@
     "product_name": "라자 어덜트 카르네·페스카도·아로스(소고기·생선·쌀) 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -56732,7 +58916,10 @@
     "product_name": "라자 어덜트 페스카도(생선) 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -56783,7 +58970,10 @@
     "product_name": "라자 중성화묘 카르네 이 포요(소고기·치킨) 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -56885,7 +59075,10 @@
     "product_name": "누트리케어 어덜트 고양이 — 피쉬(어류맛)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -56934,7 +59127,10 @@
     "product_name": "울트라믹스 어덜트 고양이(유지기) — 피쉬(어류맛)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -56981,7 +59177,10 @@
     "product_name": "발란스 캣 어덜트 치킨 (닭)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -57028,7 +59227,10 @@
     "product_name": "발란스 캣 어덜트 피쉬 (생선)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -57174,7 +59376,10 @@
     "product_name": "페틸리셔스 고양이 풍미증진 소스 160g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -57215,7 +59420,10 @@
     "product_name": "고양이용 닭가슴살 워터팩 220g",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -57255,7 +59463,10 @@
     "product_name": "식스팩 위스커 밀스 160g (고양이)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -57336,7 +59547,10 @@
     "product_name": "캣모어 어덜트 건식 치킨맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -57379,7 +59593,10 @@
     "product_name": "캣모어 어덜트 건식 참치맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 26.0,
@@ -57464,7 +59681,10 @@
     "product_name": "캣모어 어덜트 습식 치킨 청크 인 젤리",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 7.0,
@@ -57547,7 +59767,10 @@
     "product_name": "올 브리드 어덜트 클래식 캣 – 위드 석큘런트 치킨(닭고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -57646,7 +59869,10 @@
     "product_name": "카루 올 브리드 어덜트 캣 – 드라이 – 치킨(닭고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -57693,7 +59919,10 @@
     "product_name": "카루 메타볼릭 다이어트 & 스테릴라이즈드 캣 드라이 푸드(올 브리드 어덜트)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -57738,7 +59967,10 @@
     "product_name": "팸퍼 고메 미트 피스트 어덜트 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -57782,7 +60014,10 @@
     "product_name": "팸퍼 딥 컨트리 피스트 어덜트 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -57959,7 +60194,10 @@
     "product_name": "카르미 어덜트 캣 — 닭고기(Курица)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -58004,7 +60242,10 @@
     "product_name": "카르미 스테릴라이즈드 — 연어(Лосось)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -58053,7 +60294,10 @@
     "product_name": "카르미 스테릴라이즈드 — 닭고기(Курица)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -58099,7 +60343,10 @@
     "product_name": "카르미 어덜트 습식 — 닭고기, 젤리 속 고기조각(Курица в желе)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -58141,7 +60388,10 @@
     "product_name": "Mealfeel Sterilized 건식 — с ягненком(양고기)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 37.0,
@@ -58229,7 +60479,10 @@
     "product_name": "Mealfeel Care Nutrition 건식 — 요로건강 지원, с курицей(닭)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -58319,7 +60572,10 @@
     "product_name": "오브조르카 '소치나야 говядина(즙많은 소고기)' 소스 큐브 (성묘용)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -58360,7 +60616,10 @@
     "product_name": "오브조르카 '네즈늬 лосось(부드러운 연어)' 소스 큐브 (성묘용)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -58403,7 +60662,10 @@
     "product_name": "오브조르카 '두시스띄에 курочка и утка(향기로운 닭고기와 오리)' 소스 큐브 (성묘용)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -58445,7 +60707,10 @@
     "product_name": "오브조르카 '아로마트나야 курица(향긋한 닭고기)' 젤리 큐브 (성묘용)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -58487,7 +60752,10 @@
     "product_name": "오브조르카 '아페티트나야 индейка(먹음직한 칠면조)' 젤리 큐브 (성묘용)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.0,
@@ -58793,7 +61061,10 @@
     "product_name": "시리우스 «육류 식단» 어덜트 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -58843,7 +61114,10 @@
     "product_name": "시리우스 «칠면조와 닭» 중성화묘 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -58939,7 +61213,10 @@
     "product_name": "시리우스 «연어와 쌀» 어덜트 건식",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -58989,7 +61266,10 @@
     "product_name": "라카트 치킨 — 어덜트 완전 건식 사료 (עוף)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -59032,7 +61312,10 @@
     "product_name": "라카트 오션피쉬 — 어덜트 완전 건식 사료 (연어, דגי ים)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 30.0,
@@ -59123,7 +61406,10 @@
     "product_name": "라카트 필레 치킨 인 젤리 — 어덜트 완전 습식 (젤리)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 8.5,
@@ -59164,7 +61450,10 @@
     "product_name": "라카트 필레 연어 인 그레이비 (중성화묘용) — 어덜트 완전 습식 (그레이비)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 9.0,
@@ -59207,7 +61496,10 @@
     "product_name": "매직 어덜트 완전 건식 사료 (18 kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 25.0,
@@ -59246,7 +61538,10 @@
     "product_name": "수프림 캣 — 성묘용 완전 건식(닭/소/당근/완두 너겟) [סופרים]",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 32.0,
@@ -59290,7 +61585,10 @@
     "product_name": "펠린고 프레시 치킨 위드 허브 (컴플리트 건식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.5,
@@ -59331,7 +61629,10 @@
     "product_name": "펠린고 치킨 브레스트 위드 치즈 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -59373,7 +61674,10 @@
     "product_name": "펠린고 치킨 브레스트 위드 펌킨 인 그레이비",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 12.0,
@@ -59413,7 +61717,10 @@
     "product_name": "펠린고 아틱 차 & 대구알 위드 크랜베리 (파테)",
     "category": "습식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 6.0,
@@ -59498,7 +61805,10 @@
     "product_name": "마제스틱 어덜트 캣 드라이 (7kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -59578,7 +61888,10 @@
     "product_name": "마제스틱 수유모묘 드라이",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -59615,7 +61928,10 @@
     "product_name": "마제스틱 중성화묘 드라이 (3kg)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": null,
@@ -59653,7 +61969,10 @@
     "product_name": "퓨어벳 드라이 캣푸드 — 어덜트 치킨 & 포테이토",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 33.0,
@@ -60342,7 +62661,10 @@
     "product_name": "메라 바이탈 웨이트 컨트롤 건식 (과체중 처방식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 40.0,
@@ -60393,7 +62715,10 @@
     "product_name": "메라 바이탈 스킨 컨트롤 + 알러직 건식 (제거식 처방식)",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 27.0,
@@ -60482,7 +62807,10 @@
     "product_name": "프레스티지 어덜트 중성화 - 피쉬맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
@@ -60529,7 +62857,10 @@
     "product_name": "프레스티지 어덜트 중성화 - 치킨맛",
     "category": "건식",
     "age_fit": [
-      "1+"
+      "1+",
+      "7+",
+      "11+",
+      "15+"
     ],
     "condition_fit": [],
     "protein_pct": 36.0,
