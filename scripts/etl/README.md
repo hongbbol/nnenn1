@@ -30,4 +30,8 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
 - `condition_fit`: 처방식만, **SKU 이름+life_stage**로 한정 매핑(Line.positioning은 라인 전체 범위라 미사용).
 - `ingredient_keywords`: `INGREDIENT_SYNONYMS` 정규화. 곡물은 명시 토큰만(한글 '밀'=meal 음역 오탐 방지).
 - DM(건물기준)만 있는 건식은 수분 8% 가정으로 as-fed 환산 → `영양추정(DM환산)` 태그.
-- 데이터 부재 필드(`sodium_pct`/`price_per_kg_krw`/`image_url`/`affiliate_links`)는 `null`.
+- `kr_available`: `02_Brands.kr_distributed=Yes` **AND** `03_Lines.kr_line_available=Yes`만 true
+  (엔진 하드 게이트 — 한국 미유통 제외). 브랜드 Yes인데 라인 미확정(Unknown/공란)은 경고 출력 + false 처리.
+- 미네랄·지방산 레버(2026-06-24 추가): `sodium_pct`/`potassium_pct`/`chloride_pct`/`taurine_pct`/`epa_dha_pct`
+  — nnenn2 06_Nutrition as-fed(+건식 DM 환산 fallback). `epa_dha_pct` 없고 EPA·DHA 개별값 둘 다 있으면 합산.
+- 데이터 부재 필드(`price_per_kg_krw`/`image_url`/`affiliate_links`)는 `null`.

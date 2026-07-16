@@ -24,6 +24,10 @@ function food(f: Partial<Food> & Pick<Food, 'id' | 'brand' | 'product_name' | 'c
     moisture_pct: null,
     phosphorus_pct: null,
     sodium_pct: null,
+    potassium_pct: null,
+    chloride_pct: null,
+    taurine_pct: null,
+    epa_dha_pct: null,
     omega3_pct: null,
     kcal_per_100g: null,
     ingredient_summary: null,
@@ -35,6 +39,8 @@ function food(f: Partial<Food> & Pick<Food, 'id' | 'brand' | 'product_name' | 'c
     affiliate_links: null,
     price_per_kg_krw: null,
     active: true,
+    // MVP 시드는 큐레이션된 수입 유통품 전제 — 실데이터 ETL은 브랜드×라인 KR 검증값을 넣는다.
+    kr_available: true,
     ...f,
   };
 }

@@ -89,16 +89,31 @@ def derive_food_role(completeness, sku_name, life_stage):
 
 
 def derive_age_fit(life_stage):
-    """nnenn1 버킷(1+/7+/11+/15+)으로 매핑. 키튼은 빈 배열(태그로 보존)."""
+    """nnenn1 버킷(1+/7+/11+/15+)으로 매핑. 키튼은 빈 배열(태그로 보존).
+
+    의미: age_fit = "이 연령대 고양이에게 적합한가". 일반 성묘용(Adult/Sterilised/
+    Therapeutic)은 노령묘에게도 급여 가능하므로 **전 성묘 버킷**. 좁히는 건
+    ① 라벨이 연령 밴드를 명시한 경우(예 'Adult 1-6') ② 노령 하한 명시(7+/11+/15+)뿐.
+    (버그 수정 2026-06-24: Adult→['1+']만 주던 매핑이 11세+ 고양이에게 레날 처방식
+    포함 전 성묘식을 life_stage 게이트로 전멸시켰음.)
+    """
     s = (life_stage or "").lower()
     if any(k in s for k in ["all life", "all ages", "전연령", "all-life"]):
         return ["1+", "7+", "11+", "15+"]
-    if any(k in s for k in ["senior", "mature", "7+", "11+", "15+", "노령", "시니어", "고령"]):
-        return ["7+", "11+", "15+"]
     if any(k in s for k in ["kitten", "키튼", "growth", "성장", "reproduction", "수유", "임신"]):
         return []  # nnenn1 성묘+ 버킷에 없음 → 키튼 태그로 보존
-    # adult / maintenance / sterilised / therapeutic 등
-    return ["1+"]
+    # 노령 하한 명시 — 구체 연령이 있으면 세분화.
+    if re.search(r"1[5-9]\s*\+|1[5-9]\s*세", s):
+        return ["15+"]
+    if re.search(r"1[1-4]\s*\+|1[1-4]\s*세", s):
+        return ["11+", "15+"]
+    if any(k in s for k in ["senior", "mature", "7+", "8+", "9+", "10+", "노령", "시니어", "고령"]):
+        return ["7+", "11+", "15+"]
+    # 성묘 연령 밴드 명시(예 'Adult 1-6', '1~6세') → 젊은 성묘 한정.
+    if re.search(r"\b1\s*[-–~]\s*6\b", s):
+        return ["1+"]
+    # adult / maintenance / sterilised / therapeutic 등 일반 성묘용 → 전 성묘 버킷.
+    return ["1+", "7+", "11+", "15+"]
 
 
 # 처방식 → nnenn1 HEALTH_OPTIONS 매핑 (데이터 로직 추천용, 수의자문 추후).
@@ -182,6 +197,12 @@ def build_nutrition(n, category):
         "ash_pct": ("ash_pct", "ash_dm_pct"),
         "phosphorus_pct": ("phosphorus_pct", "phosphorus_dm_pct"),
         "omega3_pct": ("omega3_pct", "omega3_dm_pct"),
+        # 미네랄·지방산 레버(데이터스키마 §영양 — CKD·요로·노령) — 2026-06-11 nnenn2 스키마 확장분
+        "sodium_pct": ("sodium_pct", "sodium_dm_pct"),
+        "potassium_pct": ("potassium_pct", "potassium_dm_pct"),
+        "chloride_pct": ("chloride_pct", "chloride_dm_pct"),
+        "taurine_pct": ("taurine_pct", "taurine_dm_pct"),
+        "epa_dha_pct": ("epa_dha_pct", "epa_dha_dm_pct"),
     }
     DRY_MOISTURE = 8.0
     factor = (100 - DRY_MOISTURE) / 100.0
@@ -199,6 +220,12 @@ def build_nutrition(n, category):
                 v = round(dm * factor, 1) if af_key in ("protein_pct", "fat_pct", "fiber_pct", "ash_pct") else round(dm * factor, 2)
                 estimated = True
         out[af_key] = v
+
+    # EPA+DHA 합산값이 없고 개별 EPA·DHA가 둘 다 있으면 합산(as-fed).
+    if out.get("epa_dha_pct") is None:
+        epa, dha = num(n.get("epa_pct")), num(n.get("dha_pct"))
+        if epa is not None and dha is not None:
+            out["epa_dha_pct"] = round(epa + dha, 3)
 
     # 건식인데 as-fed 영양을 DM에서 환산했고 수분도 없으면 가정값(8%)으로 채워 내부 정합성 유지
     if estimated and moisture is None and category == "건식":
@@ -258,6 +285,9 @@ def main():
         sys.exit(1)
     wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
 
+    # 브랜드 KR 유통(02_Brands.kr_distributed) — 2026-06 네이버 Open API 전수검증 완료값.
+    brands_kr = {b["brand_id"]: (b.get("kr_distributed") or "").strip()
+                 for b in read_sheet(wb, "02_Brands")}
     lines = {l["line_id"]: l for l in read_sheet(wb, "03_Lines")}
     skus = read_sheet(wb, "04_SKUs")
     nut = {n["sku_id"]: n for n in read_sheet(wb, "06_Nutrition")}
@@ -297,6 +327,11 @@ def main():
         )
         nutri, estimated = build_nutrition(n, category)
         keywords, summary = derive_keywords_and_summary(ings)
+
+        # 한국 구매 가능 — 브랜드 Yes × 라인 Yes 만 true (데이터스키마 §유통 kr_distributed).
+        brand_kr = brands_kr.get(line.get("brand_id"), "")
+        line_kr = (line.get("kr_line_available") or "").strip()
+        kr_available = brand_kr == "Yes" and line_kr == "Yes"
         rec_daily_g = derive_rec_daily_g(feeds)
         tags = derive_tags(role, life_stage, s.get("sku_name_en"),
                            s.get("sku_name_ko"), is_therapeutic)
@@ -316,7 +351,11 @@ def main():
             "ash_pct": nutri["ash_pct"],
             "moisture_pct": nutri["moisture_pct"],
             "phosphorus_pct": nutri["phosphorus_pct"],
-            "sodium_pct": None,  # nnenn2에 나트륨 컬럼 없음
+            "sodium_pct": nutri["sodium_pct"],
+            "potassium_pct": nutri["potassium_pct"],
+            "chloride_pct": nutri["chloride_pct"],
+            "taurine_pct": nutri["taurine_pct"],
+            "epa_dha_pct": nutri["epa_dha_pct"],
             "omega3_pct": nutri["omega3_pct"],
             "kcal_per_100g": nutri["kcal_per_100g"],
             "ingredient_summary": summary,
@@ -328,10 +367,15 @@ def main():
             "affiliate_links": None,
             "price_per_kg_krw": None,
             "active": True,
+            "kr_available": kr_available,
             "food_role": role,
             "life_stage_raw": life_stage,
         }
         rows.append(row)
+
+        # 브랜드 Yes인데 라인 KR 미확정(Unknown/공란) → 검토 대상으로 경고
+        if brand_kr == "Yes" and line_kr not in ("Yes", "No"):
+            warnings.append(f"{sid}: 브랜드 KR=Yes인데 라인 kr_line_available='{line_kr}' (미확정 → kr_available=false 처리)")
 
         # 데이터 품질 경고
         if not row["brand"]:

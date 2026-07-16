@@ -46,6 +46,56 @@ export const URINARY_MOISTURE = {
 };
 
 /**
+ * condition_fit 별칭 — 데이터 소스별 어휘 차이를 흡수한다.
+ * 시드는 영문 키('ckd'), nnenn2 ETL은 온보딩 HEALTH_OPTIONS 한글 라벨('신부전 1-2기')
+ * 또는 'IBD' 등으로 기록 → 부분 문자열 매칭용 별칭 사전(소문자).
+ */
+export const CONDITION_ALIASES: Record<string, string[]> = {
+  ckd: ['ckd', '신부전', '신장'],
+  diabetes: ['diabetes', '당뇨'],
+  struvite: ['struvite', '스트루바이트'],
+  oxalate: ['oxalate', '옥살레이트', '옥살산'],
+  ibd: ['ibd', '장병증'],
+  allergy: ['allergy', '알레르기', '알러지'],
+  pancreatitis: ['pancreatitis', '췌장'],
+  weight: ['weight', '체중', '비만'],
+  senior: ['senior', '노령', '시니어'],
+};
+
+/** fit 목록(소문자 가정)이 해당 임상 키와 매칭되는지 — 별칭 부분 문자열 매칭. */
+export function fitMatches(fitLower: string[], key: string): boolean {
+  const aliases = CONDITION_ALIASES[key] ?? [key];
+  return fitLower.some((f) => aliases.some((a) => f.includes(a)));
+}
+
+/**
+ * CKD 나트륨 적정 — g/1000kcal (레지스트리 §3-A: 0.5–1 적정, 고나트륨·초저나트륨(RAAS 자극)
+ * 모두 회피. 근거 '약함·논쟁' — RC Academy·WSAVA 2018 → 보조 레버(저가중)로만).
+ */
+export const CKD_SODIUM = {
+  idealLo: 0.5,
+  idealHi: 1.0,
+  /** 이 위로는 감점이 0에 수렴하는 상한. */
+  cap: 2.5,
+};
+
+/** CKD 칼륨 보충 — g/1000kcal (레지스트리 §3-A: 1.4–2.6, IRIS 2023·WSAVA 2018, 근거 '중간'). */
+export const CKD_POTASSIUM = {
+  lo: 1.4,
+  hi: 2.6,
+};
+
+/**
+ * 요로 건식 나트륨 음수 유도 — g/1000kcal (레지스트리 §3-B: 3.0–3.3).
+ * 근거는 동료심사(Queau 2020·PEANUT/Reynolds 2024)이나 둘 다 Royal Canin 관여 →
+ * mfr_corroborated, '중간'(§5-1 정정). ⚠ CKD 동반 시 미적용 — Na 증량 대신 습식·음수 희석(§4 충돌 규칙).
+ */
+export const URINARY_DRY_SODIUM = {
+  lo: 3.0,
+  hi: 3.3,
+};
+
+/**
  * 원료 검출 사전(부록 A). 라벨 원료명/태그에서 기계적으로 플래그를 도출한다.
  * 시드 데이터에서는 food.tags 또는 food.ingredient_keywords에 아래 토큰을 넣어 표현.
  */

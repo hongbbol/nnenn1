@@ -84,3 +84,12 @@ export function proteinGramsPer1000kcal(
   if (proteinPct == null || kcalPer100g == null) return null;
   return pctToGramsPer1000kcal(proteinPct, kcalPer100g);
 }
+
+/** 미네랄(Na/K 등) g/1000kcal — as-fed % 또는 kcal 결측이면 null(임의 추정 금지, 스키마 §1-3). */
+export function mineralGramsPer1000kcal(
+  mineralPct: number | null,
+  kcalPer100g: number | null,
+): number | null {
+  if (mineralPct == null || kcalPer100g == null) return null;
+  return pctToGramsPer1000kcal(mineralPct, kcalPer100g);
+}
