@@ -46,6 +46,11 @@ export function gateFood(food: Food, input: RecInput): ExclusionReason[] {
     reasons.push({ code: 'user_excluded', label: '사용자가 제외한 사료' });
   }
 
+  // 0-1. 한국 유통 — 구매 불가 사료는 추천 불가(데이터스키마 §유통 kr_distributed).
+  if (!food.kr_available) {
+    reasons.push({ code: 'kr_unavailable', label: '한국 미유통 (구매 불가)' });
+  }
+
   // 0. 주식(staple) 적합성 — 보조식·간식은 주식단 추천에서 탈락(§0-3).
   if (matchesAny(hay, KEYWORDS.notStaple)) {
     reasons.push({ code: 'not_staple', label: '보조식·간식 (주식단 아님)' });

@@ -52,6 +52,11 @@ export type Food = {
   moisture_pct: number | null;
   phosphorus_pct: number | null;
   sodium_pct: number | null;
+  potassium_pct: number | null;
+  chloride_pct: number | null;
+  taurine_pct: number | null;
+  /** EPA+DHA 합산 as-fed % — 총 omega3(ALA 포함)와 분리(고양이는 ALA 전환 불가). */
+  epa_dha_pct: number | null;
   omega3_pct: number | null;
   kcal_per_100g: number | null;
   ingredient_summary: string | null;
@@ -63,6 +68,8 @@ export type Food = {
   affiliate_links: Record<string, string> | null;
   price_per_kg_krw: number | null;
   active: boolean;
+  /** 한국 정식 유통 여부(브랜드 Yes × 라인 Yes) — 추천 하드 게이트. */
+  kr_available: boolean;
 };
 
 // ─── 추천 히스토리 ────────────────────────────────────────────
