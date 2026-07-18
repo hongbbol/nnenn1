@@ -124,8 +124,8 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   'ZIWI Peak': ['지위픽', '지위'],
 };
 
-/** 검색 결과 최대 노출 개수. */
-export const FOOD_OPTION_RESULT_LIMIT = 8;
+/** 검색 결과 최대 노출 개수. 브랜드당 SKU가 수십 개(로얄캐닌 89)라 8은 부족 — 12로 상향. */
+export const FOOD_OPTION_RESULT_LIMIT = 12;
 
 /** 옵션의 검색 대상 문자열(소문자·공백제거) — 브랜드 원문 + 한글 별칭 + 제품명. */
 function searchHay(o: FoodOption): string {
