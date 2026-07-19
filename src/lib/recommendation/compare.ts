@@ -12,7 +12,6 @@ import type {
   ComparisonResult,
   Food,
 } from '@/lib/domain/types';
-import { SEED_FOODS } from './foods-data';
 
 export type ComparisonBaseline =
   | { source: 'db'; food: Food }
@@ -49,11 +48,14 @@ function toCandidate(food: Food): ComparisonCandidate {
   };
 }
 
-/** cat의 현재 사료 정보로 baseline을 결정. current_food_id는 SEED에서 매칭한다. */
-export function resolveBaseline(cat: CatRow): ComparisonBaseline {
-  if (cat.current_food_id) {
-    const food = SEED_FOODS.find((f) => f.id === cat.current_food_id);
-    if (food) return { source: 'db', food };
+/**
+ * cat의 현재 사료 정보로 baseline을 결정.
+ * current_food_id의 실제 사료는 호출부가 DB에서 조회해 `currentFood`로 넘긴다
+ * (이 모듈은 순수 유지 — 서버 쿼리는 `@/lib/data/queries`의 `getFoodById`).
+ */
+export function resolveBaseline(cat: CatRow, currentFood: Food | null): ComparisonBaseline {
+  if (cat.current_food_id && currentFood && currentFood.id === cat.current_food_id) {
+    return { source: 'db', food: currentFood };
   }
   if (cat.current_food_text && cat.current_food_text.trim()) {
     return { source: 'text', text: cat.current_food_text.trim() };

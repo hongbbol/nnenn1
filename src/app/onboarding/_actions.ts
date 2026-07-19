@@ -3,12 +3,31 @@ import { randomUUID } from 'node:crypto';
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/auth/user';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
-import { recommendFromProfile, SEED_FOODS } from '@/lib/recommendation';
-import { getRecommendationFoods } from '@/lib/data/queries';
+import {
+  getFoodOptions,
+  recommendFromProfile,
+  SEED_FOODS,
+  type FoodOption,
+} from '@/lib/recommendation';
+import { getFoodOptionRows, getRecommendationFoods } from '@/lib/data/queries';
 import { CAT_LIMIT } from '@/lib/domain/constants';
 import type { GuestCat, RecSummary } from '@/lib/domain/types';
 
 export type SaveResult = { ok: true } | { ok: false; error: string };
+
+/**
+ * 사료 검색 옵션 — DB foods(kr_available) 우선, 비어 있으면 시드 파생 폴백(로컬/미시드 환경).
+ * diet 단계 클라이언트가 마운트 시 1회 호출해 클라이언트에서 필터링한다(수백 건 규모).
+ */
+export async function fetchFoodOptions(): Promise<FoodOption[]> {
+  try {
+    const rows = await getFoodOptionRows();
+    if (rows.length > 0) return rows;
+  } catch (e) {
+    console.error('[fetchFoodOptions]', e);
+  }
+  return getFoodOptions();
+}
 
 /**
  * 온보딩 완료 시 호출. 게스트 입력(cat)을 Supabase에 영구 저장하고 추천을 1회 계산해
@@ -70,6 +89,12 @@ export async function saveCatAndRecommend(
       }
     }
 
+    // current_food_id는 uuid FK — 시드 폴백 id('renal-wet-01' 등)가 섞이면 캐스팅 에러가
+    // 나므로 uuid 형식일 때만 저장하고, 아니면 자유 입력 텍스트로 강등한다.
+    const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    const currentFoodId =
+      cat.current_food_id && UUID_RE.test(cat.current_food_id) ? cat.current_food_id : null;
+
     const catId: string = existing?.id ?? randomUUID();
     const finalImagePath: string | null =
       heroImagePath ?? existing?.hero_image_path ?? null;
@@ -85,8 +110,8 @@ export async function saveCatAndRecommend(
       weight_kg: cat.weight_kg!,
       neutered_status: cat.neutered_status!,
       diet_type: cat.diet_type!,
-      current_food_id: cat.current_food_id ?? null,
-      current_food_text: cat.current_food_id ? null : cat.current_food_text?.trim() || null,
+      current_food_id: currentFoodId,
+      current_food_text: currentFoodId ? null : cat.current_food_text?.trim() || null,
       health_conditions: cat.health_conditions ?? [],
       avoid_ingredients: cat.avoid_ingredients ?? [],
       exclude_food_ids: cat.exclude_food_ids ?? [],

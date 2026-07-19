@@ -3,7 +3,7 @@ import { Info, Scale } from 'lucide-react';
 import { TopNavServer } from '@/components/layout/top-nav-server';
 import { ComparisonTable } from '@/components/domain/comparison-table';
 import { getCurrentUser } from '@/lib/auth/user';
-import { getOwnedCat, getRecentRecommendations } from '@/lib/data/queries';
+import { getFoodById, getOwnedCat, getRecentRecommendations } from '@/lib/data/queries';
 import { buildComparison, resolveBaseline } from '@/lib/recommendation/compare';
 
 /**
@@ -24,7 +24,8 @@ export default async function ComparePage() {
   if (!latest || latest.result.top.length === 0) redirect('/recommendations');
 
   const candidates = latest.result.top.map((t) => t.food);
-  const baseline = resolveBaseline(cat);
+  const currentFood = cat.current_food_id ? await getFoodById(cat.current_food_id) : null;
+  const baseline = resolveBaseline(cat, currentFood);
   const comparison = buildComparison(baseline, candidates);
 
   return (

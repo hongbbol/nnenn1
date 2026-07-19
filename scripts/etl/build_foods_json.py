@@ -54,8 +54,15 @@ def num(v):
 
 
 def derive_category(sku_name, line_form, moisture):
-    """습식/건식 판별: moisture>50 우선, 이름/form 보조."""
-    text = f"{sku_name or ''} {line_form or ''}".lower()
+    """습식/건식 판별: moisture>50 우선, 이름/form 보조.
+
+    혼합 라인(form='dry/wet')의 'dry'가 습식 키워드 판별을 오염시키므로
+    (예: Hill's L0005 습식 canned가 건식 처리) 혼합 form은 판별에서 제외한다.
+    """
+    form = (line_form or "").lower()
+    if "dry" in form and ("wet" in form or "/" in form):
+        form = ""
+    text = f"{sku_name or ''} {form}".lower()
     wet_kw = ["wet", "습식", "can", "캔", "pouch", "파우치", "pate", "pâté", "paté",
               "purée", "puree", "퓨레", "churu", "츄루", "jelly", "젤리", "gravy",
               "그레이비", "broth", "음료", "stew", "mousse", "무스"]

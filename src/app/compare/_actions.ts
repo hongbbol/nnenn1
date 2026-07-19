@@ -2,7 +2,7 @@
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/auth/user';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
-import { getOwnedCat, getRecentRecommendations } from '@/lib/data/queries';
+import { getFoodById, getOwnedCat, getRecentRecommendations } from '@/lib/data/queries';
 import { buildComparison, resolveBaseline } from '@/lib/recommendation/compare';
 
 /**
@@ -24,7 +24,8 @@ export async function saveCurrentComparison(): Promise<void> {
   }
 
   const candidates = latest.result.top.map((t) => t.food);
-  const baseline = resolveBaseline(cat);
+  const currentFood = cat.current_food_id ? await getFoodById(cat.current_food_id) : null;
+  const baseline = resolveBaseline(cat, currentFood);
   const comparison = buildComparison(baseline, candidates);
 
   const supabase = await createSupabaseServerClient();

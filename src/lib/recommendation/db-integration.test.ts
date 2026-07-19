@@ -107,7 +107,13 @@ describe.skipIf(!hasEnv)('원격 DB foods 통합 추천 (실데이터 1333 SKU)'
     for (const t of result!.top) {
       expect(SEED_IDS.has(t.food.id)).toBe(false); // 시드가 아닌 실데이터
       expect(t.food.kr_available).toBe(true); // KR 하드 게이트 통과분만
+      // 카드 설명 보장 — 임계 미달이어도 팩트 fallback으로 warn 제외 최소 3개(§5-3 표시 보강).
+      expect(t.reasons.filter((r) => r.tone !== 'warn').length).toBeGreaterThanOrEqual(3);
     }
+    console.log(
+      'CKD TOP1 reasons:',
+      result!.top[0].reasons.map((r) => `[${r.tone}] ${r.label}`),
+    );
     // 미유통 사료가 실제로 게이트에서 잘렸는지.
     expect(result!.excluded.some((e) => e.reasons.some((r) => r.code === 'kr_unavailable'))).toBe(
       true,
@@ -126,7 +132,14 @@ describe.skipIf(!hasEnv)('원격 DB foods 통합 추천 (실데이터 1333 SKU)'
     );
     expect(result).not.toBeNull();
     expect(result!.top.length).toBeGreaterThan(0);
-    result!.top.forEach((t) => expect(t.food.kr_available).toBe(true));
+    result!.top.forEach((t) => {
+      expect(t.food.kr_available).toBe(true);
+      expect(t.reasons.filter((r) => r.tone !== 'warn').length).toBeGreaterThanOrEqual(3);
+    });
+    console.log(
+      '스트루바이트 TOP1 reasons:',
+      result!.top[0].reasons.map((r) => `[${r.tone}] ${r.label}`),
+    );
     console.log(
       '스트루바이트 TOP:',
       result!.top.slice(0, 5).map((t) => `${t.food.brand} ${t.food.product_name}(${t.score})`),
@@ -141,7 +154,12 @@ describe.skipIf(!hasEnv)('원격 DB foods 통합 추천 (실데이터 1333 SKU)'
     result!.top.forEach((t) => {
       expect(SEED_IDS.has(t.food.id)).toBe(false);
       expect(t.food.kr_available).toBe(true);
+      expect(t.reasons.filter((r) => r.tone !== 'warn').length).toBeGreaterThanOrEqual(3);
     });
+    console.log(
+      '건강성묘 TOP1 reasons:',
+      result!.top[0].reasons.map((r) => `[${r.tone}] ${r.label}`),
+    );
     console.log(
       '건강성묘 TOP:',
       result!.top.slice(0, 5).map((t) => `${t.food.brand} ${t.food.product_name}(${t.score})`),

@@ -1,4 +1,4 @@
-import { Check, TriangleAlert } from 'lucide-react';
+import { Check, Info, TriangleAlert } from 'lucide-react';
 import { FoodArt } from '@/components/ui';
 import type { ScoredFood } from '@/lib/recommendation';
 
@@ -51,12 +51,21 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
             <div key={i} className="flex items-start gap-2 text-[13.5px] leading-[1.5]">
               {r.tone === 'good' ? (
                 <Check size={15} className="mt-0.5 shrink-0 text-brand-green" />
-              ) : (
+              ) : r.tone === 'warn' ? (
                 <TriangleAlert size={15} className="mt-0.5 shrink-0 text-brand-danger" />
+              ) : (
+                <Info size={15} className="mt-0.5 shrink-0 text-brand-faint" />
               )}
               <span className="text-brand-text">{r.label}</span>
             </div>
           ))}
+        </div>
+      )}
+
+      {food.ingredient_summary && (
+        <div className="text-[12.5px] leading-[1.55] text-brand-sub">
+          <span className="font-semibold text-brand-faint">주원료 </span>
+          {truncate(food.ingredient_summary, 90)}
         </div>
       )}
 
@@ -79,6 +88,10 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
       )}
     </div>
   );
+}
+
+function truncate(s: string, max: number): string {
+  return s.length > max ? `${s.slice(0, max).trimEnd()}…` : s;
 }
 
 function NutrientStat({ label, value }: { label: string; value: string }) {

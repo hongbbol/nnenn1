@@ -8,7 +8,7 @@ import type { GuestCat, Food } from '@/lib/domain/types';
 import { ageGroupFromBirthYear } from '@/lib/domain/constants';
 import type { DiseaseMode, RecInput, RecResult } from './types';
 import { filterFoods } from './filter';
-import { scoreAll } from './scorer';
+import { relativeReason, scoreAll } from './scorer';
 import {
   buildNotices,
   buildPriorityOrder,
@@ -73,6 +73,15 @@ export function recommend(input: RecInput, foods: Food[]): RecResult {
   // ④ soft 채점 + TOP 2.
   const scored = scoreAll(passed, input, primaryMode);
   const top = scored.slice(0, 2);
+
+  // TOP 카드에 상대비교 설명 부여 — 통과 후보군 대비 1차 지표 상위 %(카드 "왜" 보강).
+  for (const t of top) {
+    const rel = relativeReason(t.food, passed, primaryMode);
+    if (rel) {
+      t.reasons.push(rel);
+      t.reasons.sort((a, b) => b.weight - a.weight);
+    }
+  }
 
   return {
     input,
