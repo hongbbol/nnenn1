@@ -339,6 +339,10 @@ def main():
         brand_kr = brands_kr.get(line.get("brand_id"), "")
         line_kr = (line.get("kr_line_available") or "").strip()
         kr_available = brand_kr == "Yes" and line_kr == "Yes"
+        # SKU 단위 미유통 확정(사용자 3차 확인) — 04_SKUs notes 태그로 오버라이드.
+        # 라인은 유통 중이나 특정 SKU만 미수입/판매중단인 경우(예: 지위픽 스팀드라이 생선).
+        if kr_available and "[KR-NOT-DISTRIBUTED" in str(s.get("notes") or ""):
+            kr_available = False
         rec_daily_g = derive_rec_daily_g(feeds)
         tags = derive_tags(role, life_stage, s.get("sku_name_en"),
                            s.get("sku_name_ko"), is_therapeutic)

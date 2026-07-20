@@ -63654,7 +63654,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "adult, mature"
   },
@@ -64572,7 +64572,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "adult, mature"
   },
@@ -69473,7 +69473,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "kitten"
   },
@@ -72631,7 +72631,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages (전묘용·전연령용)"
   },
@@ -72974,7 +72974,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages (전묘용·전연령용)"
   },
@@ -73069,7 +73069,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "12개월"
   },
@@ -73117,7 +73117,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘"
   },
@@ -73952,7 +73952,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘(전연령)"
   },
@@ -74000,7 +74000,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘(전연령)"
   },
@@ -74045,7 +74045,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘(전연령)"
   },
@@ -74095,7 +74095,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘(전연령)"
   },
@@ -74233,7 +74233,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘(전연령)"
   },
@@ -74281,7 +74281,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "성묘(전연령)"
   },
