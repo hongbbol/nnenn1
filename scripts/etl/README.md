@@ -24,7 +24,15 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
 
 ## 매핑 규칙 (요약)
 
-- `category`: `moisture_pct > 50` → 습식, else 건식 (보조: 이름/form).
+- `category`(2026-07-20 로얄캐닌 34건 오분류 사고 후 재설계): 우선순위 ① 대용유
+  문구(milk replacer/캣밀크/분유 등) → 습식 ② `moisture_pct` 있으면 확정(>50 습식/이하 건식)
+  ③ 이름·form 키워드 — **영문은 단어 경계 매칭**('can'⊂'Canin/Canyon' 오탐 방지),
+  혼합 form('dry/wet')은 판별 제외, '캔보' 브랜드 가드, 냉동 생식은 습식.
+  form은 `04_SKUs.form`(SKU 단위, 있으면 최우선) → `03_Lines.form` 순.
+- **빌드 가드(2026-07-20 신설)**: ① `derive_category` 회귀 셀프테스트(실사고 케이스,
+  버그 수정 시마다 추가) ② 카테고리↔수분/kcal 불변식 감사 — 위반 시 시드 미생성·빌드 실패
+  (정당한 예외는 `AUDIT_ALLOWLIST`에 사유와 함께 등록) ③ 기존 시드 대비 diff 요약 출력 —
+  **신규 브랜드 배치에서 기존 SKU category 변경이 보이면 커밋 전 반드시 규명**.
 - `food_role`: completeness → 주식(Complete) / 보조식(Supplemental·Complementary) / 간식(Treat).
 - `age_fit`: life_stage → nnenn1 버킷(1+/7+/11+/15+). 키튼은 `[]` + `키튼` 태그로 보존.
 - `condition_fit`: 처방식만, **SKU 이름+life_stage**로 한정 매핑(Line.positioning은 라인 전체 범위라 미사용).
