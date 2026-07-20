@@ -53,27 +53,40 @@ def num(v):
     return float(m.group()) if m else None
 
 
-def derive_category(sku_name, line_form, moisture):
-    """습식/건식 판별: moisture>50 우선, 이름/form 보조.
+WET_KW_EN = ["wet", "canned", "can", "pouch", "pate", "pâté", "paté", "purée", "puree",
+             "churu", "jelly", "gravy", "broth", "stew", "mousse", "frozen"]
+WET_KW_KO = ["습식", "캔", "파우치", "퓨레", "츄루", "젤리", "그레이비", "음료", "무스", "냉동"]
+DRY_KW_EN = ["dry", "kibble", "freeze-dried", "air-dried"]
+DRY_KW_KO = ["드라이", "동결건조", "에어드라이"]
 
-    혼합 라인(form='dry/wet')의 'dry'가 습식 키워드 판별을 오염시키므로
-    (예: Hill's L0005 습식 canned가 건식 처리) 혼합 form은 판별에서 제외한다.
+
+def _has_kw(text, en_kws, ko_kws):
+    """영문은 단어 경계 매칭(ACANA/CANIDAE/Royal Canin의 'can' 오탐 방지),
+    한글은 부분 매칭."""
+    for k in en_kws:
+        if re.search(rf"(?<![a-z0-9]){re.escape(k)}(?![a-z0-9])", text):
+            return True
+    return any(k in text for k in ko_kws)
+
+
+def derive_category(sku_name, line_form, moisture):
+    """습식/건식 판별: moisture가 있으면 그것만으로 확정, 이름/form은 보조.
+
+    - moisture 판정을 키워드보다 먼저: 수분 6.5% 명시 SKU가 이름 키워드로
+      습식 처리되던 회귀(로얄캐닌 34건, 2026-07 발견) 방지.
+    - 영문 키워드는 단어 경계 매칭: 'can'⊂'Canin/Canyon/CANIDAE' 오탐 방지.
+    - 혼합 라인(form='dry/wet')의 'dry'가 판별을 오염시키므로 혼합 form 제외.
+    - 브랜드 '캔보'는 한글 '캔' 매칭에서 제외.
     """
     form = (line_form or "").lower()
     if "dry" in form and ("wet" in form or "/" in form):
         form = ""
-    text = f"{sku_name or ''} {form}".lower()
-    wet_kw = ["wet", "습식", "can", "캔", "pouch", "파우치", "pate", "pâté", "paté",
-              "purée", "puree", "퓨레", "churu", "츄루", "jelly", "젤리", "gravy",
-              "그레이비", "broth", "음료", "stew", "mousse", "무스"]
-    dry_kw = ["dry", "드라이", "kibble", "freeze-dried", "동결건조"]
-    if moisture is not None and moisture > 50:
+    text = f"{sku_name or ''} {form}".lower().replace("캔보", "")
+    if moisture is not None:
+        return "습식" if moisture > 50 else "건식"
+    if _has_kw(text, WET_KW_EN, WET_KW_KO) and not _has_kw(text, DRY_KW_EN, DRY_KW_KO):
         return "습식"
-    if any(k in text for k in wet_kw) and not any(k in text for k in ["dry", "드라이", "kibble"]):
-        return "습식"
-    if moisture is not None and moisture <= 50:
-        return "건식"
-    if any(k in text for k in dry_kw):
+    if _has_kw(text, DRY_KW_EN, DRY_KW_KO):
         return "건식"
     # moisture 없음 + 단서 없음 → 보수적으로 건식
     return "건식"
