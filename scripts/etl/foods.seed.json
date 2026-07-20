@@ -725,7 +725,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -776,7 +776,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (Indoor)"
   },
@@ -825,7 +825,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Kitten"
   },
@@ -1058,7 +1058,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages"
   },
@@ -2246,7 +2246,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Breeds & Life Stages"
   },
@@ -2292,7 +2292,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Breeds & Life Stages"
   },
@@ -2381,7 +2381,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Growth of Kittens"
   },
@@ -33572,7 +33572,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (Sterilised/Neutered)"
   },
@@ -33627,7 +33627,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -33667,7 +33667,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult"
   },
@@ -72132,7 +72132,7 @@
   {
     "source_sku_id": "S1528",
     "brand": "Orijen",
-    "product_name": "오리젠 캣&키튼 (건식)",
+    "product_name": "오리젠 오리지널 캣 (전 캣&키튼, 건식)",
     "category": "건식",
     "age_fit": [
       "1+",
