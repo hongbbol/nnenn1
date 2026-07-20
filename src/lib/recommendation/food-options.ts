@@ -38,6 +38,7 @@ export function foodOptionLabel(o: FoodOption): string {
  */
 export const BRAND_ALIASES_KO: Record<string, string[]> = {
   Acana: ['아카나'],
+  Aleva: ['알레바'],
   'Addiction Pet Foods': ['어딕션'],
   'Advance (Affinity)': ['어드밴스'],
   Aixia: ['아이시아'],
