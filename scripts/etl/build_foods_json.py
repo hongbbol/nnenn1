@@ -59,7 +59,7 @@ WET_KW_KO = ["습식", "캔", "파우치", "퓨레", "츄루", "젤리", "그레
 DRY_KW_EN = ["dry", "kibble", "freeze-dried", "air-dried"]
 DRY_KW_KO = ["드라이", "동결건조", "에어드라이"]
 # 대용유(분유)는 물에 타서 액상 급여 → 습식. 단, '밀크 맛' 건식 사료
-# (Tuna & Milk 등 13종)가 있어 일반 'milk' 키워드는 쓰지 않고 제품 유형 문구만 매칭.
+# (Tuna & Milk·leche 표기 포함 12종)가 있어 일반 'milk' 키워드는 쓰지 않고 제품 유형 문구만 매칭.
 MILK_REPLACER_KW = ["milk replacer", "babycat milk", "cat milk", "kitten milk",
                     "캣밀크", "베이비캣 밀크", "분유", "락톨", "lactol", "kmr"]
 
