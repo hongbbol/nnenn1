@@ -58,12 +58,13 @@ WET_KW_EN = ["wet", "canned", "can", "pouch", "pate", "pâté", "paté", "purée
 WET_KW_KO = ["습식", "캔", "파우치", "퓨레", "츄루", "젤리", "그레이비", "음료", "무스", "냉동"]
 DRY_KW_EN = ["dry", "kibble", "freeze-dried", "air-dried"]
 DRY_KW_KO = ["드라이", "동결건조", "에어드라이"]
-# 물에 타서 액상으로 급여하는 제품(대용유·인스턴트 브로스)은 분말 수분과 무관하게 습식
-# (2026-07-21 사용자 확정). 단, '밀크 맛' 건식 사료(Tuna & Milk·leche 표기 포함 12종)가
+# 물에 타거나 불려서 급여하는 제품(대용유·인스턴트 브로스·탈수식)은 분말 수분과 무관하게
+# 습식(2026-07-21 사용자 확정). 단, '밀크 맛' 건식 사료(Tuna & Milk·leche 표기 포함 12종)가
 # 있어 일반 'milk' 키워드는 쓰지 않고 제품 유형 문구만 매칭.
+# ⚠ '탈수'는 재수화 급여(THK 홀메이드·소조스), '동결건조/에어드라이'는 그대로 급여(건식) — 구분 유지.
 RECONSTITUTED_KW = ["milk replacer", "babycat milk", "cat milk", "kitten milk",
                     "캣밀크", "베이비캣 밀크", "분유", "락톨", "lactol", "kmr",
-                    "instant", "인스턴트"]
+                    "instant", "인스턴트", "dehydrated", "탈수"]
 
 
 def _has_kw(text, en_kws, ko_kws):
@@ -111,6 +112,7 @@ _CATEGORY_SELFTEST_CASES = [
     ("Science Diet Adult Savory Chicken Entrée Canned", "dry/wet", None, "습식",
      "혼합 form 제외 후 canned 키워드 정상 매칭(힐스 L0005 회귀, f498e69)"),
     ("데일리 부스터 인스턴트 비프 본브로스", None, 8.0, "습식", "인스턴트(물 개어 급여)는 분말 수분 무관 습식(HK S0113, 2026-07-21 사용자 확정)"),
+    ("홀메이드 탈수식 그레인프리 치킨 레시피 캣푸드 (Prowl)", "dry", 5.0, "습식", "탈수식(재수화 급여)도 습식(THK S0109/110·소조스 S0297, 2026-07-21 사용자 확정)"),
     ("Royal Canin Babycat Milk 베이비캣 밀크", "dry/wet", None, "습식", "대용유는 물 타는 액상 급여 → 습식(S1341)"),
     ("몽슈 발란스 건식 — 키튼 참치&밀크", "dry", 10.0, "건식", "'밀크 맛' 건식은 대용유가 아님(S1075)"),
     ("캔보 캣 스테릴라이즈드 Premium Dry", "dry", None, "건식", "브랜드 '캔보'의 '캔' 오탐 가드"),
@@ -137,8 +139,6 @@ def selftest_derive_category():
 # 알려진 예외는 사유와 함께 명시(원본 discrepancy 등록 건 등).
 AUDIT_ALLOWLIST = {
     "S0588": "JW 터키 인 그레이비 — 공식 GA가 DM 의심 고수치(419kcal/100g), nnenn2 원본 discrepancy 등록 건",
-    "S1341": "RC 베이비캣 밀크 — 대용유(습식 분류), kcal 582는 분말 기준",
-    "S0113": "HK 인스턴트 본브로스 — 물 개어 급여(습식 분류), 수분 8%·368kcal은 분말 기준",
 }
 
 
@@ -148,9 +148,14 @@ def audit_rows(rows):
     for r in rows:
         sid, cat = r["source_sku_id"], r["category"]
         m, k = r.get("moisture_pct"), r.get("kcal_per_100g")
+        # 재수화 제품(대용유·인스턴트·탈수식)은 분말 GA(저수분·고kcal)로 습식 분류가
+        # 정상이므로 습식 측 불변식에서 구조적으로 면제.
+        reconstituted = any(kw in r["product_name"].lower() for kw in RECONSTITUTED_KW)
         bad = None
         if cat == "습식":
-            if m is not None and m < 20:
+            if reconstituted:
+                pass
+            elif m is not None and m < 20:
                 bad = f"습식인데 수분 {m}%"
             elif m is None and k is not None and k > 250:
                 bad = f"습식인데 수분 미상·{k}kcal/100g"
