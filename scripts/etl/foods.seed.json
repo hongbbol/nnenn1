@@ -4003,7 +4003,7 @@
     "source_sku_id": "S0084",
     "brand": "Taste of the Wild",
     "product_name": "캐년 리버 캣 레시피 (송어 & 훈제향 연어, 건식)",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -5189,7 +5189,7 @@
     "source_sku_id": "S0109",
     "brand": "The Honest Kitchen",
     "product_name": "홀메이드 탈수식 그레인프리 치킨 레시피 캣푸드 (Prowl)",
-    "category": "건식",
+    "category": "습식",
     "age_fit": [],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -5233,7 +5233,7 @@
     "source_sku_id": "S0110",
     "brand": "The Honest Kitchen",
     "product_name": "홀메이드 탈수식 그레인프리 치킨 & 피쉬 레시피 캣푸드",
-    "category": "건식",
+    "category": "습식",
     "age_fit": [],
     "condition_fit": [],
     "protein_pct": 42.0,
@@ -13302,7 +13302,7 @@
     "source_sku_id": "S0278",
     "brand": "Steve's Real Food",
     "product_name": "퀘스트 냉동 로우 캣푸드 치킨 레시피",
-    "category": "건식",
+    "category": "습식",
     "age_fit": [
       "1+",
       "7+",
@@ -13353,7 +13353,7 @@
     "source_sku_id": "S0279",
     "brand": "Steve's Real Food",
     "product_name": "퀘스트 냉동 로우 캣푸드 비프 레시피",
-    "category": "건식",
+    "category": "습식",
     "age_fit": [
       "1+",
       "7+",
@@ -14233,7 +14233,7 @@
     "source_sku_id": "S0297",
     "brand": "Sojos",
     "product_name": "소조스 컴플리트 고양이용 — 터키 레시피 (탈수 동결건조)",
-    "category": "건식",
+    "category": "습식",
     "age_fit": [
       "1+",
       "7+",
@@ -63042,7 +63042,7 @@
     "source_sku_id": "S1334",
     "brand": "Royal Canin",
     "product_name": "캣 에이징 11+",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -63233,7 +63233,7 @@
     "source_sku_id": "S1338",
     "brand": "Royal Canin",
     "product_name": "캣 에이징 15+",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -63332,7 +63332,7 @@
     "source_sku_id": "S1340",
     "brand": "Royal Canin",
     "product_name": "아로마 엑시전트",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -63567,7 +63567,7 @@
     "source_sku_id": "S1345",
     "brand": "Royal Canin",
     "product_name": "다이제스티브 케어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -63709,7 +63709,7 @@
     "source_sku_id": "S1348",
     "brand": "Royal Canin",
     "product_name": "피트",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -63762,7 +63762,7 @@
     "source_sku_id": "S1349",
     "brand": "Royal Canin",
     "product_name": "세이버 엑시전트",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -63813,7 +63813,7 @@
     "source_sku_id": "S1350",
     "brand": "Royal Canin",
     "product_name": "헤어 앤 스킨 케어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -63865,7 +63865,7 @@
     "source_sku_id": "S1351",
     "brand": "Royal Canin",
     "product_name": "헤어볼 케어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -63967,7 +63967,7 @@
     "source_sku_id": "S1353",
     "brand": "Royal Canin",
     "product_name": "인도어 롱헤어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -64438,7 +64438,7 @@
     "source_sku_id": "S1363",
     "brand": "Royal Canin",
     "product_name": "키튼 스테럴라이즈드",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -64484,7 +64484,7 @@
     "source_sku_id": "S1364",
     "brand": "Royal Canin",
     "product_name": "라이트 웨이트케어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -64580,7 +64580,7 @@
     "source_sku_id": "S1366",
     "brand": "Royal Canin",
     "product_name": "마더 앤 베이비캣",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [],
     "condition_fit": [],
     "protein_pct": 34.0,
@@ -64721,7 +64721,7 @@
     "source_sku_id": "S1369",
     "brand": "Royal Canin",
     "product_name": "덴탈케어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -64869,7 +64869,7 @@
     "source_sku_id": "S1372",
     "brand": "Royal Canin",
     "product_name": "프로틴 엑시전트",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -64969,7 +64969,7 @@
     "source_sku_id": "S1374",
     "brand": "Royal Canin",
     "product_name": "센서블",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -65322,7 +65322,7 @@
     "source_sku_id": "S1382",
     "brand": "Royal Canin",
     "product_name": "스테럴라이즈드",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -65559,7 +65559,7 @@
     "source_sku_id": "S1387",
     "brand": "Royal Canin",
     "product_name": "유리너리 케어",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -65656,7 +65656,7 @@
     "source_sku_id": "S1389",
     "brand": "Royal Canin",
     "product_name": "캣 아날러제닉",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -65703,7 +65703,7 @@
     "source_sku_id": "S1390",
     "brand": "Royal Canin",
     "product_name": "캣 카디악",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "1+",
       "7+",
@@ -65753,7 +65753,7 @@
     "source_sku_id": "S1391",
     "brand": "Royal Canin",
     "product_name": "캣 다이아베틱",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -65805,7 +65805,7 @@
     "source_sku_id": "S1392",
     "brand": "Royal Canin",
     "product_name": "캣 얼리 레날",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -65910,7 +65910,7 @@
     "source_sku_id": "S1394",
     "brand": "Royal Canin",
     "product_name": "캣 가스트로인테스티널",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [],
     "condition_fit": [
       "IBD"
@@ -66053,7 +66053,7 @@
     "source_sku_id": "S1397",
     "brand": "Royal Canin",
     "product_name": "캣 가스트로인테스티널 화이버 리스폰스",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66106,7 +66106,7 @@
     "source_sku_id": "S1398",
     "brand": "Royal Canin",
     "product_name": "캣 가스트로인테스티널 하이드롤라이즈 프로틴",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66153,7 +66153,7 @@
     "source_sku_id": "S1399",
     "brand": "Royal Canin",
     "product_name": "캣 가스트로인테스티널 모더레이트 칼로리",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66253,7 +66253,7 @@
     "source_sku_id": "S1401",
     "brand": "Royal Canin",
     "product_name": "캣 헤파틱",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66308,7 +66308,7 @@
     "source_sku_id": "S1402",
     "brand": "Royal Canin",
     "product_name": "캣 하이포알러제닉",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66355,7 +66355,7 @@
     "source_sku_id": "S1403",
     "brand": "Royal Canin",
     "product_name": "캣 레날 + 하이포알러제닉",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66405,7 +66405,7 @@
     "source_sku_id": "S1404",
     "brand": "Royal Canin",
     "product_name": "캣 뉴터드 세타이어티 밸런스",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [],
     "condition_fit": [],
     "protein_pct": 35.0,
@@ -66550,7 +66550,7 @@
     "source_sku_id": "S1407",
     "brand": "Royal Canin",
     "product_name": "캣 레날 셀렉트",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66604,7 +66604,7 @@
     "source_sku_id": "S1408",
     "brand": "Royal Canin",
     "product_name": "캣 레날 스페셜",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66811,7 +66811,7 @@
     "source_sku_id": "S1412",
     "brand": "Royal Canin",
     "product_name": "캣 세타이어티 웨이트 매니지먼트",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66862,7 +66862,7 @@
     "source_sku_id": "S1413",
     "brand": "Royal Canin",
     "product_name": "캣 유리너리 S/O + 블래더 컴포트 + 세타이어티",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",
@@ -66966,7 +66966,7 @@
     "source_sku_id": "S1415",
     "brand": "Royal Canin",
     "product_name": "캣 유리너리S/O+하이포알러제닉",
-    "category": "습식",
+    "category": "건식",
     "age_fit": [
       "7+",
       "11+",

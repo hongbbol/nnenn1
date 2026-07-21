@@ -53,30 +53,148 @@ def num(v):
     return float(m.group()) if m else None
 
 
-def derive_category(sku_name, line_form, moisture):
-    """습식/건식 판별: moisture>50 우선, 이름/form 보조.
+WET_KW_EN = ["wet", "canned", "can", "pouch", "pate", "pâté", "paté", "purée", "puree",
+             "churu", "jelly", "gravy", "broth", "stew", "mousse", "frozen"]
+WET_KW_KO = ["습식", "캔", "파우치", "퓨레", "츄루", "젤리", "그레이비", "음료", "무스", "냉동"]
+DRY_KW_EN = ["dry", "kibble", "freeze-dried", "air-dried"]
+DRY_KW_KO = ["드라이", "동결건조", "에어드라이"]
+# 물에 타거나 불려서 급여하는 제품(대용유·인스턴트 브로스·탈수식)은 분말 수분과 무관하게
+# 습식(2026-07-21 사용자 확정). 단, '밀크 맛' 건식 사료(Tuna & Milk·leche 표기 포함 12종)가
+# 있어 일반 'milk' 키워드는 쓰지 않고 제품 유형 문구만 매칭.
+# ⚠ '탈수'는 재수화 급여(THK 홀메이드·소조스), '동결건조/에어드라이'는 그대로 급여(건식) — 구분 유지.
+RECONSTITUTED_KW = ["milk replacer", "babycat milk", "cat milk", "kitten milk",
+                    "캣밀크", "베이비캣 밀크", "분유", "락톨", "lactol", "kmr",
+                    "instant", "인스턴트", "dehydrated", "탈수"]
 
-    혼합 라인(form='dry/wet')의 'dry'가 습식 키워드 판별을 오염시키므로
-    (예: Hill's L0005 습식 canned가 건식 처리) 혼합 form은 판별에서 제외한다.
+
+def _has_kw(text, en_kws, ko_kws):
+    """영문은 단어 경계 매칭(ACANA/CANIDAE/Royal Canin의 'can' 오탐 방지),
+    한글은 부분 매칭."""
+    for k in en_kws:
+        if re.search(rf"(?<![a-z0-9]){re.escape(k)}(?![a-z0-9])", text):
+            return True
+    return any(k in text for k in ko_kws)
+
+
+def derive_category(sku_name, line_form, moisture):
+    """습식/건식 판별: moisture가 있으면 그것만으로 확정, 이름/form은 보조.
+
+    - moisture 판정을 키워드보다 먼저: 수분 6.5% 명시 SKU가 이름 키워드로
+      습식 처리되던 회귀(로얄캐닌 34건, 2026-07 발견) 방지.
+    - 영문 키워드는 단어 경계 매칭: 'can'⊂'Canin/Canyon/CANIDAE' 오탐 방지.
+    - 혼합 라인(form='dry/wet')의 'dry'가 판별을 오염시키므로 혼합 form 제외.
+    - 브랜드 '캔보'는 한글 '캔' 매칭에서 제외.
     """
     form = (line_form or "").lower()
     if "dry" in form and ("wet" in form or "/" in form):
         form = ""
-    text = f"{sku_name or ''} {form}".lower()
-    wet_kw = ["wet", "습식", "can", "캔", "pouch", "파우치", "pate", "pâté", "paté",
-              "purée", "puree", "퓨레", "churu", "츄루", "jelly", "젤리", "gravy",
-              "그레이비", "broth", "음료", "stew", "mousse", "무스"]
-    dry_kw = ["dry", "드라이", "kibble", "freeze-dried", "동결건조"]
-    if moisture is not None and moisture > 50:
+    text = f"{sku_name or ''} {form}".lower().replace("캔보", "")
+    # 물 개어 급여 제품(대용유·인스턴트 브로스)은 분말 수분과 무관하게 습식 — moisture 판정보다 먼저.
+    if any(k in text for k in RECONSTITUTED_KW):
         return "습식"
-    if any(k in text for k in wet_kw) and not any(k in text for k in ["dry", "드라이", "kibble"]):
+    if moisture is not None:
+        return "습식" if moisture > 50 else "건식"
+    if _has_kw(text, WET_KW_EN, WET_KW_KO) and not _has_kw(text, DRY_KW_EN, DRY_KW_KO):
         return "습식"
-    if moisture is not None and moisture <= 50:
-        return "건식"
-    if any(k in text for k in dry_kw):
+    if _has_kw(text, DRY_KW_EN, DRY_KW_KO):
         return "건식"
     # moisture 없음 + 단서 없음 → 보수적으로 건식
     return "건식"
+
+
+# derive_category 회귀 셀프테스트 — 실제 사고 사례 기반. 버그를 고칠 때마다 케이스 추가.
+# 매 빌드 시작 시 실행되어 실패하면 시드를 생성하지 않는다.
+_CATEGORY_SELFTEST_CASES = [
+    # (sku_name, form, moisture, 기대값, 메모)
+    ("Royal Canin Hairball Care", "dry/wet", None, "건식", "'can'⊂'Canin' 오탐 회귀(2026-07, 34건)"),
+    ("Royal Canin AGEING 11+", "dry/wet", 6.5, "건식", "수분 명시값이 이름 키워드보다 우선"),
+    ("Canyon River Feline Recipe with Trout", "dry", 10.0, "건식", "'can'⊂'Canyon' 오탐(TOTW S0084)"),
+    ("Science Diet Adult Savory Chicken Entrée Canned", "dry/wet", None, "습식",
+     "혼합 form 제외 후 canned 키워드 정상 매칭(힐스 L0005 회귀, f498e69)"),
+    ("데일리 부스터 인스턴트 비프 본브로스", None, 8.0, "습식", "인스턴트(물 개어 급여)는 분말 수분 무관 습식(HK S0113, 2026-07-21 사용자 확정)"),
+    ("홀메이드 탈수식 그레인프리 치킨 레시피 캣푸드 (Prowl)", "dry", 5.0, "습식", "탈수식(재수화 급여)도 습식(THK S0109/110·소조스 S0297, 2026-07-21 사용자 확정)"),
+    ("Royal Canin Babycat Milk 베이비캣 밀크", "dry/wet", None, "습식", "대용유는 물 타는 액상 급여 → 습식(S1341)"),
+    ("몽슈 발란스 건식 — 키튼 참치&밀크", "dry", 10.0, "건식", "'밀크 맛' 건식은 대용유가 아님(S1075)"),
+    ("캔보 캣 스테릴라이즈드 Premium Dry", "dry", None, "건식", "브랜드 '캔보'의 '캔' 오탐 가드"),
+    ("퀘스트 냉동 로우 캣푸드 치킨 레시피", None, None, "습식", "냉동 생식은 습식(S0278)"),
+    ("지위픽 캣 캔식품 고등어", "wet", None, "습식", "한글 '캔' 정상 매칭"),
+    ("Freeze-Dried Chicken Recipe pouch", None, None, "건식", "동결건조가 pouch 키워드에 우선"),
+    ("어덜트 터키 인 그레이비 습식 캣푸드 파우치", "wet", 81.0, "습식", "일반 습식"),
+]
+
+
+def selftest_derive_category():
+    fails = []
+    for name, form, moist, expect, memo in _CATEGORY_SELFTEST_CASES:
+        got = derive_category(name, form, moist)
+        if got != expect:
+            fails.append(f"  '{name}' (form={form}, moist={moist}) → {got}, 기대 {expect} [{memo}]")
+    if fails:
+        print("❌ derive_category 셀프테스트 실패:", file=sys.stderr)
+        print("\n".join(fails), file=sys.stderr)
+        sys.exit(1)
+
+
+# 시드 불변식 감사 — 위반이면 시드를 쓰지 않고 빌드 실패.
+# 알려진 예외는 사유와 함께 명시(원본 discrepancy 등록 건 등).
+AUDIT_ALLOWLIST = {
+    "S0588": "JW 터키 인 그레이비 — 공식 GA가 DM 의심 고수치(419kcal/100g), nnenn2 원본 discrepancy 등록 건",
+}
+
+
+def audit_rows(rows):
+    """카테고리↔수분/칼로리 모순 전수 검사. 반환: 위반 목록(allowlist 제외)."""
+    violations = []
+    for r in rows:
+        sid, cat = r["source_sku_id"], r["category"]
+        m, k = r.get("moisture_pct"), r.get("kcal_per_100g")
+        # 재수화 제품(대용유·인스턴트·탈수식)은 분말 GA(저수분·고kcal)로 습식 분류가
+        # 정상이므로 습식 측 불변식에서 구조적으로 면제.
+        reconstituted = any(kw in r["product_name"].lower() for kw in RECONSTITUTED_KW)
+        bad = None
+        if cat == "습식":
+            if reconstituted:
+                pass
+            elif m is not None and m < 20:
+                bad = f"습식인데 수분 {m}%"
+            elif m is None and k is not None and k > 250:
+                bad = f"습식인데 수분 미상·{k}kcal/100g"
+        else:
+            if m is not None and m > 50:
+                bad = f"건식인데 수분 {m}%"
+            elif m is None and k is not None and k < 130:
+                bad = f"건식인데 수분 미상·{k}kcal/100g"
+        if bad and sid not in AUDIT_ALLOWLIST:
+            violations.append(f"  {sid} [{r['brand']}] {r['product_name']}: {bad}")
+    return violations
+
+
+def diff_against_previous(rows):
+    """기존 foods.seed.json 대비 변경 요약 — 신규 브랜드 배치에 기존 행 플립이
+    숨는 사고(f498e69→로얄캐닌 34건) 방지용. 출력만 하고 실패시키지 않는다."""
+    if not os.path.exists(OUT_PATH):
+        return
+    with open(OUT_PATH, encoding="utf-8") as f:
+        prev = {r["source_sku_id"]: r for r in json.load(f)}
+    cur = {r["source_sku_id"]: r for r in rows}
+    added = sorted(cur.keys() - prev.keys())
+    removed = sorted(prev.keys() - cur.keys())
+    cat_changes = [(s, prev[s]["brand"], prev[s]["product_name"], prev[s]["category"], cur[s]["category"])
+                   for s in sorted(prev.keys() & cur.keys()) if prev[s]["category"] != cur[s]["category"]]
+    other_changed = sum(1 for s in prev.keys() & cur.keys()
+                        if prev[s] != cur[s] and prev[s]["category"] == cur[s]["category"])
+    print(f"\n📋 기존 시드 대비: 신규 {len(added)} · 삭제 {len(removed)} · "
+          f"category 변경 {len(cat_changes)} · 기타 필드 변경 {other_changed}행")
+    if removed:
+        print("   삭제:", ", ".join(removed[:20]), "…" if len(removed) > 20 else "")
+    if cat_changes:
+        from collections import Counter
+        print("   ⚠️  기존 SKU category 변경 — 의도한 것인지 반드시 확인:")
+        print("      브랜드별:", dict(Counter(c[1] for c in cat_changes)))
+        for c in cat_changes[:50]:
+            print(f"      {c[0]} [{c[1]}] {c[2]}: {c[3]}→{c[4]}")
+        if len(cat_changes) > 50:
+            print(f"      … 외 {len(cat_changes) - 50}건")
 
 
 def derive_food_role(completeness, sku_name, life_stage):
@@ -286,6 +404,7 @@ def derive_tags(role, life_stage, sku_name_en, sku_name_ko, is_therapeutic):
 
 
 def main():
+    selftest_derive_category()
     xlsx = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_XLSX
     if not os.path.exists(xlsx):
         print(f"ERROR: xlsx not found: {xlsx}", file=sys.stderr)
@@ -317,8 +436,12 @@ def main():
         life_stage = s.get("life_stage")
         completeness = n.get("completeness")
         moisture = num(n.get("moisture_pct"))
+        # form: SKU 단위 값(04_SKUs.form — 있으면 원본 명시가 최우선)이 라인 값보다 우선.
+        # 라인 form은 'dry/wet' 혼합이 많아 이름 추측이 필요해지는 근본 원인 — T2부터
+        # 수집 시 SKU 단위로 기록한다(KR_SKU_EXPANSION_PLAN §수집 규칙).
+        sku_form = s.get("form") or line.get("form")
         category = derive_category(s.get("sku_name_en") or s.get("sku_name_ko"),
-                                   line.get("form"), moisture)
+                                   sku_form, moisture)
         role = derive_food_role(completeness, s.get("sku_name_en"), life_stage)
         age_fit = derive_age_fit(life_stage)
 
@@ -371,7 +494,7 @@ def main():
             "kcal_per_100g": nutri["kcal_per_100g"],
             "ingredient_summary": summary,
             "ingredient_keywords": keywords,
-            "form": line.get("form"),
+            "form": sku_form,
             "rec_daily_g": rec_daily_g,
             "tags": tags,
             "image_url": None,
@@ -397,6 +520,17 @@ def main():
             warnings.append(f"{sid}: 영양 데이터 없음 (nutrition null)")
         if is_therapeutic and not condition_fit:
             warnings.append(f"{sid}: 처방식인데 condition_fit 매핑 실패 — '{life_stage}' / '{line.get('positioning')}'")
+
+    # 불변식 감사 — 위반이면 시드를 쓰지 않고 실패 (allowlist 예외는 AUDIT_ALLOWLIST).
+    violations = audit_rows(rows)
+    if violations:
+        print(f"❌ 카테고리 불변식 위반 {len(violations)}건 — 시드 미생성:", file=sys.stderr)
+        print("\n".join(violations), file=sys.stderr)
+        print("   (데이터가 맞다면 사유와 함께 AUDIT_ALLOWLIST에 추가)", file=sys.stderr)
+        sys.exit(1)
+
+    # 기존 시드 대비 변경 요약 (덮어쓰기 전에 비교).
+    diff_against_previous(rows)
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(rows, f, ensure_ascii=False, indent=2)
