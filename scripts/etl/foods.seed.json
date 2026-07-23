@@ -650,17 +650,17 @@
     "condition_fit": [],
     "protein_pct": 45.0,
     "fat_pct": 18.0,
-    "fiber_pct": 4.0,
-    "ash_pct": null,
+    "fiber_pct": 3.0,
+    "ash_pct": 10.0,
     "moisture_pct": 10.0,
-    "phosphorus_pct": 1.2,
+    "phosphorus_pct": 0.5,
     "sodium_pct": null,
     "potassium_pct": null,
     "chloride_pct": null,
     "taurine_pct": 0.2,
     "epa_dha_pct": null,
-    "omega3_pct": 1.0,
-    "kcal_per_100g": null,
+    "omega3_pct": 1.25,
+    "kcal_per_100g": 397.7,
     "ingredient_summary": "디보운드 터키, 디보운드 치킨, 터키 밀, 치킨 밀(글루코사민·콘드로이틴원), 완두콩, 치킨 지방",
     "ingredient_keywords": [
       "chicken",
@@ -3007,7 +3007,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages (Complete & Balanced)"
   },
@@ -3057,7 +3057,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages (Complete & Balanced)"
   },
@@ -3100,7 +3100,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult Maintenance (Complete & Balanced)"
   },
@@ -3145,7 +3145,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages (Complete & Balanced)"
   },
@@ -3194,7 +3194,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "간식",
     "life_stage_raw": "Supplemental (treat) — all ages"
   },
@@ -40320,7 +40320,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (1 year+)"
   },
@@ -40373,7 +40373,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (1 year+)"
   },
@@ -40426,7 +40426,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult — Sterilised/Neutered (1 year+)"
   },
@@ -40474,7 +40474,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Kitten (Growth, up to 1 year)"
   },
@@ -40522,7 +40522,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult — Sterilised (1 year+)"
   },
@@ -42371,7 +42371,7 @@
   },
   {
     "source_sku_id": "S0903",
-    "brand": "Maruha Nichiro Pet",
+    "brand": "Aixia",
     "product_name": "금관 다시지타테(육수 풍미) 참치 70g (일반식)",
     "category": "습식",
     "age_fit": [
@@ -42415,7 +42415,7 @@
   },
   {
     "source_sku_id": "S0904",
-    "brand": "Maruha Nichiro Pet",
+    "brand": "Aixia",
     "product_name": "건강관 파우치 진활(腎活) 참치 페이스트 40g (신장케어·완전식)",
     "category": "습식",
     "age_fit": [
