@@ -183,8 +183,25 @@ def diff_against_previous(rows):
                    for s in sorted(prev.keys() & cur.keys()) if prev[s]["category"] != cur[s]["category"]]
     other_changed = sum(1 for s in prev.keys() & cur.keys()
                         if prev[s] != cur[s] and prev[s]["category"] == cur[s]["category"])
+    # 처방식 판정(condition_fit·'처방식' 태그)은 추천 노출을 좌우하므로 별도 표시 —
+    # '기타 필드 변경' 카운트에 묻히면 OTC↔처방식 플립을 리뷰에서 놓친다.
+    rx_changes = [
+        (s, cur[s]["brand"], cur[s]["product_name"],
+         prev[s].get("condition_fit"), cur[s].get("condition_fit"),
+         "처방식" in (prev[s].get("tags") or []), "처방식" in (cur[s].get("tags") or []))
+        for s in sorted(prev.keys() & cur.keys())
+        if prev[s].get("condition_fit") != cur[s].get("condition_fit")
+        or ("처방식" in (prev[s].get("tags") or [])) != ("처방식" in (cur[s].get("tags") or []))
+    ]
     print(f"\n📋 기존 시드 대비: 신규 {len(added)} · 삭제 {len(removed)} · "
-          f"category 변경 {len(cat_changes)} · 기타 필드 변경 {other_changed}행")
+          f"category 변경 {len(cat_changes)} · 처방식 판정 변경 {len(rx_changes)} · "
+          f"기타 필드 변경 {other_changed}행")
+    if rx_changes:
+        print("   ⚠️  기존 SKU 처방식 판정 변경 — 의도한 것인지 반드시 확인:")
+        for s, brand, name, pcf, ccf, prx, crx in rx_changes[:50]:
+            print(f"      {s} [{brand}] {name}: condition_fit {pcf}→{ccf} · 처방식태그 {prx}→{crx}")
+        if len(rx_changes) > 50:
+            print(f"      … 외 {len(rx_changes) - 50}건")
     if removed:
         print("   삭제:", ", ".join(removed[:20]), "…" if len(removed) > 20 else "")
     if cat_changes:
@@ -257,6 +274,83 @@ CONDITION_RULES = [
     (["pancrea", "췌장", "low fat", "저지방", "hepatic", "간 질환"],
      ["췌장염"]),
 ]
+
+
+# '처방' 부분문자열 매칭은 부정문까지 처방식으로 잡는다 — 03_Lines.positioning의
+# "요로 배려 기능식(처방식 아님)"(L1013 자나벨레 케어 유리너리) 같은 일반 판매용(OTC)
+# 기능식이 수의사 처방식으로 분류되어 condition_fit + '처방식' 태그가 붙는다
+# (2026-07-26 KR-EXP-24a 리플렉스 유리너리 S1936에서 발견). 판정 전에 부정된
+# '처방' 언급만 지운다. 근접 부정어만 인정하고(10자 이내, 문장부호 미교차) '없이'류는
+# 제외한다 — "수의사 처방 없이 급여 금지"는 오히려 처방식이므로.
+# '아[님닌니닙녀]'로 아니- 활용형을 함께 잡는다(아님/아닌/아니다/아닙니다/아녀요).
+_RX_NEGATED_RE = re.compile(
+    r"(?:비|非)\s*처방"                                    # 비처방식
+    r"|처방[^.,;·)\]]{0,10}?(?:아[님닌니닙녀]|불필요|무관)"  # 처방식(이) 아님 / 처방 전용이 아닌
+)
+
+
+def mentions_rx(text):
+    """'처방' 언급 중 부정되지 않은 것이 있는가."""
+    return bool(text) and "처방" in _RX_NEGATED_RE.sub("", str(text))
+
+
+def derive_is_therapeutic(completeness, life_stage, line):
+    """수의사 처방식(therapeutic/dietetic) 여부.
+
+    life_stage와 positioning은 각각 따로 본다 — 이어 붙이면 한쪽의 부정문이
+    다른 쪽 '처방'과 섞여 판정이 뒤집힌다.
+    """
+    line_name = (line.get("line_name_en") or "").lower()
+    return bool(
+        (completeness and "therapeutic" in completeness.lower())
+        or "therapeutic" in (life_stage or "").lower()
+        or mentions_rx(life_stage)
+        or mentions_rx(line.get("positioning"))
+        or "veterinary" in line_name
+        or "rx" in line_name
+    )
+
+
+# derive_is_therapeutic 회귀 셀프테스트 — 실제 사고 사례 기반. 버그 수정 시마다 케이스 추가.
+_THERAPEUTIC_SELFTEST_CASES = [
+    # (completeness, life_stage, line, 기대값, 메모)
+    (None, "Adult", {"line_name_en": "Sanabelle Care — Urinary (Dry, gluten-free)",
+                     "positioning": "성묘 요로 배려 기능식(처방식 아님) — 저마그네슘(0.06%)"},
+     False, "부정문 오인 회귀: OTC 기능식(L1013 S1931, 2026-07-26)"),
+    (None, "Adult", {"line_name_en": "Reflex Plus Urinary",
+                     "positioning": "요로 건강 지원 기능식 — 처방 전용이 아님"},
+     False, "부정문 오인 회귀(L1016 S1936, KR-EXP-24a 발단)"),
+    (None, "Adult", {"line_name_en": "Sanabelle Care — Urinary",
+                     "positioning": "비처방 요로 배려식"},
+     False, "'비처방' 접두 부정"),
+    (None, "Adult", {"line_name_en": "Generic Care", "positioning": "요로 기능식입니다. 처방식 아닙니다."},
+     False, "'아닙니다' 활용형 — '아니'만 보면 놓친다"),
+    (None, "Adult", {"line_name_en": "Vet Diet Renal", "positioning": "수의사 처방 없이 급여 금지"},
+     True, "'없이'는 부정어에서 제외 — 오히려 처방식 신호"),
+    (None, "Adult", {"line_name_en": "Calibra Veterinary Diets (VD) Cat",
+                     "positioning": "처방식(complete dietetic) — 요로/신장/소화 등. 수의사 관리 하 급여."},
+     True, "정상 처방식은 그대로 True (L0230)"),
+    (None, "Adult", {"line_name_en": "Integra Protect Urinary Struvite — Dry (Veterinary Diet)",
+                     "positioning": "성묘 스트루바이트 결석 재발 억제용 처방식(식이요법식)"},
+     True, "정상 처방식 (L1007)"),
+    ("Complete (therapeutic)", "Adult", {"line_name_en": "Vet Life", "positioning": None},
+     True, "completeness 신호는 positioning과 무관하게 유지"),
+    (None, "Adult", {"line_name_en": "Sanabelle Adult", "positioning": "일반 성묘식"},
+     False, "일반식"),
+]
+
+
+def selftest_derive_is_therapeutic():
+    fails = []
+    for completeness, life_stage, line, expect, memo in _THERAPEUTIC_SELFTEST_CASES:
+        got = derive_is_therapeutic(completeness, life_stage, line)
+        if got != expect:
+            fails.append(f"  {line.get('line_name_en')!r} / {line.get('positioning')!r} "
+                         f"→ {got}, 기대 {expect} [{memo}]")
+    if fails:
+        print("❌ derive_is_therapeutic 셀프테스트 실패:", file=sys.stderr)
+        print("\n".join(fails), file=sys.stderr)
+        sys.exit(1)
 
 
 def derive_condition_fit(is_therapeutic, sku_name_en, sku_name_ko, life_stage):
@@ -405,6 +499,7 @@ def derive_tags(role, life_stage, sku_name_en, sku_name_ko, is_therapeutic):
 
 def main():
     selftest_derive_category()
+    selftest_derive_is_therapeutic()
     xlsx = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_XLSX
     if not os.path.exists(xlsx):
         print(f"ERROR: xlsx not found: {xlsx}", file=sys.stderr)
@@ -445,13 +540,7 @@ def main():
         role = derive_food_role(completeness, s.get("sku_name_en"), life_stage)
         age_fit = derive_age_fit(life_stage)
 
-        is_therapeutic = bool(
-            (completeness and "therapeutic" in completeness.lower())
-            or "therapeutic" in (life_stage or "").lower()
-            or "처방" in f"{life_stage or ''}{line.get('positioning') or ''}"
-            or "veterinary" in (line.get("line_name_en") or "").lower()
-            or "rx" in (line.get("line_name_en") or "").lower()
-        )
+        is_therapeutic = derive_is_therapeutic(completeness, life_stage, line)
         condition_fit = derive_condition_fit(
             is_therapeutic, s.get("sku_name_en"), s.get("sku_name_ko"), life_stage,
         )

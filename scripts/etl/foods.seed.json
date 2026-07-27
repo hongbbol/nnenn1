@@ -89876,9 +89876,7 @@
       "11+",
       "15+"
     ],
-    "condition_fit": [
-      "결석-스트루바이트"
-    ],
+    "condition_fit": [],
     "protein_pct": 24.5,
     "fat_pct": 21.5,
     "fiber_pct": 4.5,
@@ -89902,8 +89900,7 @@
     "form": "dry",
     "rec_daily_g": 65,
     "tags": [
-      "주식",
-      "처방식"
+      "주식"
     ],
     "image_url": null,
     "affiliate_links": null,

@@ -36,6 +36,11 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
 - `food_role`: completeness → 주식(Complete) / 보조식(Supplemental·Complementary) / 간식(Treat).
 - `age_fit`: life_stage → nnenn1 버킷(1+/7+/11+/15+). 키튼은 `[]` + `키튼` 태그로 보존.
 - `condition_fit`: 처방식만, **SKU 이름+life_stage**로 한정 매핑(Line.positioning은 라인 전체 범위라 미사용).
+- 처방식 판정(`derive_is_therapeutic`)은 **부정문을 제외**한다(2026-07-26 신설). `positioning`의
+  "요로 배려 기능식(처방식 아님)"(L1013 자나벨레 케어) 같은 OTC 기능식이 단순 '처방' 부분문자열
+  매칭으로 수의사 처방식이 되어 `condition_fit`+'처방식' 태그가 붙던 버그 — 시트 데이터는 정확했고
+  파생 로직만 틀렸으므로 **데이터 검증 게이트로는 잡히지 않는다**. 회귀 셀프테스트
+  (`_THERAPEUTIC_SELFTEST_CASES`) + 빌드 diff의 '처방식 판정 변경' 항목으로 감시.
 - `ingredient_keywords`: `INGREDIENT_SYNONYMS` 정규화. 곡물은 명시 토큰만(한글 '밀'=meal 음역 오탐 방지).
 - DM(건물기준)만 있는 건식은 수분 8% 가정으로 as-fed 환산 → `영양추정(DM환산)` 태그.
 - `kr_available`: `02_Brands.kr_distributed=Yes` **AND** `03_Lines.kr_line_available=Yes`만 true
