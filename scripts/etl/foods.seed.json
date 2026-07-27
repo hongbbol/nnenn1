@@ -90085,5 +90085,202 @@
     "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S1936",
+    "brand": "Reflex",
+    "product_name": "리플렉스 플러스 어덜트 유리너리 치킨",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 34.0,
+    "fat_pct": 14.0,
+    "fiber_pct": 4.0,
+    "ash_pct": 8.0,
+    "moisture_pct": null,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "가공 닭 단백, 옥수수, 쌀, 닭 지방, 가수분해 동물성 단백, 옥수수 글루텐",
+    "ingredient_keywords": [
+      "곡물",
+      "닭",
+      "수수",
+      "쌀",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 54,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S1937",
+    "brand": "Reflex",
+    "product_name": "리플렉스 플러스 어덜트 안티헤어볼 연어",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 34.0,
+    "fat_pct": 14.0,
+    "fiber_pct": 5.0,
+    "ash_pct": 8.0,
+    "moisture_pct": null,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "가공 연어 단백, 가공 동물성 단백, 옥수수, 닭 지방, 가수분해 동물성 단백, 쌀",
+    "ingredient_keywords": [
+      "곡물",
+      "닭",
+      "생선",
+      "수수",
+      "쌀",
+      "연어",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 54,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S1938",
+    "brand": "Eminent",
+    "product_name": "에미넌트 다이어트 캣 스트루바이트",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "결석-스트루바이트"
+    ],
+    "protein_pct": 29.0,
+    "fat_pct": 15.0,
+    "fiber_pct": 2.7,
+    "ash_pct": 6.5,
+    "moisture_pct": null,
+    "phosphorus_pct": 0.6,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": 0.215,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 385.0,
+    "ingredient_summary": "쌀, 건조 돼지고기, 옥수수, 가금 지방, 옥수수 단백, 옥수수 배아",
+    "ingredient_keywords": [
+      "rice",
+      "곡물",
+      "수수",
+      "쌀",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 65,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S1939",
+    "brand": "Eminent",
+    "product_name": "에미넌트 다이어트 캣 가스트로인테스티널/하이포알러제닉/헤파틱",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "IBD",
+      "췌장염"
+    ],
+    "protein_pct": 33.5,
+    "fat_pct": 19.0,
+    "fiber_pct": 6.5,
+    "ash_pct": 7.0,
+    "moisture_pct": null,
+    "phosphorus_pct": 0.85,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": 0.22,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 387.5,
+    "ingredient_summary": "쌀, 가수분해 연어 단백, 건조 어육, 가금 지방, 건조 사과박, 어유",
+    "ingredient_keywords": [
+      "milk",
+      "rice",
+      "salmon",
+      "곡물",
+      "생선",
+      "쌀",
+      "어류",
+      "연어",
+      "유제품"
+    ],
+    "form": "dry",
+    "rec_daily_g": 55,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
   }
 ]
