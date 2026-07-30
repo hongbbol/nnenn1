@@ -61735,7 +61735,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": 195.0,
+    "kcal_per_100g": null,
     "ingredient_summary": "연어, 닭 (가슴살), 물, 닭 간, 닭 염통, 미네랄",
     "ingredient_keywords": [
       "chicken",
@@ -61776,7 +61776,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": 200.0,
+    "kcal_per_100g": null,
     "ingredient_summary": "참치, 닭가슴살, 물, 닭 지방",
     "ingredient_keywords": [
       "chicken",
