@@ -121,7 +121,7 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   'Wellness Natural Pet Food': ['웰니스'],
   Weruva: ['웨루바'],
   Whiskas: ['위스카스'],
-  ZEAL: ['지알', '질'],
+  ZEAL: ['질', '지알'],
   'ZIWI Peak': ['지위픽', '지위'],
 };
 
