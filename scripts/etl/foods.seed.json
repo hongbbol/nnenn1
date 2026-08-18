@@ -91504,5 +91504,97 @@
     "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S1964",
+    "brand": "ZEAL",
+    "product_name": "에어드라이 비프 (320 g / 960 g)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": null,
+    "fat_pct": null,
+    "fiber_pct": null,
+    "ash_pct": null,
+    "moisture_pct": null,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "소고기, 소허파, 소간, 소심장, 사슴간, 셀룰로오스(from대나무)",
+    "ingredient_keywords": [
+      "beef",
+      "소고기"
+    ],
+    "form": "dry",
+    "rec_daily_g": null,
+    "tags": [
+      "주식",
+      "전연령"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "All life stages (전연령)"
+  },
+  {
+    "source_sku_id": "S1965",
+    "brand": "ZEAL",
+    "product_name": "에어드라이 치킨&연어 (320 g / 960 g)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": null,
+    "fat_pct": null,
+    "fiber_pct": null,
+    "ash_pct": null,
+    "moisture_pct": null,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "닭고기, 닭간, 연어, 닭모래주머니, 셀룰로오스(from대나무), 건조효모",
+    "ingredient_keywords": [
+      "chicken",
+      "salmon",
+      "닭",
+      "닭고기",
+      "생선",
+      "연어"
+    ],
+    "form": "dry",
+    "rec_daily_g": null,
+    "tags": [
+      "주식",
+      "전연령"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "All life stages (전연령)"
   }
 ]
