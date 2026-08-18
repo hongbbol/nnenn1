@@ -71,7 +71,7 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   'Halo Pets': ['헤일로'],
   Harringtons: ['해링턴'],
   "Hill's Pet Nutrition": ['힐스'],
-  Husse: ['후세', '후쎄'],
+  Husse: ['후새', '후세', '후쎄'],
   Inaba: ['이나바', '챠오', '차오'],
   Instinct: ['인스팅트'],
   Josera: ['조세라'],
