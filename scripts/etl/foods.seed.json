@@ -24736,7 +24736,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": false,
+    "kr_available": true,
     "food_role": "보조식",
     "life_stage_raw": "Adult"
   },
