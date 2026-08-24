@@ -454,6 +454,93 @@ def build_nutrition(n, category):
     return out, estimated
 
 
+def nutrition_rank(analysis_type):
+    """영양행 우선순위(낮을수록 우선) — nnenn2 확정 정책 2 '실측 평균 > Typical >
+    Guaranteed/Analytical Constituents'. 등록·보증성분(min/max 규제값)은 맨 뒤.
+
+    검사 순서가 중요: 'Analytical constituents (typical)'은 typical로 분류한다.
+    """
+    a = (analysis_type or "").lower()
+    if "measured" in a or "실측" in a:
+        return 0
+    if "typical" in a:
+        return 1
+    if "guaranteed" in a or "등록성분" in a or "보증성분" in a or "保証成分" in a:
+        return 3
+    return 2  # analytical constituents · 표시성분 등 선언값
+
+
+def select_nutrition(rows):
+    """SKU의 영양행 여러 개 → 대표 1개 dict로 병합.
+
+    🔴 왜 필요한가(2026-08-24 실측): 종전엔 `{sku_id: n}` dict라 **시트의 마지막 행이
+    조용히 이겼다.** Feline Natural S0996~S0998(GA 매크로 행 + Typical 미네랄 행의 상보
+    구성)에서 뒤의 Typical 행이 GA를 덮어 시드의 단백·지방·수분·kcal이 전부 null로
+    빠져 있었다(발견 계기 = 24l에서 KR 등록성분 행 append가 같은 경로로 EU 값을 뒤집는
+    것을 시드 diff가 검출).
+
+    규칙:
+    - primary = 우선순위(nutrition_rank) 최상위 행. 동순위면 시트 순서(안정 정렬).
+    - 필드 보충은 **primary와 data_region이 같은 행만** 참여 — 지역이 다른 행(예: EU
+      현행 행 + KR 등록성분 행)을 섞으면 그 자체가 cross-attribution(정책 4)이고,
+      KR/JP 등록·보증성분의 min/max 규제값이 CKD 인 레버 같은 수치 레버로 새어든다.
+      기록 목적으로 append된 행은 시드에 반영되지 않는 게 맞다.
+    - 보충은 필드 단위: primary에 비어 있는 필드만 차순위 행 값으로 채운다.
+    """
+    if len(rows) == 1:
+        return rows[0]
+    ordered = sorted(rows, key=lambda r: nutrition_rank(r.get("analysis_type")))
+    primary = ordered[0]
+    region = (primary.get("data_region") or "").strip()
+    merged = dict(primary)
+    for r in ordered[1:]:
+        if (r.get("data_region") or "").strip() != region:
+            continue
+        for k, v in r.items():
+            if v in (None, "") :
+                continue
+            if merged.get(k) in (None, ""):
+                merged[k] = v
+    return merged
+
+
+# select_nutrition 회귀 셀프테스트 — 실제 사고 사례 기반.
+_NUTRITION_SELECT_CASES = [
+    # (rows, 기대 필드값, 메모)
+    ([{"analysis_type": "Guaranteed Analysis (as-fed)", "data_region": "NZ",
+       "crude_protein_pct": "48", "kcal_per_100g": "487"},
+      {"analysis_type": "Typical Analysis (as-fed)", "data_region": "NZ",
+       "calcium_pct": "1.7"}],
+     {"crude_protein_pct": "48", "calcium_pct": "1.7", "kcal_per_100g": "487"},
+     "S0996 상보 병합 — Typical(primary) 미네랄 + GA 매크로 복원(2026-08-24 회귀)"),
+    ([{"analysis_type": "Analytische Bestandteile (FEDIAF, as-fed)", "data_region": "EU(DE)",
+       "crude_protein_pct": "8", "calcium_pct": ""},
+      {"analysis_type": "KR 등록성분 (한글표시사항, min/max)", "data_region": "KR",
+       "crude_protein_pct": "6.0", "calcium_pct": "0.09"}],
+     {"crude_protein_pct": "8", "calcium_pct": ""},
+     "S1983 — KR 등록성분(min/max·타지역)은 primary를 덮지도, 빈 필드를 채우지도 않는다"),
+    ([{"analysis_type": "Guaranteed Analysis (as-fed)", "data_region": "US",
+       "crude_protein_pct": "30"},
+      {"analysis_type": "Measured Average", "data_region": "US",
+       "crude_protein_pct": "32"}],
+     {"crude_protein_pct": "32"},
+     "실측 평균 > GA (확정 정책 2)"),
+]
+
+
+def selftest_select_nutrition():
+    fails = []
+    for rows, expect, memo in _NUTRITION_SELECT_CASES:
+        got = select_nutrition([dict(r) for r in rows])
+        for k, v in expect.items():
+            if (got.get(k) or "") != v:
+                fails.append(f"  {memo}: {k} → {got.get(k)!r}, 기대 {v!r}")
+    if fails:
+        print("❌ select_nutrition 셀프테스트 실패:", file=sys.stderr)
+        print("\n".join(fails), file=sys.stderr)
+        sys.exit(1)
+
+
 def derive_rec_daily_g(feeds):
     """4kg 성묘 기준 행의 min/max 중간값. 깔끔한 행 없으면 None."""
     best = None
@@ -500,6 +587,7 @@ def derive_tags(role, life_stage, sku_name_en, sku_name_ko, is_therapeutic):
 def main():
     selftest_derive_category()
     selftest_derive_is_therapeutic()
+    selftest_select_nutrition()
     xlsx = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_XLSX
     if not os.path.exists(xlsx):
         print(f"ERROR: xlsx not found: {xlsx}", file=sys.stderr)
@@ -511,7 +599,11 @@ def main():
                  for b in read_sheet(wb, "02_Brands")}
     lines = {l["line_id"]: l for l in read_sheet(wb, "03_Lines")}
     skus = read_sheet(wb, "04_SKUs")
-    nut = {n["sku_id"]: n for n in read_sheet(wb, "06_Nutrition")}
+    _nut_rows = {}
+    for n in read_sheet(wb, "06_Nutrition"):
+        _nut_rows.setdefault(n["sku_id"], []).append(n)
+    # SKU당 복수 영양행은 우선순위 병합(select_nutrition) — last-wins 금지
+    nut = {sid: select_nutrition(rows) for sid, rows in _nut_rows.items()}
     ings_by_sku = {}
     for i in read_sheet(wb, "05_Ingredients"):
         ings_by_sku.setdefault(i["sku_id"], []).append(i)
