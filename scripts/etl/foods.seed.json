@@ -93112,5 +93112,92 @@
     "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Junior (주니어, KR 리스팅 표기)"
+  },
+  {
+    "source_sku_id": "S2002",
+    "brand": "GimCat",
+    "product_name": "짐펫 유리너리 UT 밸런스 페이스트",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 5.5,
+    "fat_pct": 34.0,
+    "fiber_pct": 1.5,
+    "ash_pct": 4.5,
+    "moisture_pct": 12.5,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "식물성 부산물, 유지, 효모(베타글루칸 1% 함유), 연체동물 및 갑각류(N-아세틸글루코사민 0.42%)",
+    "ingredient_keywords": [],
+    "form": "paste (supplement)",
+    "rec_daily_g": null,
+    "tags": [
+      "보조식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "보조식",
+    "life_stage_raw": "Adult (from 1 year)"
+  },
+  {
+    "source_sku_id": "S2003",
+    "brand": "GimCat",
+    "product_name": "짐펫 치즈 바이오틴 페이스트 스킨앤코트 컴플렉스",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": null,
+    "fat_pct": null,
+    "fiber_pct": null,
+    "ash_pct": null,
+    "moisture_pct": null,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "식물성 부산물, 유지, 효모, 우유 및 유제품(강판 경성 치즈 4%)",
+    "ingredient_keywords": [
+      "dairy",
+      "milk",
+      "우유",
+      "유제품",
+      "치즈"
+    ],
+    "form": "treat",
+    "rec_daily_g": null,
+    "tags": [
+      "보조식",
+      "전연령"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "보조식",
+    "life_stage_raw": "All ages (KR 라벨 '모든 연령')"
   }
 ]
