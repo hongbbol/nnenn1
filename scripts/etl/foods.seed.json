@@ -19724,7 +19724,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (Maintenance)"
   },
