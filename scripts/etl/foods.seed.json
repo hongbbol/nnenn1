@@ -93205,5 +93205,135 @@
     "kr_available": true,
     "food_role": "보조식",
     "life_stage_raw": "All ages (KR 라벨 '모든 연령')"
+  },
+  {
+    "source_sku_id": "S2004",
+    "brand": "Catz Finefood",
+    "product_name": "캣츠파인푸드 필렛 no.405 칠면조·닭고기와 연어",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 14.9,
+    "fat_pct": 5.6,
+    "fiber_pct": 0.4,
+    "ash_pct": 3.0,
+    "moisture_pct": 74.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 116.46,
+    "ingredient_summary": "칠면조 필레, 칠면조·연어·닭 육수, 연어, 칠면조 간, 닭 지방, 미네랄",
+    "ingredient_keywords": [
+      "닭",
+      "생선",
+      "연어"
+    ],
+    "form": "wet",
+    "rec_daily_g": null,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S2005",
+    "brand": "Catz Finefood",
+    "product_name": "캣츠파인푸드 필렛 no.409 칠면조·닭고기와 토끼",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 15.0,
+    "fat_pct": 6.0,
+    "fiber_pct": 0.4,
+    "ash_pct": 2.7,
+    "moisture_pct": 75.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 115.79,
+    "ingredient_summary": "칠면조 필레, 칠면조·토끼·닭 육수, 토끼, 칠면조 간, 닭 지방, 미네랄",
+    "ingredient_keywords": [
+      "곡물",
+      "닭",
+      "보리"
+    ],
+    "form": "wet",
+    "rec_daily_g": null,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
+  },
+  {
+    "source_sku_id": "S2006",
+    "brand": "Catz Finefood",
+    "product_name": "캣츠파인푸드 필렛 no.415 닭고기와 캥거루",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 14.8,
+    "fat_pct": 5.4,
+    "fiber_pct": 0.3,
+    "ash_pct": 2.8,
+    "moisture_pct": 75.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 109.45,
+    "ingredient_summary": "닭 필레, 닭·캥거루 육수, 캥거루, 닭 간, 닭 지방, 미네랄",
+    "ingredient_keywords": [
+      "닭"
+    ],
+    "form": "wet",
+    "rec_daily_g": null,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult"
   }
 ]
