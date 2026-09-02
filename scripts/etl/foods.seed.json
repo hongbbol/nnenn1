@@ -18400,11 +18400,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": 10.4,
-    "fat_pct": 5.7,
+    "protein_pct": 10.3,
+    "fat_pct": 5.2,
     "fiber_pct": 0.3,
-    "ash_pct": 2.5,
-    "moisture_pct": 80.0,
+    "ash_pct": 2.9,
+    "moisture_pct": 79.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -18412,14 +18412,14 @@
     "taurine_pct": 0.15,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": 94.7,
-    "ingredient_summary": "동물복지 닭 70.0%(심장·고기·간·목), 육수, 미네랄, 녹차 추출물 0.10%",
+    "kcal_per_100g": 94.5,
+    "ingredient_summary": "동물복지 닭 70%(심장·고기·간·목), 육수, 미네랄, 녹차 추출물 0.1%",
     "ingredient_keywords": [
       "chicken",
       "닭"
     ],
     "form": "wet",
-    "rec_daily_g": null,
+    "rec_daily_g": 212,
     "tags": [
       "주식"
     ],
@@ -18443,11 +18443,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": 10.1,
-    "fat_pct": 4.9,
+    "protein_pct": 10.3,
+    "fat_pct": 5.1,
     "fiber_pct": 0.3,
-    "ash_pct": 2.4,
-    "moisture_pct": 82.0,
+    "ash_pct": 2.8,
+    "moisture_pct": 79.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -18455,14 +18455,14 @@
     "taurine_pct": 0.15,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": 82.9,
-    "ingredient_summary": "동물복지 닭 70.0%(심장·고기·간·목), 육수 27%, 크랜베리 2%, 미네랄",
+    "kcal_per_100g": 94.4,
+    "ingredient_summary": "동물복지 닭 70%(심장·고기·간·목), 육수 27%, 크랜베리 2%, 미네랄",
     "ingredient_keywords": [
       "chicken",
       "닭"
     ],
     "form": "wet",
-    "rec_daily_g": null,
+    "rec_daily_g": 212,
     "tags": [
       "주식"
     ],
@@ -18486,11 +18486,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": 10.4,
-    "fat_pct": 5.6,
+    "protein_pct": 10.3,
+    "fat_pct": 5.3,
     "fiber_pct": 0.3,
-    "ash_pct": 2.5,
-    "moisture_pct": 80.0,
+    "ash_pct": 2.9,
+    "moisture_pct": 79.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -18498,8 +18498,8 @@
     "taurine_pct": 0.15,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": 94.2,
-    "ingredient_summary": "동물복지 닭 70.0%(심장·고기·간·목), 육수, 미네랄, 연어 오일, 프락토올리고당(FOS), 만난올리고당(MOS)",
+    "kcal_per_100g": 95.0,
+    "ingredient_summary": "동물복지 닭 70%(심장·고기·간·목), 육수, 미네랄, 연어유, 프락토올리고당(FOS), 만난올리고당(MOS)",
     "ingredient_keywords": [
       "chicken",
       "salmon",
@@ -18508,7 +18508,7 @@
       "연어"
     ],
     "form": "wet",
-    "rec_daily_g": null,
+    "rec_daily_g": 212,
     "tags": [
       "주식"
     ],
@@ -93891,5 +93891,140 @@
     "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (Complete food for adult cats)"
+  },
+  {
+    "source_sku_id": "S2019",
+    "brand": "Green Petfood",
+    "product_name": "페어캣 뷰티 (습식 파우치, 헴프오일·알로에베라)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 10.4,
+    "fat_pct": 5.6,
+    "fiber_pct": 0.3,
+    "ash_pct": 3.1,
+    "moisture_pct": 78.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": 0.15,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 99.3,
+    "ingredient_summary": "동물복지 닭 50%(심장·고기·간·목), 육수, 동물복지 연어 20%, 미네랄, 연어유, 헴프오일 0.2%",
+    "ingredient_keywords": [
+      "chicken",
+      "salmon",
+      "닭",
+      "생선",
+      "연어"
+    ],
+    "form": "wet",
+    "rec_daily_g": 212,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Complete feed for adult cats)"
+  },
+  {
+    "source_sku_id": "S2020",
+    "brand": "Green Petfood",
+    "product_name": "페어캣 핏 (습식 파우치, 초록입홍합 추출물)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 10.4,
+    "fat_pct": 5.5,
+    "fiber_pct": 0.3,
+    "ash_pct": 3.1,
+    "moisture_pct": 77.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": 0.15,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 102.5,
+    "ingredient_summary": "동물복지 닭 50%(심장·고기·간·목), 육수, 동물복지 연어 20%, 미네랄, 연어유, 초록입홍합 추출물",
+    "ingredient_keywords": [
+      "chicken",
+      "salmon",
+      "닭",
+      "생선",
+      "연어"
+    ],
+    "form": "wet",
+    "rec_daily_g": 212,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Complete feed for adult cats)"
+  },
+  {
+    "source_sku_id": "S2021",
+    "brand": "Green Petfood",
+    "product_name": "페어캣 해피 (습식 파우치, 아마인유·차전자피·헤어볼)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 10.3,
+    "fat_pct": 5.3,
+    "fiber_pct": 1.2,
+    "ash_pct": 2.9,
+    "moisture_pct": 78.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": 0.15,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 94.2,
+    "ingredient_summary": "동물복지 닭 70%(심장·고기·간·목), 육수, 미네랄, 셀룰로스, 아마인유 0.5%, 차전자피 0.1%",
+    "ingredient_keywords": [
+      "chicken",
+      "닭"
+    ],
+    "form": "wet",
+    "rec_daily_g": 212,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Complete feed for adult cats)"
   }
 ]
