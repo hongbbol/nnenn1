@@ -94026,5 +94026,54 @@
     "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (Complete feed for adult cats)"
+  },
+  {
+    "source_sku_id": "S2022",
+    "brand": "Orijen",
+    "product_name": "오리젠 캣 가디언8 (건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 40.0,
+    "fat_pct": 18.0,
+    "fiber_pct": 4.0,
+    "ash_pct": 9.0,
+    "moisture_pct": 10.0,
+    "phosphorus_pct": 1.1,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": 0.1,
+    "epa_dha_pct": 0.7,
+    "omega3_pct": 1.2,
+    "kcal_per_100g": 398.0,
+    "ingredient_summary": "신선한 닭고기(32%), 생 연어(5%), 생 칠면조(5%), 생 통청어(5%), 생 통고등어(5%), 신선한 닭고기 내장(간, 심장)(4.5%)",
+    "ingredient_keywords": [
+      "chicken",
+      "milk",
+      "salmon",
+      "닭",
+      "닭고기",
+      "생선",
+      "연어",
+      "유제품"
+    ],
+    "form": "dry",
+    "rec_daily_g": 72,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (성묘, 전 묘종)"
   }
 ]
