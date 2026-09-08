@@ -251,7 +251,7 @@
       "통밀",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -302,7 +302,7 @@
       "치킨",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 120,
     "tags": [
       "주식",
@@ -360,7 +360,7 @@
       "치킨",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -421,7 +421,7 @@
       "통밀",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 50,
     "tags": [
       "주식",
@@ -67180,11 +67180,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 8.5,
+    "fat_pct": 5.2,
+    "fiber_pct": 0.5,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -67192,13 +67192,21 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
-    "ingredient_summary": null,
-    "ingredient_keywords": [],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "kcal_per_100g": 117.5,
+    "ingredient_summary": "정제수, 칠면조 내장, 돼지 간, 닭고기, 옥수수가루, 돼지고기 단백질 분리물",
+    "ingredient_keywords": [
+      "chicken",
+      "corn",
+      "곡물",
+      "닭",
+      "닭고기",
+      "수수",
+      "옥수수"
+    ],
+    "form": "wet",
+    "rec_daily_g": 156,
     "tags": [
-      "주식",
+      "보조식",
       "처방식"
     ],
     "image_url": null,
@@ -67206,7 +67214,7 @@
     "price_per_kg_krw": null,
     "active": true,
     "kr_available": true,
-    "food_role": "주식",
+    "food_role": "보조식",
     "life_stage_raw": "adult"
   },
   {
@@ -67247,7 +67255,7 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -67303,7 +67311,7 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -67344,7 +67352,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 86.59,
     "ingredient_summary": "물, 돼지고기(간), 닭고기, 당근, 밀글루텐, 쌀",
     "ingredient_keywords": [
       "chicken",
@@ -67358,8 +67366,8 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 246,
     "tags": [
       "주식",
       "처방식"
@@ -67398,7 +67406,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 80.98,
     "ingredient_summary": "물, 돼지간, 당근, 닭고기, 밀글루텐, 참치",
     "ingredient_keywords": [
       "chicken",
@@ -67415,8 +67423,8 @@
       "옥수수",
       "참치"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 287,
     "tags": [
       "주식",
       "처방식"
@@ -67469,7 +67477,7 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -67510,11 +67518,23 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
-    "ingredient_summary": null,
-    "ingredient_keywords": [],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "kcal_per_100g": 81.71,
+    "ingredient_summary": "닭고기 육수, 닭고기, 돼지 간, 당근, 쌀전분, 밀글루텐",
+    "ingredient_keywords": [
+      "barley",
+      "chicken",
+      "oat",
+      "rice",
+      "wheat",
+      "곡물",
+      "귀리",
+      "닭",
+      "닭고기",
+      "보리",
+      "쌀"
+    ],
+    "form": "wet",
+    "rec_daily_g": 246,
     "tags": [
       "주식",
       "처방식"
@@ -67553,11 +67573,19 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
-    "ingredient_summary": null,
-    "ingredient_keywords": [],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "kcal_per_100g": 89.02,
+    "ingredient_summary": "정제수, 닭고기, 돼지 간, 당근, 밀글루텐, 쌀전분",
+    "ingredient_keywords": [
+      "chicken",
+      "rice",
+      "wheat",
+      "곡물",
+      "닭",
+      "닭고기",
+      "쌀"
+    ],
+    "form": "wet",
+    "rec_daily_g": 246,
     "tags": [
       "주식",
       "처방식"
@@ -67584,11 +67612,11 @@
     "condition_fit": [
       "IBD"
     ],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 7.2,
+    "fat_pct": 4.0,
+    "fiber_pct": 4.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -67596,7 +67624,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 110.26,
     "ingredient_summary": "정제수, 돼지고기(간), 닭고기, 쌀, 감자단백질, 아마씨",
     "ingredient_keywords": [
       "chicken",
@@ -67606,8 +67634,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 195,
     "tags": [
       "주식",
       "처방식"
@@ -67658,7 +67686,7 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 65,
     "tags": [
       "주식",
@@ -67682,11 +67710,11 @@
     "condition_fit": [
       "IBD"
     ],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 7.5,
+    "fat_pct": 4.0,
+    "fiber_pct": 1.5,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -67694,7 +67722,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 110.7,
     "ingredient_summary": "정제수, 돼지간, 닭고기, 쌀, 아마씨, 감자단백질",
     "ingredient_keywords": [
       "chicken",
@@ -67704,8 +67732,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 416,
     "tags": [
       "주식",
       "처방식",
@@ -67734,11 +67762,11 @@
       "신부전 1-2기",
       "신부전 3-4기"
     ],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 5.5,
+    "fat_pct": 4.0,
+    "fiber_pct": 2.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -67746,11 +67774,18 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
-    "ingredient_summary": null,
-    "ingredient_keywords": [],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "kcal_per_100g": 116.5,
+    "ingredient_summary": "정제수, 돼지 간, 닭고기, 난제품(계란), 쇄미, 설탕",
+    "ingredient_keywords": [
+      "chicken",
+      "rice",
+      "곡물",
+      "닭",
+      "닭고기",
+      "쌀"
+    ],
+    "form": "wet",
+    "rec_daily_g": 195,
     "tags": [
       "주식",
       "처방식"
@@ -67790,7 +67825,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 85.37,
     "ingredient_summary": "물, 닭고기, 돼지간, 당근, 쌀, 쌀전분",
     "ingredient_keywords": [
       "chicken",
@@ -67802,8 +67837,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 246,
     "tags": [
       "주식",
       "처방식"
@@ -67846,7 +67881,7 @@
     "kcal_per_100g": 408.2,
     "ingredient_summary": null,
     "ingredient_keywords": [],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 50,
     "tags": [
       "주식",
@@ -67907,7 +67942,7 @@
       "통밀",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -67968,7 +68003,7 @@
       "통밀",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -68025,8 +68060,8 @@
       "쌀",
       "참치"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 246,
     "tags": [
       "주식",
       "처방식"
@@ -68076,7 +68111,7 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -68103,11 +68138,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 8.6,
+    "fat_pct": 4.8,
+    "fiber_pct": 4.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -68128,8 +68163,8 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 195,
     "tags": [
       "주식",
       "처방식"
@@ -68182,7 +68217,7 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -68236,7 +68271,7 @@
       "옥수수",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 50,
     "tags": [
       "주식",
@@ -68275,7 +68310,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 93.9,
     "ingredient_summary": "닭고기육수, 돼지간, 닭고기, 당근, 밀글루텐, 쌀전분",
     "ingredient_keywords": [
       "chicken",
@@ -68286,8 +68321,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 246,
     "tags": [
       "주식",
       "처방식"
@@ -68340,7 +68375,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -68367,11 +68402,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 7.5,
+    "fat_pct": 2.0,
+    "fiber_pct": 5.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -68379,7 +68414,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 82.1,
     "ingredient_summary": "물, 돼지고기(간), 돼지고기부산물, 닭고기, 분말셀룰로오스, 밀",
     "ingredient_keywords": [
       "chicken",
@@ -68390,8 +68425,8 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 234,
     "tags": [
       "주식",
       "처방식"
@@ -68443,7 +68478,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -68492,7 +68527,7 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 65,
     "tags": [
       "주식",
@@ -68519,11 +68554,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 7.0,
+    "fat_pct": 2.5,
+    "fiber_pct": 1.5,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -68531,7 +68566,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 110.8,
     "ingredient_summary": "가수분해닭고기(닭간), 정제수, 옥수수전분, 코코넛오일, 피칸껍질, 탄산칼슘",
     "ingredient_keywords": [
       "corn",
@@ -68541,8 +68576,8 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 195,
     "tags": [
       "주식",
       "처방식"
@@ -68587,7 +68622,7 @@
       "닭",
       "쌀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -68639,7 +68674,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -68692,7 +68727,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -68718,11 +68753,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 5.5,
+    "fat_pct": 3.0,
+    "fiber_pct": 2.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 85.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -68730,7 +68765,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 83.7,
     "ingredient_summary": "닭육수, 닭고기, 돼지고기(간), 당근, 쌀, 시금치",
     "ingredient_keywords": [
       "chicken",
@@ -68741,8 +68776,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 276,
     "tags": [
       "주식"
     ],
@@ -68766,11 +68801,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 5.5,
+    "fat_pct": 2.5,
+    "fiber_pct": 2.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 85.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -68778,7 +68813,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 89.9,
     "ingredient_summary": "닭고기 육수, 참치, 돼지간, 당근, 닭고기, 시금치",
     "ingredient_keywords": [
       "chicken",
@@ -68792,8 +68827,8 @@
       "쌀",
       "참치"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 237,
     "tags": [
       "주식"
     ],
@@ -68846,7 +68881,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -68901,7 +68936,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 65,
     "tags": [
       "주식",
@@ -68954,7 +68989,7 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -68980,11 +69015,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 5.0,
+    "fat_pct": 1.8,
+    "fiber_pct": 1.5,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 85.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -68992,7 +69027,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 75.8,
     "ingredient_summary": "닭고기 육수, 닭고기, 돼지간, 당근, 쌀, 쌀전분",
     "ingredient_keywords": [
       "chicken",
@@ -69003,8 +69038,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 287,
     "tags": [
       "주식"
     ],
@@ -69057,7 +69092,7 @@
       "옥수수",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 60,
     "tags": [
       "주식",
@@ -69109,7 +69144,7 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -69135,11 +69170,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 6.5,
+    "fat_pct": 1.8,
+    "fiber_pct": 3.5,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 84.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -69147,7 +69182,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 75.8,
     "ingredient_summary": "닭고기육수, 돼지고기(간), 당근, 닭고기, 시금치, 밀글루텐",
     "ingredient_keywords": [
       "chicken",
@@ -69158,8 +69193,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 191,
     "tags": [
       "주식"
     ],
@@ -69216,7 +69251,7 @@
       "통밀",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 65,
     "tags": [
       "주식",
@@ -69242,11 +69277,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 7.0,
+    "fat_pct": 3.5,
+    "fiber_pct": 4.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 78.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -69254,7 +69289,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 101.9,
     "ingredient_summary": "물, 닭고기, 칠면조고기(내장), 돼지고기부산물, 돼지고기(간), 분말셀룰로스",
     "ingredient_keywords": [
       "chicken",
@@ -69267,8 +69302,8 @@
       "쌀",
       "옥수수"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 205,
     "tags": [
       "주식"
     ],
@@ -69317,7 +69352,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -69338,11 +69373,11 @@
     "category": "습식",
     "age_fit": [],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 6.5,
+    "fat_pct": 2.5,
+    "fiber_pct": 2.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 85.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -69350,7 +69385,7 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
+    "kcal_per_100g": 89.8,
     "ingredient_summary": "닭육수, 닭고기, 돼지고기(간), 당근, 밀글루텐, 시금치",
     "ingredient_keywords": [
       "chicken",
@@ -69361,8 +69396,8 @@
       "닭고기",
       "쌀"
     ],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "form": "wet",
+    "rec_daily_g": 514,
     "tags": [
       "주식",
       "키튼"
@@ -69410,7 +69445,7 @@
       "통밀",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 100,
     "tags": [
       "주식",
@@ -69464,7 +69499,7 @@
       "옥수수",
       "현미"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 110,
     "tags": [
       "주식",
@@ -69490,11 +69525,11 @@
       "15+"
     ],
     "condition_fit": [],
-    "protein_pct": null,
-    "fat_pct": null,
-    "fiber_pct": null,
+    "protein_pct": 6.0,
+    "fat_pct": 1.6,
+    "fiber_pct": 2.0,
     "ash_pct": null,
-    "moisture_pct": null,
+    "moisture_pct": 85.0,
     "phosphorus_pct": null,
     "sodium_pct": null,
     "potassium_pct": null,
@@ -69502,11 +69537,19 @@
     "taurine_pct": null,
     "epa_dha_pct": null,
     "omega3_pct": null,
-    "kcal_per_100g": null,
-    "ingredient_summary": null,
-    "ingredient_keywords": [],
-    "form": "dry/wet",
-    "rec_daily_g": null,
+    "kcal_per_100g": 80.8,
+    "ingredient_summary": "닭고기 육수, 닭고기, 돼지 간, 당근, 쌀, 밀글루텐",
+    "ingredient_keywords": [
+      "chicken",
+      "rice",
+      "wheat",
+      "곡물",
+      "닭",
+      "닭고기",
+      "쌀"
+    ],
+    "form": "wet",
+    "rec_daily_g": 237,
     "tags": [
       "주식"
     ],
@@ -69556,7 +69599,7 @@
       "수수",
       "옥수수"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 45,
     "tags": [
       "주식",
@@ -69608,7 +69651,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -69662,7 +69705,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 55,
     "tags": [
       "주식",
@@ -69716,7 +69759,7 @@
       "옥수수",
       "통밀"
     ],
-    "form": "dry/wet",
+    "form": "dry",
     "rec_daily_g": 80,
     "tags": [
       "주식",
