@@ -424,16 +424,24 @@ def build_nutrition(n, category):
         "epa_dha_pct": ("epa_dha_pct", "epa_dha_dm_pct"),
     }
     DRY_MOISTURE = 8.0
-    factor = (100 - DRY_MOISTURE) / 100.0
 
     out = {}
     moisture = num(n.get("moisture_pct"))
     has_asfed = num(n.get("crude_protein_pct")) is not None
     estimated = False
+    # 🔴 2026-09-09(KR-EXP-25n): 수분을 알면 제형과 무관하게 실제 수분으로 환산(DM × (1−수분/100)) —
+    # 힐스 습식(DM Typical + 라벨 수분 max)·건식 라이트(수분 max 10%)가 8% 고정 환산보다 정확하다.
+    # 수분을 모르면 종전대로 건식만 8% 가정.
+    if moisture is not None:
+        factor = (100 - moisture) / 100.0
+        can_derive = True
+    else:
+        factor = (100 - DRY_MOISTURE) / 100.0
+        can_derive = category == "건식"
 
     for af_key, (af_col, dm_col) in AF_TO_DM.items():
         v = num(n.get(af_col))
-        if v is None and category == "건식":
+        if v is None and can_derive:
             dm = num(n.get(dm_col))
             if dm is not None:
                 v = round(dm * factor, 1) if af_key in ("protein_pct", "fat_pct", "fiber_pct", "ash_pct") else round(dm * factor, 2)
@@ -496,12 +504,29 @@ def select_nutrition(rows):
     for r in ordered[1:]:
         if (r.get("data_region") or "").strip() != region:
             continue
+        boundary = nutrition_rank(r.get("analysis_type")) >= 3
         for k, v in r.items():
             if v in (None, "") :
                 continue
-            if merged.get(k) in (None, ""):
-                merged[k] = v
+            if merged.get(k) not in (None, ""):
+                continue
+            # 🔴 2026-09-09(KR-EXP-25n): 경계값 행(GA·등록성분 min/max, rank 3)은 primary가 DM에서
+            # 환산할 수 있는 필드를 채우지 않는다 — DM Typical × (1−수분)이 min/max 선언보다
+            # 정확하고(힐스 건식 S1447 라벨 인 min 0.42 vs typical 0.73), 경계값 행의 DM 열은
+            # min/max로 자동 계산된 값이라 typical DM 열을 오염시키면 안 된다. 수분·kcal·회분처럼
+            # DM에서 못 얻는 필드만 경계값으로 보충한다.
+            if boundary and (k.endswith("_dm_pct") or (k in _ASFED_TO_DM and merged.get(_ASFED_TO_DM[k]) not in (None, ""))):
+                continue
+            merged[k] = v
     return merged
+
+
+_ASFED_TO_DM = {
+    "crude_protein_pct": "crude_protein_dm_pct", "crude_fat_pct": "crude_fat_dm_pct", "crude_fiber_pct": "crude_fiber_dm_pct",
+    "ash_pct": "ash_dm_pct", "calcium_pct": "calcium_dm_pct", "phosphorus_pct": "phosphorus_dm_pct", "magnesium_pct": "magnesium_dm_pct",
+    "sodium_pct": "sodium_dm_pct", "potassium_pct": "potassium_dm_pct", "chloride_pct": "chloride_dm_pct", "taurine_pct": "taurine_dm_pct",
+    "omega3_pct": "omega3_dm_pct", "epa_dha_pct": "epa_dha_dm_pct", "omega6_pct": "omega6_dm_pct",
+}
 
 
 # select_nutrition 회귀 셀프테스트 — 실제 사고 사례 기반.
@@ -525,6 +550,12 @@ _NUTRITION_SELECT_CASES = [
        "crude_protein_pct": "32"}],
      {"crude_protein_pct": "32"},
      "실측 평균 > GA (확정 정책 2)"),
+    ([{"analysis_type": "Typical Nutrient Profile (Hill's 공식, DM 기준)", "data_region": "KR",
+       "crude_protein_pct": "", "crude_protein_dm_pct": "34", "phosphorus_pct": "", "phosphorus_dm_pct": "0.79", "ash_pct": "", "ash_dm_pct": "", "moisture_pct": ""},
+      {"analysis_type": "KR 등록성분 (한글표시사항, min/max)", "data_region": "KR",
+       "crude_protein_pct": "29.5", "crude_protein_dm_pct": "32.1", "phosphorus_pct": "0.42", "phosphorus_dm_pct": "0.46", "ash_pct": "8", "ash_dm_pct": "8.7", "moisture_pct": "8"}],
+     {"crude_protein_pct": "", "crude_protein_dm_pct": "34", "phosphorus_pct": "", "phosphorus_dm_pct": "0.79", "ash_pct": "8", "ash_dm_pct": "", "moisture_pct": "8"},
+     "S1447(25n) — 같은 지역 등록성분(min/max)은 DM에서 환산 가능한 필드(단백·인)를 채우지 않고, 수분·회분(DM 없음)만 보충한다"),
 ]
 
 
