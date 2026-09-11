@@ -6036,7 +6036,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult Maintenance"
   },
@@ -6075,7 +6075,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Growth and Maintenance (Cat & Kitten)"
   },
@@ -7465,7 +7465,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "All Life Stages (전연령)"
   },
@@ -7513,7 +7513,7 @@
     "affiliate_links": null,
     "price_per_kg_krw": null,
     "active": true,
-    "kr_available": true,
+    "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult Maintenance (성묘 유지식)"
   },
