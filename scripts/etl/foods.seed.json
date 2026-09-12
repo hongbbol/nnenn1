@@ -96252,5 +96252,193 @@
     "kr_available": false,
     "food_role": "주식",
     "life_stage_raw": "Adult (Dietetic — renal indication)"
+  },
+  {
+    "source_sku_id": "S2042",
+    "brand": "MERA",
+    "product_name": "메라 바이탈 가스트로 인테스티날 습식 200 g (위장 처방식)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "IBD"
+    ],
+    "protein_pct": 10.4,
+    "fat_pct": 2.0,
+    "fiber_pct": 0.3,
+    "ash_pct": 2.2,
+    "moisture_pct": 84.0,
+    "phosphorus_pct": null,
+    "sodium_pct": 0.17,
+    "potassium_pct": 0.21,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 92.0,
+    "ingredient_summary": "육류 및 동물성 부산물(닭고기 60%), 미네랄 1%, 효모류(맥주효모 0.5%), 당류(MOS 0.1%·FOS 0.1%), 유지류(연어유 0.2%)",
+    "ingredient_keywords": [
+      "chicken",
+      "salmon",
+      "닭",
+      "닭고기",
+      "생선",
+      "연어"
+    ],
+    "form": "wet",
+    "rec_daily_g": 300,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — GI indication)"
+  },
+  {
+    "source_sku_id": "S2043",
+    "brand": "MERA",
+    "product_name": "메라 바이탈 스킨 컨트롤 + 알러직 습식 200 g (피부·알러지 처방식)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 10.3,
+    "fat_pct": 5.1,
+    "fiber_pct": 0.3,
+    "ash_pct": 2.8,
+    "moisture_pct": 80.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": 0.14,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "육류 및 동물성 부산물(칠면조 60%), 미네랄 1%, 달걀 및 달걀 제품(전란 0.5%), 효모류(맥주효모 0.2%), 유지류(어유 0.4%)",
+    "ingredient_keywords": [],
+    "form": "wet",
+    "rec_daily_g": 208,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — skin/allergy indication)"
+  },
+  {
+    "source_sku_id": "S2044",
+    "brand": "MERA",
+    "product_name": "메라 바이탈 유리너리 습식 200 g (요로 처방식)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "결석-스트루바이트"
+    ],
+    "protein_pct": 10.7,
+    "fat_pct": 5.3,
+    "fiber_pct": 0.4,
+    "ash_pct": 2.0,
+    "moisture_pct": 80.0,
+    "phosphorus_pct": 0.12,
+    "sodium_pct": 0.12,
+    "potassium_pct": 0.24,
+    "chloride_pct": 0.27,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": null,
+    "ingredient_summary": "육류 및 동물성 부산물(닭고기 32%·소고기 32%), 곡류(쌀 2%), 과일류(크랜베리 2%), 미네랄 1%",
+    "ingredient_keywords": [
+      "beef",
+      "chicken",
+      "rice",
+      "곡물",
+      "닭",
+      "닭고기",
+      "소고기",
+      "쌀"
+    ],
+    "form": "wet",
+    "rec_daily_g": 167,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — urinary indication)"
+  },
+  {
+    "source_sku_id": "S2045",
+    "brand": "MERA",
+    "product_name": "메라 바이탈 웨이트 컨트롤 습식 200 g (체중 처방식)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 10.4,
+    "fat_pct": 2.8,
+    "fiber_pct": 1.6,
+    "ash_pct": 2.9,
+    "moisture_pct": 81.0,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 71.7,
+    "ingredient_summary": "육류 및 동물성 부산물(닭고기 60%), 식물성 부산물(셀룰로오스 1.5%), 미네랄 1%",
+    "ingredient_keywords": [
+      "chicken",
+      "닭",
+      "닭고기"
+    ],
+    "form": "wet",
+    "rec_daily_g": 182,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — weight indication)"
   }
 ]
