@@ -96139,5 +96139,118 @@
     "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "adult"
+  },
+  {
+    "source_sku_id": "S2040",
+    "brand": "MERA",
+    "product_name": "메라 바이탈 레날 건식 (신장 처방식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "신부전 1-2기",
+      "신부전 3-4기"
+    ],
+    "protein_pct": 24.0,
+    "fat_pct": 18.0,
+    "fiber_pct": 3.5,
+    "ash_pct": 5.9,
+    "moisture_pct": null,
+    "phosphorus_pct": 0.48,
+    "sodium_pct": 0.4,
+    "potassium_pct": 0.8,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": 0.84,
+    "kcal_per_100g": 401.5,
+    "ingredient_summary": "쌀 21%, 옥수수, 가금 지방, 가금 단백*(7.5%, 일부 건조·가수분해), 소 단백*(8%, 건조), 밀",
+    "ingredient_keywords": [
+      "beef",
+      "chicken",
+      "rice",
+      "salmon",
+      "wheat",
+      "곡물",
+      "닭",
+      "밀 글루텐",
+      "생선",
+      "소고기",
+      "수수",
+      "쌀",
+      "연어",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 48,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — renal indication)"
+  },
+  {
+    "source_sku_id": "S2041",
+    "brand": "MERA",
+    "product_name": "메라 바이탈 레날 습식 200 g (신장 처방식)",
+    "category": "습식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "신부전 1-2기",
+      "신부전 3-4기"
+    ],
+    "protein_pct": 8.2,
+    "fat_pct": 8.0,
+    "fiber_pct": 0.3,
+    "ash_pct": 2.5,
+    "moisture_pct": 77.0,
+    "phosphorus_pct": 0.14,
+    "sodium_pct": 0.15,
+    "potassium_pct": 0.22,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": 0.2,
+    "kcal_per_100g": 100.4,
+    "ingredient_summary": "육류 및 동물성 부산물(닭고기 55%), 곡류(쌀 3%), 미네랄 1%, 유지류(연어유 0.2%)",
+    "ingredient_keywords": [
+      "chicken",
+      "rice",
+      "salmon",
+      "곡물",
+      "닭",
+      "닭고기",
+      "생선",
+      "쌀",
+      "연어"
+    ],
+    "form": "wet",
+    "rec_daily_g": 190,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": false,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — renal indication)"
   }
 ]
