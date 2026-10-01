@@ -55,6 +55,7 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   Catit: ['캣잇'],
   'Catz Finefood': ['캣츠파인푸드'],
   'Club 4 Paws': ['클럽4포즈', '클럽포포즈'],
+  "Dr. Clauder's": ['닥터클라우더', '닥터 클라우더'],
   'Earthborn Holistic': ['어스본'],
   Eminent: ['에미넌트'],
   Equilíbrio: ['이퀼리브리오', '에퀼리브리오'],
