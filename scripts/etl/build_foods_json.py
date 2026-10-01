@@ -518,7 +518,40 @@ def select_nutrition(rows):
             if boundary and (k.endswith("_dm_pct") or (k in _ASFED_TO_DM and merged.get(_ASFED_TO_DM[k]) not in (None, ""))):
                 continue
             merged[k] = v
+    # 🔴 2026-10-01(닥터클라우더, 사용자 결정 '2번'): 타 지역 행은 원칙적으로 보충 불참이지만,
+    # **kcal 한 필드만** 예외 — 타 지역 행의 GA가 primary와 전 항목 같을 때(같은 포뮬러가 확인된
+    # 경우)에 한해 primary에 없는 kcal을 채운다. 공식(DE)엔 ME가 없고 수입원 KR 표시에만 칼로리가
+    # 있는 S2057~S2060이 계기. GA가 하나라도 다르거나 비교 항목이 4개 미만이면 채우지 않는다.
+    if merged.get("kcal_per_100g") in (None, ""):
+        for r in ordered[1:]:
+            if (r.get("data_region") or "").strip() == region or r.get("kcal_per_100g") in (None, ""):
+                continue
+            if same_formula_ga(primary, r):
+                merged["kcal_per_100g"] = r["kcal_per_100g"]
+                break
     return merged
+
+
+_GA_MATCH_KEYS = ("crude_protein_pct", "crude_fat_pct", "crude_fiber_pct", "ash_pct", "calcium_pct", "phosphorus_pct")
+
+
+def same_formula_ga(a, b):
+    """a의 GA 항목(값 있는 것) 전부가 b에도 있고 수치가 같으며, 그런 항목이 4개 이상이면 True."""
+    n = 0
+    for k in _GA_MATCH_KEYS:
+        va = a.get(k)
+        if va in (None, ""):
+            continue
+        vb = b.get(k)
+        if vb in (None, ""):
+            return False
+        try:
+            if abs(float(va) - float(vb)) > 1e-9:
+                return False
+        except (TypeError, ValueError):
+            return False
+        n += 1
+    return n >= 4
 
 
 _ASFED_TO_DM = {
@@ -556,6 +589,24 @@ _NUTRITION_SELECT_CASES = [
        "crude_protein_pct": "29.5", "crude_protein_dm_pct": "32.1", "phosphorus_pct": "0.42", "phosphorus_dm_pct": "0.46", "ash_pct": "8", "ash_dm_pct": "8.7", "moisture_pct": "8"}],
      {"crude_protein_pct": "", "crude_protein_dm_pct": "34", "phosphorus_pct": "", "phosphorus_dm_pct": "0.79", "ash_pct": "8", "ash_dm_pct": "", "moisture_pct": "8"},
      "S1447(25n) — 같은 지역 등록성분(min/max)은 DM에서 환산 가능한 필드(단백·인)를 채우지 않고, 수분·회분(DM 없음)만 보충한다"),
+    ([{"analysis_type": "Analytische Bestandteile (dr-clauder.com 공식 PDP, as-fed)", "data_region": "DE",
+       "crude_protein_pct": "28", "crude_fat_pct": "11", "crude_fiber_pct": "4", "ash_pct": "6", "calcium_pct": "1.1", "phosphorus_pct": "0.95",
+       "kcal_per_100g": "", "moisture_pct": ""},
+      {"analysis_type": "KR 등록성분 (수입원 표시 패널, min/max)", "data_region": "KR",
+       "crude_protein_pct": "28.0", "crude_fat_pct": "11.0", "crude_fiber_pct": "4.0", "ash_pct": "6.0", "calcium_pct": "1.1", "phosphorus_pct": "0.95",
+       "kcal_per_100g": "362.2", "moisture_pct": "12.9"}],
+     {"kcal_per_100g": "362.2", "moisture_pct": ""},
+     "S2057(닥터클라우더) — 타 지역 행 GA ≡ primary 전 항목이면 kcal만 보충(수분 등 다른 필드는 여전히 불참)"),
+    ([{"analysis_type": "Analytische Bestandteile (dr-clauder.com 공식 PDP, as-fed)", "data_region": "DE",
+       "crude_protein_pct": "28", "crude_fat_pct": "11", "crude_fiber_pct": "4", "ash_pct": "6", "calcium_pct": "1.1", "phosphorus_pct": "0.95", "kcal_per_100g": ""},
+      {"analysis_type": "KR 등록성분 (수입원 표시 패널, min/max)", "data_region": "KR",
+       "crude_protein_pct": "28.0", "crude_fat_pct": "10.0", "crude_fiber_pct": "4.0", "ash_pct": "6.0", "calcium_pct": "1.1", "phosphorus_pct": "0.95", "kcal_per_100g": "362.2"}],
+     {"kcal_per_100g": ""},
+     "음성 — GA가 한 항목(지방)이라도 다르면 타 지역 kcal을 쓰지 않는다"),
+    ([{"analysis_type": "Analytical Constituents", "data_region": "EU", "crude_protein_pct": "8", "crude_fat_pct": "5", "kcal_per_100g": ""},
+      {"analysis_type": "KR 등록성분", "data_region": "KR", "crude_protein_pct": "8", "crude_fat_pct": "5", "kcal_per_100g": "80"}],
+     {"kcal_per_100g": ""},
+     "음성 — 비교 항목이 4개 미만(습식 2항)이면 같은 포뮬러로 보지 않는다"),
 ]
 
 
