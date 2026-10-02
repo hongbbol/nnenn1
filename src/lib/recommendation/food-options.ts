@@ -62,6 +62,7 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   Wishbone: ['위시본'],
   Blackwood: ['블랙우드', '블랙 우드'],
   Micho: ['미쵸', '미초'],
+  Trovet: ['트로벳'],
   'Natura Diet': ['나투라다이어트', '나투라 다이어트', '딩고나투라'],
   'Natural Greatness': ['내추럴그레이트니스', '내추럴 그레이트니스', '네추럴그레이트니스'],
   'Earthborn Holistic': ['어스본'],

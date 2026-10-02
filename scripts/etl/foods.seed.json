@@ -101980,5 +101980,309 @@
     "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (sterilized / weight control)"
+  },
+  {
+    "source_sku_id": "S2161",
+    "brand": "Trovet",
+    "product_name": "트로벳 캣 ASD 결석용 유리너리 스트루바이트 (처방 건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "결석-스트루바이트"
+    ],
+    "protein_pct": 32.0,
+    "fat_pct": 23.0,
+    "fiber_pct": 1.5,
+    "ash_pct": 6.8,
+    "moisture_pct": 7.0,
+    "phosphorus_pct": 1.0,
+    "sodium_pct": 0.6,
+    "potassium_pct": 0.56,
+    "chloride_pct": 1.8,
+    "taurine_pct": 0.18,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 430.6,
+    "ingredient_summary": "쌀, 건조 닭 단백, 계유, 옥수수 글루텐, 건조 어류 단백, 옥수수",
+    "ingredient_keywords": [
+      "chicken",
+      "corn",
+      "rice",
+      "곡물",
+      "닭",
+      "생선",
+      "수수",
+      "쌀",
+      "어류",
+      "옥수수",
+      "치킨"
+    ],
+    "form": "dry",
+    "rec_daily_g": 60,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — struvite urolithiasis)"
+  },
+  {
+    "source_sku_id": "S2162",
+    "brand": "Trovet",
+    "product_name": "트로벳 캣 RID 신장질환 레날 앤 옥살레이트 (처방 건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "신부전 1-2기",
+      "신부전 3-4기"
+    ],
+    "protein_pct": 26.0,
+    "fat_pct": 23.5,
+    "fiber_pct": 2.5,
+    "ash_pct": 5.5,
+    "moisture_pct": 7.0,
+    "phosphorus_pct": 0.5,
+    "sodium_pct": 0.4,
+    "potassium_pct": 0.7,
+    "chloride_pct": null,
+    "taurine_pct": 0.18,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 429.0,
+    "ingredient_summary": "옥수수, 옥수수 글루텐, 닭 지방, 쌀, 건조 가금 단백, 쌀 단백",
+    "ingredient_keywords": [
+      "chicken",
+      "corn",
+      "rice",
+      "곡물",
+      "닭",
+      "수수",
+      "쌀",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 60,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — chronic renal insufficiency, calcium oxalate)"
+  },
+  {
+    "source_sku_id": "S2163",
+    "brand": "Trovet",
+    "product_name": "트로벳 캣 HLD 간·장기능개선 헤파틱 (처방 건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "췌장염"
+    ],
+    "protein_pct": 30.5,
+    "fat_pct": 15.0,
+    "fiber_pct": 1.5,
+    "ash_pct": 7.0,
+    "moisture_pct": 8.0,
+    "phosphorus_pct": 0.9,
+    "sodium_pct": 0.65,
+    "potassium_pct": 0.54,
+    "chloride_pct": null,
+    "taurine_pct": 0.18,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 367.5,
+    "ingredient_summary": "쌀, 가금육분, 가금 지방, 옥수수 글루텐, 가금류 간(가수분해물), 효모",
+    "ingredient_keywords": [
+      "corn",
+      "rice",
+      "곡물",
+      "수수",
+      "쌀",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 55,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — liver insufficiency)"
+  },
+  {
+    "source_sku_id": "S2164",
+    "brand": "Trovet",
+    "product_name": "트로벳 캣 WRD 비만&당뇨 웨이트 앤 다이아베틱 (처방 건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "당뇨"
+    ],
+    "protein_pct": 36.0,
+    "fat_pct": 8.5,
+    "fiber_pct": 4.5,
+    "ash_pct": 7.0,
+    "moisture_pct": 8.0,
+    "phosphorus_pct": 1.1,
+    "sodium_pct": 0.45,
+    "potassium_pct": 0.6,
+    "chloride_pct": null,
+    "taurine_pct": 0.18,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 325.4,
+    "ingredient_summary": "가금육분, 옥수수, 쌀, 옥수수 글루텐, 가금류 간(가수분해물), 어분",
+    "ingredient_keywords": [
+      "corn",
+      "rice",
+      "곡물",
+      "수수",
+      "쌀",
+      "옥수수"
+    ],
+    "form": "dry",
+    "rec_daily_g": 40,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — obesity, diabetes mellitus)"
+  },
+  {
+    "source_sku_id": "S2165",
+    "brand": "Trovet",
+    "product_name": "트로벳 캣 RRD 알레르기&피부질환 하이포알러제닉 토끼 (처방 건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 29.5,
+    "fat_pct": 19.0,
+    "fiber_pct": 1.5,
+    "ash_pct": 8.0,
+    "moisture_pct": 7.0,
+    "phosphorus_pct": 1.1,
+    "sodium_pct": 0.45,
+    "potassium_pct": 0.51,
+    "chloride_pct": null,
+    "taurine_pct": 0.18,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 406.5,
+    "ingredient_summary": "탈수 토끼 단백질, 쌀, 쌀 단백, 가금 오일, 쌀겨, 발효 산물",
+    "ingredient_keywords": [
+      "rice",
+      "곡물",
+      "쌀"
+    ],
+    "form": "dry",
+    "rec_daily_g": 60,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — food allergy / intolerance)"
+  },
+  {
+    "source_sku_id": "S2166",
+    "brand": "Trovet",
+    "product_name": "트로벳 캣 UCD 요로결석완화&심신안정 유리너리 캄 (처방 건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [
+      "결석-스트루바이트"
+    ],
+    "protein_pct": 34.0,
+    "fat_pct": 13.5,
+    "fiber_pct": 5.5,
+    "ash_pct": 6.6,
+    "moisture_pct": 7.0,
+    "phosphorus_pct": 0.7,
+    "sodium_pct": 0.75,
+    "potassium_pct": null,
+    "chloride_pct": 1.8,
+    "taurine_pct": 0.24,
+    "epa_dha_pct": null,
+    "omega3_pct": null,
+    "kcal_per_100g": 370.9,
+    "ingredient_summary": "옥수수, 옥수수 글루텐, 탈수 전란, 탈수 생선 단백질(공식 원문 철자 「protei」), 가금 오일, 효모",
+    "ingredient_keywords": [
+      "corn",
+      "dairy",
+      "곡물",
+      "생선",
+      "수수",
+      "옥수수",
+      "유제품"
+    ],
+    "form": "dry",
+    "rec_daily_g": 70,
+    "tags": [
+      "주식",
+      "처방식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (Dietetic — recurring struvite & calcium oxalate, stress)"
   }
 ]
