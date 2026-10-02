@@ -101669,5 +101669,55 @@
     "kr_available": true,
     "food_role": "주식",
     "life_stage_raw": "Adult (Indoor)"
+  },
+  {
+    "source_sku_id": "S2155",
+    "brand": "Micho",
+    "product_name": "미쵸 어덜트 치킨 (건식)",
+    "category": "건식",
+    "age_fit": [
+      "1+",
+      "7+",
+      "11+",
+      "15+"
+    ],
+    "condition_fit": [],
+    "protein_pct": 32.0,
+    "fat_pct": 15.0,
+    "fiber_pct": 2.8,
+    "ash_pct": 8.0,
+    "moisture_pct": null,
+    "phosphorus_pct": null,
+    "sodium_pct": null,
+    "potassium_pct": null,
+    "chloride_pct": null,
+    "taurine_pct": null,
+    "epa_dha_pct": null,
+    "omega3_pct": 0.65,
+    "kcal_per_100g": 378.3,
+    "ingredient_summary": "탈수 치킨단백질, 발도쌀, 마이즈(옥수수), 정제한 치킨오일, 멸치분말, 크릴새우",
+    "ingredient_keywords": [
+      "chicken",
+      "corn",
+      "rice",
+      "곡물",
+      "닭",
+      "수수",
+      "쌀",
+      "옥수수",
+      "치킨"
+    ],
+    "form": "dry",
+    "rec_daily_g": 65,
+    "tags": [
+      "주식"
+    ],
+    "image_url": null,
+    "affiliate_links": null,
+    "price_per_kg_krw": null,
+    "active": true,
+    "kr_available": true,
+    "food_role": "주식",
+    "life_stage_raw": "Adult (12개월~)"
   }
 ]
