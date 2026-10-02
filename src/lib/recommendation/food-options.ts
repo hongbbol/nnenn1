@@ -64,6 +64,7 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   Micho: ['미쵸', '미초'],
   Trovet: ['트로벳'],
   NutriSource: ['뉴트리소스', '뉴트리 소스'],
+  'Companion Classic': ['컴패니언 클래식', '컴패니언클래식', '컴페니언 클래식', '클래식펫츠', '클래식펫'],
   'Natura Diet': ['나투라다이어트', '나투라 다이어트', '딩고나투라'],
   'Natural Greatness': ['내추럴그레이트니스', '내추럴 그레이트니스', '네추럴그레이트니스'],
   'Earthborn Holistic': ['어스본'],
