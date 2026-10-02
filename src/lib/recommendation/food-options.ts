@@ -60,6 +60,7 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   '1st Choice': ['퍼스트초이스', '퍼스트 초이스'],
   PureVita: ['퓨어비타', '퓨어 비타'],
   Wishbone: ['위시본'],
+  Blackwood: ['블랙우드', '블랙 우드'],
   'Earthborn Holistic': ['어스본'],
   Eminent: ['에미넌트'],
   Equilíbrio: ['이퀼리브리오', '에퀼리브리오'],
