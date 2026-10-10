@@ -33,6 +33,10 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
   버그 수정 시마다 추가) ② 카테고리↔수분/kcal 불변식 감사 — 위반 시 시드 미생성·빌드 실패
   (정당한 예외는 `AUDIT_ALLOWLIST`에 사유와 함께 등록) ③ 기존 시드 대비 diff 요약 출력 —
   **신규 브랜드 배치에서 기존 SKU category 변경이 보이면 커밋 전 반드시 규명**.
+- **제조원 차단 게이트(2026-10-07 신설)**: `manufacturer_blocklist.json`(정본)에 등록된 제조원(이레본·하이원·마미닥터)·
+  공장 주소·차단 브랜드가 브랜드/상품명/모회사·수입원/manufacturer_claims/notes에 걸리면 **빌드 실패**
+  (kr_available과 무관). 매처·셀프테스트 = `manufacturer_blocklist.py`, 같은 규칙의 vitest =
+  `src/lib/recommendation/manufacturer-blocklist.test.ts`. nnenn2 `research_helpers`도 이 파일로 수집 단계에서 거부한다.
 - `food_role`: completeness → 주식(Complete) / 보조식(Supplemental·Complementary) / 간식(Treat).
 - `age_fit`: life_stage → nnenn1 버킷(1+/7+/11+/15+). 키튼은 `[]` + `키튼` 태그로 보존.
 - `condition_fit`: 처방식만, **SKU 이름+life_stage**로 한정 매핑(Line.positioning은 라인 전체 범위라 미사용).

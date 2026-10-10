@@ -1,0 +1,67 @@
+{
+  "version": "2026-10-07",
+  "purpose": "ㅂㄷㅁㅌ(볼드모트) 사료 제조원 차단 레지스트리 — 이 제조원·브랜드는 수집(nnenn2 research_helpers)·ETL(build_foods_json.py)·테스트(manufacturer-blocklist.test.ts) 세 곳에서 자동 차단된다. 정본은 이 파일 하나다.",
+  "policy": "2010~2015 네츄럴코어(이레본 OEM) 요로질환 논란, 2024-01~04 생산분 고양이 신경·근육병증 집단 발병(M·E·H사=마미닥터·이레본·하이원, 동일 공장 주소). 정부 검사상 인과 미확인 — 사유는 내부 정책으로만 두고 UI에 노출하지 않는다.",
+  "research": "nnenn2/kr_expansion/voldemort_maker_scan_2026_10_07/README.md",
+  "clear_tag": "[MFR-CLEARED:",
+  "clear_tag_note": "제조원명이 '확인 결과 아님' 같은 서술로 notes에 들어가 오탐이 날 때만, 해당 행 notes에 `[MFR-CLEARED:<사유>]`를 남겨 그 행의 텍스트 매칭을 해제한다. 브랜드명 매칭은 해제되지 않는다.",
+  "manufacturers": [
+    {
+      "name": "(주)이레본",
+      "aliases": ["이레본", "erebon"],
+      "biz_no": "211-86-08800",
+      "address": "경기도 이천시 모가면 공원로 288-170",
+      "evidence": "bizno.net/article/2118608800 · erebon.com 제품 메뉴"
+    },
+    {
+      "name": "(주)하이원",
+      "aliases": ["(주)하이원", "㈜하이원", "하이원(주)", "주식회사 하이원", "하이원 펫푸드"],
+      "biz_no": "124-81-85037",
+      "address": "경기도 이천시 모가면 공원로 288-170",
+      "evidence": "bizno.net/article/1248185037 — 대표 박상오(=이레본 대표), 이레본과 동일 주소"
+    },
+    {
+      "name": "(주)마미닥터",
+      "aliases": ["마미닥터", "mommydoctor", "mommy doctor"],
+      "biz_no": "126-86-69663",
+      "address": "경기도 이천시 모가면 원두리 산53",
+      "evidence": "bizno.net/article/1268669663 · 이천시 투자협약 보도(2025-12): 이레본·하이원 계열"
+    }
+  ],
+  "address_keywords": [
+    "모가면 공원로 288",
+    "공원로 288-170",
+    "gongwon-ro, moga",
+    "모가면 원두리 산53",
+    "모가면 원두리 산 53"
+  ],
+  "brands": [
+    {"en": ["Natural Core"], "ko": ["네츄럴코어", "내츄럴코어", "네추럴코어"], "evidence": "erebon.com/35 (고양이 라인 게재)"},
+    {"en": ["Natural Lab"], "ko": ["네츄럴랩", "내츄럴랩"], "evidence": "erebon.com/42 · 다나와 제조사=이레본"},
+    {"en": ["Bono Nature"], "ko": ["보노네이처", "보노네이쳐"], "evidence": "erebon.com/44 · 다나와 제조사=이레본"},
+    {"en": ["Dr. Green-Bell", "Dr. Greenbell", "Green-Bell", "Greenbell"], "ko": ["닥터그린벨", "그린벨"], "evidence": "erebon.com/44 · 다나와 판매처 표기=이레본/마미닥터"},
+    {"en": ["Finiki"], "ko": ["피니키"], "evidence": "erebon.com/44 · 다나와 판매처 표기=이레본/(주)마미닥터"},
+    {"en": ["Mypet Doctor", "My Pet Doctor"], "ko": ["마이펫닥터"], "evidence": "erebon.com/53"},
+    {"en": ["Snoopet"], "ko": ["스누펫"], "evidence": "erebon.com/44 · 파트너 로고"},
+    {"en": ["Natural Cube"], "ko": ["네츄럴큐브", "내츄럴큐브"], "evidence": "erebon.com/44"},
+    {"en": ["Copenhagen Recipe"], "ko": ["코펜하겐레시피"], "evidence": "erebon.com/43 · 파트너 로고"},
+    {"en": ["Sirius Will"], "ko": ["시리우스윌"], "evidence": "erebon.com/41 · LG생활건강 — ⚠ 러시아 'Sirius'(B328)와 다른 브랜드"},
+    {"en": ["Ginipet", "Genie Pet"], "ko": ["지니펫"], "evidence": "erebon.com/40 · 피플워치 2018-04"},
+    {"en": ["amio"], "ko": ["아미오"], "evidence": "erebon.com/39(개 라인) — 현행 고양이 라인은 OSP·우리와 제조(마마캣 고시)지만 브랜드 단위 차단"},
+    {"en": ["ByVet"], "ko": ["바이벳"], "evidence": "erebon.com/48"},
+    {"en": ["Hansalim"], "ko": ["한살림"], "evidence": "erebon.com 파트너 로고"},
+    {"en": ["New Wave", "Newwave"], "ko": ["뉴웨이브"], "evidence": "다나와 제조사=이레본"},
+    {"en": ["Orga Diet"], "ko": ["오가다이어트"], "evidence": "다나와 카탈로그 제조사=하이원"},
+    {"en": ["I'm Becky"], "ko": ["아임베키"], "evidence": "다나와 판매처 표기=하이원"},
+    {"en": ["Erebon"], "ko": ["이레본", "뉴프로세스"], "evidence": "이레본 자체 브랜드"},
+    {"en": ["Fromvet", "From Vet"], "ko": ["프롬벳"], "evidence": "커뮤니티 목록(2024) — 제품 단위 미확인"},
+    {"en": ["Holiholix"], "ko": ["홀리홀릭스"], "evidence": "커뮤니티 목록(2024)"},
+    {"en": ["Oyoyo"], "ko": ["오요요"], "evidence": "커뮤니티 목록(2024)"},
+    {"en": ["Organic Story"], "ko": ["오가닉스토리"], "evidence": "커뮤니티 목록(2024)"},
+    {"en": ["NewRx", "New Rx"], "ko": ["뉴알엑스"], "evidence": "커뮤니티 목록(2020·2024)"}
+  ],
+  "not_blocked_disproved": [
+    {"brand": "ANF (6Free)", "reason": "마마캣 고시: 현행 제조자 (주)우리와 — 2024-07 자체생산 전환. 국내 브랜드 정책으로는 별도 제외(BRAND_EXCLUSIONS §1)"},
+    {"brand": "웰스비캣", "reason": "다나와 판매처 표기 UNICORD PUBLIC(태국)"}
+  ]
+}
