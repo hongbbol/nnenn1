@@ -17,6 +17,9 @@ import sys
 
 import openpyxl
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import manufacturer_blocklist  # noqa: E402 — 제조원 차단 레지스트리(ㅂㄷㅁㅌ)
+
 DEFAULT_XLSX = os.path.expanduser("~/Desktop/nnenn2/cat_food_research.xlsx")
 OUT_PATH = os.path.join(os.path.dirname(__file__), "foods.seed.json")
 
@@ -670,6 +673,8 @@ def main():
     selftest_derive_category()
     selftest_derive_is_therapeutic()
     selftest_select_nutrition()
+    manufacturer_blocklist.selftest()
+    blocklist = manufacturer_blocklist.load()
     xlsx = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_XLSX
     if not os.path.exists(xlsx):
         print(f"ERROR: xlsx not found: {xlsx}", file=sys.stderr)
@@ -677,8 +682,8 @@ def main():
     wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
 
     # 브랜드 KR 유통(02_Brands.kr_distributed) — 2026-06 네이버 Open API 전수검증 완료값.
-    brands_kr = {b["brand_id"]: (b.get("kr_distributed") or "").strip()
-                 for b in read_sheet(wb, "02_Brands")}
+    brand_rows = {b["brand_id"]: b for b in read_sheet(wb, "02_Brands")}
+    brands_kr = {bid: (b.get("kr_distributed") or "").strip() for bid, b in brand_rows.items()}
     lines = {l["line_id"]: l for l in read_sheet(wb, "03_Lines")}
     skus = read_sheet(wb, "04_SKUs")
     _nut_rows = {}
@@ -695,9 +700,22 @@ def main():
 
     rows = []
     warnings = []
+    blocked = []
     for s in skus:
         sid = s["sku_id"]
         line = lines.get(s.get("line_id"), {})
+        brand = brand_rows.get(line.get("brand_id"), {})
+        # 제조원 차단(ㅂㄷㅁㅌ) — kr_available과 무관하게 DB에 들어오면 안 된다(빌드 실패).
+        hits = manufacturer_blocklist.check(
+            blocklist,
+            brand_names=[brand.get("brand_name"), line.get("brand_name")],
+            product_names=[s.get("sku_name_en"), s.get("sku_name_ko")],
+            texts=[brand.get("parent_company_raw"), brand.get("kr_importer"),
+                   s.get("manufacturer_claims")],
+            notes=[s.get("notes"), line.get("notes"), brand.get("notes")],
+        )
+        if hits:
+            blocked.append(f"  {sid} ({line.get('brand_name')}): " + " / ".join(hits))
         n = nut.get(sid, {})
         ings = ings_by_sku.get(sid, [])
         feeds = feeds_by_sku.get(sid, [])
@@ -783,6 +801,13 @@ def main():
             warnings.append(f"{sid}: 영양 데이터 없음 (nutrition null)")
         if is_therapeutic and not condition_fit:
             warnings.append(f"{sid}: 처방식인데 condition_fit 매핑 실패 — '{life_stage}' / '{line.get('positioning')}'")
+
+    # 제조원 차단 레지스트리 위반 — 시드를 쓰지 않고 실패(예외 경로 없음, 오탐은 레지스트리 규칙 수정).
+    if blocked:
+        print(f"❌ 제조원 차단 레지스트리 위반 {len(blocked)}건 — 시드 미생성:", file=sys.stderr)
+        print("\n".join(blocked), file=sys.stderr)
+        print("   (레지스트리 = scripts/etl/manufacturer_blocklist.json)", file=sys.stderr)
+        sys.exit(1)
 
     # 불변식 감사 — 위반이면 시드를 쓰지 않고 실패 (allowlist 예외는 AUDIT_ALLOWLIST).
     violations = audit_rows(rows)
