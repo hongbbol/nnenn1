@@ -61,6 +61,8 @@ async function fetchFoods(): Promise<Food[]> {
     taurine_pct: (r.taurine_pct as number | null) ?? null,
     epa_dha_pct: (r.epa_dha_pct as number | null) ?? null,
     omega3_pct: (r.omega3_pct as number | null) ?? null,
+    magnesium_pct: (r.magnesium_pct as number | null) ?? null,
+    calcium_pct: (r.calcium_pct as number | null) ?? null,
     kcal_per_100g: (r.kcal_per_100g as number | null) ?? null,
     ingredient_summary: (r.ingredient_summary as string | null) ?? null,
     ingredient_keywords: (r.ingredient_keywords as string[]) ?? [],

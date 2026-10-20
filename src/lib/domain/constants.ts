@@ -72,7 +72,9 @@ export const HEALTH_OPTIONS: ReadonlyArray<HealthOption> = [
   { id: '결석-스트루바이트', desc: '용해 가능 · pH 산성화 사료', group: 'stone' },
   { id: '결석-옥살레이트', desc: '용해 불가 · 예방·관리 중심', group: 'stone' },
   { id: 'IBD', desc: '염증성 장 질환' },
-  { id: '췌장염', desc: '저지방 필요' },
+  // 2026-10-20 사용자 확정(레지스트리 §3-H·ACVIM 2021): 고양이는 지방 제한 근거 없음 —
+  // 고소화성/가수분해 단백 + 칼로리 확보가 1차. 급성은 수의사 진료(응급).
+  { id: '췌장염', desc: '만성 · 소화 잘 되는 사료와 식욕 유지가 핵심' },
 ];
 
 export const HEALTH_IDS = HEALTH_OPTIONS.map((o) => o.id) as ReadonlyArray<string>;

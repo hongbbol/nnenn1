@@ -303,9 +303,15 @@ CONDITION_RULES = [
      ["신부전 1-2기", "신부전 3-4기"]),
     (["diabet", "당뇨", "diabetic", "glycobalance"],
      ["당뇨"]),
-    (["gastro", "digest", "i/d", "소화", "ibd", "intestinal", "장 질환"],
+    # 소화기·가수분해·저알러지 처방식 → IBD 묶음(규칙 레지스트리 §3-C·D — 식이 알레르기와
+    # 전략이 같고 온보딩에 '알러지' 옵션이 없어 IBD로 수용. 2026-10-20 hypoallergenic 추가).
+    (["gastro", "digest", "i/d", "소화", "ibd", "intestinal", "장 질환",
+      "hydrolys", "hydrolyz", "가수분해", "hypoallergen", "하이포알러", "ultrahypo", "울트라하이포",
+      "저알러지", "저알레르기", "z/d", "anallergenic", "아날러제닉"],
      ["IBD"]),
-    (["pancrea", "췌장", "low fat", "저지방", "hepatic", "간 질환"],
+    # 췌장염: 2026-10-20 사용자 확정 — 규칙 레지스트리 §3-H(ACVIM 2021·Cridge 2024)대로
+    # "고양이는 지방 제한 근거 없음" → 'low fat/저지방/hepatic(간)' 키를 제거. 췌장염 명시 제품만.
+    (["pancrea", "췌장"],
      ["췌장염"]),
 ]
 
@@ -435,6 +441,124 @@ def derive_keywords_and_summary(ings):
     return sorted(kw), summary
 
 
+# ─── 첨가물·원료 플래그 (규칙 레지스트리 부록 A + §3-G, 2026-10-20 신설) ─────────
+# 엔진(src/lib/recommendation/rules.ts KEYWORDS)이 하드 게이트·레버로 읽는 토큰을 05_Ingredients
+# 원료명에서 기계 도출한다. 그전엔 단백·곡물 동의어만 있어 CKD 인산염·옥살레이트 산성화제·
+# 당뇨 첨가당·공통 독성 필터가 실데이터에서 0건이었다(2026-10-20 검토).
+# 토큰은 영문 정규값 하나로 통일 — 엔진은 부분 문자열 매칭이라 원료명 자체를 넣으면
+# 오탐(예: 'sugar beet pulp'∋'sugar')이 난다. 여기서 정규식으로 걸러 정규 토큰만 내보낸다.
+_ADDITIVE_RULES = [
+    # (토큰, EN 정규식, KO 정규식, EN 제외 정규식, KO 제외 정규식)
+    ("inorganic_phosphate",  # A-1 Tier 1 — 고용해성 무기 인산염(CKD·노령 배제)
+     r"phosphoric acid|(sodium|potassium|ammonium)[\w\s,\-]*phosphate|pyrophosphate|tripolyphosphate|hexametaphosphate",
+     r"인산(나트륨|칼륨|암모늄)|피로인산|폴리인산|헥사메타인산|제[일이삼1-3]인산나트륨|^인산$|^인산\s*\(",
+     r"ascorbyl|calcium", r"아스코|칼슘"),
+    ("calcium_phosphate",  # A-1 Tier 2 — 칼슘 인산염(중간, 현재 엔진 미사용·표시용)
+     r"(mono|di|tri)?calcium phosphate|bone phosphate|calcium (hydrogen )?phosphate",
+     r"인산[이삼일]?칼슘|제[일이삼1-3]인산칼슘|[1-3]인산칼슘|골분 인산",
+     None, None),
+    ("acidifier",  # §3-G 산성화제 — struvite엔 의도적, oxalate엔 금기
+     r"ammonium chloride|phosphoric acid|(^|[\s(,/-])(dl[\s-]?)?methionine\b",
+     r"염화암모늄|^인산$|^인산\s*\(|메[티치]오닌",
+     r"seleno|zinc|chelat|complex|hydroxy", r"셀레노|아연|킬레이트|복합체|히드록시"),
+    ("vitamin_c",  # §3-G 옥살레이트 금기 — 아스코르브산/아스코르빌 보충
+     r"ascorbic|ascorbate|ascorbyl|vitamin c\b",
+     r"아스코르|아스코빌|비타민\s?c(?![a-z])",
+     None, None),
+    ("cranberry", r"cranberr", r"크랜베리", None, None),
+    ("added_sugar",  # §3-G 당뇨 배제 — 첨가 단순당(사탕무 펄프·사탕수수 섬유는 제외)
+     r"\bsugars?\b|sucrose|fructose|dextrose|\bglucose\b|syrup|caramel|molasses|\bhoney\b|xylose",
+     r"설탕|당류|당밀|시럽|포도당|과당|캐러멜|카라멜|꿀",
+     r"sugar\s?beet|beet sugar|sugar ?cane|sugarcane", r"사탕무|사탕수수"),
+    ("propylene_glycol", r"propylene glycol", r"프로필렌\s?글리콜", None, None),  # A-2 Tier 1
+    ("allium",  # A-2 Tier 1 — 양파·마늘·부추·파·샬롯(분말·추출물 포함)
+     r"\bonions?\b|\bgarlic\b|\bchives?\b|\bleeks?\b|\bshallots?\b|allium",
+     r"양파|마늘|부추|대파|샬롯",
+     None, None),
+    ("xylitol", r"xylitol", r"자일리톨", None, None),  # A-2 Tier 1
+    ("carrageenan", r"carrageenan", r"카라기난", None, None),  # §3-G IBD 정밀 플래그(가점용)
+]
+# 가수분해 단백 — 레버(§3-C): **소화기·저알러지 목적 처방식(condition_fit ∋ IBD)**이면서 원료 상위
+# 5번째 이내에 '가수분해 단백(간·효모 다이제스트 제외)'이 있을 때만. 일반 EU 습식은 물론 레날·유리너리
+# 처방식도 'hydrolysed animal proteins'를 기본 단백원으로 앞쪽에 적어(로얄캐닌 S/O 파우치 등) "가수분해식
+# (저항원 설계)"과 구분되지 않는다 — 실데이터 대조(2026-10-20)로 정한 규칙(Cridge 2024: 가수분해식 = 그렇게
+# 설계된 식이).
+_HYDROLYZED_RE = re.compile(r"hydrolys|hydrolyz|가수분해")
+_HYDROLYZED_EXCLUDE_RE = re.compile(r"liver|yeast|\b간\b|간\(|간$|닭\s?간|가금\s?간|돼지\s?간|효모|digest")
+_HYDROLYZED_MAX_ORDER = 5
+
+
+def derive_additive_flags(ings, hydrolyzed_eligible=False):
+    """05_Ingredients 행들 → 엔진 검출 토큰 집합(소문자 정규값)."""
+    flags = set()
+    for i in ings:
+        en = (i.get("ingredient_name_en") or "").lower()
+        ko = (i.get("ingredient_name_ko") or "").lower()
+        for token, en_re, ko_re, en_ex, ko_ex in _ADDITIVE_RULES:
+            hit = bool(en and re.search(en_re, en)) or bool(ko and re.search(ko_re, ko))
+            if not hit:
+                continue
+            if en_ex and en and re.search(en_ex, en):
+                continue
+            if ko_ex and ko and re.search(ko_ex, ko):
+                continue
+            flags.add(token)
+        if _HYDROLYZED_RE.search(en) or _HYDROLYZED_RE.search(ko):
+            oi = i.get("order_index")
+            try:
+                oi = int(float(oi))
+            except (TypeError, ValueError):
+                oi = 999
+            if hydrolyzed_eligible and oi <= _HYDROLYZED_MAX_ORDER and not (_HYDROLYZED_EXCLUDE_RE.search(en) or _HYDROLYZED_EXCLUDE_RE.search(ko)):
+                flags.add("hydrolyzed")
+    return flags
+
+
+# derive_additive_flags 회귀 셀프테스트 — 실데이터 표기(csv_export 05 빈도순)에서 뽑은 케이스.
+_ADDITIVE_SELFTEST_CASES = [
+    ({"ingredient_name_en": "phosphoric acid", "ingredient_name_ko": "인산"}, {"inorganic_phosphate", "acidifier"}),
+    ({"ingredient_name_en": "sodium tripolyphosphate", "ingredient_name_ko": "트리폴리인산나트륨"}, {"inorganic_phosphate"}),
+    ({"ingredient_name_en": "sodium acid pyrophosphate", "ingredient_name_ko": "산성피로인산나트륨"}, {"inorganic_phosphate"}),
+    ({"ingredient_name_en": "dicalcium phosphate", "ingredient_name_ko": "인산이칼슘"}, {"calcium_phosphate"}),
+    ({"ingredient_name_en": "tricalcium phosphate", "ingredient_name_ko": "제3인산칼슘"}, {"calcium_phosphate"}),
+    ({"ingredient_name_en": "l-ascorbyl-2-polyphosphate (source of vitamin c)", "ingredient_name_ko": "l-아스코빌-2-폴리포스페이트(비타민 c원)"}, {"vitamin_c"}),
+    ({"ingredient_name_en": "dl-methionine", "ingredient_name_ko": "dl-메티오닌"}, {"acidifier"}),
+    ({"ingredient_name_en": "zinc methionine complex", "ingredient_name_ko": "아연 메티오닌 복합체"}, set()),
+    ({"ingredient_name_en": "hydroxy analogue selenomethionine", "ingredient_name_ko": "히드록시 유사체 셀레노메티오닌"}, set()),
+    ({"ingredient_name_en": "ammonium chloride", "ingredient_name_ko": "염화암모늄"}, {"acidifier"}),
+    ({"ingredient_name_en": "sugar beet pulp", "ingredient_name_ko": "사탕무 펄프"}, set()),
+    ({"ingredient_name_en": "sugarcane fiber", "ingredient_name_ko": "사탕수수 섬유"}, set()),
+    ({"ingredient_name_en": "various sugars", "ingredient_name_ko": "각종 당류"}, {"added_sugar"}),
+    ({"ingredient_name_en": "dextrose (glucose)", "ingredient_name_ko": "포도당"}, {"added_sugar"}),
+    ({"ingredient_name_en": "glucosamine hydrochloride", "ingredient_name_ko": "글루코사민"}, set()),
+    ({"ingredient_name_en": "caramel colour", "ingredient_name_ko": "카라멜색소"}, {"added_sugar"}),
+    ({"ingredient_name_en": "red onion extract", "ingredient_name_ko": "적양파 추출물"}, {"allium"}),
+    ({"ingredient_name_en": "vegetables (carrots, parsnips, beetroot, leek) (dried)", "ingredient_name_ko": "야채(당근·파스닙·비트·리크)"}, {"allium"}),
+    ({"ingredient_name_en": "cranberries", "ingredient_name_ko": "크랜베리"}, {"cranberry"}),
+    ({"ingredient_name_en": "carrageenan", "ingredient_name_ko": "카라기난"}, {"carrageenan"}),
+    # (행, 기대, hydrolyzed_eligible = 처방식 ∧ condition_fit ∋ IBD)
+    ({"ingredient_name_en": "hydrolysed animal protein", "ingredient_name_ko": "가수분해 동물성 단백", "order_index": 1}, {"hydrolyzed"}, True),
+    ({"ingredient_name_en": "hydrolysed animal protein", "ingredient_name_ko": "가수분해 동물성 단백", "order_index": 1}, set(), False),
+    ({"ingredient_name_en": "hydrolyzed chicken liver", "ingredient_name_ko": "가수분해 닭간", "order_index": 2}, set(), True),
+    ({"ingredient_name_en": "hydrolysed poultry protein", "ingredient_name_ko": "가수분해 가금 단백", "order_index": 8}, set(), True),
+    ({"ingredient_name_en": "chicken", "ingredient_name_ko": "닭고기", "order_index": 1}, set(), True),
+]
+
+
+def selftest_derive_additive_flags():
+    fails = []
+    for case in _ADDITIVE_SELFTEST_CASES:
+        row, expect = case[0], case[1]
+        therapeutic = case[2] if len(case) > 2 else False
+        got = derive_additive_flags([row], therapeutic)
+        if got != expect:
+            fails.append(f"  {row['ingredient_name_en']!r} → {sorted(got)}, 기대 {sorted(expect)}")
+    if fails:
+        print("❌ derive_additive_flags 셀프테스트 실패:", file=sys.stderr)
+        print("\n".join(fails), file=sys.stderr)
+        sys.exit(1)
+
+
 def build_nutrition(n, category):
     """as-fed 우선. 건식이고 as-fed 없으면 DM값을 수분 8% 가정으로 환산.
 
@@ -456,6 +580,9 @@ def build_nutrition(n, category):
         "chloride_pct": ("chloride_pct", "chloride_dm_pct"),
         "taurine_pct": ("taurine_pct", "taurine_dm_pct"),
         "epa_dha_pct": ("epa_dha_pct", "epa_dha_dm_pct"),
+        # 2026-10-20 — 요로 Mg 레버(§3-B)·CKD Ca:P(§3-G). 06_Nutrition에 이미 수집돼 있던 열.
+        "magnesium_pct": ("magnesium_pct", "magnesium_dm_pct"),
+        "calcium_pct": ("calcium_pct", "calcium_dm_pct"),
     }
     DRY_MOISTURE = 8.0
 
@@ -478,7 +605,12 @@ def build_nutrition(n, category):
         if v is None and can_derive:
             dm = num(n.get(dm_col))
             if dm is not None:
-                v = round(dm * factor, 1) if af_key in ("protein_pct", "fat_pct", "fiber_pct", "ash_pct") else round(dm * factor, 2)
+                if af_key in ("protein_pct", "fat_pct", "fiber_pct", "ash_pct"):
+                    v = round(dm * factor, 1)
+                elif af_key == "magnesium_pct":  # 0.0x% 수준이라 2자리면 정보 소실
+                    v = round(dm * factor, 3)
+                else:
+                    v = round(dm * factor, 2)
                 estimated = True
         out[af_key] = v
 
@@ -739,6 +871,7 @@ def main():
     selftest_derive_category()
     selftest_derive_is_therapeutic()
     selftest_select_nutrition()
+    selftest_derive_additive_flags()
     manufacturer_blocklist.selftest()
     selftest_derive_exclusion()
     blocklist = manufacturer_blocklist.load()
@@ -805,6 +938,7 @@ def main():
         )
         nutri, estimated = build_nutrition(n, category)
         keywords, summary = derive_keywords_and_summary(ings)
+        keywords = sorted(set(keywords) | derive_additive_flags(ings, is_therapeutic and "IBD" in condition_fit))
 
         # 한국 구매 가능 — 브랜드 Yes × 라인 Yes 만 true (데이터스키마 §유통 kr_distributed).
         brand_kr = brands_kr.get(line.get("brand_id"), "")
@@ -841,6 +975,8 @@ def main():
             "taurine_pct": nutri["taurine_pct"],
             "epa_dha_pct": nutri["epa_dha_pct"],
             "omega3_pct": nutri["omega3_pct"],
+            "magnesium_pct": nutri["magnesium_pct"],
+            "calcium_pct": nutri["calcium_pct"],
             "kcal_per_100g": nutri["kcal_per_100g"],
             "ingredient_summary": summary,
             "ingredient_keywords": keywords,

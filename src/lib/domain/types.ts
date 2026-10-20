@@ -58,6 +58,10 @@ export type Food = {
   /** EPA+DHA 합산 as-fed % — 총 omega3(ALA 포함)와 분리(고양이는 ALA 전환 불가). */
   epa_dha_pct: number | null;
   omega3_pct: number | null;
+  /** 마그네슘 as-fed % — 요로 스트루바이트 보조 레버(§3-B). 결측이면 레버 비활성. */
+  magnesium_pct: number | null;
+  /** 칼슘 as-fed % — CKD Ca:P 규칙(§3-G). 결측이면 비활성. */
+  calcium_pct: number | null;
   kcal_per_100g: number | null;
   ingredient_summary: string | null;
   ingredient_keywords: string[];
