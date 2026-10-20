@@ -22,6 +22,37 @@ import manufacturer_blocklist  # noqa: E402 — 제조원 차단 레지스트리
 
 DEFAULT_XLSX = os.path.expanduser("~/Desktop/nnenn2/cat_food_research.xlsx")
 OUT_PATH = os.path.join(os.path.dirname(__file__), "foods.seed.json")
+REPORT_PATH = os.path.join(os.path.dirname(__file__), "exclusion_report.md")
+
+# 제조국 정책(2026-10-20 사용자 결정): 중국 제조는 무조건 추천 제외 + 관리자에게 사유 노출.
+#   china_made        = 04_SKUs.made_in_country가 '중국'(라벨·고시 근거)
+#   china_hq_presumed = 제조국 미확인 + 브랜드 본사(02_Brands.hq_country) China → 중국 제조로 추정
+# 제외는 active=false(RLS·쿼리·엔진 filter 3중으로 일반 사용자에게 안 보임) + exclusion_reason 기록.
+EXCLUSION_LABELS = {
+    "china_made": "중국 제조(확인)",
+    "china_hq_presumed": "중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정",
+}
+
+
+def derive_exclusion(made_in_country, brand_hq):
+    if (made_in_country or "").strip() == "중국":
+        return "china_made"
+    if not (made_in_country or "").strip() and (brand_hq or "").strip() == "China":
+        return "china_hq_presumed"
+    return None
+
+
+def selftest_derive_exclusion():
+    cases = [("중국", "France", "china_made"), ("", "China", "china_hq_presumed"),
+             ("태국", "China", None),  # 중국 본사라도 비중국 제조 확인분은 허용
+             ("", "United States", None), ("대한민국", "South Korea", None), (None, None, None)]
+    fails = [f"  {m!r}/{hq!r} → {derive_exclusion(m, hq)}, 기대 {e}" for m, hq, e in cases
+             if derive_exclusion(m, hq) != e]
+    if fails:
+        print("❌ derive_exclusion 셀프테스트 실패:", file=sys.stderr)
+        print("\n".join(fails), file=sys.stderr)
+        sys.exit(1)
+
 
 # nnenn1 src/lib/domain/ingredient-synonyms.ts 와 동기화 (avoid 매칭용)
 INGREDIENT_SYNONYMS = {
@@ -669,11 +700,47 @@ def derive_tags(role, life_stage, sku_name_en, sku_name_ko, is_therapeutic):
     return out
 
 
+def write_exclusion_report(rows):
+    """관리자용 제외·제조국 현황 리포트(git 추적) — 무엇이 왜 추천에서 빠졌는지."""
+    from collections import Counter, defaultdict
+    ex = [r for r in rows if r["exclusion_reason"]]
+    kr = [r for r in rows if r["kr_available"]]
+    known = [r for r in kr if r["made_in_country"]]
+    L = ["# 추천 제외·제조국 현황 (관리자용, ETL 자동 생성 — 손으로 고치지 말 것)", "",
+         "정책: **중국 제조는 추천 제외**(2026-10-20). 제외 SKU는 `active=false` + `exclusion_reason` — "
+         "일반 사용자 화면·추천에 나오지 않고 Supabase 대시보드에서만 보인다. "
+         "제조국 입력 = nnenn2 `04_SKUs.made_in_country`(set_sku_origin).", "",
+         "## 요약", "",
+         f"- 전체 SKU {len(rows)} · 추천 제외 **{len(ex)}** "
+         + " · ".join(f"{EXCLUSION_LABELS[k]} {v}" for k, v in Counter(r['exclusion_reason'] for r in ex).items()),
+         f"- 한국 구매 가능(kr_available) {len(kr)} 중 제조국 확인 **{len(known)}** · 미확인 {len(kr) - len(known)}",
+         "- 확인된 제조국 분포(kr_available): "
+         + ", ".join(f"{k} {v}" for k, v in Counter(r['made_in_country'] for r in known).most_common()),
+         "", "## 추천 제외 SKU", "",
+         "| SKU | 브랜드 | 제품 | 사유 | 제조국 | 제조사 | 근거 | 한국 유통 |",
+         "|---|---|---|---|---|---|---|---|"]
+    for r in sorted(ex, key=lambda r: (r["brand"] or "", r["source_sku_id"])):
+        L.append(f"| {r['source_sku_id']} | {r['brand']} | {r['product_name']} | "
+                 f"{EXCLUSION_LABELS[r['exclusion_reason']]} | {r['made_in_country'] or '—'} | "
+                 f"{r['manufacturer'] or '—'} | {r['origin_basis'] or '—'} | "
+                 f"{'Yes' if r['kr_available'] else 'No'} |")
+    by = defaultdict(lambda: [0, 0])
+    for r in kr:
+        by[r["brand"]][0 if r["made_in_country"] else 1] += 1
+    L += ["", "## 브랜드별 제조국 확인 현황 (kr_available만)", "",
+          "| 브랜드 | 확인 | 미확인 |", "|---|---|---|"]
+    for b, (k, u) in sorted(by.items(), key=lambda x: (-x[1][1], x[0] or "")):
+        L.append(f"| {b} | {k} | {u} |")
+    with open(REPORT_PATH, "w", encoding="utf-8") as f:
+        f.write("\n".join(L) + "\n")
+
+
 def main():
     selftest_derive_category()
     selftest_derive_is_therapeutic()
     selftest_select_nutrition()
     manufacturer_blocklist.selftest()
+    selftest_derive_exclusion()
     blocklist = manufacturer_blocklist.load()
     xlsx = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_XLSX
     if not os.path.exists(xlsx):
@@ -711,7 +778,7 @@ def main():
             brand_names=[brand.get("brand_name"), line.get("brand_name")],
             product_names=[s.get("sku_name_en"), s.get("sku_name_ko")],
             texts=[brand.get("parent_company_raw"), brand.get("kr_importer"),
-                   s.get("manufacturer_claims")],
+                   s.get("manufacturer_claims"), s.get("manufacturer")],
             notes=[s.get("notes"), line.get("notes"), brand.get("notes")],
         )
         if hits:
@@ -747,6 +814,8 @@ def main():
         # 라인은 유통 중이나 특정 SKU만 미수입/판매중단인 경우(예: 지위픽 스팀드라이 생선).
         if kr_available and "[KR-NOT-DISTRIBUTED" in str(s.get("notes") or ""):
             kr_available = False
+        made_in = (s.get("made_in_country") or "").strip() or None
+        exclusion = derive_exclusion(made_in, brand.get("hq_country"))
         rec_daily_g = derive_rec_daily_g(feeds)
         tags = derive_tags(role, life_stage, s.get("sku_name_en"),
                            s.get("sku_name_ko"), is_therapeutic)
@@ -781,8 +850,12 @@ def main():
             "image_url": None,
             "affiliate_links": None,
             "price_per_kg_krw": None,
-            "active": True,
+            "active": exclusion is None,
             "kr_available": kr_available,
+            "made_in_country": made_in,
+            "manufacturer": (s.get("manufacturer") or "").strip() or None,
+            "origin_basis": (s.get("origin_basis") or "").strip() or None,
+            "exclusion_reason": exclusion,
             "food_role": role,
             "life_stage_raw": life_stage,
         }
@@ -822,10 +895,12 @@ def main():
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(rows, f, ensure_ascii=False, indent=2)
+    write_exclusion_report(rows)
 
     # 요약 리포트
     from collections import Counter
     print(f"✅ {len(rows)} foods → {OUT_PATH}")
+    print(f"  추천 제외(active=false): {sum(1 for r in rows if r['exclusion_reason'])} → {REPORT_PATH}")
     print("  category:", dict(Counter(r["category"] for r in rows)))
     print("  food_role:", dict(Counter(r["food_role"] for r in rows)))
     print("  age_fit empty(키튼):", sum(1 for r in rows if not r["age_fit"]))
