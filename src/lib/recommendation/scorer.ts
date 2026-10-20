@@ -8,18 +8,25 @@ import type { Food } from '@/lib/domain/types';
 import type { DiseaseMode, RecInput, ScoreReason, ScoredFood } from './types';
 import {
   carbGramsPer1000kcal,
+  fatEnergyShare,
+  kcalPer100gDm,
   mineralGramsPer1000kcal,
   phosphorusGramsPer1000kcal,
   proteinGramsPer1000kcal,
 } from './nutrition';
 import {
+  CKD_CA_P,
   CKD_PHOSPHORUS,
   CKD_POTASSIUM,
   CKD_SODIUM,
   DIABETES_CARB,
   fitMatches,
+  FORM_PREF_WEIGHT,
   KEYWORDS,
   matchesAny,
+  PANCREATITIS_FAT_NOTICE_ME_SHARE,
+  SECONDARY_LEVER_FACTOR,
+  STRUVITE_MAGNESIUM,
   URINARY_DRY_SODIUM,
   URINARY_MOISTURE,
 } from './rules';
@@ -204,9 +211,13 @@ function proteinLever(food: Food, weight: number): Lever {
 
 /** 에너지 밀도. dir=low(감량) / high(증량·노령). */
 function energyLever(food: Food, dir: 'low' | 'high', weight: number): Lever {
-  const k = food.kcal_per_100g;
-  if (k == null) return { score: 0.4, weight, reason: null };
-  const s = dir === 'low' ? lowerIsBetter(k, 280, 420) : higherIsBetter(k, 300, 430);
+  // 건물(DM) 기준 — as-fed로 비교하면 습식이 수분 때문에 항상 '저칼로리'가 된다(nutrition.kcalPer100gDm).
+  // 종전 as-fed 임계 280/420·300/430 kcal/100g(건식 수분 8%) ≈ DM 305/455·325/465로 환산.
+  const dm = kcalPer100gDm(food.kcal_per_100g, food.moisture_pct, food.category);
+  if (dm == null) return { score: 0.4, weight, reason: null };
+  const k = dm.value;
+  const s = dir === 'low' ? lowerIsBetter(k, 305, 455) : higherIsBetter(k, 325, 465);
+  const shown = `${k.toFixed(0)} kcal/100g(건물 기준${dm.assumedMoisture ? '·제형 가정' : ''})`;
   return {
     score: s,
     weight,
@@ -215,10 +226,132 @@ function energyLever(food: Food, dir: 'low' | 'high', weight: number): Lever {
         ? {
             weight: 0.6,
             tone: 'good',
-            label: dir === 'low' ? `적정 칼로리 ${k} kcal/100g` : `에너지 밀도 ${k} kcal/100g`,
+            label: dir === 'low' ? `적정 칼로리 ${shown}` : `에너지 밀도 ${shown}`,
           }
         : null,
   };
+}
+
+/**
+ * 제형 선호 — "주로 먹는 식단"과 같은 제형이면 소폭 가점(전환 용이). 혼합·미입력은 비활성.
+ * 하드 필터가 아니라 요로(습식 1차) 같은 질환 레버가 다른 제형을 요구하면 그쪽이 이긴다.
+ */
+function formPrefLever(food: Food, input: RecInput): Lever {
+  if (input.dietPref !== '건식' && input.dietPref !== '습식') return INACTIVE;
+  const match = food.category === input.dietPref;
+  return {
+    score: match ? 1 : 0,
+    weight: FORM_PREF_WEIGHT,
+    reason: match
+      ? { weight: 0.3, tone: 'info', label: `지금 먹는 ${input.dietPref}과 같은 제형 · 전환이 쉬워요` }
+      : null,
+  };
+}
+
+/** 스트루바이트 마그네슘 보조 레버(§3-B) — 결측이면 비활성. 옥살레이트엔 호출하지 않는다. */
+function struviteMagnesiumLever(food: Food, weight: number): Lever {
+  const mg = mineralGramsPer1000kcal(food.magnesium_pct, food.kcal_per_100g);
+  if (mg == null) return INACTIVE;
+  const score = lowerIsBetter(mg, STRUVITE_MAGNESIUM.dissolutionMax, STRUVITE_MAGNESIUM.cap);
+  return {
+    score,
+    weight,
+    reason:
+      mg <= STRUVITE_MAGNESIUM.dissolutionMax
+        ? { weight: 0.55, tone: 'good', label: `마그네슘 ${(mg * 1000).toFixed(0)} mg/1000kcal · 결석 관리 범위` }
+        : mg > STRUVITE_MAGNESIUM.cap
+          ? { weight: 0.5, tone: 'warn', label: `마그네슘 ${(mg * 1000).toFixed(0)} mg/1000kcal · 높은 편` }
+          : null,
+  };
+}
+
+/** CKD Ca:P 역비율 회피(§3-G) — 둘 다 있을 때만. */
+function ckdCaPLever(food: Food, weight: number): Lever {
+  const ca = food.calcium_pct;
+  const p = food.phosphorus_pct;
+  if (ca == null || p == null || p <= 0) return INACTIVE;
+  const ratio = ca / p;
+  const score = higherIsBetter(ratio, CKD_CA_P.floor, CKD_CA_P.idealMin);
+  return {
+    score,
+    weight,
+    reason:
+      ratio < 0.9
+        ? { weight: 0.5, tone: 'warn', label: `Ca:P ${ratio.toFixed(2)} 역비율 · 신장 부담` }
+        : null,
+  };
+}
+
+/**
+ * 췌장염 지방 '고지'(§3-H 2026-10-20 확정) — 점수에 넣지 않는다(weight 0). 지방 유래 ME 비율이
+ * 상위 구간(≥50%)이면 안내 톤으로만 표시. 저지방 가점은 두지 않는다(고양이는 지방 제한 근거 없음).
+ */
+function pancreatitisFatNotice(food: Food): Lever {
+  const share = fatEnergyShare(food.fat_pct, food.kcal_per_100g);
+  if (share == null || share < PANCREATITIS_FAT_NOTICE_ME_SHARE) return INACTIVE;
+  return {
+    score: 0,
+    weight: 0,
+    reason: {
+      weight: 0.35,
+      tone: 'info',
+      label: `지방 비중 높은 편(열량의 ${Math.round(share * 100)}%) — 만성 췌장염은 수의사와 확인`,
+    },
+  };
+}
+
+/**
+ * 제형 안전 플래그 — 생식(raw)·동결건조(비가열) (레지스트리 부록 A-3, H5N1 2024–2026·살모넬라).
+ * 하드 배제는 사용자 선택 존중으로 보류하되 **경고 필수** + 소폭 감점(가열 제품이 동급이면 위로).
+ */
+const RAW_FORMAT_RE = /raw|freeze[- ]?dried|동결건조|생식|프리즈드라이|air[- ]?dried|에어드라이/i;
+function rawFormatLever(food: Food, weight: number): Lever {
+  const text = `${food.form ?? ''} ${food.product_name} ${food.tags.join(' ')}`;
+  if (!RAW_FORMAT_RE.test(text)) return INACTIVE;
+  return {
+    score: 0,
+    weight,
+    reason: {
+      weight: 0.7,
+      tone: 'warn',
+      label: '생식·동결건조(비가열) 제형 — 조류독감(H5N1)·병원체 경고(AVMA 2025), 가열 제품 권장',
+    },
+  };
+}
+
+/** 레버 가중치 배율(동반질환 보조 반영용). */
+function scaled(lever: Lever, factor: number): Lever {
+  return lever.weight > 0 ? { ...lever, weight: lever.weight * factor } : lever;
+}
+
+/**
+ * 동반질환 보조 레버(§4-4 ④) — 우선 질환이 hard/1차를 가져가고, 나머지 질환은 1차 레버를
+ * 축소 가중(SECONDARY_LEVER_FACTOR)으로 soft 반영한다. 하드 게이트는 filter가 모든 질환에
+ * 이미 적용하므로 여기선 점수만. (예: CKD+당뇨 → 신장식끼리도 저탄수가 위로.)
+ */
+function secondaryLevers(food: Food, input: RecInput, primaryMode: DiseaseMode | null): Lever[] {
+  const out: Lever[] = [];
+  const f = SECONDARY_LEVER_FACTOR;
+  const isCkd = (d: DiseaseMode) => d === 'ckd_early' || d === 'ckd_12' || d === 'ckd_34';
+  const primaryIsCkd = primaryMode != null && isCkd(primaryMode);
+  for (const d of input.diseases) {
+    if (d === primaryMode) continue;
+    if (isCkd(d)) {
+      if (primaryIsCkd) continue; // 같은 계열 중복 금지
+      out.push(scaled(ckdLever(food, d === 'ckd_34'), f));
+    } else if (d === 'diabetes') {
+      out.push(...diabetesLevers(food).map((l) => scaled(l, f)));
+    } else if (d === 'struvite' || d === 'oxalate') {
+      if (primaryMode === 'struvite' || primaryMode === 'oxalate') continue;
+      out.push(scaled(moistureLever(food, 0.6), f));
+      if (d === 'struvite') out.push(scaled(struviteMagnesiumLever(food, 0.15), f));
+    } else if (d === 'ibd' || d === 'pancreatitis') {
+      if (primaryMode === 'ibd' || primaryMode === 'pancreatitis') continue;
+      out.push(scaled(digestibilityLever(food, 0.6), f));
+      if (d === 'pancreatitis') out.push(pancreatitisFatNotice(food));
+    }
+  }
+  return out;
 }
 
 /** IBD/췌장염/알레르기 — 단백 항원·소화율 전략(§3-C·D·H). */
@@ -368,19 +501,30 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
     // 보조 미네랄 레버(§3-A) — 데이터 있을 때만 활성(결측=INACTIVE, 기존 순위 보존).
     levers.push(ckdSodiumLever(food, 0.1));
     levers.push(ckdPotassiumLever(food, 0.1));
+    levers.push(ckdCaPLever(food, 0.1));
   } else if (primaryMode === 'struvite' || primaryMode === 'oxalate') {
     levers.push(moistureLever(food, 0.6));
     levers.push(proteinLever(food, 0.2));
     levers.push(omega3Lever(food, 0.2));
     // 건식 한정 나트륨 음수 유도(§3-B) — CKD 동반 시 자체 비활성(§4 충돌).
     levers.push(urinaryDrySodiumLever(food, input, 0.15));
+    // 스트루바이트만 Mg 제한 보조(§3-B·§3-G: 옥살레이트는 Mg 제한 안 함).
+    if (primaryMode === 'struvite') levers.push(struviteMagnesiumLever(food, 0.15));
   } else if (primaryMode === 'diabetes') {
     levers.push(...diabetesLevers(food));
     levers.push(moistureLever(food, 0.25));
-  } else if (primaryMode === 'ibd' || primaryMode === 'pancreatitis') {
+  } else if (primaryMode === 'ibd') {
     levers.push(digestibilityLever(food, 0.6));
     levers.push(proteinLever(food, 0.2));
     levers.push(omega3Lever(food, 0.2));
+  } else if (primaryMode === 'pancreatitis') {
+    // §3-H(2026-10-20 확정): 단백 소화율·항원(가수분해) 1차 + 칼로리 확보(거식→간지방증 방지).
+    // 지방은 점수 밖 — 상위 구간만 고지.
+    levers.push(digestibilityLever(food, 0.45));
+    levers.push(energyLever(food, 'high', 0.2));
+    levers.push(proteinLever(food, 0.15));
+    levers.push(omega3Lever(food, 0.1));
+    levers.push(pancreatitisFatNotice(food));
   } else {
     // 질환 없음 — goal 기반.
     if (input.goal === '체중관리 - 감량') {
@@ -409,6 +553,11 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
       if (senior) levers.push(seniorSodiumLever(food, 0.1));
     }
   }
+
+  // 전 모드 공통: 동반질환 보조 레버(§4-4) + 제형 선호(전환 용이) 소폭 가점.
+  levers.push(...secondaryLevers(food, input, primaryMode));
+  levers.push(formPrefLever(food, input));
+  levers.push(rawFormatLever(food, 0.1));
 
   return aggregate(levers, food, curationBonus(food, input, primaryMode));
 }

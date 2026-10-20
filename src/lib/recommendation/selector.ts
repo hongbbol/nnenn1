@@ -77,9 +77,14 @@ export function buildPriorityOrder(
       items.push({ key: 'moisture', label: '습식 선호', weight: 0.45, detail: '저탄수·수분' });
       break;
     case 'ibd':
-    case 'pancreatitis':
       items.push({ key: 'protein_type', label: '단백 항원·소화율', weight: 0.9, detail: '가수분해 > 신규 > 고소화성' });
       items.push({ key: 'omega3', label: '항염·기호성', weight: 0.4, detail: '오메가-3 보조' });
+      break;
+    case 'pancreatitis':
+      // §3-H(2026-10-20 확정): 지방 제한이 아니라 단백 소화율 + 칼로리 확보.
+      items.push({ key: 'protein_type', label: '단백 소화율·항원', weight: 0.85, detail: '가수분해·고소화성 우선 (지방 제한 아님)' });
+      items.push({ key: 'energy', label: '칼로리 확보', weight: 0.6, detail: '거식 방지 — 잘 먹는 에너지 밀도' });
+      items.push({ key: 'omega3', label: '항염·기호성', weight: 0.3, detail: '오메가-3 보조' });
       break;
     default:
       // 질환 없음 — goal 기반.
@@ -100,11 +105,20 @@ export function buildPriorityOrder(
   if (!items.some((it) => it.key === 'omega3')) {
     items.push({ key: 'omega3', label: '기능성분', weight: 0.3, detail: '오메가-3 등 가점' });
   }
+  // 동반질환 보조 반영(§4-4 ④) — 우선 질환 외 질환은 축소 가중 soft로 들어간 것을 박스에 드러낸다.
+  for (const d of input.diseases) {
+    if (d === primaryMode) continue;
+    items.push({ key: `secondary_${d}`, label: `${modeLabel(d)} 보조 반영`, weight: 0.25, detail: '우선 질환 다음으로 점수에 반영' });
+  }
   return items.sort((a, b) => b.weight - a.weight);
 }
 
 /** 안전 게이트·모드에 따른 상담 고지 문장. */
-export function buildNotices(input: RecInput, primaryMode: DiseaseMode | null): string[] {
+export function buildNotices(
+  input: RecInput,
+  primaryMode: DiseaseMode | null,
+  opts: { heldCount?: number } = {},
+): string[] {
   const notices: string[] = [];
   const gate = highestSafetyGate(input);
 
@@ -131,6 +145,23 @@ export function buildNotices(input: RecInput, primaryMode: DiseaseMode | null): 
   }
   if (input.diseases.length >= 3) {
     notices.push('질환이 여러 개라 모두 만족하는 상용식이 없을 수 있어요. 우선 질환을 정해 수의사와 상의하세요.');
+  } else if (input.diseases.length === 2 && primaryMode) {
+    const secondary = input.diseases.find((d) => d !== primaryMode);
+    if (secondary) {
+      notices.push(
+        `${modeLabel(primaryMode)}을(를) 우선으로 보고 ${modeLabel(secondary)}은(는) 보조로 반영했어요. 두 질환을 동시에 만족하는 상용식이 없으면 수의사와 약물 관리를 상의하세요.`,
+      );
+    }
+  }
+  if (primaryMode === 'pancreatitis') {
+    notices.push(
+      '고양이 췌장염은 지방 제한보다 잘 먹는 것이 우선이에요(ACVIM 2021). 최근 진단·입원 중(급성)이라면 사료 선택보다 수의사 진료가 먼저예요.',
+    );
+  }
+  if (opts.heldCount && opts.heldCount > 0) {
+    notices.push(
+      `인 데이터가 없는 후보 ${opts.heldCount}개는 3-4기 추천에서 보류했어요(신뢰도 기준). 인 함량은 제조사 영양 분석표로 확인할 수 있어요.`,
+    );
   }
   return notices;
 }
