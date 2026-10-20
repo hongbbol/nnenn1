@@ -85,6 +85,35 @@ export function proteinGramsPer1000kcal(
   return pctToGramsPer1000kcal(proteinPct, kcalPer100g);
 }
 
+/**
+ * 에너지 밀도 — kcal/100 g **건물(DM) 기준**.
+ * 감량·증량 레버가 as-fed kcal/100g를 쓰면 수분 80% 습식이 구조적으로 '저칼로리'로 보여
+ * 감량 추천이 항상 습식 파우치가 되는 왜곡(2026-10-20 검토)이 난다 — 스키마 §3-1대로 수분을 뺀다.
+ * 수분 결측이면 제형 대표값(건식 8% / 습식 78%)을 쓴다 — 영양소 추정이 아니라 단위 환산용 상수이며,
+ * 그래도 추정이 섞인 값이라 호출부가 라벨에 '(제형 가정)'을 붙일 수 있도록 flag를 돌려준다.
+ */
+export function kcalPer100gDm(
+  kcalPer100g: number | null,
+  moisturePct: number | null,
+  category: '건식' | '습식',
+): { value: number; assumedMoisture: boolean } | null {
+  if (kcalPer100g == null) return null;
+  const m = moisturePct ?? (category === '습식' ? 78 : 8);
+  const dm = 100 - m;
+  if (dm <= 0) return null;
+  return { value: (kcalPer100g * 100) / dm, assumedMoisture: moisturePct == null };
+}
+
+/**
+ * 지방 유래 에너지 비율(ME 분율, 0~1). 지방 1 g ≈ 8.5 kcal ME(AAFCO 수정 Atwater).
+ * 췌장염 '지방 상위 구간' 고지용 — 점수 입력이 아니다.
+ */
+export function fatEnergyShare(fatPct: number | null, kcalPer100g: number | null): number | null {
+  if (fatPct == null || kcalPer100g == null || kcalPer100g <= 0) return null;
+  const fatG = pctToGramsPer1000kcal(fatPct, kcalPer100g);
+  return Math.min(1, (fatG * 8.5) / 1000);
+}
+
 /** 미네랄(Na/K 등) g/1000kcal — as-fed % 또는 kcal 결측이면 null(임의 추정 금지, 스키마 §1-3). */
 export function mineralGramsPer1000kcal(
   mineralPct: number | null,

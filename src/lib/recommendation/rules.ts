@@ -46,6 +46,42 @@ export const URINARY_MOISTURE = {
 };
 
 /**
+ * 스트루바이트 마그네슘 — g/1000kcal (레지스트리 §3-B: 용해식 Mg <20 mg/100kcal = 0.2 g/1000kcal).
+ * 최근 근거는 "Mg보다 pH·희석이 중요"(Buffington & Chew)라 보조 레버(저가중). 옥살레이트엔 미적용
+ * (Mg는 옥살산염 억제제 — §3-G 제한 안 함).
+ */
+export const STRUVITE_MAGNESIUM = {
+  dissolutionMax: 0.2,
+  /** 이 위로는 점수 0에 수렴. */
+  cap: 0.4,
+};
+
+/**
+ * CKD Ca:P — 역비율(<1:1) 회피(레지스트리 §3-G "이상적 ≥1:1"). 보조 레버, 결측이면 비활성.
+ */
+export const CKD_CA_P = {
+  idealMin: 1.0,
+  /** 이 아래는 점수 0. */
+  floor: 0.7,
+};
+
+/**
+ * 췌장염(만성) — 지방 '고지' 임계(레지스트리 §3-H 2026-10-20 재확인): 저지방 가점·감점은 두지 않고,
+ * 지방 유래 에너지가 ME의 50% 이상이면 점수 아닌 안내 톤으로만 표시(ACVIM 2021 소수 의견 반영).
+ * 50%는 임상 임계치가 아니라 "상위 구간" 서술 기준 — 수의사 검수 항목.
+ */
+export const PANCREATITIS_FAT_NOTICE_ME_SHARE = 0.5;
+
+/**
+ * 제형 선호 — 온보딩 "주로 먹는 식단"(건식/습식/혼합)과 같은 제형은 전환이 쉬워 소폭 가점.
+ * 하드 필터가 아니다 — 요로(습식 1차)처럼 질환 레버가 다른 제형을 요구하면 그쪽이 이긴다.
+ */
+export const FORM_PREF_WEIGHT = 0.12;
+
+/** 동반질환 보조 레버 가중 배율(레지스트리 §4-4 ④ — 하위 질환은 soft). */
+export const SECONDARY_LEVER_FACTOR = 0.4;
+
+/**
  * condition_fit 별칭 — 데이터 소스별 어휘 차이를 흡수한다.
  * 시드는 영문 키('ckd'), nnenn2 ETL은 온보딩 HEALTH_OPTIONS 한글 라벨('신부전 1-2기')
  * 또는 'IBD' 등으로 기록 → 부분 문자열 매칭용 별칭 사전(소문자).
@@ -144,9 +180,14 @@ export const KEYWORDS = {
     'onion',
     'garlic',
     'allium',
+    'leek',
+    'chive',
+    'shallot',
     '양파',
     '마늘',
     '부추',
+    '대파',
+    '샬롯',
     'xylitol',
     '자일리톨',
   ],
