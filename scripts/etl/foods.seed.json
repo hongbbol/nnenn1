@@ -19188,7 +19188,6 @@
     "ingredient_summary": "가금 단백(이 중 최소 90% 닭고기, 부분 건조·가수분해) 25.6%, 옥수수, 밀 단백, 밀, 가금 지방, 쌀 13.2%",
     "ingredient_keywords": [
       "chicken",
-      "hydrolyzed",
       "rice",
       "salmon",
       "wheat",
@@ -28550,7 +28549,6 @@
     "ingredient_keywords": [
       "chicken",
       "cranberry",
-      "hydrolyzed",
       "rice",
       "salmon",
       "곡물",
@@ -36782,7 +36780,6 @@
       "chicken",
       "corn",
       "cranberry",
-      "hydrolyzed",
       "곡물",
       "닭",
       "생선",
@@ -36841,7 +36838,6 @@
     "ingredient_keywords": [
       "corn",
       "cranberry",
-      "hydrolyzed",
       "rice",
       "곡물",
       "생선",
@@ -42598,7 +42594,6 @@
     "kcal_per_100g": 384.0,
     "ingredient_summary": "건조 돼지·가금 단백, 쌀, 가수분해 돼지·가금 단백, 완두콩, 가금 지방, 리그노셀룰로오스",
     "ingredient_keywords": [
-      "hydrolyzed",
       "rice",
       "salmon",
       "곡물",
@@ -42650,7 +42645,6 @@
     "kcal_per_100g": 412.0,
     "ingredient_summary": "건조 돼지·가금 단백, 동물성 지방, 감자 전분(최소 4%), 가수분해 돼지·가금 단백, 완두콩, 쌀(최소 4%)",
     "ingredient_keywords": [
-      "hydrolyzed",
       "rice",
       "곡물",
       "쌀"
@@ -42704,7 +42698,6 @@
     "kcal_per_100g": 364.0,
     "ingredient_summary": "건조 돼지·가금 단백, 쌀, 가수분해 돼지·가금 단백, 리그노셀룰로오스, 완두콩, 가금 지방",
     "ingredient_keywords": [
-      "hydrolyzed",
       "rice",
       "곡물",
       "쌀"
@@ -42756,7 +42749,6 @@
     "kcal_per_100g": 377.0,
     "ingredient_summary": "건조 돼지·가금 단백, 쌀, 가금 지방, 가수분해 돼지·가금 단백, 완두콩, 리그노셀룰로오스",
     "ingredient_keywords": [
-      "hydrolyzed",
       "rice",
       "곡물",
       "쌀"
@@ -42809,7 +42801,6 @@
     "kcal_per_100g": 374.0,
     "ingredient_summary": "건조 돼지·가금 단백, 감자 전분, 가수분해 돼지·가금 단백, 미네랄, 잠두(파바콩) 껍질, 완두콩",
     "ingredient_keywords": [
-      "hydrolyzed",
       "rice",
       "곡물",
       "쌀"
@@ -71692,7 +71683,6 @@
     "ingredient_keywords": [
       "chicken",
       "corn",
-      "hydrolyzed",
       "rice",
       "salmon",
       "wheat",
@@ -75240,7 +75230,6 @@
       "acidifier",
       "barley",
       "chicken",
-      "hydrolyzed",
       "곡물",
       "닭",
       "보리",
@@ -76678,7 +76667,6 @@
       "added_sugar",
       "carrageenan",
       "chicken",
-      "hydrolyzed",
       "wheat",
       "곡물",
       "닭",
@@ -83002,7 +82990,9 @@
       "11+",
       "15+"
     ],
-    "condition_fit": [],
+    "condition_fit": [
+      "IBD"
+    ],
     "protein_pct": 28.0,
     "fat_pct": 11.0,
     "fiber_pct": 1.8,
@@ -83139,7 +83129,6 @@
     "ingredient_keywords": [
       "chicken",
       "corn",
-      "hydrolyzed",
       "oat",
       "곡물",
       "귀리",
@@ -100682,7 +100671,6 @@
     "ingredient_summary": "계란, 노란 완두콩, 가수분해 연어 단백, 가수분해 닭 단백, 닭 지방, 메밀",
     "ingredient_keywords": [
       "chicken",
-      "hydrolyzed",
       "salmon",
       "wheat",
       "곡물",
@@ -100742,7 +100730,6 @@
     "ingredient_keywords": [
       "chicken",
       "cranberry",
-      "hydrolyzed",
       "salmon",
       "wheat",
       "곡물",
@@ -103683,7 +103670,6 @@
     "ingredient_keywords": [
       "acidifier",
       "added_sugar",
-      "hydrolyzed",
       "곡물",
       "생선",
       "수수",
@@ -104299,7 +104285,6 @@
     "kcal_per_100g": 395.6,
     "ingredient_summary": "가금 단백(일부 건조·가수분해), 옥수수 글루텐, 쌀, 밀, 가금 지방, 옥수수",
     "ingredient_keywords": [
-      "hydrolyzed",
       "곡물",
       "닭",
       "생선",
@@ -110136,7 +110121,6 @@
     "ingredient_keywords": [
       "beef",
       "chicken",
-      "hydrolyzed",
       "rice",
       "salmon",
       "wheat",

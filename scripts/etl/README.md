@@ -58,7 +58,7 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
   `inorganic_phosphate`(Tier1, 칼슘염·아스코빌폴리인산 제외) · `calcium_phosphate`(Tier2, 표시용) · `acidifier`
   (염화암모늄·DL-메티오닌·인산, 킬레이트/셀레노메티오닌 제외) · `vitamin_c` · `cranberry` · `added_sugar`
   (사탕무 펄프·사탕수수 섬유 제외) · `propylene_glycol` · `allium` · `xylitol` · `carrageenan` · `hydrolyzed`
-  (**처방식**이면서 상위 5번째 이내 가수분해 단백 — 간·효모 다이제스트 제외; 일반 EU 습식의
+  (**소화기·저알러지 목적 처방식(condition_fit ∋ IBD)**이면서 상위 5번째 이내 가수분해 단백 — 간·효모 다이제스트 제외; 일반 EU 습식·레날·유리너리 처방식의
   'hydrolysed animal proteins'는 기호성 원료라 토큰 없음). 이전엔 단백·곡물 동의어만 있어 CKD 인산염·
   옥살레이트 산성화제·당뇨 첨가당·독성 하드 게이트가 실데이터 0건이었다. 회귀 셀프테스트
   `_ADDITIVE_SELFTEST_CASES`(실데이터 표기 기반) — 오탐·미탐 발견 시 케이스 추가.

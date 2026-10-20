@@ -306,7 +306,8 @@ CONDITION_RULES = [
     # 소화기·가수분해·저알러지 처방식 → IBD 묶음(규칙 레지스트리 §3-C·D — 식이 알레르기와
     # 전략이 같고 온보딩에 '알러지' 옵션이 없어 IBD로 수용. 2026-10-20 hypoallergenic 추가).
     (["gastro", "digest", "i/d", "소화", "ibd", "intestinal", "장 질환",
-      "hydrolys", "hydrolyz", "가수분해", "hypoallergen", "저알러지", "저알레르기", "z/d", "anallergenic"],
+      "hydrolys", "hydrolyz", "가수분해", "hypoallergen", "하이포알러", "ultrahypo", "울트라하이포",
+      "저알러지", "저알레르기", "z/d", "anallergenic", "아날러제닉"],
      ["IBD"]),
     # 췌장염: 2026-10-20 사용자 확정 — 규칙 레지스트리 §3-H(ACVIM 2021·Cridge 2024)대로
     # "고양이는 지방 제한 근거 없음" → 'low fat/저지방/hepatic(간)' 키를 제거. 췌장염 명시 제품만.
@@ -477,15 +478,17 @@ _ADDITIVE_RULES = [
     ("xylitol", r"xylitol", r"자일리톨", None, None),  # A-2 Tier 1
     ("carrageenan", r"carrageenan", r"카라기난", None, None),  # §3-G IBD 정밀 플래그(가점용)
 ]
-# 가수분해 단백 — 레버(§3-C): **처방식(is_therapeutic)**이면서 원료 상위 5번째 이내에 '가수분해
-# 단백(간·효모 다이제스트 제외)'이 있을 때만. 일반 EU 습식도 'hydrolysed animal proteins'를 앞쪽에
-# 적는 일이 흔해(로얄캐닌 파우치·보나시보 등) 순위만으로는 오탐 — 실데이터 대조(2026-10-20)로 정한 규칙.
+# 가수분해 단백 — 레버(§3-C): **소화기·저알러지 목적 처방식(condition_fit ∋ IBD)**이면서 원료 상위
+# 5번째 이내에 '가수분해 단백(간·효모 다이제스트 제외)'이 있을 때만. 일반 EU 습식은 물론 레날·유리너리
+# 처방식도 'hydrolysed animal proteins'를 기본 단백원으로 앞쪽에 적어(로얄캐닌 S/O 파우치 등) "가수분해식
+# (저항원 설계)"과 구분되지 않는다 — 실데이터 대조(2026-10-20)로 정한 규칙(Cridge 2024: 가수분해식 = 그렇게
+# 설계된 식이).
 _HYDROLYZED_RE = re.compile(r"hydrolys|hydrolyz|가수분해")
 _HYDROLYZED_EXCLUDE_RE = re.compile(r"liver|yeast|\b간\b|간\(|간$|닭\s?간|가금\s?간|돼지\s?간|효모|digest")
 _HYDROLYZED_MAX_ORDER = 5
 
 
-def derive_additive_flags(ings, is_therapeutic=False):
+def derive_additive_flags(ings, hydrolyzed_eligible=False):
     """05_Ingredients 행들 → 엔진 검출 토큰 집합(소문자 정규값)."""
     flags = set()
     for i in ings:
@@ -506,7 +509,7 @@ def derive_additive_flags(ings, is_therapeutic=False):
                 oi = int(float(oi))
             except (TypeError, ValueError):
                 oi = 999
-            if is_therapeutic and oi <= _HYDROLYZED_MAX_ORDER and not (_HYDROLYZED_EXCLUDE_RE.search(en) or _HYDROLYZED_EXCLUDE_RE.search(ko)):
+            if hydrolyzed_eligible and oi <= _HYDROLYZED_MAX_ORDER and not (_HYDROLYZED_EXCLUDE_RE.search(en) or _HYDROLYZED_EXCLUDE_RE.search(ko)):
                 flags.add("hydrolyzed")
     return flags
 
@@ -533,7 +536,7 @@ _ADDITIVE_SELFTEST_CASES = [
     ({"ingredient_name_en": "vegetables (carrots, parsnips, beetroot, leek) (dried)", "ingredient_name_ko": "야채(당근·파스닙·비트·리크)"}, {"allium"}),
     ({"ingredient_name_en": "cranberries", "ingredient_name_ko": "크랜베리"}, {"cranberry"}),
     ({"ingredient_name_en": "carrageenan", "ingredient_name_ko": "카라기난"}, {"carrageenan"}),
-    # (행, 기대, is_therapeutic)
+    # (행, 기대, hydrolyzed_eligible = 처방식 ∧ condition_fit ∋ IBD)
     ({"ingredient_name_en": "hydrolysed animal protein", "ingredient_name_ko": "가수분해 동물성 단백", "order_index": 1}, {"hydrolyzed"}, True),
     ({"ingredient_name_en": "hydrolysed animal protein", "ingredient_name_ko": "가수분해 동물성 단백", "order_index": 1}, set(), False),
     ({"ingredient_name_en": "hydrolyzed chicken liver", "ingredient_name_ko": "가수분해 닭간", "order_index": 2}, set(), True),
@@ -935,7 +938,7 @@ def main():
         )
         nutri, estimated = build_nutrition(n, category)
         keywords, summary = derive_keywords_and_summary(ings)
-        keywords = sorted(set(keywords) | derive_additive_flags(ings, is_therapeutic))
+        keywords = sorted(set(keywords) | derive_additive_flags(ings, is_therapeutic and "IBD" in condition_fit))
 
         # 한국 구매 가능 — 브랜드 Yes × 라인 Yes 만 true (데이터스키마 §유통 kr_distributed).
         brand_kr = brands_kr.get(line.get("brand_id"), "")
