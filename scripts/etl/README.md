@@ -37,6 +37,13 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
   공장 주소·차단 브랜드가 브랜드/상품명/모회사·수입원/manufacturer_claims/notes에 걸리면 **빌드 실패**
   (kr_available과 무관). 매처·셀프테스트 = `manufacturer_blocklist.py`, 같은 규칙의 vitest =
   `src/lib/recommendation/manufacturer-blocklist.test.ts`. nnenn2 `research_helpers`도 이 파일로 수집 단계에서 거부한다.
+- **중국 제조 추천 제외(2026-10-20 신설)**: nnenn2 `04_SKUs.made_in_country`(제조국, `set_sku_origin`으로만 기록)가
+  '중국'이면 `china_made`, 제조국 미확인인데 브랜드 본사(`02_Brands.hq_country`)가 China면 `china_hq_presumed`로
+  판정 → **`active=false` + `exclusion_reason`**. 공개 RLS·`queries.ts`·`filter.ts`가 active만 다뤄 일반 사용자에게
+  안 보이고, 관리자는 Supabase 대시보드(`exclusion_reason`)와 빌드 때마다 재생성되는
+  **`scripts/etl/exclusion_report.md`**(제외 목록·근거·브랜드별 제조국 확인 현황)로 본다.
+  컬럼은 `supabase/apply_foods_made_in.sql`을 대시보드에서 먼저 적용해야 업서트가 된다.
+  테스트 = `src/lib/recommendation/made-in-exclusion.test.ts`.
 - `food_role`: completeness → 주식(Complete) / 보조식(Supplemental·Complementary) / 간식(Treat).
 - `age_fit`: life_stage → nnenn1 버킷(1+/7+/11+/15+). 키튼은 `[]` + `키튼` 태그로 보존.
 - `condition_fit`: 처방식만, **SKU 이름+life_stage**로 한정 매핑(Line.positioning은 라인 전체 범위라 미사용).

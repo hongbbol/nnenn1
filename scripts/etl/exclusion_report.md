@@ -1,0 +1,171 @@
+# 추천 제외·제조국 현황 (관리자용, ETL 자동 생성 — 손으로 고치지 말 것)
+
+정책: **중국 제조는 추천 제외**(2026-10-20). 제외 SKU는 `active=false` + `exclusion_reason` — 일반 사용자 화면·추천에 나오지 않고 Supabase 대시보드에서만 보인다. 제조국 입력 = nnenn2 `04_SKUs.made_in_country`(set_sku_origin).
+
+## 요약
+
+- 전체 SKU 2188 · 추천 제외 **48** 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 46 · 중국 제조(확인) 2
+- 한국 구매 가능(kr_available) 1059 중 제조국 확인 **775** · 미확인 284
+- 확인된 제조국 분포(kr_available): 태국 172, 미국 168, 독일 74, 대한민국 64, 이탈리아 59, 캐나다 49, 체코 40, 오스트리아 30, 프랑스 25, 뉴질랜드 25, 호주 16, 우크라이나 13, 일본 12, 스페인 9, 네덜란드 8, 튀르키예 7, 중국 2, 영국 2
+
+## 추천 제외 SKU
+
+| SKU | 브랜드 | 제품 | 사유 | 제조국 | 제조사 | 근거 | 한국 유통 |
+|---|---|---|---|---|---|---|---|
+| S0948 | Ferragamo Pet (弗列加特) | 弗列加特 80% 고생육 그레인프리 팽화 성묘 사료 (치킨) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0949 | Ferragamo Pet (弗列加特) | 弗列加特 샤오란둔 장케어 프로바이오틱 생육 사료 — 성묘 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0950 | Ferragamo Pet (弗列加特) | 弗列加特 샤오란둔 프로바이오틱 장케어 — 키튼 (무전분 고단백) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0951 | Ferragamo Pet (弗列加特) | 弗列加特 96% 고함량육 주식 동결건조 — 火鸡三文鱼(터키&연어) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0952 | Ferragamo Pet (弗列加特) | 弗列加特 96% 고함량육 주식 동결건조 — 牛肉金枪鱼(소고기&참치) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0953 | Gao Ye Jia (高爷家) | 麦肯鸡 단일 닭고기 무곡물 全阶段 全价 캣푸드 (2.0) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0954 | Gao Ye Jia (高爷家) | 鲜肉益生菌 3.0 4육(닭/소/생선/오리) 무곡물 全价 캣푸드 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0955 | Gao Ye Jia (高爷家) | 全价主食餐盒 — 鸡肉(닭고기) 레시피 40g×6 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0959 | Jerky Time | 저키타임 건조 치킨 저키 바이트 고양이 트릿 80g | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0960 | Jerky Time | 저키타임 치킨 저키 위드 코드피쉬 스시 고양이 트릿 80g | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1092 | Kitchen Flavor | 키친플레이버 그레인프리 어덜트 캣푸드 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1093 | Kitchen Flavor | 키친플레이버 그레인프리 뷰티 (전 생애주기) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1094 | Kitchen Flavor | 키친플레이버 그레인프리 베이비 키튼 & 키튼 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1095 | Kitchen Flavor | 키친플레이버 스페셜 케어 헤어 & 스킨 케어 (전 생애주기) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1096 | Kitchen Flavor | 키친플레이버 내추럴 캣 새먼 & 새먼 오일 (어덜트) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0961 | Legend Sandy (蓝氏) | 高肉慢烘 乳鸽(유압/비둘기) 烘焙 全价 캣푸드 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0962 | Legend Sandy (蓝氏) | 高肉慢烘 토끼(兔兔) 烘焙 全价 캣푸드 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0963 | Legend Sandy (蓝氏) | 猎鸟乳鸽(비둘기) 全价 동결건조 캣푸드 (전 연령) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0964 | Legend Sandy (蓝氏) | 荒野猎兔(토끼) 全价 동결건조 캣푸드 (전 연령) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0968 | Maifudi (麦富迪) | 麦富迪 奶弗 전가 양유 신선육 성묘 천연식 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0969 | Maifudi (麦富迪) | 麦富迪 奶弗 전가 양유 신선육 유묘 천연식 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0970 | Maifudi (麦富迪) | 麦富迪 奶弗 전가 양유 신선육 성묘 베이크드粮 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0971 | Maifudi (麦富迪) | 麦富迪 BARF 霸弗 천연식 전가 성묘 — 뉴질랜드 소고기+러시아 대구 1.8kg | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0972 | Maifudi (麦富迪) | 麦富迪 BARF 霸弗 천연식 — 닭고기 배합 전가 성묘 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0965 | NOURSE (卫仕) | 卫仕 高醇鲜肉系列 X90 鸡肉 全价全阶段猫粮 (치킨, 전 생애단계) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0966 | NOURSE (卫仕) | 卫仕 膳食平衡系列 无谷六种肉 全价全阶段猫粮 (전 생애단계) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0967 | NOURSE (卫仕) | 卫仕 高能原肉 全价猫粮 营养大满罐 (鸡肉配方, 전 생애단계) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1097 | Nature Bridge | 네이처 브리지 클래식 컴플리트 어덜트 캣 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1098 | Nature Bridge | 네이처 브리지 클래식 뷰티 컴플리트 캣 (전연령) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1099 | Nature Bridge | 네이처 브리지 클래식 마더·베이비·키튼 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1100 | Nature Bridge | 네이처 브리지 로하스 캣 (전연령) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S1101 | Nature Bridge | 네이처 브리지 데일리 케어 헤어 앤 스킨 (동결건조육) 전연령 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0973 | Pure & Natural (网易严选) | 전가묘량 3.0 (무곡물·9가지 육류 배합) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0974 | Pure & Natural (网易严选) | 전가 동결건조 더블믹스 묘량 (2.0 업그레이드 배합) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0975 | Pure & Natural (网易严选) | 전가 동결건조 더블믹스 묘량 (경전 1.0 배합) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0976 | Pure & Natural (网易严选) | 전가 무곡물 동결건조 묘량 (치킨&덕) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0977 | Toptrees | 領先 全价猫粮 海陆双拼粮 (전 생애단계, 무곡물) 2KG | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0978 | Toptrees | 領先 低温烘焙 무곡물 캣푸드 — 鲜鸡肉羊奶 (전 단계) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0979 | Toptrees | 領先 低温烘焙 무곡물 캣푸드 — 三文鱼 (전 단계) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0980 | Toptrees | 領先 全价成猫主食罐 (99 시리즈, 무곡물·무젤리) 85g | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0981 | Truly | P40 PLUS 전연령 全价 무곡 캣푸드 (경전 치킨&피쉬 / 零肉粉) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0982 | Truly | K01 PLUS 유묘/임신묘 全价 무곡 캣푸드 (신선육+양유 포뮬러) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0983 | Truly | Fresh 시리즈 全价 주식캔 — 치킨 (鸡肉味) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0041 | Wanpy | 완피 그레인프리 컴플리트 어덜트 (치킨) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0042 | Wanpy | 완피 컴플리트 페이스트 캔 (치킨) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0043 | Wanpy | 완피 컴플리트 페이스트 캔 (참치) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
+| S0044 | Wanpy | 완피 동결건조 캣 그라스&치킨 트릿 | 중국 제조(확인) | 중국 | YANTAI CHINA PET FOODS CO.,LTD | 브랜드 단위 추정(C) 2026-10-20 https://www.mamacat.co.kr/product/detail.html?product_no=22244 | Yes |
+| S0045 | Wanpy | 완피 동결건조 새우 트릿 | 중국 제조(확인) | 중국 | YANTAI CHINA PET FOODS CO.,LTD | 브랜드 단위 추정(C) 2026-10-20 https://www.mamacat.co.kr/product/detail.html?product_no=22244 | Yes |
+
+## 브랜드별 제조국 확인 현황 (kr_available만)
+
+| 브랜드 | 확인 | 미확인 |
+|---|---|---|
+| Hill's Pet Nutrition | 36 | 29 |
+| Vitakraft | 0 | 23 |
+| Animonda | 0 | 19 |
+| Schesir | 3 | 18 |
+| Royal Canin | 70 | 17 |
+| Applaws | 0 | 12 |
+| Brit | 26 | 12 |
+| 1st Choice | 0 | 10 |
+| GranataPet | 0 | 10 |
+| Instinct | 13 | 9 |
+| Purina | 22 | 8 |
+| Sam's Field | 0 | 8 |
+| Carnilove | 11 | 7 |
+| Blue Buffalo | 0 | 6 |
+| Trovet | 0 | 6 |
+| Whiskas | 11 | 6 |
+| Advance (Affinity) | 0 | 5 |
+| Companion Classic | 0 | 5 |
+| Equilíbrio | 0 | 5 |
+| ZEAL | 0 | 5 |
+| Almo Nature | 30 | 4 |
+| Bonacibo | 0 | 4 |
+| Open Farm | 0 | 4 |
+| Smallbatch Pets | 0 | 4 |
+| Wellness Natural Pet Food | 25 | 4 |
+| Halo Pets | 2 | 3 |
+| Inaba | 6 | 3 |
+| Lifestyle | 0 | 3 |
+| Me-O | 0 | 3 |
+| Unicharm Pet | 0 | 3 |
+| AATU | 0 | 2 |
+| Club 4 Paws | 0 | 2 |
+| Fancy Feast | 23 | 2 |
+| Natural Balance | 20 | 2 |
+| Nature's Protection | 0 | 2 |
+| Optimeal | 13 | 2 |
+| Petcurean | 13 | 2 |
+| Profine | 0 | 2 |
+| Snappy Tom | 0 | 2 |
+| Stella & Chewy's | 7 | 2 |
+| Farmina | 11 | 1 |
+| Feline Natural | 2 | 1 |
+| Husse | 11 | 1 |
+| Josera | 4 | 1 |
+| Micho | 0 | 1 |
+| Northwest Naturals | 4 | 1 |
+| Nulo | 6 | 1 |
+| Taste of the Wild | 2 | 1 |
+| Terra Canis | 9 | 1 |
+| Acana | 5 | 0 |
+| Addiction Pet Foods | 3 | 0 |
+| Aixia | 19 | 0 |
+| Aleva | 7 | 0 |
+| Bab-I-Boyak (Harim) | 6 | 0 |
+| Blackwood | 10 | 0 |
+| Boreal | 14 | 0 |
+| Canagan | 2 | 0 |
+| Carna4 | 2 | 0 |
+| Catit | 2 | 0 |
+| Catsrang | 8 | 0 |
+| Catz Finefood | 10 | 0 |
+| Dr. Clauder's | 4 | 0 |
+| Earthborn Holistic | 2 | 0 |
+| Eminent | 3 | 0 |
+| Evolve | 3 | 0 |
+| Forza10 | 4 | 0 |
+| Friskies | 5 | 0 |
+| Fussie Cat | 6 | 0 |
+| GimCat | 4 | 0 |
+| Green Petfood | 1 | 0 |
+| Greenies Feline | 2 | 0 |
+| Harringtons | 2 | 0 |
+| JosiCat | 4 | 0 |
+| Kirkland Signature | 1 | 0 |
+| Leonardo | 20 | 0 |
+| Lotus | 10 | 0 |
+| MERA | 8 | 0 |
+| Monge | 32 | 0 |
+| Most Delicious Time 30 Days (Harim) | 5 | 0 |
+| Natura Diet | 2 | 0 |
+| Natural Greatness | 3 | 0 |
+| NutriSource | 8 | 0 |
+| Nutrience | 7 | 0 |
+| Nutro | 6 | 0 |
+| Orijen | 3 | 0 |
+| Platinum | 4 | 0 |
+| Primal Pet Foods | 2 | 0 |
+| Pro-Nutrition Flatazor | 9 | 0 |
+| PureVita | 3 | 0 |
+| Reflex | 7 | 0 |
+| Sanabelle | 8 | 0 |
+| Shakeat (Daejoo) | 4 | 0 |
+| Sheba | 13 | 0 |
+| SmartHeart | 7 | 0 |
+| Steve's Real Food | 3 | 0 |
+| Temptations | 2 | 0 |
+| The Honest Kitchen | 7 | 0 |
+| The Real (Harim) | 15 | 0 |
+| Therafeed (Daejoo) | 3 | 0 |
+| Vital Essentials | 15 | 0 |
+| Wanpy | 2 | 0 |
+| Weruva | 31 | 0 |
+| Wishbone | 11 | 0 |
+| ZIWI Peak | 16 | 0 |
