@@ -4,9 +4,9 @@
 
 ## 요약
 
-- 전체 SKU 2188 · 추천 제외 **48** 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 46 · 중국 제조(확인) 2
-- 한국 구매 가능(kr_available) 1059 중 제조국 확인 **775** · 미확인 284
-- 확인된 제조국 분포(kr_available): 태국 172, 미국 168, 독일 74, 대한민국 64, 이탈리아 59, 캐나다 49, 체코 40, 오스트리아 30, 프랑스 25, 뉴질랜드 25, 호주 16, 우크라이나 13, 일본 12, 스페인 9, 네덜란드 8, 튀르키예 7, 중국 2, 영국 2
+- 전체 SKU 2188 · 추천 제외 **48** 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 48
+- 한국 구매 가능(kr_available) 1059 중 제조국 확인 **752** · 미확인 307
+- 확인된 제조국 분포(kr_available): 태국 166, 미국 165, 독일 65, 대한민국 63, 이탈리아 59, 캐나다 48, 체코 40, 오스트리아 30, 프랑스 25, 뉴질랜드 25, 호주 16, 우크라이나 13, 일본 12, 스페인 9, 튀르키예 7, 네덜란드 7, 영국 2
 
 ## 추천 제외 SKU
 
@@ -58,8 +58,8 @@
 | S0041 | Wanpy | 완피 그레인프리 컴플리트 어덜트 (치킨) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
 | S0042 | Wanpy | 완피 컴플리트 페이스트 캔 (치킨) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
 | S0043 | Wanpy | 완피 컴플리트 페이스트 캔 (참치) | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | No |
-| S0044 | Wanpy | 완피 동결건조 캣 그라스&치킨 트릿 | 중국 제조(확인) | 중국 | YANTAI CHINA PET FOODS CO.,LTD | 브랜드 단위 추정(C) 2026-10-20 https://www.mamacat.co.kr/product/detail.html?product_no=22244 | Yes |
-| S0045 | Wanpy | 완피 동결건조 새우 트릿 | 중국 제조(확인) | 중국 | YANTAI CHINA PET FOODS CO.,LTD | 브랜드 단위 추정(C) 2026-10-20 https://www.mamacat.co.kr/product/detail.html?product_no=22244 | Yes |
+| S0044 | Wanpy | 완피 동결건조 캣 그라스&치킨 트릿 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | Yes |
+| S0045 | Wanpy | 완피 동결건조 새우 트릿 | 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 | — | — | — | Yes |
 
 ## 브랜드별 제조국 확인 현황 (kr_available만)
 
@@ -84,39 +84,45 @@
 | Advance (Affinity) | 0 | 5 |
 | Companion Classic | 0 | 5 |
 | Equilíbrio | 0 | 5 |
+| Wellness Natural Pet Food | 24 | 5 |
 | ZEAL | 0 | 5 |
 | Almo Nature | 30 | 4 |
 | Bonacibo | 0 | 4 |
+| Catz Finefood | 6 | 4 |
+| JosiCat | 0 | 4 |
 | Open Farm | 0 | 4 |
 | Smallbatch Pets | 0 | 4 |
-| Wellness Natural Pet Food | 25 | 4 |
+| Wishbone | 7 | 4 |
 | Halo Pets | 2 | 3 |
 | Inaba | 6 | 3 |
 | Lifestyle | 0 | 3 |
 | Me-O | 0 | 3 |
+| Petcurean | 12 | 3 |
 | Unicharm Pet | 0 | 3 |
 | AATU | 0 | 2 |
 | Club 4 Paws | 0 | 2 |
 | Fancy Feast | 23 | 2 |
+| Husse | 10 | 2 |
+| Josera | 3 | 2 |
 | Natural Balance | 20 | 2 |
 | Nature's Protection | 0 | 2 |
+| Northwest Naturals | 3 | 2 |
 | Optimeal | 13 | 2 |
-| Petcurean | 13 | 2 |
 | Profine | 0 | 2 |
 | Snappy Tom | 0 | 2 |
 | Stella & Chewy's | 7 | 2 |
+| Vital Essentials | 13 | 2 |
+| Wanpy | 0 | 2 |
+| Aixia | 18 | 1 |
 | Farmina | 11 | 1 |
 | Feline Natural | 2 | 1 |
-| Husse | 11 | 1 |
-| Josera | 4 | 1 |
 | Micho | 0 | 1 |
-| Northwest Naturals | 4 | 1 |
 | Nulo | 6 | 1 |
 | Taste of the Wild | 2 | 1 |
 | Terra Canis | 9 | 1 |
+| The Real (Harim) | 14 | 1 |
 | Acana | 5 | 0 |
 | Addiction Pet Foods | 3 | 0 |
-| Aixia | 19 | 0 |
 | Aleva | 7 | 0 |
 | Bab-I-Boyak (Harim) | 6 | 0 |
 | Blackwood | 10 | 0 |
@@ -125,7 +131,6 @@
 | Carna4 | 2 | 0 |
 | Catit | 2 | 0 |
 | Catsrang | 8 | 0 |
-| Catz Finefood | 10 | 0 |
 | Dr. Clauder's | 4 | 0 |
 | Earthborn Holistic | 2 | 0 |
 | Eminent | 3 | 0 |
@@ -137,7 +142,6 @@
 | Green Petfood | 1 | 0 |
 | Greenies Feline | 2 | 0 |
 | Harringtons | 2 | 0 |
-| JosiCat | 4 | 0 |
 | Kirkland Signature | 1 | 0 |
 | Leonardo | 20 | 0 |
 | Lotus | 10 | 0 |
@@ -162,10 +166,6 @@
 | Steve's Real Food | 3 | 0 |
 | Temptations | 2 | 0 |
 | The Honest Kitchen | 7 | 0 |
-| The Real (Harim) | 15 | 0 |
 | Therafeed (Daejoo) | 3 | 0 |
-| Vital Essentials | 15 | 0 |
-| Wanpy | 2 | 0 |
 | Weruva | 31 | 0 |
-| Wishbone | 11 | 0 |
 | ZIWI Peak | 16 | 0 |
