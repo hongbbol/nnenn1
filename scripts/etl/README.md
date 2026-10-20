@@ -53,6 +53,20 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
   파생 로직만 틀렸으므로 **데이터 검증 게이트로는 잡히지 않는다**. 회귀 셀프테스트
   (`_THERAPEUTIC_SELFTEST_CASES`) + 빌드 diff의 '처방식 판정 변경' 항목으로 감시.
 - `ingredient_keywords`: `INGREDIENT_SYNONYMS` 정규화. 곡물은 명시 토큰만(한글 '밀'=meal 음역 오탐 방지).
+- **첨가물·원료 플래그(2026-10-20 신설, `derive_additive_flags`)**: 05_Ingredients 원료명을 규칙 레지스트리
+  부록 A·§3-G 정규식으로 걸러 엔진(`rules.ts KEYWORDS`) 토큰을 `ingredient_keywords`에 추가한다 —
+  `inorganic_phosphate`(Tier1, 칼슘염·아스코빌폴리인산 제외) · `calcium_phosphate`(Tier2, 표시용) · `acidifier`
+  (염화암모늄·DL-메티오닌·인산, 킬레이트/셀레노메티오닌 제외) · `vitamin_c` · `cranberry` · `added_sugar`
+  (사탕무 펄프·사탕수수 섬유 제외) · `propylene_glycol` · `allium` · `xylitol` · `carrageenan` · `hydrolyzed`
+  (**처방식**이면서 상위 5번째 이내 가수분해 단백 — 간·효모 다이제스트 제외; 일반 EU 습식의
+  'hydrolysed animal proteins'는 기호성 원료라 토큰 없음). 이전엔 단백·곡물 동의어만 있어 CKD 인산염·
+  옥살레이트 산성화제·당뇨 첨가당·독성 하드 게이트가 실데이터 0건이었다. 회귀 셀프테스트
+  `_ADDITIVE_SELFTEST_CASES`(실데이터 표기 기반) — 오탐·미탐 발견 시 케이스 추가.
+- `magnesium_pct`(소수 3자리)·`calcium_pct`(2026-10-20): 06_Nutrition as-fed(+DM 환산). 요로 Mg 보조 레버·CKD Ca:P.
+  컬럼은 `supabase/apply_foods_mg_ca.sql`을 대시보드에서 먼저 적용해야 업서트된다.
+- `condition_fit` 규칙 변경(2026-10-20 사용자 확정): 췌장염은 **'pancrea/췌장' 명시 제품만**('low fat/저지방/hepatic' 제거 —
+  규칙 레지스트리 §3-H: 고양이는 지방 제한 근거 없음) · 가수분해·하이포알러제닉·z/d 처방식은 **IBD** 묶음에 추가
+  (온보딩에 알러지 옵션이 없어 IBD로 수용).
 - DM(건물기준)만 있는 건식은 수분 8% 가정으로 as-fed 환산 → `영양추정(DM환산)` 태그.
 - `kr_available`: `02_Brands.kr_distributed=Yes` **AND** `03_Lines.kr_line_available=Yes`만 true
   (엔진 하드 게이트 — 한국 미유통 제외). 브랜드 Yes인데 라인 미확정(Unknown/공란)은 경고 출력 + false 처리.

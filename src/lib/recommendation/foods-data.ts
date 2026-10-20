@@ -29,6 +29,8 @@ function food(f: Partial<Food> & Pick<Food, 'id' | 'brand' | 'product_name' | 'c
     taurine_pct: null,
     epa_dha_pct: null,
     omega3_pct: null,
+    magnesium_pct: null,
+    calcium_pct: null,
     kcal_per_100g: null,
     ingredient_summary: null,
     ingredient_keywords: [],

@@ -30,6 +30,8 @@ function food(over: Partial<Food> & Pick<Food, 'id'>): Food {
     taurine_pct: null,
     epa_dha_pct: null,
     omega3_pct: null,
+    magnesium_pct: null,
+    calcium_pct: null,
     kcal_per_100g: 400,
     ingredient_summary: null,
     ingredient_keywords: [],
