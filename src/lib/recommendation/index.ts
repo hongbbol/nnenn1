@@ -4,6 +4,7 @@ export * from './filter';
 export * from './scorer';
 export * from './selector';
 export * from './engine';
+export * from './form-filter-warnings';
 export * from './compare';
 export * from './food-options';
 export { SEED_FOODS } from './foods-data';
