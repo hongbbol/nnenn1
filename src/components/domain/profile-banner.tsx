@@ -15,6 +15,7 @@ export function ProfileBanner({
     input.goal,
   ];
   if (input.diseases.length === 0) chips.push('질환 없음');
+  if (input.formFilter && input.formFilter !== '전체') chips.push(`추천 범위: ${input.formFilter}`);
 
   return (
     <div className="flex items-center gap-4 rounded-[18px] border border-border-soft bg-surface-card p-5">

@@ -34,6 +34,7 @@ function input(over: Partial<RecInput> = {}): RecInput {
     avoid: [],
     excludeFoodIds: [],
     dietPref: '건식',
+    formFilter: '전체',
     ...over,
   };
 }

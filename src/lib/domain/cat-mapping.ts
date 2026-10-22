@@ -16,6 +16,7 @@ export function catRowToGuestCat(cat: CatRow): GuestCat {
     weight_kg: cat.weight_kg,
     neutered_status: cat.neutered_status,
     diet_type: cat.diet_type,
+    form_filter: cat.form_filter ?? '전체',
     current_food_id: cat.current_food_id ?? null,
     current_food_text: cat.current_food_text ?? null,
     health_conditions: cat.health_conditions ?? [],

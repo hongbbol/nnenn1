@@ -21,7 +21,7 @@ function loadFoods(): Food[] {
   return raw.map((r) => ({ ...(r as unknown as Food), id: r.source_sku_id as string }));
 }
 
-const base = (): Pick<RecInput, 'name' | 'excludeFoodIds' | 'avoid'> => ({ name: '회귀', excludeFoodIds: [], avoid: [] });
+const base = (): Pick<RecInput, 'name' | 'excludeFoodIds' | 'avoid' | 'formFilter'> => ({ name: '회귀', excludeFoodIds: [], avoid: [], formFilter: '전체' });
 const MODES: DiseaseMode[] = ['ckd_early', 'ckd_12', 'ckd_34', 'diabetes', 'struvite', 'oxalate', 'ibd', 'pancreatitis'];
 
 type Scenario = { name: string; input: RecInput };
@@ -37,6 +37,13 @@ function scenarios(): Scenario[] {
   out.push({ name: '11+/ckd_12+diabetes', input: { ...base(), ageGroup: '11+', goal: '질환관리', diseases: ['ckd_12', 'diabetes'], dietPref: '건식' } });
   out.push({ name: '11+/ckd_34+struvite+ibd', input: { ...base(), ageGroup: '11+', goal: '질환관리', diseases: ['ckd_34', 'struvite', 'ibd'], dietPref: '건식' } });
   out.push({ name: '7+/pancreatitis+ibd', input: { ...base(), ageGroup: '7+', goal: '질환관리', diseases: ['pancreatitis', 'ibd'], dietPref: '습식' } });
+  // 추천 범위 필터(2026-10-22) — 건식만/습식만 하드 필터 + '건식만' 경고 모드.
+  out.push({ name: 'F/11+/struvite/건식만', input: { ...base(), ageGroup: '11+', goal: '질환관리', diseases: ['struvite'], dietPref: '건식', formFilter: '건식만' } });
+  out.push({ name: 'F/11+/ckd_34/건식만', input: { ...base(), ageGroup: '11+', goal: '질환관리', diseases: ['ckd_34'], dietPref: '건식', formFilter: '건식만' } });
+  out.push({ name: 'F/11+/diabetes/건식만', input: { ...base(), ageGroup: '11+', goal: '질환관리', diseases: ['diabetes'], dietPref: '건식', formFilter: '건식만' } });
+  out.push({ name: 'F/7+/감량/건식만', input: { ...base(), ageGroup: '7+', goal: '체중관리 - 감량', diseases: [], dietPref: '건식', formFilter: '건식만' } });
+  out.push({ name: 'F/7+/중노령/습식만', input: { ...base(), ageGroup: '7+', goal: '중노령 전환', diseases: [], dietPref: '습식', formFilter: '습식만' } });
+  out.push({ name: 'F/11+/ibd/건식만', input: { ...base(), ageGroup: '11+', goal: '질환관리', diseases: ['ibd'], dietPref: '건식', formFilter: '건식만' } });
   return out;
 }
 
@@ -59,17 +66,38 @@ describe.skipIf(!hasSeed)('실데이터 회귀 (scripts/etl/foods.seed.json)', (
     }
   });
 
-  it('질환 없는 시나리오는 1위가 "주로 먹는 식단" 제형과 같다 (전환 용이)', () => {
+  it('추천 범위 필터: 건식만/습식만은 하드 필터로 TOP 전부 해당 제형', () => {
     for (const [name, r] of all) {
-      if (r.input.diseases.length > 0) continue;
-      expect(r.top[0].food.category, name).toBe(r.input.dietPref);
+      if (r.input.formFilter === '전체') continue;
+      const want = r.input.formFilter === '건식만' ? '건식' : '습식';
+      for (const t of r.top) expect(t.food.category, `${name}: ${t.food.product_name}`).toBe(want);
+      expect(r.excluded.some((e) => e.reasons.some((x) => x.code === 'form_filter')), name).toBe(true);
     }
   });
 
-  it('TOP 2는 같은 브랜드 형제 제품이 아니다 (dev-plan §4.5 다양성)', () => {
-    for (const [name, r] of all) {
-      expect(r.top[0].food.brand, name).not.toBe(r.top[1].food.brand);
-    }
+  it("'건식만'은 수분 핵심 모드(요로·CKD 3-4기·당뇨)·감량에서 경고 고지, 원료 구동 모드(IBD)는 고지 없음", () => {
+    const has = (name: string, kw: string) => results.get(name)!.notices.some((n) => n.includes(kw));
+    expect(has('F/11+/struvite/건식만', '수분')).toBe(true);
+    expect(has('F/11+/ckd_34/건식만', '수분 관리')).toBe(true);
+    expect(has('F/11+/diabetes/건식만', '탄수화물')).toBe(true);
+    expect(has('F/7+/감량/건식만', '급여량')).toBe(true);
+    expect(results.get('F/11+/ibd/건식만')!.notices.some((n) => n.includes('⚠️ 요로') || n.includes('탄수화물이 높아'))).toBe(false);
+    // '주로 먹는 식단'은 점수에 영향 없음(2026-10-22) — 같은 조건에서 dietPref만 달라도 TOP 동일.
+    const a = results.get('11+/ckd_12/건식')!.top.map((t) => t.food.id);
+    const b = results.get('11+/ckd_12/습식')!.top.map((t) => t.food.id);
+    expect(a).toEqual(b);
+  });
+
+  it('[진단] 다양성 보류 상태 — 같은 브랜드/같은 제형 TOP 2 비율을 기록한다 (사용자 결정 2026-10-22: 적합도 순수 순위)', () => {
+    // 실패하지 않는 진단. 여러 케이스 테스트 가동 후 "너무 비슷한 사료" 반복이 확인되면 그때 방법을 고안한다(PENDING §0-0).
+    const full = all.filter(([, r]) => r.input.formFilter === '전체' && r.top.length === 2);
+    const sameBrand = full.filter(([, r]) => r.top[0].food.brand === r.top[1].food.brand).length;
+    const sameForm = full.filter(([, r]) => r.top[0].food.category === r.top[1].food.category).length;
+    const count = new Map<string, number>();
+    for (const [, r] of full) for (const t of r.top) count.set(t.food.id, (count.get(t.food.id) ?? 0) + 1);
+    const [topId, topN] = [...count].sort((x, y) => y[1] - x[1])[0];
+    console.log(`[다양성 진단] 같은 브랜드 TOP2 ${sameBrand}/${full.length} · 같은 제형 TOP2 ${sameForm}/${full.length} · 최다 등장 ${topId} ${topN}/${full.length}`);
+    expect(full.length).toBeGreaterThan(0);
   });
 
   it('하드 게이트가 실데이터 토큰에서 실제로 작동한다 (CKD 인산염·옥살레이트 산성화제/비타민C/크랜베리·당뇨 첨가당·공통 독성)', () => {
@@ -109,15 +137,9 @@ describe.skipIf(!hasSeed)('실데이터 회귀 (scripts/etl/foods.seed.json)', (
       expect(dm, name).not.toBeNull();
       expect(dm!.value, `${name}: ${f.product_name}`).toBeLessThanOrEqual(455);
     }
-    // 건식 선호 감량에서 1위가 건식 — as-fed kcal 비교였다면 구조적으로 습식이 됐다.
-    expect(results.get('7+/체중관리 - 감량/건식')!.top[0].food.category).toBe('건식');
-  });
-
-  it('특정 제품 한 개가 TOP 2를 독식하지 않는다 (시나리오의 40% 이하)', () => {
-    const count = new Map<string, number>();
-    for (const [, r] of all) for (const t of r.top) count.set(t.food.id, (count.get(t.food.id) ?? 0) + 1);
-    const max = Math.max(...count.values());
-    expect(max).toBeLessThanOrEqual(Math.ceil(all.length * 0.4));
+    // 건식만 필터 감량 — as-fed kcal 비교였다면 건식 후보가 전부 '고칼로리'로 보였을 것.
+    const dryOnly = results.get('F/7+/감량/건식만')!.top[0].food;
+    expect(kcalPer100gDm(dryOnly.kcal_per_100g, dryOnly.moisture_pct, dryOnly.category)!.value).toBeLessThanOrEqual(455);
   });
 
   it('췌장염: 저지방이 아니라 소화율·칼로리 — 1위는 소화기 목적 처방식, ACVIM 고지 포함 (§3-H 2026-10-20)', () => {

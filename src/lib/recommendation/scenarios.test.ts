@@ -6,6 +6,7 @@
 import { describe, expect, it } from 'vitest';
 import { recommend } from './engine';
 import { SEED_FOODS } from './foods-data';
+import { kcalPer100gDm } from './nutrition';
 import type { DiseaseMode, RecInput } from './types';
 
 function input(over: Partial<RecInput> = {}): RecInput {
@@ -17,6 +18,7 @@ function input(over: Partial<RecInput> = {}): RecInput {
     avoid: [],
     excludeFoodIds: [],
     dietPref: '건식',
+    formFilter: '전체',
     ...over,
   };
 }
@@ -49,7 +51,9 @@ describe('연령·목표 모드 (질환 없음)', () => {
   it('고령(11+) 건강 — 저인 노령식 가점이 상위', () => {
     const r = recommend(input({ ageGroup: '11+', goal: '중노령 전환' }), SEED_FOODS);
     report('고령 11+ / 중노령 전환', r);
-    expect(r.top[0].food.tags).toContain('low_phosphorus');
+    // 노령 맞춤식 2종이 TOP 2(픽스처는 83 vs 82 근소 차 — 제형 가점 제거 후 단백 g/1000kcal이 높은 쪽이 1위).
+    expect(r.top.every((t) => t.food.tags.includes('senior'))).toBe(true);
+    expect(r.top.some((t) => t.food.tags.includes('low_phosphorus'))).toBe(true);
   });
 
   it('감량 — 저칼로리 우선 (kcal < 320)', () => {
@@ -61,7 +65,9 @@ describe('연령·목표 모드 (질환 없음)', () => {
   it('증량 — 고에너지 우선 (kcal > 420)', () => {
     const r = recommend(input({ goal: '체중관리 - 증량' }), SEED_FOODS);
     report('증량', r);
-    expect(r.top[0].food.kcal_per_100g!).toBeGreaterThan(420);
+    // 에너지 밀도는 건물(DM) 기준 — as-fed로 보면 습식이 저칼로리로 보이는 왜곡(2026-10-20 보정).
+    const f = r.top[0].food;
+    expect(kcalPer100gDm(f.kcal_per_100g, f.moisture_pct, f.category)!.value).toBeGreaterThan(420);
   });
 });
 

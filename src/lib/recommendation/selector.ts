@@ -117,7 +117,7 @@ export function buildPriorityOrder(
 export function buildNotices(
   input: RecInput,
   primaryMode: DiseaseMode | null,
-  opts: { heldCount?: number } = {},
+  opts: { heldCount?: number; formFilterRelaxed?: boolean } = {},
 ): string[] {
   const notices: string[] = [];
   const gate = highestSafetyGate(input);
@@ -156,6 +156,38 @@ export function buildNotices(
   if (primaryMode === 'pancreatitis') {
     notices.push(
       '고양이 췌장염은 지방 제한보다 잘 먹는 것이 우선이에요(ACVIM 2021). 최근 진단·입원 중(급성)이라면 사료 선택보다 수의사 진료가 먼저예요.',
+    );
+  }
+  // 추천 범위 '건식만' 경고(2026-10-22 사용자 결정) — 수분이 핵심인 모드·감량 목표에서 1차 레버를
+  // 빼고 고른 결과임을 알린다. 필터는 그대로 적용(사용자 제약 존중), 막지 않는다.
+  if (input.formFilter === '건식만') {
+    const ds = input.diseases;
+    if (ds.includes('struvite') || ds.includes('oxalate')) {
+      notices.push(
+        '⚠️ 요로 결석은 수분(습식·희석)이 1차 관리 수단이에요. 건식만으로 제한해 핵심 레버를 빼고 고른 결과예요 — 음수 유도(급수기·물 추가)와 습식 병행 가능성을 수의사와 상의하세요.',
+      );
+    }
+    if (ds.includes('ckd_34')) {
+      notices.push(
+        '⚠️ 신부전 3-4기는 수분 관리가 핵심이에요. 건식 신장식도 표준 처방식이지만, 탈수 예방을 위해 물 섭취량 확보와 습식 병행 여부를 수의사와 확인하세요.',
+      );
+    } else if (ds.includes('ckd_early') || ds.includes('ckd_12')) {
+      notices.push('신부전은 수분 섭취가 중요해요. 건식만 급여한다면 음수량을 챙겨 주세요.');
+    }
+    if (ds.includes('diabetes')) {
+      notices.push(
+        '⚠️ 건식은 대개 탄수화물이 높아 당뇨 후보가 크게 줄고 신뢰도가 낮아져요. 저탄수 건식이 드물어 습식 병행이 권장되는 질환이에요 — 수의사와 상의하세요.',
+      );
+    }
+    if (input.goal === '체중관리 - 감량') {
+      notices.push(
+        '감량은 수분이 많은 습식이 포만감·칼로리 조절에 유리해요. 건식만 추천이라 급여량(그램) 관리가 더 중요해요 — 주당 0.5~1% 이상 급속 감량은 피하세요.',
+      );
+    }
+  }
+  if (opts.formFilterRelaxed) {
+    notices.push(
+      `추천 범위(${input.formFilter})에 맞는 사료가 없어 전체 제형에서 골랐어요.`,
     );
   }
   if (opts.heldCount && opts.heldCount > 0) {

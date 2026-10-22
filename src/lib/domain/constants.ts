@@ -14,6 +14,19 @@ export const AGE_LABELS: Record<AgeGroup, string> = {
 export const DIET_TYPES = ['건식', '습식', '혼합'] as const;
 export type DietType = (typeof DIET_TYPES)[number];
 
+/**
+ * 추천 범위(제형 필터, 2026-10-22 사용자 결정). "주로 먹는 식단"(현재 급여 형태)과는 다른 질문 —
+ * 습식을 못 먹이는 집·자동급식기 등 실제 제약용 하드 필터. '건식만'은 수분이 핵심인 모드(요로·CKD 3-4기·
+ * 당뇨)와 감량 목표에서 경고 고지를 띄운다(엔진 selector.buildNotices).
+ */
+export const FORM_FILTERS = ['전체', '건식만', '습식만'] as const;
+export type FormFilter = (typeof FORM_FILTERS)[number];
+export const FORM_FILTER_OPTIONS: ReadonlyArray<{ id: FormFilter; desc: string }> = [
+  { id: '전체', desc: '건식·습식 모두에서 가장 적합한 사료' },
+  { id: '건식만', desc: '습식을 못 먹이는 경우 — 일부 질환은 경고가 표시돼요' },
+  { id: '습식만', desc: '건식을 못 먹이는 경우' },
+];
+
 export const NEUTERED_STATUS = ['완료', '안 함', '몰라요'] as const;
 export type NeuteredStatus = (typeof NEUTERED_STATUS)[number];
 
