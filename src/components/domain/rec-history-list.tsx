@@ -5,6 +5,7 @@ import type { RecommendationRow } from '@/lib/domain/types';
 import { modeLabel } from '@/lib/recommendation/labels';
 import { formatDate } from '@/lib/format';
 import { cn } from '@/lib/cn';
+import { catCallName } from '@/lib/domain/honorific';
 import { PriorityOrderBox } from './priority-order-box';
 
 /** 마이페이지 — 최근 추천 히스토리(최대 3건). 카드를 누르면 그 날짜 추천 요약을 펼쳐 보여준다. */
@@ -39,7 +40,7 @@ function RecHistoryItem({ row: r }: { row: RecommendationRow }) {
       >
         <div className="flex items-center justify-between gap-2">
           <div className="text-[14px] font-semibold text-brand-text">
-            {r.cat_name}님 추천
+            {catCallName(r.cat_name)} 추천
           </div>
           <div className="flex items-center gap-2">
             <span className="text-[12px] text-brand-faint">{formatDate(r.created_at)}</span>

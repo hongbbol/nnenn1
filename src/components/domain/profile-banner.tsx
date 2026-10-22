@@ -1,5 +1,6 @@
 import { CatAvatar } from '@/components/ui';
 import { AGE_LABELS } from '@/lib/domain/constants';
+import { catCallName } from '@/lib/domain/honorific';
 import type { RecInput } from '@/lib/recommendation';
 
 /** 추천 결과 상단 프로필 배너 — 어떤 아이 기준으로 추천했는지(dev-plan §M2 ProfileBanner). */
@@ -22,7 +23,7 @@ export function ProfileBanner({
       <CatAvatar size={56} name={input.name} imageSrc={imageSrc} />
       <div className="min-w-0">
         <div className="text-[18px] font-bold text-brand-text">
-          {input.name}님을 위한 추천
+          {catCallName(input.name)}를 위한 추천
         </div>
         <div className="mt-1.5 flex flex-wrap gap-1.5">
           {chips.map((c) => (

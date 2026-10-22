@@ -5,6 +5,7 @@ import { AddProfileButton } from '@/components/domain/add-profile-button';
 import { MyPageHistory } from '@/components/domain/mypage-history';
 import { getCurrentUser } from '@/lib/auth/user';
 import { CAT_LIMIT } from '@/lib/domain/constants';
+import { butlerName } from '@/lib/domain/honorific';
 import {
   getCatPhotoUrl,
   getOwnedCats,
@@ -25,9 +26,7 @@ export default async function MyPage() {
   // 프로필이 없으면 아직 온보딩 전 — 입력부터.
   if (cats.length === 0) redirect('/onboarding/basics');
 
-  const imageSrcs = await Promise.all(
-    cats.map((c) => getCatPhotoUrl(c.hero_image_path)),
-  );
+  const imageSrcs = await Promise.all(cats.map((c) => getCatPhotoUrl(c.hero_image_path)));
   const atLimit = cats.length >= CAT_LIMIT;
 
   return (
@@ -35,8 +34,10 @@ export default async function MyPage() {
       <TopNavServer />
       <div className="min-h-[calc(100vh-68px)] bg-brand-bg pb-24">
         <div className="mx-auto max-w-[820px] px-8 pt-10">
-          <h1 className="text-[30px] font-bold leading-[1.2] tracking-[-0.02em] text-brand-text">
-            마이페이지
+          <div className="text-[13px] font-semibold text-brand-blue-deep">마이페이지</div>
+          {/* 호칭 규칙: 카카오 닉네임 대신 "{고양이 이름}집사님"(2026-10-22). */}
+          <h1 className="mt-2 text-[30px] font-bold leading-[1.2] tracking-[-0.02em] text-brand-text">
+            {butlerName(cats.map((c) => c.name))}, 안녕하세요
           </h1>
 
           <section className="mt-7">
@@ -66,13 +67,7 @@ export default async function MyPage() {
   );
 }
 
-function SectionTitle({
-  children,
-  hint,
-}: {
-  children: React.ReactNode;
-  hint?: string;
-}) {
+function SectionTitle({ children, hint }: { children: React.ReactNode; hint?: string }) {
   return (
     <div className="mb-3 flex items-center gap-2">
       <h2 className="text-[16px] font-bold text-brand-text">{children}</h2>
