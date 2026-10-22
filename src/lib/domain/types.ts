@@ -1,4 +1,4 @@
-import type { AgeGroup, DietType, Goal, NeuteredStatus, Sex } from './constants';
+import type { AgeGroup, DietType, FormFilter, Goal, NeuteredStatus, Sex } from './constants';
 // type-only import — 런타임 순환 없음(타입은 컴파일 시 제거됨).
 import type { RecResult } from '@/lib/recommendation/types';
 
@@ -13,6 +13,8 @@ export type CatProfile = {
   weight_kg: number;
   neutered_status: NeuteredStatus;
   diet_type: DietType;
+  /** 추천 범위(제형 하드 필터). 기존 행 호환을 위해 nullable — null은 '전체'. */
+  form_filter?: FormFilter | null;
   current_food_id?: string | null;
   current_food_text?: string | null;
   health_conditions: string[];

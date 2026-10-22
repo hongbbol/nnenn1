@@ -1,4 +1,4 @@
-import type { AgeGroup, Goal } from '@/lib/domain/constants';
+import type { AgeGroup, FormFilter, Goal } from '@/lib/domain/constants';
 import type { Food } from '@/lib/domain/types';
 
 /** 엔진이 인식하는 질환 모드(규칙 레지스트리 §3). */
@@ -26,7 +26,10 @@ export type RecInput = {
   avoid: string[];
   /** 사용자가 추천에서 제외한 사료 id 목록. */
   excludeFoodIds: string[];
+  /** 현재 급여 형태(표시용). 점수에는 쓰지 않는다(2026-10-22: 가점 제거, 필터로 대체). */
   dietPref: '건식' | '습식' | '혼합' | null;
+  /** 추천 범위 — 제형 하드 필터(filter.ts). '건식만'은 모드별 경고 고지(selector). */
+  formFilter: FormFilter;
 };
 
 /** 후보가 hard 게이트에서 탈락한 이유. */

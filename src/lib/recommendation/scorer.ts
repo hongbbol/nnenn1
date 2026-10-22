@@ -21,7 +21,6 @@ import {
   CKD_SODIUM,
   DIABETES_CARB,
   fitMatches,
-  FORM_PREF_WEIGHT,
   KEYWORDS,
   matchesAny,
   PANCREATITIS_FAT_NOTICE_ME_SHARE,
@@ -229,22 +228,6 @@ function energyLever(food: Food, dir: 'low' | 'high', weight: number): Lever {
             label: dir === 'low' ? `적정 칼로리 ${shown}` : `에너지 밀도 ${shown}`,
           }
         : null,
-  };
-}
-
-/**
- * 제형 선호 — "주로 먹는 식단"과 같은 제형이면 소폭 가점(전환 용이). 혼합·미입력은 비활성.
- * 하드 필터가 아니라 요로(습식 1차) 같은 질환 레버가 다른 제형을 요구하면 그쪽이 이긴다.
- */
-function formPrefLever(food: Food, input: RecInput): Lever {
-  if (input.dietPref !== '건식' && input.dietPref !== '습식') return INACTIVE;
-  const match = food.category === input.dietPref;
-  return {
-    score: match ? 1 : 0,
-    weight: FORM_PREF_WEIGHT,
-    reason: match
-      ? { weight: 0.3, tone: 'info', label: `지금 먹는 ${input.dietPref}과 같은 제형 · 전환이 쉬워요` }
-      : null,
   };
 }
 
@@ -554,9 +537,8 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
     }
   }
 
-  // 전 모드 공통: 동반질환 보조 레버(§4-4) + 제형 선호(전환 용이) 소폭 가점.
+  // 전 모드 공통: 동반질환 보조 레버(§4-4). 제형 선호 가점은 두지 않는다(2026-10-22: 추천 범위 필터로 대체).
   levers.push(...secondaryLevers(food, input, primaryMode));
-  levers.push(formPrefLever(food, input));
   levers.push(rawFormatLever(food, 0.1));
 
   return aggregate(levers, food, curationBonus(food, input, primaryMode));

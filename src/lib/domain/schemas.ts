@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import {
   DIET_TYPES,
+  FORM_FILTERS,
   GOALS,
   HEALTH_IDS,
   HEALTH_OPTIONS,
@@ -72,6 +73,7 @@ export const basicsSchema = basicsObject.superRefine(refineBirthDate);
 
 export const dietSchema = z.object({
   diet_type: z.enum(DIET_TYPES),
+  form_filter: z.enum(FORM_FILTERS).default('전체'),
   current_food_text: z.string().trim().max(120).nullish(),
   avoid_ingredients: z.array(z.string()).default([]),
   exclude_food_ids: z.array(z.string()).default([]),

@@ -72,12 +72,6 @@ export const CKD_CA_P = {
  */
 export const PANCREATITIS_FAT_NOTICE_ME_SHARE = 0.5;
 
-/**
- * 제형 선호 — 온보딩 "주로 먹는 식단"(건식/습식/혼합)과 같은 제형은 전환이 쉬워 소폭 가점.
- * 하드 필터가 아니다 — 요로(습식 1차)처럼 질환 레버가 다른 제형을 요구하면 그쪽이 이긴다.
- */
-export const FORM_PREF_WEIGHT = 0.12;
-
 /** 동반질환 보조 레버 가중 배율(레지스트리 §4-4 ④ — 하위 질환은 soft). */
 export const SECONDARY_LEVER_FACTOR = 0.4;
 

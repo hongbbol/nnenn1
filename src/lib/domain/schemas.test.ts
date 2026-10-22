@@ -145,6 +145,13 @@ describe('dietSchema', () => {
       dietSchema.safeParse({ diet_type: '습식', avoid_ingredients: [] }).success,
     ).toBe(true);
   });
+
+  it('form_filter는 기본 전체, 열거값만 허용', () => {
+    const r = dietSchema.safeParse({ diet_type: '습식', avoid_ingredients: [] });
+    expect(r.success && r.data.form_filter).toBe('전체');
+    expect(dietSchema.safeParse({ diet_type: '습식', form_filter: '건식만' }).success).toBe(true);
+    expect(dietSchema.safeParse({ diet_type: '습식', form_filter: '캔만' }).success).toBe(false);
+  });
 });
 
 describe('healthSchema — dev-plan §3.3 biz rules', () => {

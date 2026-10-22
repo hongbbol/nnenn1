@@ -110,6 +110,7 @@ export async function saveCatAndRecommend(
       weight_kg: cat.weight_kg!,
       neutered_status: cat.neutered_status!,
       diet_type: cat.diet_type!,
+      form_filter: cat.form_filter ?? '전체',
       current_food_id: currentFoodId,
       current_food_text: currentFoodId ? null : cat.current_food_text?.trim() || null,
       health_conditions: cat.health_conditions ?? [],

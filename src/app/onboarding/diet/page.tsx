@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Check } from 'lucide-react';
 import { Chip, Segmented, Small } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
-import { DIET_TYPES, POPULAR_FOODS } from '@/lib/domain/constants';
+import { DIET_TYPES, FORM_FILTERS, FORM_FILTER_OPTIONS, POPULAR_FOODS } from '@/lib/domain/constants';
 import { foodOptionLabel, getFoodOptions, type FoodOption } from '@/lib/recommendation';
 import { dietSchema } from '@/lib/domain/schemas';
 import { fetchFoodOptions } from '../_actions';
@@ -38,8 +38,10 @@ export default function DietStep() {
     }
   }, [foodOptions, cat.current_food_id, cat.current_food_text, setCat]);
 
+  const formFilter = cat.form_filter ?? '전체';
   const parsed = dietSchema.safeParse({
     diet_type: cat.diet_type ?? '',
+    form_filter: formFilter,
     current_food_text: cat.current_food_text ?? '',
     exclude_food_ids: excluded,
   });
@@ -52,6 +54,19 @@ export default function DietStep() {
           options={DIET_TYPES}
           value={cat.diet_type ?? ''}
           onChange={(v) => setCat({ diet_type: v })}
+        />
+      </div>
+
+      <div>
+        <FieldLabel
+          hint={<Small>{FORM_FILTER_OPTIONS.find((o) => o.id === formFilter)?.desc}</Small>}
+        >
+          추천 범위
+        </FieldLabel>
+        <Segmented
+          options={FORM_FILTERS}
+          value={formFilter}
+          onChange={(v) => setCat({ form_filter: v })}
         />
       </div>
 

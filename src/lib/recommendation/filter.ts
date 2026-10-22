@@ -46,6 +46,13 @@ export function gateFood(food: Food, input: RecInput): ExclusionReason[] {
     reasons.push({ code: 'user_excluded', label: '사용자가 제외한 사료' });
   }
 
+  // 0-0b. 추천 범위(제형 하드 필터, 2026-10-22 사용자 결정) — 습식/건식을 못 먹이는 실제 제약.
+  if (input.formFilter === '건식만' && food.category !== '건식') {
+    reasons.push({ code: 'form_filter', label: '습식 (추천 범위: 건식만)' });
+  } else if (input.formFilter === '습식만' && food.category !== '습식') {
+    reasons.push({ code: 'form_filter', label: '건식 (추천 범위: 습식만)' });
+  }
+
   // 0-1. 한국 유통 — 구매 불가 사료는 추천 불가(데이터스키마 §유통 kr_distributed).
   if (!food.kr_available) {
     reasons.push({ code: 'kr_unavailable', label: '한국 미유통 (구매 불가)' });

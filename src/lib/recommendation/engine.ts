@@ -51,6 +51,7 @@ export function toRecInput(cat: GuestCat): RecInput | null {
     avoid: [],
     excludeFoodIds: cat.exclude_food_ids ?? [],
     dietPref: cat.diet_type ?? null,
+    formFilter: cat.form_filter ?? '전체',
   };
 }
 
@@ -64,8 +65,13 @@ export function recommend(input: RecInput, foods: Food[]): RecResult {
   // ① 응급 체크 — 현재 UI는 만성 질환만 수집하므로 응급 진입점 없음(급성 췌장염 미수집).
   const emergency = false;
 
-  // ③ hard 필터.
-  const { passed, excluded } = filterFoods(foods, input);
+  // ③ hard 필터. 제형 필터 때문에 후보가 0이면 필터만 풀고 다시 걸러 빈 결과를 피한다(고지).
+  let { passed, excluded } = filterFoods(foods, input);
+  let formFilterRelaxed = false;
+  if (passed.length === 0 && input.formFilter !== '전체') {
+    ({ passed, excluded } = filterFoods(foods, { ...input, formFilter: '전체' }));
+    formFilterRelaxed = true;
+  }
 
   // ② 충돌 처리 — 우선 질환 결정.
   const primaryMode = resolvePrimaryMode(input);
@@ -77,8 +83,11 @@ export function recommend(input: RecInput, foods: Food[]): RecResult {
   // 상위에 노출하지 않는다 — 신뢰 가능한 후보가 2개 이상이면 결측 후보는 뒤로, 3-4기는 아예 보류.
   const { pool, heldCount } = applySufficiencyHold(scored, primaryMode);
 
-  // ⑥ TOP 2 — 다양성 휴리스틱(dev-plan §4.5): 2위는 1위와 제형·브랜드가 다른 후보 우선.
-  const top = pickTopDiverse(pool);
+  // ⑥ TOP 2 — 적합도 순수 순위(2026-10-22 사용자 결정). dev-plan §4.5 다양성 휴리스틱(2위 다른 제형·
+  // 브랜드)은 적용하지 않는다: 2위가 '임상적으로 덜 적합한 대안'이 되는 비용이 있어 보류. 여러 케이스
+  // 테스트 가동 후 "너무 비슷한 사료(형제 제품)"가 반복 확인되면 그때 방법을 고안한다 — seed-regression
+  // 테스트가 같은 브랜드/제형 TOP 2 비율을 진단 로그로 남긴다(PENDING §0-0 기록).
+  const top = pool.slice(0, 2);
 
   // TOP 카드에 상대비교 설명 부여 — 통과 후보군 대비 1차 지표 상위 %(카드 "왜" 보강).
   for (const t of top) {
@@ -97,7 +106,7 @@ export function recommend(input: RecInput, foods: Food[]): RecResult {
     priorityOrder: buildPriorityOrder(input, primaryMode),
     top,
     excluded,
-    notices: buildNotices(input, primaryMode, { heldCount }),
+    notices: buildNotices(input, primaryMode, { heldCount, formFilterRelaxed }),
   };
 }
 
@@ -120,28 +129,6 @@ export function applySufficiencyHold(
   return { pool: scored, heldCount: 0 };
 }
 
-/** 2위 후보가 1위 대비 이 비율 미만이면 다양성보다 점수를 우선(dev-plan §4.5 "30%+ 차이"). */
-const DIVERSITY_SCORE_FLOOR = 0.7;
-
-/**
- * TOP 2 선정 — 1위는 최고점. 2위는 ① 제형·브랜드 모두 다른 후보 ② 브랜드만 다른 후보 ③ 차순위 순으로,
- * 단 1위 점수의 70% 이상일 때만 다양성 후보를 채택한다. 실데이터에서 같은 브랜드 형제 제품
- * (젤리/그레이비 파우치)이 1·2위를 동시에 차지하던 문제(2026-10-20 검토) 대응.
- */
-export function pickTopDiverse(pool: ScoredFood[]): ScoredFood[] {
-  if (pool.length === 0) return [];
-  const first = pool[0];
-  if (pool.length === 1) return [first];
-  const floor = first.score * DIVERSITY_SCORE_FLOOR;
-  const rest = pool.slice(1);
-  const otherBrand = (s: ScoredFood) => s.food.brand !== first.food.brand;
-  const otherForm = (s: ScoredFood) => s.food.category !== first.food.category;
-  const second =
-    rest.find((s) => s.score >= floor && otherBrand(s) && otherForm(s)) ??
-    rest.find((s) => s.score >= floor && otherBrand(s)) ??
-    rest[0];
-  return [first, second];
-}
 
 /** 프로필에서 바로 추천을 생성하는 편의 함수. */
 export function recommendFromProfile(cat: GuestCat, foods: Food[]): RecResult | null {
