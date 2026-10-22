@@ -14,6 +14,14 @@ type GuestState = {
    */
   editMode: boolean;
   demoMode: boolean;
+  /**
+   * 이 입력 버퍼의 주인(auth user id). 로그인 계정이 바뀌면(다른 사용자·로그아웃) 버퍼를 비운다 —
+   * 같은 브라우저에서 이전 계정의 고양이 입력이 새 계정 온보딩에 딸려오던 버그(2026-10-22, 카카오 신규
+   * 계정에 Google 계정의 '낭낭'이 보임). null = 아직 동기화 전.
+   */
+  ownerId: string | null;
+  /** 현재 로그인 사용자 id로 동기화. 주인이 다르면 전체 리셋 후 주인 갱신. */
+  syncOwner: (userId: string | null) => void;
   setCat: (patch: Partial<GuestCat>) => void;
   /**
    * 폼 초기화. keepEditingId:true면 editingCatId·editMode를 유지(온보딩 "비우기" —
@@ -38,6 +46,18 @@ export const useGuestStore = create<GuestState>()(
       editingCatId: null,
       editMode: false,
       demoMode: false,
+      ownerId: null,
+      syncOwner: (userId) =>
+        set((s) => {
+          if (s.ownerId === userId) return {};
+          return {
+            ownerId: userId,
+            cat: INITIAL_CAT,
+            editingCatId: null,
+            editMode: false,
+            demoMode: false,
+          };
+        }),
       setCat: (patch) =>
         set((s) => ({
           cat: { ...s.cat, ...patch },
@@ -60,13 +80,15 @@ export const useGuestStore = create<GuestState>()(
       // v3: 멀티 프로필 — editingCatId 추가(누락 시 null = 신규 입력으로 간주).
       // v4: editMode 분리 — 기존 persist에 남은 editingCatId가 추천 플로우의 "다음"을
       //     숨기던 회귀 수정. 누락 시 false = 추천 풀 플로우로 간주.
-      version: 4,
+      // v5: ownerId 추가 — 누락 시 null → 다음 syncOwner에서 리셋(이전 계정 잔존 데이터 제거).
+      version: 5,
       migrate: (persisted, fromVersion) => {
         const state = (persisted ?? {}) as {
           cat?: GuestCat;
           editingCatId?: string | null;
           editMode?: boolean;
           demoMode?: boolean;
+          ownerId?: string | null;
         };
         if (fromVersion < 2 && state.cat) {
           state.cat = { ...state.cat, avoid_ingredients: [] };
@@ -77,6 +99,9 @@ export const useGuestStore = create<GuestState>()(
         if (fromVersion < 4) {
           state.editMode = false;
         }
+        if (fromVersion < 5) {
+          state.ownerId = null;
+        }
         return state;
       },
       storage: createJSONStorage(() => localStorage),
@@ -85,7 +110,7 @@ export const useGuestStore = create<GuestState>()(
       partialize: (s) => {
         const { hero_image_preview, ...cat } = s.cat;
         void hero_image_preview;
-        return { cat, editingCatId: s.editingCatId, editMode: s.editMode, demoMode: s.demoMode };
+        return { cat, editingCatId: s.editingCatId, editMode: s.editMode, demoMode: s.demoMode, ownerId: s.ownerId };
       },
     },
   ),
