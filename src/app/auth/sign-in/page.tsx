@@ -4,6 +4,7 @@ import { TopNav } from '@/components/layout/top-nav';
 import { getCurrentUser } from '@/lib/auth/user';
 import { safeRedirectPath } from '@/lib/auth/safe-redirect';
 import { GoogleSignInButton } from './_google-button';
+import { KakaoSignInButton } from './_kakao-button';
 
 export default async function SignInPage({
   searchParams,
@@ -33,7 +34,9 @@ export default async function SignInPage({
             </p>
           )}
 
-          <div className="mt-6">
+          {/* 카카오가 주 로그인(2026-10-22 결정). Google은 기존 계정 호환용 보조 — 제거 여부는 사용자 결정. */}
+          <div className="mt-6 flex flex-col gap-2.5">
+            <KakaoSignInButton next={next} />
             <GoogleSignInButton next={next} />
           </div>
 

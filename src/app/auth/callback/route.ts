@@ -3,7 +3,7 @@ import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { safeRedirectPath } from '@/lib/auth/safe-redirect';
 
 /**
- * OAuth callback. Supabase redirects here with `?code=` after Google consent.
+ * OAuth callback. Supabase redirects here with `?code=` after Kakao/Google consent.
  * Must be a Route Handler: `exchangeCodeForSession` writes session cookies,
  * which Next.js only permits in handlers/actions/middleware. The cookies ride
  * back on this handler's redirect response.
