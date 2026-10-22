@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { ConfirmDialog } from '@/components/ui/confirm-dialog';
 import { toRecInput } from '@/lib/recommendation/engine';
-import { formFilterWarnings } from '@/lib/recommendation/form-filter-warnings';
+import { formFilterWarningItems } from '@/lib/recommendation/form-filter-warnings';
 import { useGuestStore } from '@/lib/guest-store';
 import { useSaveProfile } from '@/lib/onboarding/use-save-profile';
 import { trackEvent } from '@/lib/analytics';
@@ -31,7 +31,7 @@ export function OnboardingNav({ step, canProceed, onNext }: Props) {
   // '알고있어요' → 저장·추천 진행, '다시 선택하기' → 식단 단계로 돌아가 추천 범위를 바꿀 수 있게.
   const [confirmOpen, setConfirmOpen] = useState(false);
   const recInput = isLast ? toRecInput(cat) : null;
-  const warnings = recInput ? formFilterWarnings(recInput) : [];
+  const warnings = recInput ? formFilterWarningItems(recInput) : [];
 
   const handleBack = useCallback(() => {
     if (step === 0) router.push('/');
@@ -128,9 +128,10 @@ export function OnboardingNav({ step, canProceed, onNext }: Props) {
       >
         {warnings.map((w, i) => (
           <p key={i} className="rounded-[12px] bg-brand-blue px-4 py-3 text-brand-blue-deep">
-            {w}
+            {w.body}
           </p>
         ))}
+        <p className="text-[14px] font-semibold text-brand-text">그대로 진행하시겠어요?</p>
         <p className="text-[12.5px] text-brand-sub">
           &lsquo;다시 선택하기&rsquo;를 누르면 식단 단계로 돌아가 추천 범위를 바꿀 수 있어요.
         </p>

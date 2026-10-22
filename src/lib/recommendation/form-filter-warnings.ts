@@ -9,35 +9,55 @@ import type { DiseaseMode } from './types';
  * 순수 함수 — 서버(selector.buildNotices → 결과 화면 고지)와 클라이언트(온보딩 '추천 받기' 확인 창)가
  * 같은 문구를 쓴다.
  */
+export type FormFilterWarning = {
+  /** 사실·영향 설명(확인 창·결과 화면 공통). */
+  body: string;
+  /** 권고(수의사 상의 등) — 결과 화면에만 붙인다. 확인 창은 대신 "그대로 진행하시겠어요?"로 끝낸다(2026-10-22 사용자). */
+  advice?: string;
+};
+
+export function formFilterWarningItems(input: {
+  formFilter: FormFilter;
+  diseases: DiseaseMode[];
+  goal: Goal;
+}): FormFilterWarning[] {
+  const out: FormFilterWarning[] = [];
+  if (input.formFilter !== '건식만') return out;
+  const ds = input.diseases;
+  if (ds.includes('struvite') || ds.includes('oxalate')) {
+    out.push({
+      body: '⚠️ 요로 결석은 수분(습식·희석)이 1차 관리 수단이에요. 건식만으로 제한하면 핵심 관리 수단을 빼고 고르게 돼요.',
+      advice: '음수 유도(급수기·물 추가)와 습식 병행 가능성을 수의사와 상의하세요.',
+    });
+  }
+  if (ds.includes('ckd_34')) {
+    out.push({
+      body: '⚠️ 신부전 3-4기는 수분 관리가 핵심이에요. 건식 신장식도 표준 처방식이지만 탈수 위험이 커져요.',
+      advice: '물 섭취량 확보와 습식 병행 여부를 수의사와 확인하세요.',
+    });
+  } else if (ds.includes('ckd_early') || ds.includes('ckd_12')) {
+    out.push({ body: '신부전은 수분 섭취가 중요해요. 건식만 급여한다면 음수량을 챙겨 주세요.' });
+  }
+  if (ds.includes('diabetes')) {
+    out.push({
+      body: '⚠️ 건식은 대개 탄수화물이 높아 당뇨 후보가 크게 줄고 신뢰도가 낮아져요. 저탄수 건식이 드물어 습식 병행이 권장되는 질환이에요.',
+      advice: '수의사와 상의하세요.',
+    });
+  }
+  if (input.goal === '체중관리 - 감량') {
+    out.push({
+      body: '감량은 수분이 많은 습식이 포만감·칼로리 조절에 유리해요. 건식만 추천이라 급여량(그램) 관리가 더 중요해요.',
+      advice: '주당 0.5~1% 이상 급속 감량은 피하세요.',
+    });
+  }
+  return out;
+}
+
+/** 결과 화면 고지용 — 설명 + 권고를 한 문장으로. */
 export function formFilterWarnings(input: {
   formFilter: FormFilter;
   diseases: DiseaseMode[];
   goal: Goal;
 }): string[] {
-  const out: string[] = [];
-  if (input.formFilter !== '건식만') return out;
-  const ds = input.diseases;
-  if (ds.includes('struvite') || ds.includes('oxalate')) {
-    out.push(
-      '⚠️ 요로 결석은 수분(습식·희석)이 1차 관리 수단이에요. 건식만으로 제한해 핵심 레버를 빼고 고른 결과예요 — 음수 유도(급수기·물 추가)와 습식 병행 가능성을 수의사와 상의하세요.',
-    );
-  }
-  if (ds.includes('ckd_34')) {
-    out.push(
-      '⚠️ 신부전 3-4기는 수분 관리가 핵심이에요. 건식 신장식도 표준 처방식이지만, 탈수 예방을 위해 물 섭취량 확보와 습식 병행 여부를 수의사와 확인하세요.',
-    );
-  } else if (ds.includes('ckd_early') || ds.includes('ckd_12')) {
-    out.push('신부전은 수분 섭취가 중요해요. 건식만 급여한다면 음수량을 챙겨 주세요.');
-  }
-  if (ds.includes('diabetes')) {
-    out.push(
-      '⚠️ 건식은 대개 탄수화물이 높아 당뇨 후보가 크게 줄고 신뢰도가 낮아져요. 저탄수 건식이 드물어 습식 병행이 권장되는 질환이에요 — 수의사와 상의하세요.',
-    );
-  }
-  if (input.goal === '체중관리 - 감량') {
-    out.push(
-      '감량은 수분이 많은 습식이 포만감·칼로리 조절에 유리해요. 건식만 추천이라 급여량(그램) 관리가 더 중요해요 — 주당 0.5~1% 이상 급속 감량은 피하세요.',
-    );
-  }
-  return out;
+  return formFilterWarningItems(input).map((w) => (w.advice ? `${w.body} — ${w.advice}` : w.body));
 }
