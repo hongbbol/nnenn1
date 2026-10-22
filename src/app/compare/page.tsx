@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { Info, Scale } from 'lucide-react';
 import { TopNavServer } from '@/components/layout/top-nav-server';
+import { catCallName } from '@/lib/domain/honorific';
 import { ComparisonTable } from '@/components/domain/comparison-table';
 import { getCurrentUser } from '@/lib/auth/user';
 import { getFoodById, getOwnedCat, getRecentRecommendations } from '@/lib/data/queries';
@@ -38,7 +39,7 @@ export default async function ComparePage() {
             비교
           </div>
           <h1 className="mt-2 text-[30px] font-bold leading-[1.2] tracking-[-0.02em] text-brand-text">
-            {cat.name}님의 현재 사료와 추천을 비교했어요
+            {catCallName(cat.name)}의 현재 사료와 추천을 비교했어요
           </h1>
 
           {baseline.source !== 'db' && (
