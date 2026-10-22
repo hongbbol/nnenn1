@@ -103235,8 +103235,10 @@
     "magnesium_pct": null,
     "calcium_pct": null,
     "kcal_per_100g": 93.2,
-    "ingredient_summary": "칠면조(심장, 간, 위, 정육, 목), 미네랄, 유채유",
-    "ingredient_keywords": [],
+    "ingredient_summary": "칠면조(심장, 간, 위, 정육, 목), 미네랄, 유채유, 카라기난, 로커스트콩검, 구아검",
+    "ingredient_keywords": [
+      "carrageenan"
+    ],
     "form": "wet",
     "rec_daily_g": 238,
     "tags": [
@@ -103247,9 +103249,9 @@
     "price_per_kg_krw": null,
     "active": true,
     "kr_available": true,
-    "made_in_country": null,
-    "manufacturer": null,
-    "origin_basis": null,
+    "made_in_country": "독일",
+    "manufacturer": "Saturn Petcare GmbH",
+    "origin_basis": "판매처 법정고시(A) 2026-10-22 https://brand.naver.com/qtopet/products/13647092786",
     "exclusion_reason": null,
     "food_role": "주식",
     "life_stage_raw": "Adult"
