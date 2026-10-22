@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Card, H2 } from '@/components/ui';
 import { TopNav } from '@/components/layout/top-nav';
@@ -41,7 +42,15 @@ export default async function SignInPage({
           </div>
 
           <p className="mt-5 text-center text-[12px] leading-relaxed text-brand-faint">
-            로그인하면 이용약관과 개인정보처리방침에 동의하는 것으로 간주됩니다.
+            로그인하면{' '}
+            <Link href="/legal/terms" className="underline">
+              이용약관
+            </Link>
+            과{' '}
+            <Link href="/legal/privacy" className="underline">
+              개인정보처리방침
+            </Link>
+            에 동의하는 것으로 간주됩니다. 만 14세 이상만 이용할 수 있어요.
           </p>
         </Card>
       </main>
