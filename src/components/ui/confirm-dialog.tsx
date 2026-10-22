@@ -14,6 +14,7 @@ export function ConfirmDialog({
   cancelLabel,
   onConfirm,
   onCancel,
+  onClose,
   busy,
 }: {
   open: boolean;
