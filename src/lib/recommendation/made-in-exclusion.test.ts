@@ -20,7 +20,7 @@ interface SeedRow extends Omit<Food, 'id'> {
   source_sku_id: string;
   made_in_country: string | null;
   manufacturer: string | null;
-  exclusion_reason: 'china_made' | 'china_hq_presumed' | null;
+  exclusion_reason: 'china_made' | 'china_hq_presumed' | 'duplicate_listing' | null;
 }
 const SEED: SeedRow[] = JSON.parse(
   readFileSync(join(ROOT, 'scripts/etl/foods.seed.json'), 'utf8'),

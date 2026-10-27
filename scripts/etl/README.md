@@ -44,6 +44,10 @@ GH 이슈 #16 트랙 B. nnenn2 리서치 데이터를 nnenn1 `public.foods` 테�
   **`scripts/etl/exclusion_report.md`**(제외 목록·근거·브랜드별 제조국 확인 현황)로 본다.
   컬럼은 `supabase/apply_foods_made_in.sql`을 대시보드에서 먼저 적용해야 업서트가 된다.
   테스트 = `src/lib/recommendation/made-in-exclusion.test.ts`.
+- **중복 등재 제외(2026-10-27 신설)**: 공식 사이트가 같은 제품을 슬러그 둘로 올려 04_SKUs에 두 번 등재된 경우
+  (힐스 k/d 오션피쉬 S1433/S1434), 중복 쪽 `04_SKUs.notes`에 `[ETL-DUPLICATE-OF:S1433]` 태그 →
+  **`active=false` + `exclusion_reason=duplicate_listing`**(원본만 노출). 시트 행·자식 행은 출처 보존을 위해 삭제하지 않는다.
+  DB check 제약 확장 = `supabase/migrations/20261027000002_foods_exclusion_reason_duplicate.sql`(업서트 전에 대시보드 적용).
 - `food_role`: completeness → 주식(Complete) / 보조식(Supplemental·Complementary) / 간식(Treat).
 - `age_fit`: life_stage → nnenn1 버킷(1+/7+/11+/15+). 키튼은 `[]` + `키튼` 태그로 보존.
 - `condition_fit`: 처방식만, **SKU 이름+life_stage**로 한정 매핑(Line.positioning은 라인 전체 범위라 미사용).
