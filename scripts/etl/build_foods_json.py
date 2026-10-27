@@ -28,17 +28,25 @@ REPORT_PATH = os.path.join(os.path.dirname(__file__), "exclusion_report.md")
 #   china_made        = 04_SKUs.made_in_country가 '중국'(라벨·고시 근거)
 #   china_hq_presumed = 제조국 미확인 + 브랜드 본사(02_Brands.hq_country) China → 중국 제조로 추정
 # 제외는 active=false(RLS·쿼리·엔진 filter 3중으로 일반 사용자에게 안 보임) + exclusion_reason 기록.
+#   duplicate_listing = 같은 제품이 공식 사이트에 슬러그 둘로 올라 04_SKUs에 두 번 등재된 경우(2026-10-27,
+#                       힐스 k/d 오션피쉬 S1433/S1434). 04_SKUs.notes의 `[ETL-DUPLICATE-OF:S1433]` 태그로
+#                       중복 쪽만 제외 — 행·자식 행은 출처 보존을 위해 시트에 남긴다. DB check 제약은
+#                       supabase/migrations/20261027000002_foods_exclusion_reason_duplicate.sql.
 EXCLUSION_LABELS = {
     "china_made": "중국 제조(확인)",
     "china_hq_presumed": "중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정",
+    "duplicate_listing": "중복 등재 — 같은 제품의 다른 슬러그(원본 SKU만 노출)",
 }
+DUPLICATE_TAG = "[ETL-DUPLICATE-OF:"
 
 
-def derive_exclusion(made_in_country, brand_hq):
+def derive_exclusion(made_in_country, brand_hq, sku_notes=""):
     if (made_in_country or "").strip() == "중국":
         return "china_made"
     if not (made_in_country or "").strip() and (brand_hq or "").strip() == "China":
         return "china_hq_presumed"
+    if DUPLICATE_TAG in str(sku_notes or ""):
+        return "duplicate_listing"
     return None
 
 
@@ -48,6 +56,12 @@ def selftest_derive_exclusion():
              ("", "United States", None), ("대한민국", "South Korea", None), (None, None, None)]
     fails = [f"  {m!r}/{hq!r} → {derive_exclusion(m, hq)}, 기대 {e}" for m, hq, e in cases
              if derive_exclusion(m, hq) != e]
+    # 중복 등재 태그 — 중국 판정이 우선(중국 제조 누락 검사 유지), 태그 없으면 영향 없음.
+    dup_cases = [("미국", "United States", "[KR-EXP-25n] … [ETL-DUPLICATE-OF:S1433] …", "duplicate_listing"),
+                 ("중국", "China", "[ETL-DUPLICATE-OF:S0001]", "china_made"),
+                 ("미국", "United States", "S1433 페이지와 동일(태그 없음)", None)]
+    fails += [f"  notes={n!r} → {derive_exclusion(m, hq, n)}, 기대 {e}" for m, hq, n, e in dup_cases
+              if derive_exclusion(m, hq, n) != e]
     if fails:
         print("❌ derive_exclusion 셀프테스트 실패:", file=sys.stderr)
         print("\n".join(fails), file=sys.stderr)
@@ -839,7 +853,8 @@ def write_exclusion_report(rows):
     kr = [r for r in rows if r["kr_available"]]
     known = [r for r in kr if r["made_in_country"]]
     L = ["# 추천 제외·제조국 현황 (관리자용, ETL 자동 생성 — 손으로 고치지 말 것)", "",
-         "정책: **중국 제조는 추천 제외**(2026-10-20). 제외 SKU는 `active=false` + `exclusion_reason` — "
+         "정책: **중국 제조는 추천 제외**(2026-10-20) · **중복 등재는 원본만 노출**(2026-10-27). "
+         "제외 SKU는 `active=false` + `exclusion_reason` — "
          "일반 사용자 화면·추천에 나오지 않고 Supabase 대시보드에서만 보인다. "
          "제조국 입력 = nnenn2 `04_SKUs.made_in_country`(set_sku_origin).", "",
          "## 요약", "",
@@ -949,7 +964,7 @@ def main():
         if kr_available and "[KR-NOT-DISTRIBUTED" in str(s.get("notes") or ""):
             kr_available = False
         made_in = (s.get("made_in_country") or "").strip() or None
-        exclusion = derive_exclusion(made_in, brand.get("hq_country"))
+        exclusion = derive_exclusion(made_in, brand.get("hq_country"), s.get("notes"))
         rec_daily_g = derive_rec_daily_g(feeds)
         tags = derive_tags(role, life_stage, s.get("sku_name_en"),
                            s.get("sku_name_ko"), is_therapeutic)

@@ -371,7 +371,7 @@
   {
     "source_sku_id": "S0007",
     "brand": "Hill's Pet Nutrition",
-    "product_name": "처방식 c/d 멀티케어 치킨 드라이",
+    "product_name": "처방식 c/d 멀티케어 치킨 드라이(통옥수수 포뮬러)",
     "category": "건식",
     "age_fit": [
       "1+",
@@ -77192,7 +77192,7 @@
   {
     "source_sku_id": "S1425",
     "brand": "Hill's Pet Nutrition",
-    "product_name": "힐스 프리스크립션 다이어트 GI바이옴 치킨&채소 스튜 반려묘용 건사료",
+    "product_name": "GI바이옴 치킨&채소 스튜 반려묘용 습식사료",
     "category": "습식",
     "age_fit": [
       "1+",
@@ -77797,12 +77797,12 @@
     "image_url": null,
     "affiliate_links": null,
     "price_per_kg_krw": null,
-    "active": true,
+    "active": false,
     "kr_available": true,
     "made_in_country": null,
     "manufacturer": null,
     "origin_basis": null,
-    "exclusion_reason": null,
+    "exclusion_reason": "duplicate_listing",
     "food_role": "주식",
     "life_stage_raw": "adult"
   },
@@ -110050,7 +110050,7 @@
   {
     "source_sku_id": "S2039",
     "brand": "Hill's Pet Nutrition",
-    "product_name": "c/d 멀티케어 반려묘용 건사료(치킨) — KR 공식 보리 포뮬러 (통옥수수 포뮬러는 S0007)",
+    "product_name": "c/d 멀티케어 반려묘용 건사료(치킨, 보리 포뮬러)",
     "category": "건식",
     "age_fit": [
       "1+",
