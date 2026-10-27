@@ -1,6 +1,10 @@
 import 'server-only';
-import { createSupabaseServerClient } from '@/lib/supabase/server';
+import {
+  createSupabaseServerClient,
+  createSupabaseServiceClient,
+} from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/auth/user';
+import type { SupabaseClient } from '@supabase/supabase-js';
 import type {
   CatRow,
   ComparisonRow,
@@ -124,15 +128,29 @@ export async function getRecentComparisons(limit = 5): Promise<ComparisonRow[]> 
 }
 
 /**
+ * foods 읽기용 클라이언트 — service_role 우선. 키가 없는 환경(배포 env 누락·로컬)에서는 anon 세션
+ * 클라이언트로 폴백해 500 대신 동작을 유지하되, 로그로 드러낸다(공개 읽기 정책 제거 후엔 0행 → 시드 폴백).
+ */
+async function foodsClient(): Promise<SupabaseClient> {
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) return createSupabaseServiceClient();
+  console.error(
+    '[queries] SUPABASE_SERVICE_ROLE_KEY 미설정 — foods를 anon으로 읽습니다. 공개 읽기 정책이 제거된 DB에서는 0행입니다.',
+  );
+  return createSupabaseServerClient();
+}
+
+/**
  * 추천 후보 사료 전체(active=true) — nnenn2 ETL로 시드된 `foods` 테이블.
  *
  * - PostgREST 기본 max_rows(1000) 때문에 1333행은 range 페이지네이션으로 수집.
  * - 레거시 안전 매핑: 마이그레이션 이전 행엔 kr_available/미네랄 컬럼이 없을 수 있어
  *   `kr_available ?? true`(구 시드 통과), 미네랄은 `?? null`.
  * - 실패/빈 테이블이면 [] 반환 — 호출부가 SEED_FOODS로 폴백한다.
+ * - service_role로 읽는다: foods는 공개 읽기 정책을 제거해(데이터셋 유출 방지) anon/authenticated로는
+ *   0행이 나온다. 이 모듈은 'server-only'라 키가 클라이언트로 새지 않는다.
  */
 export async function getRecommendationFoods(): Promise<Food[]> {
-  const supabase = await createSupabaseServerClient();
+  const supabase = await foodsClient();
   const PAGE = 1000;
   const rows: Record<string, unknown>[] = [];
   for (let from = 0; ; from += PAGE) {
@@ -194,7 +212,7 @@ function mapFoodRow(r: Record<string, unknown>): Food {
  * 실패/빈 테이블이면 [] 반환 — 호출부가 시드 옵션으로 폴백한다.
  */
 export async function getFoodOptionRows(): Promise<FoodOption[]> {
-  const supabase = await createSupabaseServerClient();
+  const supabase = await foodsClient();
   const PAGE = 1000;
   const rows: FoodOption[] = [];
   for (let from = 0; ; from += PAGE) {
@@ -222,7 +240,7 @@ export async function getFoodOptionRows(): Promise<FoodOption[]> {
 
 /** id로 사료 1건(active) 조회 — 비교 baseline(현재 사료) 해석용. 없으면 null. */
 export async function getFoodById(id: string): Promise<Food | null> {
-  const supabase = await createSupabaseServerClient();
+  const supabase = await foodsClient();
   const { data, error } = await supabase
     .from('foods')
     .select('*')

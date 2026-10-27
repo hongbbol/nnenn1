@@ -28,7 +28,8 @@ function loadEnv(): Record<string, string> {
 /** queries.ts getRecommendationFoods와 동일한 매핑(서버 전용 모듈이라 복제). */
 async function fetchFoods(): Promise<Food[]> {
   const env = loadEnv();
-  const sb = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  // foods는 공개 읽기 정책을 제거해 anon으로는 0행 — 프로덕션(queries.ts)과 같이 service_role로 읽는다.
+  const sb = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
   const PAGE = 1000;
   const rows: Record<string, unknown>[] = [];
   for (let from = 0; ; from += PAGE) {
