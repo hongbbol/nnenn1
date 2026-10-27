@@ -3,6 +3,7 @@ import { useGuestStore } from '@/lib/guest-store';
 import { createSupabaseBrowserClient } from '@/lib/supabase/browser';
 import { uploadCatPhotoClient } from '@/lib/storage/client-upload';
 import { saveCatAndRecommend, type SaveResult } from '@/app/onboarding/_actions';
+import { invalidateCatFoodHistory } from '@/lib/onboarding/food-history-client';
 
 /**
  * 온보딩 버퍼(store)의 고양이를 저장하고 추천을 1회 계산한다.
@@ -28,6 +29,9 @@ export function useSaveProfile(): () => Promise<SaveResult> {
     }
     const { hero_image_preview, ...catData } = cat;
     void hero_image_preview;
-    return saveCatAndRecommend(catData, heroPath, editingCatId);
+    const result = await saveCatAndRecommend(catData, heroPath, editingCatId);
+    // 기록 칩 캐시 갱신 — 신규 프로필은 id를 모르니 전체 비움.
+    if (result.ok) invalidateCatFoodHistory(editingCatId ?? null);
+    return result;
   };
 }

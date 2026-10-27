@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Input, Segmented } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
+import { loadCatFoodHistory } from '@/lib/onboarding/food-history-client';
 import { NEUTERED_STATUS, SEXES, ageGroupFromBirthYear } from '@/lib/domain/constants';
 import { basicsSchema } from '@/lib/domain/schemas';
 import { PhotoUploadSlot } from '@/components/domain/photo-upload-slot';
@@ -22,6 +23,12 @@ function toClampedInt(raw: string, maxDigits: number): number | undefined {
 export default function BasicsStep() {
   const cat = useGuestStore((s) => s.cat);
   const setCat = useGuestStore((s) => s.setCat);
+  const editingCatId = useGuestStore((s) => s.editingCatId);
+
+  // 식단 단계의 기록 칩(지난 입력 사료·제외 후보)을 미리 불러 둔다 — 서버 왕복 2~4초를 이 화면에 숨긴다.
+  useEffect(() => {
+    void loadCatFoodHistory(editingCatId);
+  }, [editingCatId]);
 
   // 몸무게는 소수점 입력 중 "4." 같은 중간 상태를 number로 저장하면
   // 마침표가 사라지므로, 입력 문자열은 로컬 상태로 따로 보관한다.
