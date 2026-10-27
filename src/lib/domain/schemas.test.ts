@@ -140,17 +140,23 @@ describe('dietSchema', () => {
     ).toBe(true);
   });
 
-  it('allows missing current_food_text', () => {
+  it('requires current_food_text (2026-10-27: 매번 새로 입력, 공백만은 불가)', () => {
+    expect(dietSchema.safeParse({ diet_type: '습식', avoid_ingredients: [] }).success).toBe(false);
     expect(
-      dietSchema.safeParse({ diet_type: '습식', avoid_ingredients: [] }).success,
+      dietSchema.safeParse({ diet_type: '습식', current_food_text: '   ', avoid_ingredients: [] }).success,
+    ).toBe(false);
+    expect(
+      dietSchema.safeParse({ diet_type: '습식', current_food_text: '로얄캐닌 레날', avoid_ingredients: [] })
+        .success,
     ).toBe(true);
   });
 
   it('form_filter는 기본 전체, 열거값만 허용', () => {
-    const r = dietSchema.safeParse({ diet_type: '습식', avoid_ingredients: [] });
+    const base = { diet_type: '습식', current_food_text: '로얄캐닌 레날', avoid_ingredients: [] };
+    const r = dietSchema.safeParse(base);
     expect(r.success && r.data.form_filter).toBe('전체');
-    expect(dietSchema.safeParse({ diet_type: '습식', form_filter: '건식만' }).success).toBe(true);
-    expect(dietSchema.safeParse({ diet_type: '습식', form_filter: '캔만' }).success).toBe(false);
+    expect(dietSchema.safeParse({ ...base, form_filter: '건식만' }).success).toBe(true);
+    expect(dietSchema.safeParse({ ...base, form_filter: '캔만' }).success).toBe(false);
   });
 });
 
@@ -225,7 +231,7 @@ describe('profileSchema — full merge', () => {
       weight_kg: 4.7,
       neutered_status: '완료',
       diet_type: '건식',
-      current_food_text: null,
+      current_food_text: '로얄캐닌 레날',
       avoid_ingredients: [],
       health_conditions: ['신부전 초기'],
       goal: '질환관리',

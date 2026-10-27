@@ -26,6 +26,9 @@ export type RecInput = {
   avoid: string[];
   /** 사용자가 추천에서 제외한 사료 id 목록. */
   excludeFoodIds: string[];
+  /** 추천 시점의 '지금 먹이는 사료' 스냅샷(2026-10-27~, 표시·이력용 — 점수에 쓰지 않는다). */
+  currentFoodId?: string | null;
+  currentFoodText?: string | null;
   /** 현재 급여 형태(표시용). 점수에는 쓰지 않는다(2026-10-22: 가점 제거, 필터로 대체). */
   dietPref: '건식' | '습식' | '혼합' | null;
   /** 추천 범위 — 제형 하드 필터(filter.ts). '건식만'은 모드별 경고 고지(selector). */
