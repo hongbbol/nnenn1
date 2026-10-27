@@ -126,14 +126,17 @@ describe('제조원 차단 레지스트리 — 데이터·추천 게이트', () 
 
 const ENV_PATH = join(ROOT, '.env.local');
 describe.skipIf(!existsSync(ENV_PATH))('제조원 차단 레지스트리 — 원격 DB foods', () => {
-  it('active foods에 차단 대상 0건', async () => {
+  it('active foods에 차단 대상 0건', async (ctx) => {
     const env = Object.fromEntries(
       readFileSync(ENV_PATH, 'utf8')
         .split('\n')
         .filter((l) => l.includes('='))
         .map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()]),
     );
-    const sb = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+    // foods 공개 읽기 정책 제거 후 anon은 0행 → service_role. 키가 없으면 빈 통과가 아니라 명시 skip.
+    const key = env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!key) return ctx.skip();
+    const sb = createClient(env.NEXT_PUBLIC_SUPABASE_URL, key);
     const rows: { source_sku_id: string; brand: string; product_name: string }[] = [];
     for (let from = 0; ; from += 1000) {
       const { data, error } = await sb
