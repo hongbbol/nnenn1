@@ -145,34 +145,40 @@ export const BRAND_ALIASES_KO: Record<string, string[]> = {
   'ZIWI Peak': ['지위픽', '지위'],
 };
 
-/** 검색 결과 최대 노출 개수. 브랜드당 SKU가 수십 개(로얄캐닌 89)라 8은 부족 — 12로 상향. */
-export const FOOD_OPTION_RESULT_LIMIT = 12;
+function norm(s: string): string {
+  return s.toLowerCase().replace(/\s+/g, '');
+}
 
-/** 옵션의 검색 대상 문자열(소문자·공백제거) — 브랜드 원문 + 한글 별칭 + 제품명. */
-function searchHay(o: FoodOption): string {
+/** 브랜드 쪽 검색 대상(소문자·공백제거) — 브랜드 원문 + 한글 별칭. */
+function brandHay(o: FoodOption): string {
   const aliases = BRAND_ALIASES_KO[o.brand] ?? [];
-  return `${o.brand} ${aliases.join(' ')} ${o.productName}`.toLowerCase().replace(/\s+/g, '');
+  return norm(`${o.brand} ${aliases.join(' ')}`);
 }
 
 /**
  * 옵션을 검색어로 필터링. 공백으로 나눈 토큰이 모두 부분일치해야 한다(AND) —
  * "로얄캐닌 레날"처럼 브랜드(별칭)와 제품명을 섞어 검색할 수 있다.
- * 빈 쿼리는 빈 배열을 반환(드롭다운 미노출). 결과는 상위 N개로 cap.
+ * 빈 쿼리는 빈 배열을 반환(드롭다운 미노출).
+ *
+ * 결과는 cap하지 않는다(기본) — 브랜드당 SKU가 수십 개(로얄캐닌 89)라 상위 N개만 보여주면
+ * "로얄캐닌"을 쳐도 일부만 나와 사용자가 자기 사료를 못 찾는다. 드롭다운은 스크롤된다.
+ * 정렬: 브랜드(별칭)에 걸린 옵션을 제품명에만 걸린 옵션보다 앞에 둔다 — "로얄"에서
+ * 로얄캐닌 전체가 팬시피스트 "로얄 참치"보다 먼저. 같은 등급 안에서는 입력 순서 유지.
  */
 export function filterFoodOptions(
   options: FoodOption[],
   query: string,
-  limit: number = FOOD_OPTION_RESULT_LIMIT,
+  limit: number = Infinity,
 ): FoodOption[] {
   const tokens = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   if (tokens.length === 0) return [];
-  const out: FoodOption[] = [];
+  const byBrand: FoodOption[] = [];
+  const byProduct: FoodOption[] = [];
   for (const o of options) {
-    const hay = searchHay(o);
-    if (tokens.every((t) => hay.includes(t))) {
-      out.push(o);
-      if (out.length >= limit) break;
-    }
+    const brand = brandHay(o);
+    const hay = brand + norm(o.productName);
+    if (!tokens.every((t) => hay.includes(t))) continue;
+    (tokens.some((t) => brand.includes(t)) ? byBrand : byProduct).push(o);
   }
-  return out;
+  return [...byBrand, ...byProduct].slice(0, limit);
 }
