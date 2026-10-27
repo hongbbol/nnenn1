@@ -238,6 +238,28 @@ export async function getFoodOptionRows(): Promise<FoodOption[]> {
   return rows;
 }
 
+/**
+ * id 목록 → 경량 옵션(active만) — 온보딩 식단 단계의 기록 칩(지난 현재 사료·추천됐던 사료) 해석용.
+ * 비활성(중복 등재·제외)이나 삭제된 id는 결과에 없다 → 칩에서 자연히 빠진다.
+ */
+export async function getFoodOptionsByIds(ids: string[]): Promise<FoodOption[]> {
+  const uniq = Array.from(new Set(ids.filter(Boolean)));
+  if (uniq.length === 0) return [];
+  const supabase = await foodsClient();
+  const { data, error } = await supabase
+    .from('foods')
+    .select('id, brand, product_name, category')
+    .eq('active', true)
+    .in('id', uniq);
+  if (error || !data) return [];
+  return data.map((r) => ({
+    id: r.id as string,
+    brand: (r.brand as string) ?? '',
+    productName: (r.product_name as string) ?? '',
+    category: (r.category as FoodOption['category']) ?? '건식',
+  }));
+}
+
 /** id로 사료 1건(active) 조회 — 비교 baseline(현재 사료) 해석용. 없으면 null. */
 export async function getFoodById(id: string): Promise<Food | null> {
   const supabase = await foodsClient();

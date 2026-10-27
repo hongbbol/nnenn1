@@ -48,7 +48,12 @@ export function OnboardingProfileBar() {
     if (!window.confirm('지금 입력 중인 내용이 사라져요. 다른 프로필로 전환할까요?')) return;
     const keepMode = editMode; // resetCat이 editMode를 false로 되돌리므로 현재 플로우 모드를 보존
     resetCat();
-    setCat(catRowToGuestCat(cat));
+    // 추천 플로우(편집 모드 아님)는 현재 사료를 비운 채 시작 — 식단 단계에서 매번 새로 입력(2026-10-27).
+    setCat(
+      keepMode
+        ? catRowToGuestCat(cat)
+        : { ...catRowToGuestCat(cat), current_food_id: null, current_food_text: null },
+    );
     setEditingCatId(cat.id);
     setEditMode(keepMode);
     // 사진은 GuestCat에 없으므로 저장된 hero_image_path의 signed URL을 받아 미리보기에 채운다.

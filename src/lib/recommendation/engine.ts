@@ -50,6 +50,8 @@ export function toRecInput(cat: GuestCat): RecInput | null {
     // 추가하면 이 줄에서 해당 소스로 avoid 토큰을 채워 재사용한다.
     avoid: [],
     excludeFoodIds: cat.exclude_food_ids ?? [],
+    currentFoodId: cat.current_food_id ?? null,
+    currentFoodText: cat.current_food_text?.trim() || null,
     dietPref: cat.diet_type ?? null,
     formFilter: cat.form_filter ?? '전체',
   };

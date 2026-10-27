@@ -97,7 +97,13 @@ export default async function LandingPage() {
   let prefill: GuestCat | null = null;
   if (ownedCat) {
     const photoUrl = await getCatPhotoUrl(ownedCat.hero_image_path);
-    prefill = { ...catRowToGuestCat(ownedCat), hero_image_preview: photoUrl };
+    // 현재 사료는 추천 뒤 바뀌었을 수 있어 prefill하지 않는다(식단 단계 필수 입력, 2026-10-27).
+    prefill = {
+      ...catRowToGuestCat(ownedCat),
+      current_food_id: null,
+      current_food_text: null,
+      hero_image_preview: photoUrl,
+    };
   }
 
   return (

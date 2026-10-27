@@ -74,7 +74,8 @@ export const basicsSchema = basicsObject.superRefine(refineBirthDate);
 export const dietSchema = z.object({
   diet_type: z.enum(DIET_TYPES),
   form_filter: z.enum(FORM_FILTERS).default('전체'),
-  current_food_text: z.string().trim().max(120).nullish(),
+  // 2026-10-27: 필수 — 추천 뒤 사료가 바뀌었을 수 있어 매번 비운 채 시작하고, 입력해야 넘어간다(비교 기준).
+  current_food_text: z.string().trim().min(1, '지금 먹이는 사료를 입력해 주세요').max(120),
   avoid_ingredients: z.array(z.string()).default([]),
   exclude_food_ids: z.array(z.string()).default([]),
 });

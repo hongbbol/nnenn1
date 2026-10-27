@@ -9,7 +9,8 @@ import {
   SEED_FOODS,
   type FoodOption,
 } from '@/lib/recommendation';
-import { getFoodOptionRows, getRecommendationFoods } from '@/lib/data/queries';
+import { getFoodOptionRows, getFoodOptionsByIds, getRecommendationFoods } from '@/lib/data/queries';
+import { buildFoodHistoryChips, type FoodHistoryChips } from '@/lib/onboarding/food-history';
 import { CAT_LIMIT } from '@/lib/domain/constants';
 import type { GuestCat, RecSummary } from '@/lib/domain/types';
 
@@ -178,5 +179,61 @@ export async function saveCatAndRecommend(
   } catch (e) {
     console.error('[saveCatAndRecommend]', e);
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+const EMPTY_HISTORY: FoodHistoryChips = { currentFoods: [], excludeCandidates: [] };
+
+/**
+ * 식단 단계 기록 칩 — **이 고양이**(catId)의 저장 프로필 + 최근 추천(cat_id별 최대 3건 보관)에서
+ * "지난번 먹인다고 입력한 사료"와 "제외 후보(추천됐던 사료·입력했던 사료)"를 만든다.
+ * 신규 프로필(catId 없음)·비로그인·타인 프로필이면 빈 칩. 비활성 사료 id는 옵션 해석에서 빠진다.
+ */
+export async function fetchCatFoodHistory(catId: string | null | undefined): Promise<FoodHistoryChips> {
+  try {
+    if (!catId) return EMPTY_HISTORY;
+    const user = await getCurrentUser();
+    if (!user) return EMPTY_HISTORY;
+    const supabase = await createSupabaseServerClient();
+    const [{ data: cat }, { data: recs }] = await Promise.all([
+      supabase
+        .from('cats')
+        .select('current_food_id, current_food_text')
+        .eq('id', catId)
+        .eq('user_id', user.id)
+        .maybeSingle(),
+      supabase
+        .from('recommendations')
+        .select('top_food_ids, result')
+        .eq('user_id', user.id)
+        .eq('cat_id', catId)
+        .order('created_at', { ascending: false })
+        .limit(3),
+    ]);
+    if (!cat) return EMPTY_HISTORY;
+    const recommendations = (recs ?? []).map((r) => {
+      const input = (r.result as { input?: { currentFoodId?: string | null; currentFoodText?: string | null } } | null)?.input;
+      return {
+        topFoodIds: (r.top_food_ids as string[] | null) ?? [],
+        currentFoodId: input?.currentFoodId ?? null,
+        currentFoodText: input?.currentFoodText ?? null,
+      };
+    });
+    const ids = [
+      cat.current_food_id as string | null,
+      ...recommendations.flatMap((r) => [r.currentFoodId, ...r.topFoodIds]),
+    ].filter((x): x is string => Boolean(x));
+    const options = await getFoodOptionsByIds(ids);
+    return buildFoodHistoryChips({
+      savedCurrent: {
+        foodId: (cat.current_food_id as string | null) ?? null,
+        text: (cat.current_food_text as string | null) ?? null,
+      },
+      recommendations,
+      optionsById: new Map(options.map((o) => [o.id, o])),
+    });
+  } catch (e) {
+    console.error('[fetchCatFoodHistory]', e);
+    return EMPTY_HISTORY;
   }
 }
