@@ -1,8 +1,11 @@
 import type { ComparisonResult } from '@/lib/domain/types';
+import { COMPARISON_UNIT_NOTE } from '@/lib/recommendation/compare';
 
 function fmt(v: number | null): string {
   if (v == null) return '—';
-  return Number.isInteger(v) ? String(v) : v.toFixed(1);
+  if (Number.isInteger(v)) return String(v);
+  // 작은 값(인·나트륨 g/1000kcal)은 소수 2자리까지, 큰 값은 1자리.
+  return Math.abs(v) < 10 ? v.toFixed(2).replace(/\.?0+$/, '') : v.toFixed(1);
 }
 
 /** 현재 사료 vs 추천 사료 영양소 비교 표. */
@@ -56,6 +59,11 @@ export function ComparisonTable({ result }: { result: ComparisonResult }) {
           ))}
         </tbody>
       </table>
+      {metrics.some((m) => m.unit.includes('1000kcal')) && (
+        <p className="border-t border-border-soft px-4 py-3 text-[11.5px] leading-[1.55] text-brand-faint">
+          {COMPARISON_UNIT_NOTE}
+        </p>
+      )}
     </div>
   );
 }

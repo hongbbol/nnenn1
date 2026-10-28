@@ -1,11 +1,23 @@
-import { Check, Info, TriangleAlert } from 'lucide-react';
+import { ArrowLeftRight, Check, Info, TriangleAlert } from 'lucide-react';
 import { FoodArt } from '@/components/ui';
-import type { ScoredFood } from '@/lib/recommendation';
+import type { DeltaSummary, ScoredFood } from '@/lib/recommendation';
+import { plausiblePhosphorusPct } from '@/lib/recommendation/nutrition';
 
 const RANK_LABEL = ['추천 1순위', '추천 2순위', '추천'];
 
-/** 추천 사료 카드 — 점수·근거("왜")·영양 요약 (dev-plan §M2 FoodRecCard). */
-export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) {
+/**
+ * 추천 사료 카드 — 점수·근거("왜")·영양 요약 (dev-plan §M2 FoodRecCard).
+ * `delta`는 '지금 사료 대비 변화'(delta.ts) — 점수 근거(reasons)와 섞이지 않도록 별도 섹션에 그린다.
+ */
+export function FoodRecCard({
+  item,
+  rank,
+  delta = null,
+}: {
+  item: ScoredFood;
+  rank: number;
+  delta?: DeltaSummary | null;
+}) {
   const { food, score, reasons, lowConfidence } = item;
   const accent = food.category === '습식' ? '#DDEFE7' : '#D9EEFB';
 
@@ -62,6 +74,8 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
         </div>
       )}
 
+      {delta && <DeltaSection delta={delta} />}
+
       {food.ingredient_summary && (
         <div className="text-[12.5px] leading-[1.55] text-brand-sub">
           <span className="font-semibold text-brand-faint">주원료 </span>
@@ -73,7 +87,7 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
         {food.protein_pct != null && <NutrientStat label="단백" value={`${food.protein_pct}%`} />}
         {food.fat_pct != null && <NutrientStat label="지방" value={`${food.fat_pct}%`} />}
         {food.moisture_pct != null && <NutrientStat label="수분" value={`${food.moisture_pct}%`} />}
-        {food.phosphorus_pct != null && (
+        {plausiblePhosphorusPct(food) != null && (
           <NutrientStat label="인" value={`${food.phosphorus_pct}%`} />
         )}
         {food.kcal_per_100g != null && (
@@ -85,6 +99,41 @@ export function FoodRecCard({ item, rank }: { item: ScoredFood; rank: number }) 
         <div className="text-[12px] text-brand-faint">
           약 {food.price_per_kg_krw.toLocaleString('ko-KR')}원/kg · 예시 가격
         </div>
+      )}
+    </div>
+  );
+}
+
+/** '지금 사료 대비' — 쉬운 문장 2~3줄 + 라벨 기준 고지. 현재 사료 자체면 순위만 알린다. */
+function DeltaSection({ delta }: { delta: DeltaSummary }) {
+  return (
+    <div className="rounded-[14px] bg-surface-1 px-4 py-3.5">
+      <div className="flex items-center gap-1.5 text-[11.5px] font-semibold text-brand-blue-deep">
+        <ArrowLeftRight size={13} />
+        지금 사료 대비
+      </div>
+      {delta.kind === 'same' ? (
+        <p className="mt-2 text-[13.5px] leading-[1.5] text-brand-text">
+          지금 먹이고 있는 사료예요. 이 조건에서 {delta.rank + 1}순위로 나왔어요.
+        </p>
+      ) : (
+        <>
+          <div className="mt-2 flex flex-col gap-1.5">
+            {delta.lines.map((l, i) => (
+              <div key={i} className="flex items-start gap-2 text-[13.5px] leading-[1.5]">
+                {l.tone === 'good' ? (
+                  <Check size={15} className="mt-0.5 shrink-0 text-brand-green" />
+                ) : l.tone === 'warn' ? (
+                  <TriangleAlert size={15} className="mt-0.5 shrink-0 text-brand-danger" />
+                ) : (
+                  <Info size={15} className="mt-0.5 shrink-0 text-brand-faint" />
+                )}
+                <span className="text-brand-text">{l.text}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-[11px] leading-[1.5] text-brand-faint">{delta.note}</p>
+        </>
       )}
     </div>
   );

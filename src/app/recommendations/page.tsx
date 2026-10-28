@@ -10,6 +10,7 @@ import { CompareButton } from '@/components/domain/compare-button';
 import { getCurrentUser } from '@/lib/auth/user';
 import {
   getCatPhotoUrl,
+  getFoodById,
   getOwnedCats,
   getLatestRecommendationForCat,
   getRecentRecommendations,
@@ -17,8 +18,9 @@ import {
 import { catRowToGuestCat } from '@/lib/domain/cat-mapping';
 import { cn } from '@/lib/cn';
 import { butlerName, catCallName } from '@/lib/domain/honorific';
-import type { CatRow } from '@/lib/domain/types';
+import type { CatRow, Food } from '@/lib/domain/types';
 import type { RecResult } from '@/lib/recommendation/types';
+import { buildDeltas } from '@/lib/recommendation/delta';
 
 /**
  * 추천 결과 페이지. 저장은 온보딩 완료 시 1회 수행되므로 여기서는 저장된 추천을
@@ -50,9 +52,11 @@ export default async function RecommendationsPage({
   const activeCatId = validRequested ?? recentCatId ?? cats[0].id;
   const activeCat = cats.find((c) => c.id === activeCatId)!;
 
-  const [latest, imageSrc] = await Promise.all([
+  // 현재 급여 사료 — '지금 사료 대비' 섹션용(표시 전용, 점수와 무관). 저장된 추천은 재계산하지 않는다.
+  const [latest, imageSrc, currentFood] = await Promise.all([
     getLatestRecommendationForCat(activeCatId),
     getCatPhotoUrl(activeCat.hero_image_path),
+    activeCat.current_food_id ? getFoodById(activeCat.current_food_id) : Promise.resolve(null),
   ]);
 
   return (
@@ -100,7 +104,12 @@ export default async function RecommendationsPage({
               </div>
             </div>
           ) : (
-            <RecommendationBody result={latest.result} imageSrc={imageSrc} activeCat={activeCat} />
+            <RecommendationBody
+              result={latest.result}
+              imageSrc={imageSrc}
+              activeCat={activeCat}
+              currentFood={currentFood}
+            />
           )}
         </div>
       </div>
@@ -112,11 +121,17 @@ function RecommendationBody({
   result,
   imageSrc,
   activeCat,
+  currentFood,
 }: {
   result: RecResult;
   imageSrc: string | null;
   activeCat: CatRow;
+  currentFood: Food | null;
 }) {
+  const deltas = buildDeltas(result, currentFood, {
+    weightKg: activeCat.weight_kg,
+    neutered: activeCat.neutered_status,
+  });
   return (
     <>
       <div className="flex items-center gap-2 text-[13px] font-semibold text-brand-blue-deep">
@@ -151,7 +166,14 @@ function RecommendationBody({
 
       <div className="mt-8 flex flex-col gap-4">
         {result.top.length > 0 ? (
-          result.top.map((item, i) => <FoodRecCard key={item.food.id} item={item} rank={i} />)
+          result.top.map((item, i) => (
+            <FoodRecCard
+              key={item.food.id}
+              item={item}
+              rank={i}
+              delta={deltas?.get(item.food.id) ?? null}
+            />
+          ))
         ) : (
           <div className="rounded-[18px] border border-border-soft bg-surface-card p-8 text-center text-[14px] leading-[1.6] text-brand-sub">
             입력하신 조건을 모두 만족하는 사료를 아직 찾지 못했어요.
@@ -180,7 +202,7 @@ function RecommendationBody({
       <p className="mt-8 text-center text-[12px] leading-[1.6] text-brand-faint">
         본 추천은 정보 제공용이며 수의학적 진단·처방을 대체하지 않습니다.
         <br />
-        데이터는 MVP 예시 데이터셋(수입 전용) 기준입니다.
+        사료 데이터는 제조사 공식 라벨·영양 자료를 수집한 것이며, 한국에서 구매 가능한 제품만 추천합니다.
       </p>
     </>
   );

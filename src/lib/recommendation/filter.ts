@@ -6,7 +6,7 @@
  */
 import type { Food } from '@/lib/domain/types';
 import type { DiseaseMode, ExcludedFood, ExclusionReason, RecInput } from './types';
-import { phosphorusGramsPer1000kcal } from './nutrition';
+import { phosphorusGramsPer1000kcal, plausiblePhosphorusPct } from './nutrition';
 import { ALLERGEN_SYNONYMS, CKD_PHOSPHORUS, KEYWORDS, matchesAny } from './rules';
 
 /**
@@ -69,8 +69,15 @@ export function gateFood(food: Food, input: RecInput): ExclusionReason[] {
   }
 
   // 2. 생애단계 적합성 — age_fit에 해당 연령대 없으면 탈락(§0-3).
-  if (food.age_fit.length > 0 && !food.age_fit.includes(input.ageGroup)) {
-    reasons.push({ code: 'life_stage', label: `${input.ageGroup} 연령대 부적합` });
+  //    ETL(build_foods_json.derive_age_fit)은 키튼 전용 사료를 age_fit=[] + '키튼' 태그로 내보낸다.
+  //    빈 age_fit을 '제한 없음'으로 읽던 종전 로직은 키튼 사료를 성묘 추천에 통과시켰다
+  //    (2026-10-28 실데이터 점검: 요로+건식만 7세 고양이에 키튼 사료 2종이 TOP) → 키튼 태그 + 빈 age_fit = 탈락.
+  const kittenOnly = food.age_fit.length === 0 && food.tags.includes('키튼');
+  if (kittenOnly || (food.age_fit.length > 0 && !food.age_fit.includes(input.ageGroup))) {
+    reasons.push({
+      code: 'life_stage',
+      label: kittenOnly ? '키튼 전용 사료 (성묘 부적합)' : `${input.ageGroup} 연령대 부적합`,
+    });
   }
 
   // 3. 식이 알레르기 — 원인 단백 포함 시 절대 탈락(§4-1, 최우선 hard).
@@ -90,7 +97,7 @@ export function gateFood(food: Food, input: RecInput): ExclusionReason[] {
     if (matchesAny(hay, KEYWORDS.inorganicPhosphate)) {
       reasons.push({ code: 'ckd_phosphate_additive', label: '무기 인산염 첨가물 (신장 부담)' });
     }
-    const p = phosphorusGramsPer1000kcal(food.phosphorus_pct, food.kcal_per_100g);
+    const p = phosphorusGramsPer1000kcal(plausiblePhosphorusPct(food), food.kcal_per_100g);
     if (p != null && p > CKD_PHOSPHORUS.hardCap) {
       reasons.push({ code: 'ckd_high_p', label: `총인 과다 (${p.toFixed(1)} g/1000kcal)` });
     }

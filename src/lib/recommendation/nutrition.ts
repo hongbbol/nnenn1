@@ -32,6 +32,9 @@ export function gramsToMgPer1000kcal(grams: number): number {
   return grams * 1000;
 }
 
+/** 회분 라벨 결측 시 제형별 기본값(as-fed %). 습식은 수분 때문에 as-fed 회분이 2% 안팎. */
+export const ASH_DEFAULT_PCT: Record<'건식' | '습식', number> = { 건식: 7, 습식: 2 };
+
 /**
  * 무질소추출물(NFE, 탄수화물 근사) as-fed %.
  * NFE% = 100 − moisture − protein − fat − ash − crude_fiber.
@@ -43,11 +46,16 @@ export function nfePct(args: {
   fat: number | null;
   ash: number | null;
   fiber: number | null;
+  /**
+   * 제형 — 회분 결측 시 기본값 선택용(건식 7% / 습식 2%). 생략하면 종전과 같이 7%.
+   * ⚠ 스코어러는 아직 생략(순위 불변) — 제형별 기본값 전면 적용은 PENDING §0-0a 별도 PR.
+   */
+  category?: '건식' | '습식';
 }): number | null {
-  const { moisture, protein, fat, ash, fiber } = args;
+  const { moisture, protein, fat, ash, fiber, category } = args;
   // ash는 라벨 결측이 흔하다 — 건식 ≈ 7% 가정(스키마 §3-3). moisture/protein/fat이 핵심.
   if (moisture == null || protein == null || fat == null) return null;
-  const ashUsed = ash ?? 7;
+  const ashUsed = ash ?? ASH_DEFAULT_PCT[category ?? '건식'];
   const fiberUsed = fiber ?? 0;
   const nfe = 100 - moisture - protein - fat - ashUsed - fiberUsed;
   return Math.max(0, nfe);
@@ -61,10 +69,32 @@ export function carbGramsPer1000kcal(args: {
   ash: number | null;
   fiber: number | null;
   kcalPer100g: number | null;
+  category?: '건식' | '습식';
 }): number | null {
   const nfe = nfePct(args);
   if (nfe == null || args.kcalPer100g == null) return null;
   return pctToGramsPer1000kcal(nfe, args.kcalPer100g);
+}
+
+/**
+ * 인 라벨값 타당성 하한 — **건물 기준 0.2%**. 완전식은 신장식도 0.3% DM 아래로 내려가지 않는다
+ * (AAFCO 성묘 최소 0.5% DM · 상용 신장식 0.3~0.5% DM). 이보다 낮으면 실함량이 아니라
+ * 보증분석 '최소값'(예: S1169 Equilíbrio Renal "Fósforo (mín.) 500 mg/kg" = 0.05% as-fed, 2026-10-28 실증)
+ * 이라 결측으로 취급한다 — 그대로 쓰면 CKD 전 병기 TOP 1로 올라가는 오도가 생긴다.
+ * 수분 결측이면 제형 대표값(건식 8% / 습식 78%)으로 환산. 2,140 KR 활성 SKU 중 해당 1건, 경계(0.2~0.3%) 0건.
+ */
+export const PHOSPHORUS_DM_FLOOR_PCT = 0.2;
+
+export function plausiblePhosphorusPct(food: {
+  phosphorus_pct: number | null;
+  moisture_pct: number | null;
+  category: '건식' | '습식';
+}): number | null {
+  const p = food.phosphorus_pct;
+  if (p == null) return null;
+  const m = food.moisture_pct ?? (food.category === '습식' ? 78 : 8);
+  if (m >= 100) return null;
+  return toDmbPct(p, m) < PHOSPHORUS_DM_FLOOR_PCT ? null : p;
 }
 
 /** 인(P) g/1000kcal. CKD 1차 레버. as-fed % 또는 kcal 결측이면 null. */

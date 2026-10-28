@@ -5,7 +5,7 @@
 ## 요약
 
 - 전체 SKU 2188 · 추천 제외 **49** 중국 본사 브랜드 — 제조국 미확인, 중국 제조 추정 48 · 중복 등재 — 같은 제품의 다른 슬러그(원본 SKU만 노출) 1
-- 한국 구매 가능(kr_available) 1059 중 제조국 확인 **753** · 미확인 306
+- 한국 구매 가능(kr_available) 1056 중 제조국 확인 **753** · 미확인 303
 - 확인된 제조국 분포(kr_available): 태국 166, 미국 165, 독일 66, 대한민국 63, 이탈리아 59, 캐나다 48, 체코 40, 오스트리아 30, 프랑스 25, 뉴질랜드 25, 호주 16, 우크라이나 13, 일본 12, 스페인 9, 튀르키예 7, 네덜란드 7, 영국 2
 
 ## 추천 제외 SKU
@@ -84,7 +84,6 @@
 | Whiskas | 11 | 6 |
 | Advance (Affinity) | 0 | 5 |
 | Companion Classic | 0 | 5 |
-| Equilíbrio | 0 | 5 |
 | Wellness Natural Pet Food | 24 | 5 |
 | ZEAL | 0 | 5 |
 | Almo Nature | 30 | 4 |
@@ -102,6 +101,7 @@
 | Unicharm Pet | 0 | 3 |
 | AATU | 0 | 2 |
 | Club 4 Paws | 0 | 2 |
+| Equilíbrio | 0 | 2 |
 | Fancy Feast | 23 | 2 |
 | Husse | 10 | 2 |
 | Josera | 3 | 2 |

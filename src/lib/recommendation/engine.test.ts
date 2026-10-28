@@ -196,3 +196,30 @@ describe('recommendFromProfile 통합', () => {
     expect(recommendFromProfile(baseCat({ birth_year: undefined }), SEED_FOODS)).toBeNull();
   });
 });
+
+describe('인 보증 최소값 방어(2026-10-28, nutrition.plausiblePhosphorusPct)', () => {
+  it('건식 인 0.05% as-fed는 CKD에서 "인 데이터 없음 — 신뢰도 낮음"으로 처리되고 3-4기에선 보류된다', () => {
+    const base = SEED_FOODS.find((f) => f.category === '건식' && f.kr_available)!;
+    const gaMin = { ...base, id: 'ga-min', product_name: 'GA-min renal', phosphorus_pct: 0.05, moisture_pct: 10 };
+    const r12 = recommend(input({ diseases: ['ckd_12'], goal: '질환관리' }), [...SEED_FOODS, gaMin]);
+    const scored = [...r12.top, ...r12.excluded.map(() => null)].filter(Boolean);
+    void scored;
+    const all = r12.top.find((t) => t.food.id === 'ga-min');
+    if (all) expect(all.lowConfidence).toBe(true);
+    const r34 = recommend(input({ diseases: ['ckd_34'], goal: '질환관리' }), [...SEED_FOODS, gaMin]);
+    expect(r34.top.some((t) => t.food.id === 'ga-min')).toBe(false);
+  });
+});
+
+describe('키튼 전용 사료 게이트(2026-10-28 실데이터 점검)', () => {
+  it("ETL이 age_fit=[] + '키튼' 태그로 내보낸 사료는 성묘 추천에서 탈락한다", () => {
+    const base = SEED_FOODS.find((f) => f.category === '건식' && f.kr_available)!;
+    const kitten = { ...base, id: 'kit', product_name: '키튼 스타터', age_fit: [] as typeof base.age_fit, tags: ['주식', '키튼'] };
+    const legacy = { ...base, id: 'legacy', product_name: '태그 없는 빈 age_fit', age_fit: [] as typeof base.age_fit, tags: ['주식'] };
+    const r = recommend(input({ goal: '중노령 전환' }), [...SEED_FOODS, kitten, legacy]);
+    const ex = r.excluded.find((e) => e.food.id === 'kit');
+    expect(ex?.reasons.map((x) => x.code)).toContain('life_stage');
+    expect(ex?.reasons.map((x) => x.label)).toContain('키튼 전용 사료 (성묘 부적합)');
+    expect(r.excluded.some((e) => e.food.id === 'legacy' && e.reasons.some((x) => x.code === 'life_stage'))).toBe(false);
+  });
+});

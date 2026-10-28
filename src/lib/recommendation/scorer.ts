@@ -12,6 +12,7 @@ import {
   kcalPer100gDm,
   mineralGramsPer1000kcal,
   phosphorusGramsPer1000kcal,
+  plausiblePhosphorusPct,
   proteinGramsPer1000kcal,
 } from './nutrition';
 import {
@@ -135,7 +136,7 @@ function seniorSodiumLever(food: Food, weight: number): Lever {
 
 /** CKD — 인 제한이 1차 레버. 범위 내에서 낮을수록 가점(§3-A). */
 function ckdLever(food: Food, strict: boolean): Lever {
-  const p = phosphorusGramsPer1000kcal(food.phosphorus_pct, food.kcal_per_100g);
+  const p = phosphorusGramsPer1000kcal(plausiblePhosphorusPct(food), food.kcal_per_100g);
   if (p == null) {
     return { score: 0.3, weight: 0.55, reason: { weight: 0.9, tone: 'warn', label: '인 데이터 없음 — 신뢰도 낮음' } };
   }
@@ -251,7 +252,7 @@ function struviteMagnesiumLever(food: Food, weight: number): Lever {
 /** CKD Ca:P 역비율 회피(§3-G) — 둘 다 있을 때만. */
 function ckdCaPLever(food: Food, weight: number): Lever {
   const ca = food.calcium_pct;
-  const p = food.phosphorus_pct;
+  const p = plausiblePhosphorusPct(food);
   if (ca == null || p == null || p <= 0) return INACTIVE;
   const ratio = ca / p;
   const score = higherIsBetter(ratio, CKD_CA_P.floor, CKD_CA_P.idealMin);
@@ -442,7 +443,7 @@ function factReasons(food: Food, existing: ScoreReason[]): ScoreReason[] {
     );
   }
   if (food.kcal_per_100g != null && !has('kcal')) push(`${food.kcal_per_100g} kcal/100g`);
-  const ph = phosphorusGramsPer1000kcal(food.phosphorus_pct, food.kcal_per_100g);
+  const ph = phosphorusGramsPer1000kcal(plausiblePhosphorusPct(food), food.kcal_per_100g);
   if (ph != null && !has('인 ')) push(`인 ${ph.toFixed(2)} g/1000kcal`);
   if (food.kr_available) push('한국에서 구매 가능');
   return out;
@@ -521,7 +522,7 @@ export function scoreFood(food: Food, input: RecInput, primaryMode: DiseaseMode 
     } else {
       // 중노령 전환 / 질환관리(질환 없음) — 노령 단백-인 디커플링(§2).
       levers.push(proteinLever(food, 0.3));
-      const p = phosphorusGramsPer1000kcal(food.phosphorus_pct, food.kcal_per_100g);
+      const p = phosphorusGramsPer1000kcal(plausiblePhosphorusPct(food), food.kcal_per_100g);
       if (senior && p != null) {
         levers.push({
           score: lowerIsBetter(p, 1.25, 2.5),
@@ -560,7 +561,7 @@ export function relativeReason(
   let lowerBetter: boolean;
   let name: string;
   if (primaryMode === 'ckd_early' || primaryMode === 'ckd_12' || primaryMode === 'ckd_34') {
-    value = (f) => phosphorusGramsPer1000kcal(f.phosphorus_pct, f.kcal_per_100g);
+    value = (f) => phosphorusGramsPer1000kcal(plausiblePhosphorusPct(f), f.kcal_per_100g);
     lowerBetter = true;
     name = '인이 낮은';
   } else if (primaryMode === 'struvite' || primaryMode === 'oxalate') {
