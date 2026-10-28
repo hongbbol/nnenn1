@@ -8,7 +8,7 @@ import { foodOptionLabel, getFoodOptions, type FoodOption } from '@/lib/recommen
 import { dietSchema } from '@/lib/domain/schemas';
 import type { FoodHistoryChips } from '@/lib/onboarding/food-history';
 import { loadCatFoodHistory } from '@/lib/onboarding/food-history-client';
-import { fetchFoodOptions } from '../_actions';
+import { loadFoodOptions } from '@/lib/onboarding/food-options-client';
 import { OnboardingNav } from '../_nav-buttons';
 import { FieldLabel } from '../_field-label';
 import { FoodSearchSelect } from './_food-search-select';
@@ -22,11 +22,12 @@ export default function DietStep() {
   const editingCatId = useGuestStore((s) => s.editingCatId);
   const excluded = cat.exclude_food_ids ?? [];
 
-  // 검색용 옵션 — DB foods(kr_available) 서버 액션으로 로드. 도착 전엔 시드 파생으로 시작.
+  // 검색용 옵션 — DB foods(kr_available). 기본 정보 단계가 prefetch한 캐시를 받아 보통 즉시 교체,
+  // 도착 전엔 시드 파생으로 시작(로컬/미시드 환경 폴백 겸).
   const [foodOptions, setFoodOptions] = useState<FoodOption[]>(() => getFoodOptions());
   useEffect(() => {
     let alive = true;
-    fetchFoodOptions().then((opts) => {
+    loadFoodOptions().then((opts) => {
       if (alive && opts.length > 0) setFoodOptions(opts);
     });
     return () => {

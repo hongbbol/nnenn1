@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Input, Segmented } from '@/components/ui';
 import { useGuestStore } from '@/lib/guest-store';
 import { loadCatFoodHistory } from '@/lib/onboarding/food-history-client';
+import { loadFoodOptions } from '@/lib/onboarding/food-options-client';
 import { NEUTERED_STATUS, SEXES, ageGroupFromBirthYear } from '@/lib/domain/constants';
 import { basicsSchema } from '@/lib/domain/schemas';
 import { PhotoUploadSlot } from '@/components/domain/photo-upload-slot';
@@ -25,7 +26,11 @@ export default function BasicsStep() {
   const setCat = useGuestStore((s) => s.setCat);
   const editingCatId = useGuestStore((s) => s.editingCatId);
 
-  // 식단 단계의 기록 칩(지난 입력 사료·제외 후보)을 미리 불러 둔다 — 서버 왕복 2~4초를 이 화면에 숨긴다.
+  // 식단 단계가 쓸 데이터를 미리 불러 둔다 — 서버 왕복 1~4초를 이 화면에 숨긴다.
+  // 사료 검색 옵션(~1,000행)은 1회, 기록 칩(지난 입력 사료·제외 후보)은 고양이별.
+  useEffect(() => {
+    void loadFoodOptions();
+  }, []);
   useEffect(() => {
     void loadCatFoodHistory(editingCatId);
   }, [editingCatId]);
