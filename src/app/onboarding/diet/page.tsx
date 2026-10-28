@@ -105,18 +105,14 @@ export default function DietStep() {
       <div>
         <FieldLabel
           hint={
-            currentFoodMissing ? (
-              <Small className="text-brand-danger" muted={false}>
-                필수
-              </Small>
-            ) : (
+            currentFoodMissing ? null : (
               <span className="inline-flex items-center gap-1 text-[13px] text-brand-green">
                 <Check size={12} /> 입력됨
               </span>
             )
           }
         >
-          지금 먹이는 사료
+          지금 먹이는 사료 <span className="font-normal text-brand-sub">(필수입력)</span>
         </FieldLabel>
         <CurrentFoodInput
           options={foodOptions}
@@ -126,19 +122,13 @@ export default function DietStep() {
             setCat({ current_food_text: text, current_food_id: foodId })
           }
         />
-        {currentFoodMissing && (
-          <Small className="mt-2 text-brand-danger" muted={false} role="alert">
-            추천 뒤 사료가 바뀌었을 수 있어 매번 새로 여쭤봐요. 지금 먹이는 사료를 입력해야 다음으로
-            넘어갈 수 있어요.
-          </Small>
-        )}
         <div className="mt-2.5 flex flex-wrap gap-1.5">
           {historyLoading ? (
             <Small className="w-full text-[12px]" aria-live="polite">
-              지난번에 입력한 사료 불러오는 중…
+              지난 입력 사료 불러오는 중…
             </Small>
           ) : history.currentFoods.length > 0 ? (
-            <Small className="w-full text-[12px]">지난번에 입력한 사료</Small>
+            <Small className="w-full text-[12px]">지난 입력 사료</Small>
           ) : null}
           {!historyLoading && currentFoodChips.map((c) => (
             <Chip
