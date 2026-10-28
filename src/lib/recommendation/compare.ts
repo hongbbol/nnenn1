@@ -12,31 +12,80 @@ import type {
   ComparisonResult,
   Food,
 } from '@/lib/domain/types';
+import { carbGramsPer1000kcal, pctToGramsPer1000kcal, plausiblePhosphorusPct } from './nutrition';
+import { WET_KCAL_MAX_PER_100G } from './delta';
+
+/** 비교표 아래 단위 설명(페이지·히스토리 공통). */
+export const COMPARISON_UNIT_NOTE =
+  '단백질·지방·인 등은 열량 1,000 kcal당 g으로 환산해 건식·습식을 같은 기준으로 비교해요. 탄수화물은 라벨 값에서 계산한 추정치예요.';
 
 export type ComparisonBaseline =
   | { source: 'db'; food: Food }
   | { source: 'text'; text: string }
   | { source: 'none' };
 
+/**
+ * 비교 지표 — 영양소는 **열량 1,000 kcal당 g(ME 기준)** 으로 환산한다(2026-10-28).
+ * as-fed %로 나란히 놓으면 수분 때문에 건식·습식의 방향이 뒤집혀(습식 인 0.25% vs 건식 1.0%)
+ * 추천 카드의 '지금 사료 대비'(delta.ts, ME 기준)와 모순이 생긴다. 수분·열량은 라벨 단위 그대로.
+ * 히스토리에 저장된 과거 비교는 당시 unit 문자열을 그대로 들고 있으므로 영향 없다.
+ */
 const METRICS: ReadonlyArray<{
-  key: keyof Food;
+  key: string;
   label: string;
   unit: string;
   better: ComparisonMetric['better'];
+  value: (food: Food) => number | null;
 }> = [
-  { key: 'protein_pct', label: '단백질', unit: '%', better: 'higher' },
-  { key: 'fat_pct', label: '지방', unit: '%', better: 'neutral' },
-  { key: 'moisture_pct', label: '수분', unit: '%', better: 'higher' },
-  { key: 'phosphorus_pct', label: '인(P)', unit: '%', better: 'lower' },
-  { key: 'sodium_pct', label: '나트륨', unit: '%', better: 'lower' },
-  { key: 'omega3_pct', label: '오메가-3', unit: '%', better: 'higher' },
-  { key: 'fiber_pct', label: '식이섬유', unit: '%', better: 'neutral' },
-  { key: 'kcal_per_100g', label: '열량', unit: 'kcal/100g', better: 'neutral' },
+  { key: 'protein_me', label: '단백질', unit: 'g/1000kcal', better: 'higher', value: (f) => me(f, f.protein_pct) },
+  { key: 'fat_me', label: '지방', unit: 'g/1000kcal', better: 'neutral', value: (f) => me(f, f.fat_pct) },
+  {
+    key: 'carb_me',
+    label: '탄수화물(추정)',
+    unit: 'g/1000kcal',
+    better: 'neutral',
+    value: (f) =>
+      carbGramsPer1000kcal({
+        moisture: f.moisture_pct,
+        protein: f.protein_pct,
+        fat: f.fat_pct,
+        ash: f.ash_pct,
+        fiber: f.fiber_pct,
+        kcalPer100g: usableKcal(f),
+        category: f.category,
+      }),
+  },
+  { key: 'moisture_pct', label: '수분', unit: '%', better: 'higher', value: (f) => f.moisture_pct },
+  { key: 'phosphorus_me', label: '인(P)', unit: 'g/1000kcal', better: 'lower', value: (f) => me(f, plausiblePhosphorusPct(f)) },
+  { key: 'sodium_me', label: '나트륨', unit: 'g/1000kcal', better: 'lower', value: (f) => me(f, f.sodium_pct) },
+  {
+    key: 'magnesium_me',
+    label: '마그네슘',
+    unit: 'mg/1000kcal',
+    better: 'neutral',
+    value: (f) => {
+      const g = me(f, f.magnesium_pct);
+      return g == null ? null : Math.round(g * 1000);
+    },
+  },
+  { key: 'omega3_me', label: '오메가-3', unit: 'g/1000kcal', better: 'higher', value: (f) => me(f, f.omega3_pct) },
+  { key: 'fiber_me', label: '식이섬유', unit: 'g/1000kcal', better: 'neutral', value: (f) => me(f, f.fiber_pct) },
+  { key: 'kcal_per_100g', label: '열량', unit: 'kcal/100g', better: 'neutral', value: (f) => f.kcal_per_100g },
 ];
 
-function num(food: Food, key: keyof Food): number | null {
-  const v = food[key];
-  return typeof v === 'number' ? v : null;
+/** 습식 kcal/100g 상한 초과(단위 오류·오분류 의심)면 환산에 쓰지 않는다 — delta.ts와 같은 기준. */
+function usableKcal(food: Food): number | null {
+  const k = food.kcal_per_100g;
+  if (k == null || k <= 0) return null;
+  if (food.category === '습식' && k > WET_KCAL_MAX_PER_100G) return null;
+  return k;
+}
+
+/** as-fed % → g/1000kcal, 소수 2자리. 결측·kcal 비정상이면 null. */
+function me(food: Food, pct: number | null): number | null {
+  const kcal = usableKcal(food);
+  if (pct == null || kcal == null) return null;
+  return Math.round(pctToGramsPer1000kcal(pct, kcal) * 100) / 100;
 }
 
 function toCandidate(food: Food): ComparisonCandidate {
@@ -70,11 +119,11 @@ export function buildComparison(
   const baselineFood = baseline.source === 'db' ? baseline.food : null;
 
   const metrics: ComparisonMetric[] = METRICS.map((m) => ({
-    key: m.key as string,
+    key: m.key,
     label: m.label,
     unit: m.unit,
-    baseline: baselineFood ? num(baselineFood, m.key) : null,
-    values: candidates.map((c) => num(c, m.key)),
+    baseline: baselineFood ? m.value(baselineFood) : null,
+    values: candidates.map((c) => m.value(c)),
     better: m.better,
   }));
 

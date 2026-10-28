@@ -8,3 +8,4 @@ export * from './form-filter-warnings';
 export * from './compare';
 export * from './food-options';
 export { SEED_FOODS } from './foods-data';
+export * from './delta';
