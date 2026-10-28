@@ -192,20 +192,18 @@ const EMPTY_HISTORY: FoodHistoryChips = { currentFoods: [], excludeCandidates: [
 export async function fetchCatFoodHistory(catId: string | null | undefined): Promise<FoodHistoryChips> {
   try {
     if (!catId) return EMPTY_HISTORY;
-    const user = await getCurrentUser();
-    if (!user) return EMPTY_HISTORY;
+    // 소유 검증은 RLS(cats_owner_all / recommendations_owner_all: auth.uid() = user_id)에 맡긴다 —
+    // 세션 쿠키의 JWT로 질의하므로 타인·비로그인은 0행. auth.getUser() 왕복 1회를 아껴 칩이 빨리 뜬다.
     const supabase = await createSupabaseServerClient();
     const [{ data: cat }, { data: recs }] = await Promise.all([
       supabase
         .from('cats')
         .select('current_food_id, current_food_text')
         .eq('id', catId)
-        .eq('user_id', user.id)
         .maybeSingle(),
       supabase
         .from('recommendations')
         .select('top_food_ids, result')
-        .eq('user_id', user.id)
         .eq('cat_id', catId)
         .order('created_at', { ascending: false })
         .limit(3),

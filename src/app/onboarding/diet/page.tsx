@@ -7,7 +7,8 @@ import { DIET_TYPES, FORM_FILTERS, FORM_FILTER_OPTIONS, POPULAR_FOODS } from '@/
 import { foodOptionLabel, getFoodOptions, type FoodOption } from '@/lib/recommendation';
 import { dietSchema } from '@/lib/domain/schemas';
 import type { FoodHistoryChips } from '@/lib/onboarding/food-history';
-import { fetchCatFoodHistory, fetchFoodOptions } from '../_actions';
+import { loadCatFoodHistory } from '@/lib/onboarding/food-history-client';
+import { fetchFoodOptions } from '../_actions';
 import { OnboardingNav } from '../_nav-buttons';
 import { FieldLabel } from '../_field-label';
 import { FoodSearchSelect } from './_food-search-select';
@@ -34,11 +35,16 @@ export default function DietStep() {
   }, []);
 
   // 이 고양이의 기록 칩 — 지난번 입력한 현재 사료 · 추천됐던 사료(제외 후보). 신규 프로필은 빈 칩.
+  // 기본 정보 단계가 미리 불러 둔 캐시를 받는다(food-history-client) — 보통 즉시, 늦어도 로딩 힌트를 보인다.
   const [history, setHistory] = useState<FoodHistoryChips>(EMPTY_HISTORY);
+  const [historyLoading, setHistoryLoading] = useState<boolean>(Boolean(editingCatId));
   useEffect(() => {
     let alive = true;
-    fetchCatFoodHistory(editingCatId).then((h) => {
-      if (alive) setHistory(h);
+    setHistoryLoading(Boolean(editingCatId));
+    loadCatFoodHistory(editingCatId).then((h) => {
+      if (!alive) return;
+      setHistory(h);
+      setHistoryLoading(false);
     });
     return () => {
       alive = false;
@@ -126,10 +132,14 @@ export default function DietStep() {
           </Small>
         )}
         <div className="mt-2.5 flex flex-wrap gap-1.5">
-          {history.currentFoods.length > 0 && (
+          {historyLoading ? (
+            <Small className="w-full text-[12px]" aria-live="polite">
+              지난번에 입력한 사료 불러오는 중…
+            </Small>
+          ) : history.currentFoods.length > 0 ? (
             <Small className="w-full text-[12px]">지난번에 입력한 사료</Small>
-          )}
-          {currentFoodChips.map((c) => (
+          ) : null}
+          {!historyLoading && currentFoodChips.map((c) => (
             <Chip
               key={`${c.foodId ?? 'text'}:${c.label}`}
               variant="soft"
@@ -149,7 +159,12 @@ export default function DietStep() {
           selectedIds={excluded}
           onChange={(ids) => setCat({ exclude_food_ids: ids })}
         />
-        {excludeChips.length > 0 && (
+        {historyLoading && (
+          <Small className="mt-2.5 text-[12px]" aria-live="polite">
+            지난 추천·입력 기록 불러오는 중…
+          </Small>
+        )}
+        {!historyLoading && excludeChips.length > 0 && (
           <div className="mt-2.5 flex flex-wrap gap-1.5">
             <Small className="w-full text-[12px]">
               지난 추천·입력 기록에서 고르기 — 누르면 제외 목록에 들어가요
